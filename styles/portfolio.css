@@ -1,0 +1,903 @@
+/* ============================================================================
+   styles/portfolio.css · Huỳnh Thái Hòa Creative Developer Portfolio
+   Built on scroll-craft + pbakaus/impeccable + threejs-skill + gsap-skill
+   ========================================================================== */
+
+:root {
+  --sc-canvas:      #08090c;
+  --sc-surface:     #10131a;
+  --sc-ink:         #f3efe6;
+  --sc-ink-soft:    #98a0b0;
+  --sc-accent:      #d4ff33;
+  --sc-accent-ink:  #08090c;
+
+  --sc-font-display: "Syne", "Archivo", system-ui, sans-serif;
+  --sc-font-text:    "Plus Jakarta Sans", "Geist", system-ui, sans-serif;
+  --sc-font-mono:    "JetBrains Mono", ui-monospace, monospace;
+
+  --surface-elevated: #151923;
+  --surface-glass:    color-mix(in oklab, #10131a 84%, transparent);
+  --ok-green:         #2ee59d;
+  --warn-amber:       #f5a623;
+  --danger-rose:      #ff5263;
+}
+
+/* Global Fixed WebGL Background Stage */
+.webgl-canvas-wrap {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+#webgl-stage {
+  width: 100vw;
+  height: 100vh;
+  display: block;
+}
+
+main {
+  position: relative;
+  z-index: 2;
+}
+
+/* Top Telemetry Navigation Bar (Live Surface Chrome) */
+.site-chrome {
+  position: fixed;
+  top: var(--sc-4);
+  inset-inline: var(--sc-gutter);
+  z-index: var(--sc-z-chrome);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sc-4);
+  padding: 0.65rem 1rem;
+  background: color-mix(in oklab, var(--sc-surface) 82%, transparent);
+  backdrop-filter: blur(14px);
+  border-radius: var(--sc-r-md);
+  box-shadow: var(--sc-edge), var(--sc-e2);
+}
+
+.brand-cluster {
+  display: flex;
+  align-items: center;
+  gap: var(--sc-3);
+  text-decoration: none;
+}
+
+.status-beacon {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--sc-accent);
+  box-shadow: 0 0 0 4px color-mix(in oklab, var(--sc-accent) 22%, transparent);
+}
+
+.brand-name {
+  font-family: var(--sc-font-display);
+  font-weight: 700;
+  font-size: var(--sc-t-sm);
+  letter-spacing: -0.02em;
+  color: var(--sc-ink);
+}
+
+.brand-role {
+  font-family: var(--sc-font-mono);
+  font-size: var(--sc-t-xs);
+  color: var(--sc-ink-soft);
+  padding-left: var(--sc-3);
+  border-left: 1px solid var(--sc-hairline);
+}
+
+.chrome-telemetry {
+  display: flex;
+  align-items: center;
+  gap: var(--sc-5);
+  font-family: var(--sc-font-mono);
+  font-size: var(--sc-t-xs);
+  color: var(--sc-ink-soft);
+}
+
+.telemetry-kv strong {
+  color: var(--sc-ink);
+  font-weight: 500;
+}
+
+.chrome-nav {
+  display: flex;
+  align-items: center;
+  gap: var(--sc-2);
+}
+
+.nav-link {
+  font-family: var(--sc-font-mono);
+  font-size: var(--sc-t-xs);
+  color: var(--sc-ink-soft);
+  text-decoration: none;
+  padding: 0.45rem 0.75rem;
+  border-radius: var(--sc-r-sm);
+  transition: color var(--sc-d-fast) var(--sc-ease-out),
+              background var(--sc-d-fast) var(--sc-ease-out);
+}
+
+.nav-link:hover,
+.nav-link.is-active {
+  color: var(--sc-ink);
+  background: color-mix(in oklab, var(--sc-ink) 8%, transparent);
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--sc-font-mono);
+  font-size: var(--sc-t-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.65rem 1.1rem;
+  border-radius: var(--sc-r-sm);
+  background: var(--sc-accent);
+  color: var(--sc-accent-ink);
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  box-shadow: var(--sc-e1);
+  transition: transform var(--sc-d-fast) var(--sc-ease-out),
+              background var(--sc-d-fast) var(--sc-ease-out);
+}
+
+.btn-primary:hover {
+  background: #e2ff66;
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--sc-font-mono);
+  font-size: var(--sc-t-xs);
+  padding: 0.65rem 1rem;
+  border-radius: var(--sc-r-sm);
+  background: color-mix(in oklab, var(--sc-surface) 90%, transparent);
+  color: var(--sc-ink);
+  text-decoration: none;
+  border: 1px solid var(--sc-hairline-strong);
+  cursor: pointer;
+  transition: border-color var(--sc-d-fast) var(--sc-ease-out),
+              background var(--sc-d-fast) var(--sc-ease-out);
+}
+
+.btn-ghost:hover {
+  border-color: var(--sc-accent);
+  background: color-mix(in oklab, var(--sc-accent) 10%, var(--sc-surface));
+}
+
+/* ==========================================================================
+   ACT 1 · DIMENSIONAL LAYERED HERO (parallax + independent depth planes)
+   ========================================================================== */
+.hero-act {
+  position: relative;
+  min-height: 145vh;
+  display: flex;
+  align-items: flex-start;
+  padding-top: clamp(7rem, 15vh, 11rem);
+  padding-bottom: var(--sc-10);
+  overflow: clip;
+}
+
+.hero-planes {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero-plane {
+  position: absolute;
+  max-width: none;
+}
+
+.hero-plane--far {
+  top: 10%;
+  right: -6%;
+  width: min(56rem, 78vw);
+  height: 34rem;
+  border-radius: var(--sc-r-lg);
+  border: 1px solid color-mix(in oklab, var(--sc-ink) 7%, transparent);
+  background: radial-gradient(circle at 65% 35%, color-mix(in oklab, var(--sc-accent) 9%, transparent), transparent 62%);
+  opacity: 0.75;
+}
+
+.hero-plane--mid {
+  top: 18%;
+  right: var(--sc-gutter);
+  width: min(34rem, 44vw);
+  padding: var(--sc-5);
+  border-radius: var(--sc-r-md);
+  background: color-mix(in oklab, var(--sc-surface) 80%, transparent);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--sc-edge), var(--sc-e3);
+  pointer-events: auto;
+}
+
+.hero-plane--front {
+  bottom: 12%;
+  right: calc(var(--sc-gutter) + 3rem);
+  width: min(25rem, 38vw);
+  padding: var(--sc-4);
+  border-radius: var(--sc-r-md);
+  background: color-mix(in oklab, var(--surface-elevated) 92%, transparent);
+  box-shadow: var(--sc-edge), var(--sc-e3);
+}
+
+.hero-floor-fade {
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 240px;
+  background: linear-gradient(to bottom, transparent, var(--sc-canvas));
+  z-index: 4;
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  max-width: var(--sc-maxw);
+  margin-inline: auto;
+  padding-inline: var(--sc-gutter);
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
+  gap: var(--sc-8);
+  align-items: start;
+}
+
+.hero-headline {
+  font-family: var(--sc-font-display);
+  font-size: clamp(2.5rem, 5.1vw, 5.3rem);
+  font-weight: 700;
+  line-height: 0.97;
+  letter-spacing: -0.032em;
+  color: var(--sc-ink);
+  text-wrap: balance;
+  margin: var(--sc-4) 0 var(--sc-5);
+}
+
+.hero-headline em {
+  font-style: normal;
+  color: var(--sc-accent);
+}
+
+.hero-lede {
+  font-size: var(--sc-t-lg);
+  line-height: 1.55;
+  color: var(--sc-ink-soft);
+  max-width: 54ch;
+  margin-bottom: var(--sc-6);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sc-3);
+  margin-bottom: var(--sc-7);
+}
+
+.hero-QuickIndex {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--sc-3);
+  max-width: 38rem;
+  border-top: 1px solid var(--sc-hairline);
+  padding-top: var(--sc-5);
+}
+
+.quick-repo-link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: var(--sc-3);
+  border-radius: var(--sc-r-sm);
+  background: color-mix(in oklab, var(--sc-surface) 75%, transparent);
+  box-shadow: var(--sc-edge);
+  text-decoration: none;
+  transition: transform var(--sc-d-fast) var(--sc-ease-out),
+              background var(--sc-d-fast) var(--sc-ease-out);
+}
+
+.quick-repo-link:hover {
+  transform: translateY(-2px);
+  background: color-mix(in oklab, var(--sc-accent) 10%, var(--sc-surface));
+}
+
+.quick-repo-link code {
+  font-family: var(--sc-font-mono);
+  font-size: var(--sc-t-xs);
+  color: var(--sc-accent);
+}
+
+.quick-repo-link span {
+  font-size: var(--sc-t-sm);
+  color: var(--sc-ink);
+  font-weight: 600;
+}
+
+.shader-readout-card {
+  font-family: var(--sc-font-mono);
+  font-size: var(--sc-t-xs);
+  color: var(--sc-ink-soft);
+}
+
+.shader-readout-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: var(--sc-3);
+  margin-bottom: var(--sc-3);
+  border-bottom: 1px solid var(--sc-hairline);
+  color: var(--sc-ink);
+}
+
+.topology-pill-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: var(--sc-3);
+}
+
+.topology-btn {
+  font-family: var(--sc-font-mono);
+  font-size: 0.72rem;
+  padding: 0.35rem 0.6rem;
+  border-radius: var(--sc-r-sm);
+  border: 1px solid var(--sc-hairline-strong);
+  background: var(--sc-canvas);
+  color: var(--sc-ink-soft);
+  cursor: pointer;
+  transition: all var(--sc-d-fast) var(--sc-ease-out);
+}
+
+.topology-btn.is-active,
+.topology-btn:hover {
+  border-color: var(--sc-accent);
+  color: var(--sc-accent);
+}
+
+/* ==========================================================================
+   ACT 2 · PINNED 4-PROJECT WEBGL DOSSIER (THE PEAK · span 4.2vh)
+   ========================================================================== */
+.dossier-stage {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: clamp(4.8rem, 8vh, 6.2rem) var(--sc-gutter) var(--sc-5);
+}
+
+.dossier-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sc-4);
+  padding-bottom: var(--sc-3);
+  border-bottom: 1px solid var(--sc-hairline);
+  z-index: 25;
+}
+
+.dossier-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sc-2);
+}
+
+.dossier-tab {
+  font-family: var(--sc-font-mono);
+  font-size: var(--sc-t-xs);
+  padding: 0.45rem 0.85rem;
+  border-radius: var(--sc-r-sm);
+  background: color-mix(in oklab, var(--sc-surface) 85%, transparent);
+  color: var(--sc-ink-soft);
+  border: 1px solid var(--sc-hairline);
+  cursor: pointer;
+  transition: all var(--sc-d-fast) var(--sc-ease-out);
+}
+
+.dossier-tab.is-active {
+  background: var(--sc-accent);
+  color: var(--sc-accent-ink);
+  border-color: var(--sc-accent);
+  font-weight: 600;
+}
+
+.dossier-deck {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  z-index: 22;
+}
+
+.project-slide {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: var(--sc-7);
+  align-items: center;
+  pointer-events: none;
+}
+
+.project-slide[ style*="opacity: 0" ] {
+  pointer-events: none;
+}
+
+.project-slide.is-interactive {
+  pointer-events: auto;
+}
+
+.project-copy {
+  background: color-mix(in oklab, var(--sc-canvas) 84%, transparent);
+  backdrop-filter: blur(12px);
+  padding: var(--sc-6);
+  border-radius: var(--sc-r-md);
+  box-shadow: var(--sc-edge), var(--sc-e3);
+}
+
+.project-meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sc-3);
+  font-family: var(--sc-font-mono);
+  font-size: var(--sc-t-xs);
+  color: var(--sc-accent);
+  margin-bottom: var(--sc-3);
+}
+
+.project-title {
+  font-family: var(--sc-font-display);
+  font-size: clamp(1.75rem, 3.1vw, 3.1rem);
+  font-weight: 700;
+  line-height: 1.04;
+  letter-spacing: -0.028em;
+  margin: 0 0 var(--sc-4);
+}
+
+.project-summary {
+  color: var(--sc-ink-soft);
+  font-size: var(--sc-t-base);
+  line-height: 1.6;
+  margin-bottom: var(--sc-4);
+  max-width: 58ch;
+}
+
+.project-highlights {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--sc-5);
+  display: grid;
+  gap: var(--sc-2);
+  font-size: var(--sc-t-sm);
+  color: var(--sc-ink);
+}
+
+.project-highlights li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+}
+
+.project-highlights li::before {
+  content: "▸";
+  color: var(--sc-accent);
+  font-family: var(--sc-font-mono);
+}
+
+.stack-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: var(--sc-5);
+}
+
+.stack-tag {
+  font-family: var(--sc-font-mono);
+  font-size: 0.73rem;
+  padding: 0.25rem 0.55rem;
+  border-radius: var(--sc-r-sm);
+  background: var(--surface-elevated);
+  color: var(--sc-ink-soft);
+  box-shadow: var(--sc-edge);
+}
+
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sc-3);
+}
+
+/* Visual Frame on Right Column of Dossier */
+.project-visual {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sc-3);
+}
+
+.browser-window {
+  background: var(--sc-surface);
+  border-radius: var(--sc-r-md);
+  box-shadow: var(--sc-edge), var(--sc-e3);
+  overflow: hidden;
+}
+
+.browser-chrome {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.65rem 1rem;
+  background: var(--surface-elevated);
+  border-bottom: 1px solid var(--sc-hairline);
+  font-family: var(--sc-font-mono);
+  font-size: 0.72rem;
+  color: var(--sc-ink-soft);
+}
+
+.browser-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.browser-dots span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: color-mix(in oklab, var(--sc-ink-soft) 45%, transparent);
+}
+
+.browser-body {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  background: #0b0d13;
+  overflow: hidden;
+}
+
+.browser-body img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+/* Custom Interactive Architectural Preview inside LegalAI & AgriPOS */
+.arch-preview {
+  width: 100%;
+  height: 100%;
+  padding: var(--sc-5);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-family: var(--sc-font-mono);
+  font-size: var(--sc-t-xs);
+  background: radial-gradient(circle at 80% 20%, color-mix(in oklab, var(--sc-accent) 11%, transparent), #0a0c12 70%);
+}
+
+.redline-del {
+  color: var(--danger-rose);
+  text-decoration: line-through;
+  background: color-mix(in oklab, var(--danger-rose) 14%, transparent);
+  padding: 0.1rem 0.3rem;
+}
+
+.redline-ins {
+  color: var(--ok-green);
+  text-decoration: underline;
+  font-weight: 600;
+  background: color-mix(in oklab, var(--ok-green) 14%, transparent);
+  padding: 0.1rem 0.3rem;
+}
+
+.telemetry-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--sc-3);
+}
+
+.telemetry-cell {
+  background: color-mix(in oklab, var(--sc-surface) 88%, transparent);
+  padding: 0.75rem 1rem;
+  border-radius: var(--sc-r-sm);
+  box-shadow: var(--sc-edge);
+}
+
+.telemetry-cell strong {
+  display: block;
+  font-family: var(--sc-font-display);
+  font-size: var(--sc-t-lg);
+  color: var(--sc-accent);
+  font-variant-numeric: tabular-nums;
+}
+
+.telemetry-cell span {
+  font-family: var(--sc-font-mono);
+  font-size: 0.72rem;
+  color: var(--sc-ink-soft);
+}
+
+/* ==========================================================================
+   ACT 3 · HORIZONTAL INTERACTIVE WORKBENCH RAIL (pan device · span 3.4vh)
+   ========================================================================== */
+.workbench-stage {
+  display: flex;
+  align-items: center;
+  padding-block: var(--sc-7);
+}
+
+.workbench-rail {
+  display: flex;
+  align-items: stretch;
+  gap: var(--sc-6);
+  padding-inline: var(--sc-gutter);
+}
+
+.rail-lead {
+  flex: 0 0 clamp(20rem, 28vw, 26rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--sc-6);
+  background: color-mix(in oklab, var(--sc-surface) 76%, transparent);
+  backdrop-filter: blur(12px);
+  border-radius: var(--sc-r-md);
+  box-shadow: var(--sc-edge), var(--sc-e2);
+}
+
+.sandbox-module {
+  flex: 0 0 clamp(26rem, 38vw, 34rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: var(--sc-6);
+  background: color-mix(in oklab, var(--sc-surface) 92%, transparent);
+  backdrop-filter: blur(14px);
+  border-radius: var(--sc-r-md);
+  box-shadow: var(--sc-edge), var(--sc-e3);
+}
+
+.sandbox-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sc-3);
+  padding-bottom: var(--sc-3);
+  margin-bottom: var(--sc-4);
+  border-bottom: 1px solid var(--sc-hairline);
+}
+
+.sandbox-title {
+  font-family: var(--sc-font-display);
+  font-size: var(--sc-t-xl);
+  margin: 0;
+}
+
+.sandbox-controls {
+  display: grid;
+  gap: var(--sc-3);
+  margin-bottom: var(--sc-4);
+}
+
+.control-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sc-3);
+  font-family: var(--sc-font-mono);
+  font-size: var(--sc-t-xs);
+}
+
+.pill-selector {
+  display: flex;
+  gap: 0.35rem;
+}
+
+.pill-btn {
+  font-family: var(--sc-font-mono);
+  font-size: 0.72rem;
+  padding: 0.3rem 0.65rem;
+  border-radius: var(--sc-r-sm);
+  border: 1px solid var(--sc-hairline-strong);
+  background: var(--sc-canvas);
+  color: var(--sc-ink-soft);
+  cursor: pointer;
+}
+
+.pill-btn.is-active {
+  background: var(--sc-accent);
+  color: var(--sc-accent-ink);
+  border-color: var(--sc-accent);
+  font-weight: 600;
+}
+
+.sandbox-output {
+  padding: var(--sc-4);
+  border-radius: var(--sc-r-sm);
+  background: var(--sc-canvas);
+  box-shadow: var(--sc-edge);
+  font-family: var(--sc-font-mono);
+  font-size: var(--sc-t-xs);
+  line-height: 1.65;
+}
+
+/* ==========================================================================
+   ACT 4 · VERIFIED TELEMETRY & FRONTEND ARCHITECTURE (flow + reveal + count)
+   ========================================================================== */
+.editorial-spread {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: var(--sc-9);
+  align-items: start;
+}
+
+.metrics-ledger {
+  display: grid;
+  gap: var(--sc-5);
+  border-top: 1px solid var(--sc-hairline);
+  padding-top: var(--sc-5);
+}
+
+.ledger-row {
+  display: grid;
+  grid-template-columns: minmax(7rem, 0.42fr) minmax(0, 0.58fr);
+  gap: var(--sc-4);
+  align-items: baseline;
+  padding-bottom: var(--sc-5);
+  border-bottom: 1px solid var(--sc-hairline);
+}
+
+.ledger-figure {
+  font-family: var(--sc-font-display);
+  font-size: clamp(2.2rem, 3.8vw, 3.8rem);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--sc-accent);
+  font-variant-numeric: tabular-nums;
+}
+
+.capability-matrix {
+  display: grid;
+  gap: var(--sc-5);
+  margin-top: var(--sc-7);
+}
+
+.capability-row {
+  padding: var(--sc-5);
+  border-radius: var(--sc-r-md);
+  background: color-mix(in oklab, var(--sc-surface) 86%, transparent);
+  box-shadow: var(--sc-edge), var(--sc-e2);
+}
+
+.capability-row h3 {
+  font-family: var(--sc-font-display);
+  font-size: var(--sc-t-xl);
+  margin: 0 0 var(--sc-2);
+}
+
+/* ==========================================================================
+   ACT 5 · RESOLUTION & HIRING STAGE (pin + spotlight + magnet)
+   ========================================================================== */
+.closing-stage {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: clamp(6rem, 11vh, 8.5rem) var(--sc-gutter) var(--sc-5);
+}
+
+.closing-main {
+  max-width: 56rem;
+  margin-block: auto;
+  position: relative;
+  z-index: 5;
+}
+
+.closing-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sc-4);
+  margin-top: var(--sc-6);
+}
+
+.closing-colophon {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--sc-4);
+  padding-top: var(--sc-4);
+  border-top: 1px solid var(--sc-hairline);
+  font-family: var(--sc-font-mono);
+  font-size: var(--sc-t-xs);
+  color: var(--sc-ink-soft);
+  position: relative;
+  z-index: 5;
+}
+
+/* Interactive ATS CV Modal */
+.cv-drawer {
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+  background: color-mix(in oklab, var(--sc-canvas) 82%, transparent);
+  backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--sc-5);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--sc-d-base) var(--sc-ease-out);
+}
+
+.cv-drawer.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.cv-sheet {
+  width: min(56rem, 96vw);
+  max-height: 88vh;
+  overflow-y: auto;
+  background: var(--sc-surface);
+  border-radius: var(--sc-r-md);
+  box-shadow: var(--sc-edge), var(--sc-e3);
+  padding: var(--sc-7);
+}
+
+/* Responsive Adaptations (taste.md §Typography & mobile) */
+@media (max-width: 980px) {
+  .hero-content,
+  .project-slide,
+  .editorial-spread {
+    grid-template-columns: 1fr;
+  }
+  .hero-plane--mid,
+  .hero-plane--front {
+    position: relative;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    width: 100%;
+    margin-top: var(--sc-4);
+  }
+  .chrome-telemetry {
+    display: none;
+  }
+  .project-visual {
+    display: none;
+  }
+}
+
+@media (max-width: 700px) {
+  .hero-headline {
+    font-size: var(--sc-t-2xl);
+  }
+  .brand-role {
+    display: none;
+  }
+  .hero-QuickIndex {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media print {
+  .site-chrome,
+  .webgl-canvas-wrap,
+  .sc-grain,
+  [data-sc-progress] {
+    display: none !important;
+  }
+  body {
+    background: #ffffff;
+    color: #111111;
+  }
+}
+

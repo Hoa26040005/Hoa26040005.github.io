@@ -1,0 +1,854 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Huỳnh Thái Hòa · Frontend & Creative Developer Portfolio</title>
+  <meta name="description" content="Portfolio cá nhân của Huỳnh Thái Hòa (Hoa26040005): Frontend & Creative Developer chuyên sâu React 19, Next.js 14, TypeScript, Three.js WebGL, GSAP và AI UI.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%2308090C'/><circle cx='16' cy='16' r='7' fill='%23D4FF33'/></svg>">
+
+  <!-- Fonts: Syne (Display), Plus Jakarta Sans (Text), JetBrains Mono (Telemetry) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Styles: Scroll-Craft Engine Floor + Portfolio Design System -->
+  <link rel="stylesheet" href="engine/scrollcraft.css">
+  <link rel="stylesheet" href="styles/portfolio.css">
+
+  <!-- ES Module Import Map: Three.js r186 + GSAP 3.12.5 -->
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.186.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.186.0/examples/jsm/",
+      "gsap": "https://cdn.jsdelivr.net/npm/gsap@3.12.5/index.js",
+      "gsap/ScrollTrigger": "https://cdn.jsdelivr.net/npm/gsap@3.12.5/ScrollTrigger.js"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Scroll Progress Bar & Atmospheric Film Grain -->
+  <span data-sc-progress></span>
+  <div class="sc-grain" aria-hidden="true"></div>
+
+  <!-- Fixed Interactive Three.js r186 WebGL Stage -->
+  <div class="webgl-canvas-wrap" aria-hidden="true">
+    <canvas id="webgl-stage"></canvas>
+  </div>
+
+  <!-- Live Surface Top Telemetry Bar -->
+  <header class="site-chrome">
+    <a href="#hero" class="brand-cluster">
+      <span class="status-beacon" aria-hidden="true"></span>
+      <span class="brand-name">HUỲNH THÁI HÒA</span>
+      <span class="brand-role">FRONTEND &amp; CREATIVE DEVELOPER</span>
+    </a>
+
+    <div class="chrome-telemetry" aria-live="polite">
+      <span class="telemetry-kv">STAGE: <strong id="hud-active-act">ACT I · RECOGNITION</strong></span>
+      <span class="telemetry-kv">WEBGL: <strong id="hud-topology-name">00 · TORUS-KNOT SOCIAL MESH</strong></span>
+    </div>
+
+    <nav class="chrome-nav" aria-label="Điều hướng chính">
+      <a href="#dossier" class="nav-link">Dự Án (4)</a>
+      <a href="#workbench" class="nav-link">Interactive Lab</a>
+      <a href="#telemetry" class="nav-link">Kỹ Năng</a>
+      <button type="button" class="nav-link" data-open-cv style="background:none;border:none;cursor:pointer;">CV / Resume</button>
+      <a href="#contact" class="btn-primary">Tuyển Dụng Thái Hòa</a>
+    </nav>
+  </header>
+
+  <main id="top">
+
+    <!-- =====================================================================
+         ACT 1 · RECOGNITION: Dimensional Multi-Plane Hero (parallax + WebGL)
+         ===================================================================== -->
+    <section id="hero" class="hero-act" data-sc-act="flow" data-sc-drift="#08090c">
+      <div class="hero-planes">
+        <!-- Far Plane (-1.2 parallax rate) -->
+        <div class="hero-plane hero-plane--far" data-sc-parallax="-1.2" aria-hidden="true"></div>
+
+        <!-- Mid Plane (-0.45 parallax rate): Interactive Shader Controller -->
+        <aside class="hero-plane hero-plane--mid" data-sc-parallax="-0.45" aria-label="Bộ điều khiển mô hình 3D">
+          <div class="shader-readout-card">
+            <div class="shader-readout-header">
+              <span>THREE.JS r186 · GLSL SHADER TOPOLOGY</span>
+              <span style="color:var(--sc-accent)">3,600 PARTICLES</span>
+            </div>
+            <p style="margin:0 0 0.6rem;line-height:1.5;">
+              Mỗi cấu trúc hạt 3D dưới nền biểu diễn kiến trúc toán học của 1 trong 4 dự án thực tế trên GitHub <strong>Hoa26040005</strong>. Nhấp để chuyển trạng thái hoặc cuộn xuống:
+            </p>
+            <div class="topology-pill-group">
+              <button type="button" class="topology-btn is-active" data-topology-select="0">00 · Shop-Quan-Ao</button>
+              <button type="button" class="topology-btn" data-topology-select="1">01 · LegalAI Graph</button>
+              <button type="button" class="topology-btn" data-topology-select="2">02 · AgriPOS FaceID</button>
+              <button type="button" class="topology-btn" data-topology-select="3">03 · Temporal RAG</button>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Foreground Plane (+0.35 parallax rate): Live Production Proof Card -->
+        <div class="hero-plane hero-plane--front" data-sc-parallax="0.35">
+          <div class="shader-readout-card">
+            <div style="display:flex;justify-content:space-between;margin-bottom:0.35rem;">
+              <span style="color:var(--sc-ink);font-weight:600;">GITHUB: Hoa26040005</span>
+              <span style="color:var(--ok-green);">● SẴN SÀNG NHẬN VIỆC</span>
+            </div>
+            <div style="color:var(--sc-ink-soft);font-size:0.75rem;">
+              React 19 · Next.js 14 · TypeScript · Three.js / R3F · GSAP ScrollTrigger · Electron 39 · FastAPI AI UI
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 1x Copy Plane -->
+      <div class="hero-content">
+        <div>
+          <p class="sc-label">HUỲNH THÁI HÒA · FRONTEND, WEBGL &amp; FULL-STACK AI ENGINEER</p>
+          <h1 class="hero-headline">
+            Kiến tạo giao diện <em>có chiều sâu điện ảnh</em> và hệ thống thực thi chính xác.
+          </h1>
+          <p class="hero-lede">
+            Tôi là <strong>Huỳnh Thái Hòa</strong>, lập trình viên Frontend &amp; Creative Developer kết hợp chuyển động 3D WebGL (Three.js, React Three Fiber, GSAP) với kiến trúc sản phẩm thực chiến: từ thương mại điện tử Mua Chung thời gian thực, thẩm định hợp đồng LegalTech, POS nhận diện khuôn mặt 68 điểm mốc đến hệ thống RAG nhận thức thời gian.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#dossier" class="btn-primary" data-sc-magnet="0.22">Khám Phá 4 Dự Án GitHub</a>
+            <button type="button" class="btn-ghost" data-open-cv>Xem Hồ Sơ CV Chuẩn ATS</button>
+            <a href="https://github.com/Hoa26040005" target="_blank" rel="noopener noreferrer" class="btn-ghost">GitHub @Hoa26040005 ↗</a>
+          </div>
+
+          <div class="hero-QuickIndex">
+            <a href="#dossier" class="quick-repo-link" data-topology-select="0">
+              <code>Hoa26040005/Shop-Quan-Ao</code>
+              <span>FashionElite · Mua Chung Realtime &amp; R3F</span>
+            </a>
+            <a href="#dossier" class="quick-repo-link" data-topology-select="1">
+              <code>Hoa26040005/legal-ai-contract-reviewer</code>
+              <span>LegalAI · Split-Screen Luxury LegalTech</span>
+            </a>
+            <a href="#dossier" class="quick-repo-link" data-topology-select="2">
+              <code>Hoa26040005/pesticide-shop</code>
+              <span>AgriPOS · Electron 39 &amp; 68-Point FaceID</span>
+            </a>
+            <a href="#dossier" class="quick-repo-link" data-topology-select="3">
+              <code>Hoa26040005/RAGNHANBTTHOIGIAN</code>
+              <span>Temporal RAG · 92.7% Year Accuracy UI</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-floor-fade" aria-hidden="true"></div>
+    </section>
+
+    <!-- =====================================================================
+         ACT 2 · SUBSTANCE (THE PEAK): Pinned 4-Project Dossier (pin + morph)
+         ===================================================================== -->
+    <section id="dossier" data-sc-act="pin" data-sc-span="4.2" data-sc-drift="#0b0e14">
+      <div data-sc-stage class="dossier-stage">
+
+        <div class="dossier-topbar">
+          <div class="dossier-tabs" role="tablist" aria-label="4 Dự Án GitHub Nổi Bật">
+            <button type="button" class="dossier-tab is-active" data-project-tab="0">01 · Shop-Quan-Ao (TypeScript)</button>
+            <button type="button" class="dossier-tab" data-project-tab="1">02 · LegalAI Reviewer (Next.js 14)</button>
+            <button type="button" class="dossier-tab" data-project-tab="2">03 · AgriPOS FaceID (React 19 + Electron)</button>
+            <button type="button" class="dossier-tab" data-project-tab="3">04 · Temporal RAG (Streaming Web UI)</button>
+          </div>
+          <div class="sc-label">SCROLL SCRUB: <strong id="dossier-progress-readout" style="color:var(--sc-accent)">0%</strong></div>
+        </div>
+
+        <div class="dossier-deck">
+
+          <!-- PROJECT 1: Shop-Quan-Ao (FashionElite) · Greet cue (0 0.28 0) -->
+          <article class="project-slide is-interactive" data-sc-cue="0 0.28 0">
+            <div class="project-copy">
+              <div class="project-meta-row">
+                <span>REPO: Hoa26040005/Shop-Quan-Ao</span>
+                <span>·</span>
+                <span>VERCEL + RENDER PRODUCTION</span>
+              </div>
+              <h2 class="project-title">FashionElite: Nền Tảng Thương Mại Xã Hội Mua Chung, Diễn Đàn &amp; Trợ Lý AI</h2>
+              <p class="project-summary">
+                Ứng dụng thương mại điện tử thời trang quy mô lớn tích hợp 3D hiển thị sản phẩm (React Three Fiber), phòng Mua Chung 2/4/8 thành viên qua Socket.IO thời gian thực, diễn đàn cộng đồng gắn đo lường chuyển đổi (Attribution) và trợ lý mua sắm Gemini 2.5 Flash + RAG.
+              </p>
+              <ul class="project-highlights">
+                <li><strong>Mua Chung 1 Đơn Tổng (Group-Buy Engine):</strong> Chủ phòng gom 2/4/8 người chọn món riêng; tự động phân bổ giảm giá bậc thang, phí ship và voucher theo tỷ trọng giỏ hàng (đã kiểm chứng thực tế: <code>910.812đ = 707.813đ + 202.999đ</code>).</li>
+                <li><strong>Diễn Đàn &amp; Attribution:</strong> Luồng kiểm duyệt bài viết, chống gian lận, chấm điểm đóng góp và phát hành voucher tự động hàng tháng.</li>
+                <li><strong>Frontend &amp; 3D Craft:</strong> Xây dựng bằng React 19, TypeScript, Three.js (<code>@react-three/fiber</code>, <code>@react-three/drei</code>), Framer Motion, Recharts và kiểm thử E2E Playwright.</li>
+              </ul>
+              <div class="stack-tags">
+                <span class="stack-tag">TypeScript</span>
+                <span class="stack-tag">React 19</span>
+                <span class="stack-tag">React Three Fiber</span>
+                <span class="stack-tag">Framer Motion</span>
+                <span class="stack-tag">Tailwind CSS 4</span>
+                <span class="stack-tag">Socket.IO</span>
+                <span class="stack-tag">Node.js / MongoDB</span>
+                <span class="stack-tag">VNPay / Gemini RAG</span>
+              </div>
+              <div class="project-links">
+                <a href="https://shop-quan-ao-g89r.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-primary">Mở Live Demo (Vercel) ↗</a>
+                <a href="https://github.com/Hoa26040005/Shop-Quan-Ao" target="_blank" rel="noopener noreferrer" class="btn-ghost">Mã Nguồn GitHub ↗</a>
+              </div>
+            </div>
+
+            <div class="project-visual">
+              <div class="browser-window" data-sc-tilt="4">
+                <div class="browser-chrome">
+                  <div class="browser-dots"><span></span><span></span><span></span></div>
+                  <span>https://shop-quan-ao-g89r.vercel.app/group-buy</span>
+                  <span>PRODUCTION UI</span>
+                </div>
+                <div class="browser-body">
+                  <img src="assets/projects/fashion-groupbuy.png" width="1280" height="800" alt="Giao diện sảnh Mua Chung trên môi trường Production của dự án Shop-Quan-Ao FashionElite">
+                </div>
+              </div>
+              <div class="telemetry-strip">
+                <div class="telemetry-cell">
+                  <strong>2 / 4 / 8</strong>
+                  <span>Cơ chế phòng Mua Chung Realtime</span>
+                </div>
+                <div class="telemetry-cell">
+                  <strong>910.812đ</strong>
+                  <span>Đơn tổng phân bổ chính xác từng đồng</span>
+                </div>
+                <div class="telemetry-cell">
+                  <strong>10 Intents</strong>
+                  <span>Rule-first AI Router + Circuit Breaker</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 2: legal-ai-contract-reviewer (LegalAI) -->
+          <article class="project-slide" data-sc-cue="0.24 0.54">
+            <div class="project-copy">
+              <div class="project-meta-row">
+                <span>REPO: Hoa26040005/legal-ai-contract-reviewer</span>
+                <span>·</span>
+                <span>NEXT.JS 14 + FASTAPI GRAPH-RAG</span>
+              </div>
+              <h2 class="project-title">LegalAI Contract Reviewer: Giao Diện Split-Screen Luxury LegalTech &amp; Redline</h2>
+              <p class="project-summary">
+                Hệ thống rà soát, phát hiện bẫy và đánh giá rủi ro pháp lý hợp đồng tại Việt Nam. Kết hợp giao diện Split-Screen Luxury LegalTech trên Next.js 14 với Hybrid RAG (Vector Search + Neo4j Knowledge Graph) và xuất trực tiếp file Word chứa Track Changes.
+              </p>
+              <ul class="project-highlights">
+                <li><strong>Trải Nghiệm Split-Screen &amp; Spotlight Focus:</strong> Làm nổi bật điều khoản đang rà soát, hiển thị phổ màu phân bổ rủi ro (Risk Distribution Spectrum), đóng mộc <code>AI AUDITED - LEGAL STANDARD</code> và AI Copilot Chat 1-click.</li>
+                <li><strong>Thẩm Định 25+ Điều Luật Việt Nam:</strong> Bộ luật Lao động 2019 (chống giữ bằng gốc Điều 17.1, trần thử việc Điều 25), Luật Thương mại 2005 (trần phạt 8% Điều 301), Bộ luật Dân sự 2015 (trần lãi 20%/năm Điều 468).</li>
+                <li><strong>Multimodal OCR &amp; 1-Click Word Redline:</strong> Tự động khử nghiêng (Deskew), nâng tương phản 1.8x cho ảnh chụp điện thoại và xuất file <code>.docx</code> gạch đỏ <code>[-]</code> điều khoản sai, gạch chân xanh <code>[+]</code> điều khoản đề xuất.</li>
+              </ul>
+              <div class="stack-tags">
+                <span class="stack-tag">Next.js 14</span>
+                <span class="stack-tag">TypeScript</span>
+                <span class="stack-tag">Tailwind CSS</span>
+                <span class="stack-tag">FastAPI (Python 3.11)</span>
+                <span class="stack-tag">Neo4j Knowledge Graph</span>
+                <span class="stack-tag">Multimodal OCR</span>
+                <span class="stack-tag">Docx Redline Engine</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/Hoa26040005/legal-ai-contract-reviewer" target="_blank" rel="noopener noreferrer" class="btn-primary">Xem Repo trên GitHub ↗</a>
+                <a href="#workbench" class="btn-ghost">Thử Máy Kiểm Toán Redline ↓</a>
+              </div>
+            </div>
+
+            <div class="project-visual">
+              <div class="browser-window" data-sc-tilt="4">
+                <div class="browser-chrome">
+                  <div class="browser-dots"><span></span><span></span><span></span></div>
+                  <span>legal-ai-contract-reviewer · Split-Screen Spotlight View</span>
+                  <span>AI AUDITED</span>
+                </div>
+                <div class="browser-body">
+                  <div class="arch-preview">
+                    <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(243,239,230,0.14);padding-bottom:0.6rem;">
+                      <span style="color:var(--sc-accent);font-weight:600;">SPOTLIGHT FOCUS · ĐIỀU 4.2 PHẠT VI PHẠM</span>
+                      <span style="padding:0.2rem 0.5rem;border:1px solid var(--danger-rose);color:var(--danger-rose);border-radius:4px;">VI PHẠM ĐIỀU 301 LTM</span>
+                    </div>
+                    <div style="display:grid;gap:0.65rem;my:auto;">
+                      <div class="redline-del">
+                        [-] Điều 4.2: Nếu Bên B chậm tiến độ, Bên B chịu phạt vi phạm 25% tổng giá trị hợp đồng cho mỗi tuần chậm trễ và Bên A có quyền giữ bản gốc giấy phép kinh doanh.
+                      </div>
+                      <div class="redline-ins">
+                        [+] Điều 4.2 (AI Redline Đề Xuất): Mức phạt chậm tiến độ tính theo thiệt hại thực tế nhưng tổng mức phạt không vượt quá 8% giá trị phần nghĩa vụ hợp đồng bị vi phạm (Điều 301 Luật Thương mại 2005).
+                      </div>
+                      <div style="padding:0.6rem;background:rgba(212,255,51,0.08);border-radius:6px;color:var(--sc-ink);">
+                        <strong>Graph-RAG Citation:</strong> Node(Luật Thương mại 2005) ➔ Edge(CAPS_PENALTY_AT_8_PCT) ➔ Clause(Điều 301).
+                      </div>
+                    </div>
+                    <div style="display:flex;justify-content:space-between;color:var(--sc-ink-soft);border-top:1px solid rgba(243,239,230,0.12);padding-top:0.5rem;">
+                      <span>Risk Spectrum: 2 Critical · 3 Medium · 14 Safe</span>
+                      <span style="color:var(--ok-green)">Export .DOCX Track Changes Ready</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="telemetry-strip">
+                <div class="telemetry-cell">
+                  <strong>25+ Luật</strong>
+                  <span>Lao động, Thương mại, Dân sự, NĐ 13</span>
+                </div>
+                <div class="telemetry-cell">
+                  <strong>1.8x OCR</strong>
+                  <span>Khử góc nghiêng Deskew ảnh chụp mờ</span>
+                </div>
+                <div class="telemetry-cell">
+                  <strong>1-Click</strong>
+                  <span>Xuất Word (.docx) Track Changes</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 3: pesticide-shop (AgriPOS) -->
+          <article class="project-slide" data-sc-cue="0.50 0.78">
+            <div class="project-copy">
+              <div class="project-meta-row">
+                <span>REPO: Hoa26040005/pesticide-shop</span>
+                <span>·</span>
+                <span>REACT 19 + ELECTRON 39 + FACE-API</span>
+              </div>
+              <h2 class="project-title">AgriPOS: Hệ Thống Quản Lý Cửa Hàng Thuốc BVTV Đa Nền Tảng Với FaceID</h2>
+              <p class="project-summary">
+                Ứng dụng Desktop (đóng gói bộ cài Windows NSIS EXE qua Electron 39) và Web quản trị toàn diện cho đại lý vật tư nông nghiệp: tích hợp đăng nhập nhận diện khuôn mặt bằng mạng nơ-ron ngay trên trình duyệt, bán hàng POS quét QR, quản lý hạn sử dụng theo lô và công nợ mùa vụ.
+              </p>
+              <ul class="project-highlights">
+                <li><strong>Sinh Trắc Học Khuôn Mặt (Biometric FaceID Auth):</strong> Tích hợp <code>@vladmandic/face-api</code> (SSD MobileNetV1 + 68-Point Landmark + Face Recognition Net) xác thực khuôn mặt trực tiếp qua Webcam.</li>
+                <li><strong>Phân Quyền RBAC &amp; Bảo Mật Tự Động:</strong> Route bảo vệ <code>ProtectedAdminRoute</code> khóa chặt báo cáo tài chính và nhật ký hệ thống (<code>SystemLogs</code>) đối với thu ngân, kết hợp hook <code>useAutoLogout</code>.</li>
+                <li><strong>Bán Hàng POS &amp; Xuất Báo Cáo:</strong> Quét mã QR sản phẩm, theo dõi sổ nợ nông dân (<code>DebtList</code>), in hóa đơn trực tiếp và xuất báo cáo PDF/Excel (<code>jsPDF</code>, <code>xlsx</code>).</li>
+              </ul>
+              <div class="stack-tags">
+                <span class="stack-tag">React 19</span>
+                <span class="stack-tag">Rolldown-Vite 7</span>
+                <span class="stack-tag">Electron 39 (Desktop EXE)</span>
+                <span class="stack-tag">Ant Design 6</span>
+                <span class="stack-tag">@vladmandic/face-api</span>
+                <span class="stack-tag">Firebase Firestore</span>
+                <span class="stack-tag">QR POS / jsPDF / XLSX</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/Hoa26040005/pesticide-shop" target="_blank" rel="noopener noreferrer" class="btn-primary">Xem Repo trên GitHub ↗</a>
+                <a href="#workbench" class="btn-ghost">Thử Mô Phỏng 68-Point FaceID ↓</a>
+              </div>
+            </div>
+
+            <div class="project-visual">
+              <div class="browser-window" data-sc-tilt="4">
+                <div class="browser-chrome">
+                  <div class="browser-dots"><span></span><span></span><span></span></div>
+                  <span>com.pesticideshop.app · Electron 39 Desktop &amp; FaceID POS</span>
+                  <span>68 LANDMARKS</span>
+                </div>
+                <div class="browser-body">
+                  <div class="arch-preview">
+                    <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(243,239,230,0.14);padding-bottom:0.6rem;">
+                      <span style="color:var(--sc-accent);font-weight:600;">WEBCAM BIOMETRIC PIPELINE · FACE_LANDMARK_68</span>
+                      <span style="color:var(--ok-green);">CONFIDENCE: 98.4%</span>
+                    </div>
+                    <div style="display:grid;grid-template-columns:1fr 1.2fr;gap:1rem;align-items:center;margin-block:auto;">
+                      <svg viewBox="0 0 180 180" style="width:100%;max-height:150px;background:#08090c;border-radius:8px;border:1px solid rgba(212,255,51,0.25);">
+                        <rect x="28" y="20" width="124" height="140" rx="14" fill="none" stroke="#d4ff33" stroke-width="1.2" stroke-dasharray="6 4"/>
+                        <ellipse cx="90" cy="90" rx="44" ry="56" fill="none" stroke="#5ce1e6" stroke-width="1"/>
+                        <!-- Eye, Nose, Jawline Landmark Points -->
+                        <g fill="#d4ff33">
+                          <circle cx="68" cy="74" r="2.3"/><circle cx="76" cy="72" r="2.3"/><circle cx="60" cy="75" r="2.3"/>
+                          <circle cx="112" cy="74" r="2.3"/><circle cx="104" cy="72" r="2.3"/><circle cx="120" cy="75" r="2.3"/>
+                          <circle cx="90" cy="84" r="2.3"/><circle cx="90" cy="95" r="2.3"/><circle cx="84" cy="100" r="2.3"/><circle cx="96" cy="100" r="2.3"/>
+                          <circle cx="72" cy="118" r="2.3"/><circle cx="82" cy="122" r="2.3"/><circle cx="90" cy="123" r="2.3"/><circle cx="98" cy="122" r="2.3"/><circle cx="108" cy="118" r="2.3"/>
+                          <circle cx="52" cy="98" r="2"/><circle cx="60" cy="124" r="2"/><circle cx="90" cy="144" r="2.5"/><circle cx="120" cy="124" r="2"/><circle cx="128" cy="98" r="2"/>
+                        </g>
+                        <line x1="28" y1="92" x2="152" y2="92" stroke="#d4ff33" stroke-width="0.8" opacity="0.6"/>
+                      </svg>
+                      <div style="display:grid;gap:0.45rem;">
+                        <div><strong>1. Detection:</strong> <code>ssd_mobilenetv1</code></div>
+                        <div><strong>2. Alignment:</strong> <code>face_landmark_68_model</code></div>
+                        <div><strong>3. Descriptor:</strong> <code>128-D Float32 Vector</code></div>
+                        <div><strong>4. RBAC Guard:</strong> Mở khóa <code>/reports</code> &amp; <code>/logs</code> cho Chủ cửa hàng; chuyển thẳng tới <code>/pos</code> cho Thu ngân.</div>
+                      </div>
+                    </div>
+                    <div style="display:flex;justify-content:space-between;color:var(--sc-ink-soft);border-top:1px solid rgba(243,239,230,0.12);padding-top:0.5rem;">
+                      <span>Modules: POS · Inventory · Debt · Reports · SystemLogs</span>
+                      <span style="color:var(--sc-accent)">Windows NSIS EXE + Web</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="telemetry-strip">
+                <div class="telemetry-cell">
+                  <strong>68 Điểm</strong>
+                  <span>Nhận diện mốc khuôn mặt thời gian thực</span>
+                </div>
+                <div class="telemetry-cell">
+                  <strong>128-D</strong>
+                  <span>Vector đặc trưng sinh trắc học</span>
+                </div>
+                <div class="telemetry-cell">
+                  <strong>10 Modules</strong>
+                  <span>POS, Kho, Công Nợ, Báo Cáo, Nhật Ký</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 4: RAGNHANBTTHOIGIAN (Temporal RAG) -->
+          <article class="project-slide" data-sc-cue="0.74 1.0">
+            <div class="project-copy">
+              <div class="project-meta-row">
+                <span>REPO: Hoa26040005/RAGNHANBTTHOIGIAN</span>
+                <span>·</span>
+                <span>KHÓA LUẬN TỐT NGHIỆP · TEMPORAL AI</span>
+              </div>
+              <h2 class="project-title">Hệ Thống Hỏi Đáp Tiếng Việt RAG Nhận Thức Thời Gian (Temporal-Aware RAG)</h2>
+              <p class="project-summary">
+                Khóa luận giải quyết bài toán lệch mốc thời gian (Temporal Drift) trong RAG truyền thống: nơi câu hỏi về dữ liệu năm 2022 thường bị trả lời nhầm bằng bài báo năm 2024. Cung cấp giao diện Web Streaming SSE trực quan so sánh trực tiếp hai chế độ trên cùng một truy vấn.
+              </p>
+              <ul class="project-highlights">
+                <li><strong>Độ Chính Xác Năm Vượt Trội (+30,2 điểm %):</strong> Đạt <strong>92,7% Year Accuracy (89/96 câu)</strong> và <strong>80,5% Keyword Score</strong> trên bộ chuẩn <code>Eval96</code> thuộc 12 lĩnh vực (so với 62,5% của Traditional RAG).</li>
+                <li><strong>Kiến Trúc Hybrid Dense + BM25 + RRF:</strong> Lập kế hoạch truy vấn với 12 vai thời gian, toán tử <code>FIRST / LAST / CURRENT / FUTURE</code> trên 50.599 vector chunks (49.980 tin tức 2019-2025 + 4.151 fact lịch sử Wikipedia).</li>
+                <li><strong>Hợp Đồng Bằng Chứng (Slot-Claim-Evidence):</strong> Phân tách rạch ròi 5 trạng thái <code>ANSWER</code>, <code>PARTIAL</code>, <code>ABSTAIN</code>, <code>REFUSE</code>, <code>FAILED</code> để chặn ảo giác (Hallucination) cho các sự kiện tương lai.</li>
+              </ul>
+              <div class="stack-tags">
+                <span class="stack-tag">Python</span>
+                <span class="stack-tag">FastAPI</span>
+                <span class="stack-tag">SSE Streaming Web UI</span>
+                <span class="stack-tag">Qwen3:4B (Ollama)</span>
+                <span class="stack-tag">FAISS IndexFlatIP</span>
+                <span class="stack-tag">BM25 + RRF Hybrid</span>
+                <span class="stack-tag">Temporal Semantic Parser</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/Hoa26040005/RAGNHANBTTHOIGIAN" target="_blank" rel="noopener noreferrer" class="btn-primary">Xem Repo trên GitHub ↗</a>
+                <a href="#workbench" class="btn-ghost">So Sánh Temporal vs Traditional ↓</a>
+              </div>
+            </div>
+
+            <div class="project-visual">
+              <div class="browser-window" data-sc-tilt="4">
+                <div class="browser-chrome">
+                  <div class="browser-dots"><span></span><span></span><span></span></div>
+                  <span>localhost:8000 · Temporal RAG vs Traditional RAG Web UI</span>
+                  <span>EVAL96: 92.7% YrOK</span>
+                </div>
+                <div class="browser-body">
+                  <img src="assets/projects/temporal-rag-1.png" width="1280" height="800" alt="Giao diện Web của Hệ thống Hỏi Đáp RAG Nhận Thức Thời Gian">
+                </div>
+              </div>
+              <div class="telemetry-strip">
+                <div class="telemetry-cell">
+                  <strong>92,7%</strong>
+                  <span>Year Accuracy (+30,2% vs Baseline)</span>
+                </div>
+                <div class="telemetry-cell">
+                  <strong>50.599</strong>
+                  <span>FAISS L2 Chunks (2019 đến 2025)</span>
+                </div>
+                <div class="telemetry-cell">
+                  <strong>2,23s</strong>
+                  <span>Thời gian phản hồi trung bình mỗi câu</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         ACT 3 · TURN: Horizontal Interactive Lab Rail (pan device · span 3.4)
+         ===================================================================== -->
+    <section id="workbench" data-sc-act="pan" data-sc-span="3.4" data-sc-drift="#0d1118">
+      <div data-sc-stage class="workbench-stage">
+        <div class="workbench-rail" data-sc-pan="0.06">
+
+          <!-- Lead Item in Rail -->
+          <div class="rail-lead">
+            <p class="sc-label" style="color:var(--sc-accent);margin-bottom:0.6rem;">INTERACTIVE WORKBENCH · 4 LIVE SIMULATORS</p>
+            <h2 class="sc-display sc-display--md" style="margin-bottom:1rem;">Trực tiếp vận hành logic cốt lõi của cả 4 dự án.</h2>
+            <p class="sc-body">
+              Thay vì chỉ xem ảnh chụp tĩnh, hãy cuộn ngang và bấm vào từng bảng điều khiển bên phải để kiểm thử thuật toán chia tiền Mua Chung, kiểm toán hợp đồng Redline, xác thực 68 điểm mốc khuôn mặt và bộ lọc thời gian RAG.
+            </p>
+          </div>
+
+          <!-- Sandbox 1: Shop-Quan-Ao Group-Buy Calculator -->
+          <article class="sandbox-module">
+            <div>
+              <div class="sandbox-header">
+                <h3 class="sandbox-title">01 · Group-Buy Split Engine</h3>
+                <code style="color:var(--sc-accent);font-size:0.75rem;">Shop-Quan-Ao</code>
+              </div>
+              <p style="color:var(--sc-ink-soft);font-size:var(--sc-t-sm);margin:0 0 1rem;">
+                Mô phỏng <code>pricingService.js</code>: phân bổ giảm giá nhóm, voucher và 1 phí vận chuyển duy nhất theo tỷ trọng giá trị hàng của từng thành viên.
+              </p>
+              <div class="sandbox-controls">
+                <div class="control-row">
+                  <span>Quy mô phòng Mua Chung:</span>
+                  <div class="pill-selector">
+                    <button type="button" class="pill-btn is-active" data-gb-size="2">2 Người (-8%)</button>
+                    <button type="button" class="pill-btn" data-gb-size="4">4 Người (-14%)</button>
+                    <button type="button" class="pill-btn" data-gb-size="8">8 Người (-20%)</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="gb-sandbox-output" class="sandbox-output" aria-live="polite"></div>
+          </article>
+
+          <!-- Sandbox 2: LegalAI Redline Inspector -->
+          <article class="sandbox-module">
+            <div>
+              <div class="sandbox-header">
+                <h3 class="sandbox-title">02 · Statutory Redline Auditor</h3>
+                <code style="color:var(--sc-accent);font-size:0.75rem;">legal-ai-contract-reviewer</code>
+              </div>
+              <p style="color:var(--sc-ink-soft);font-size:var(--sc-t-sm);margin:0 0 1rem;">
+                Chọn điều khoản hợp đồng để xem cách AI phát hiện bẫy pháp lý và sinh câu chữ thay thế chuẩn Track Changes (<code>[-]</code> / <code>[+]</code>).
+              </p>
+              <div class="sandbox-controls">
+                <div class="control-row">
+                  <span>Bẫy hợp đồng:</span>
+                  <div class="pill-selector">
+                    <button type="button" class="pill-btn is-active" data-legal-clause="labor">Giữ Bằng &amp; Cọc</button>
+                    <button type="button" class="pill-btn" data-legal-clause="commercial">Phạt 25% (&gt;8%)</button>
+                    <button type="button" class="pill-btn" data-legal-clause="civil">Lãi 54%/năm</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="legal-sandbox-output" class="sandbox-output" aria-live="polite"></div>
+          </article>
+
+          <!-- Sandbox 3: AgriPOS FaceID & RBAC Guard -->
+          <article class="sandbox-module">
+            <div>
+              <div class="sandbox-header">
+                <h3 class="sandbox-title">03 · 68-Point FaceID &amp; RBAC</h3>
+                <code style="color:var(--sc-accent);font-size:0.75rem;">pesticide-shop</code>
+              </div>
+              <p style="color:var(--sc-ink-soft);font-size:var(--sc-t-sm);margin:0 0 1rem;">
+                Kiểm thử cách <code>LoginWithFace.jsx</code> và <code>ProtectedAdminRoute</code> phân tách quyền truy cập giữa Chủ cửa hàng và Nhân viên POS.
+              </p>
+              <div class="sandbox-controls">
+                <div class="control-row">
+                  <span>Khuôn mặt xác thực:</span>
+                  <div class="pill-selector">
+                    <button type="button" class="pill-btn is-active" data-pos-role="admin">Chủ Cửa Hàng (Admin)</button>
+                    <button type="button" class="pill-btn" data-pos-role="cashier">Thu Ngân POS (403 Guard)</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="pos-sandbox-output" class="sandbox-output" aria-live="polite"></div>
+          </article>
+
+          <!-- Sandbox 4: Temporal RAG vs Traditional RAG -->
+          <article class="sandbox-module">
+            <div>
+              <div class="sandbox-header">
+                <h3 class="sandbox-title">04 · Temporal RAG Comparator</h3>
+                <code style="color:var(--sc-accent);font-size:0.75rem;">RAGNHANBTTHOIGIAN</code>
+              </div>
+              <p style="color:var(--sc-ink-soft);font-size:var(--sc-t-sm);margin:0 0 1rem;">
+                So sánh trực tiếp kết quả truy xuất giữa Traditional RAG và Temporal RAG trên các câu hỏi có mốc năm và toán tử thời gian.
+              </p>
+              <div class="sandbox-controls">
+                <div class="control-row">
+                  <span>Câu hỏi thử nghiệm:</span>
+                  <div class="pill-selector">
+                    <button type="button" class="pill-btn is-active" data-rag-query="gdp2022">GDP 2022</button>
+                    <button type="button" class="pill-btn" data-rag-query="first">Toán tử FIRST</button>
+                    <button type="button" class="pill-btn" data-rag-query="future2025">Chặn Tương Lai 2027</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="rag-sandbox-output" class="sandbox-output" aria-live="polite"></div>
+          </article>
+
+          <!-- Closing Resolution Card in Rail -->
+          <div class="rail-lead">
+            <p class="sc-label" style="color:var(--ok-green);margin-bottom:0.6rem;">PRODUCTION-TESTED ARCHITECTURE</p>
+            <h3 class="sc-display sc-display--md" style="margin-bottom:1rem;">Từ giao diện mượt mà đến kiểm thử tự động.</h3>
+            <p class="sc-body" style="margin-bottom:1.25rem;">
+              Mọi dự án đều đi kèm kiểm thử tự động (Playwright E2E, Jest/Supertest, Pytest, Canonical Eval96) và tài liệu kiến trúc rõ ràng.
+            </p>
+            <a href="https://github.com/Hoa26040005" target="_blank" rel="noopener noreferrer" class="btn-primary">Xem Toàn Bộ Repositories ↗</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         ACT 4 · PROOF: Verified Telemetry & Engineering Stack (flow + count + reveal)
+         ===================================================================== -->
+    <section id="telemetry" class="sc-section" data-sc-act="flow" data-sc-drift="#090b10">
+      <div class="sc-wrap editorial-spread">
+
+        <!-- Left Column: Verified Numbers & Visual Proof -->
+        <div class="sc-stack" data-sc-in data-sc-stagger="80">
+          <h2 class="sc-display sc-display--lg">Số liệu kiểm chứng thực tế từ mã nguồn.</h2>
+          <p class="sc-body">
+            Không sử dụng con số ước lệ. Bốn chỉ số dưới đây được trích xuất trực tiếp từ báo cáo kiểm thử định lượng <code>Eval96</code>, cơ sở dữ liệu vector FAISS và bộ kiểm thử tự động trong 4 kho mã nguồn của Huỳnh Thái Hòa.
+          </p>
+
+          <div class="metrics-ledger">
+            <div class="ledger-row js-gsap-batch">
+              <div class="ledger-figure"><span data-sc-count="0 92.7">92.7</span>%</div>
+              <div>
+                <strong style="color:var(--sc-ink);display:block;">Độ chính xác mốc năm (Year Accuracy)</strong>
+                <span style="color:var(--sc-ink-soft);font-size:var(--sc-t-sm);">Đạt 89/96 câu đúng năm trên bộ chuẩn Eval96 (vượt Traditional RAG +30,2 điểm %).</span>
+              </div>
+            </div>
+
+            <div class="ledger-row js-gsap-batch">
+              <div class="ledger-figure"><span data-sc-count="0 50,599">50,599</span></div>
+              <div>
+                <strong style="color:var(--sc-ink);display:block;">Vector Chunks Chuẩn Hóa L2</strong>
+                <span style="color:var(--sc-ink-soft);font-size:var(--sc-t-sm);">Kết hợp 49.980 bản ghi tin tức (2019 đến 2025) và 4.151 fact lịch sử Wikipedia tiếng Việt.</span>
+              </div>
+            </div>
+
+            <div class="ledger-row js-gsap-batch">
+              <div class="ledger-figure"><span data-sc-count="0 68">68</span> Điểm</div>
+              <div>
+                <strong style="color:var(--sc-ink);display:block;">Mốc Sinh Trắc Học Khuôn Mặt (Face Landmarks)</strong>
+                <span style="color:var(--sc-ink-soft);font-size:var(--sc-t-sm);">Xác thực người dùng trực tiếp trên trình duyệt và ứng dụng Desktop Electron 39 trong AgriPOS.</span>
+              </div>
+            </div>
+
+            <div class="ledger-row js-gsap-batch">
+              <div class="ledger-figure"><span data-sc-count="0 25">25</span>+ Điều Luật</div>
+              <div>
+                <strong style="color:var(--sc-ink);display:block;">Quy Tắc Kiểm Toán Pháp Lý &amp; Graph-RAG</strong>
+                <span style="color:var(--sc-ink-soft);font-size:var(--sc-t-sm);">Tự động đối chiếu Bộ luật Lao động, Luật Thương mại, Bộ luật Dân sự và xuất file Word Redline.</span>
+              </div>
+            </div>
+          </div>
+
+          <figure data-sc-reveal="up" data-sc-reveal-at="0.12 0.55" style="margin:var(--sc-6) 0 0;border-radius:var(--sc-r-md);overflow:hidden;box-shadow:var(--sc-edge),var(--sc-e3);">
+            <img src="assets/projects/fashion-chatbot.png" width="1280" height="800" style="width:100%;height:auto;" alt="Giao diện Trợ lý AI tư vấn mua sắm trên nền tảng FashionElite">
+          </figure>
+        </div>
+
+        <!-- Right Column: Frontend, Creative & Full-Stack Capability Matrix -->
+        <div class="sc-stack">
+          <h2 class="sc-display sc-display--md">Năng lực Kỹ thuật &amp; Công nghệ Chủ đạo</h2>
+          <p class="sc-body">
+            Tập trung chuyên sâu vào trải nghiệm người dùng hiện đại (Frontend &amp; Creative WebGL), đồng thời làm chủ toàn bộ luồng dữ liệu Backend, Realtime và AI Pipeline để phối hợp mượt mà với mọi nhóm sản phẩm.
+          </p>
+
+          <div class="capability-matrix">
+            <div class="capability-row js-gsap-batch">
+              <h3>1. Frontend Architecture &amp; Modern UI Engineering</h3>
+              <p class="sc-body" style="margin-bottom:0.85rem;">
+                Xây dựng ứng dụng Web và Desktop phức tạp với kiến trúc module hóa, quản lý trạng thái chặt chẽ, phân quyền RBAC, tối ưu hóa kết xuất và thiết kế hệ thống Design Tokens nhất quán.
+              </p>
+              <div class="stack-tags" style="margin-bottom:0;">
+                <span class="stack-tag">React 19</span>
+                <span class="stack-tag">Next.js 14 (App Router)</span>
+                <span class="stack-tag">TypeScript 5</span>
+                <span class="stack-tag">JavaScript (ES2025)</span>
+                <span class="stack-tag">Tailwind CSS 4</span>
+                <span class="stack-tag">Ant Design 6</span>
+                <span class="stack-tag">Electron 39 (Desktop EXE)</span>
+                <span class="stack-tag">Vite / Rolldown</span>
+              </div>
+            </div>
+
+            <div class="capability-row js-gsap-batch">
+              <h3>2. Creative Development, 3D WebGL &amp; Motion Choreography</h3>
+              <p class="sc-body" style="margin-bottom:0.85rem;">
+                Biến giao diện tĩnh thành không gian tương tác sống động bằng Three.js, custom GLSL Vertex/Fragment Shaders, React Three Fiber và kịch bản cuộn trang GSAP ScrollTrigger đạt chuẩn 60fps.
+              </p>
+              <div class="stack-tags" style="margin-bottom:0;">
+                <span class="stack-tag">Three.js (r186)</span>
+                <span class="stack-tag">Custom GLSL Shaders</span>
+                <span class="stack-tag">@react-three/fiber</span>
+                <span class="stack-tag">@react-three/drei</span>
+                <span class="stack-tag">GSAP 3.12 &amp; ScrollTrigger</span>
+                <span class="stack-tag">Framer Motion 12</span>
+                <span class="stack-tag">Scroll-Craft Choreography</span>
+              </div>
+            </div>
+
+            <div class="capability-row js-gsap-batch">
+              <h3>3. AI Interfaces, Hybrid RAG &amp; Computer Vision</h3>
+              <p class="sc-body" style="margin-bottom:0.85rem;">
+                Tích hợp mô hình ngôn ngữ lớn (LLM) và thị giác máy tính trực tiếp vào giao diện người dùng: từ Streaming SSE, trích dẫn nguồn minh bạch, kiểm toán Track Changes đến nhận diện khuôn mặt qua Webcam.
+              </p>
+              <div class="stack-tags" style="margin-bottom:0;">
+                <span class="stack-tag">Temporal &amp; Graph RAG</span>
+                <span class="stack-tag">Gemini 2.5 Flash / Qwen3</span>
+                <span class="stack-tag">FAISS &amp; Neo4j</span>
+                <span class="stack-tag">@vladmandic/face-api</span>
+                <span class="stack-tag">Multimodal OCR</span>
+                <span class="stack-tag">Server-Sent Events (SSE)</span>
+              </div>
+            </div>
+
+            <div class="capability-row js-gsap-batch">
+              <h3>4. Full-Stack Realtime, Payment &amp; Quality Assurance</h3>
+              <p class="sc-body" style="margin-bottom:0.85rem;">
+                Thiết kế RESTful API, đồng bộ phòng Mua Chung qua WebSockets, tích hợp cổng thanh toán VNPay, đóng gói Docker và kiểm thử tự động đầu-cuối.
+              </p>
+              <div class="stack-tags" style="margin-bottom:0;">
+                <span class="stack-tag">Node.js &amp; Express</span>
+                <span class="stack-tag">Python FastAPI</span>
+                <span class="stack-tag">MongoDB &amp; Firebase</span>
+                <span class="stack-tag">Socket.IO Realtime</span>
+                <span class="stack-tag">VNPay Sandbox</span>
+                <span class="stack-tag">Playwright E2E / Jest / Pytest</span>
+                <span class="stack-tag">Docker Compose</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         ACT 5 · COMMITMENT: Pinned Spotlight Hiring Stage (pin + spotlight + magnet)
+         ===================================================================== -->
+    <section id="contact" data-sc-act="pin" data-sc-span="1.25" data-sc-drift="#08090c">
+      <div data-sc-stage class="closing-stage" data-sc-spotlight>
+
+        <div class="closing-main" data-sc-cue="0 1 0 0">
+          <p class="sc-label" style="color:var(--sc-accent);margin-bottom:0.8rem;">AVAILABLE FOR FRONTEND, CREATIVE DEV &amp; FULL-STACK ROLES</p>
+          <h2 class="sc-display sc-display--xl" style="max-width:18ch;margin-bottom:1.25rem;">
+            Sẵn sàng đóng góp vào sản phẩm tiếp theo của đội ngũ bạn.
+          </h2>
+          <p class="sc-lede" style="color:var(--sc-ink-soft);max-width:54ch;">
+            Tôi đang tìm kiếm cơ hội làm việc toàn thời gian hoặc thực tập sinh/Fresher vị trí <strong>Frontend Developer / Creative Developer / Full-Stack Engineer</strong>. Hãy liên hệ trực tiếp để trao đổi về kỹ thuật hoặc lịch phỏng vấn.
+          </p>
+
+          <div class="closing-actions">
+            <a href="mailto:huynhhoa9881@gmail.com?subject=Co%20hoi%20nghe%20nghiep%20-%20Huynh%20Thai%20Hoa" class="btn-primary" data-sc-magnet="0.26" data-sc-rise="0">
+              Gửi Email: huynhhoa9881@gmail.com
+            </a>
+            <button type="button" id="copy-email-btn" class="btn-ghost" data-sc-magnet="0.18" data-sc-rise="0">
+              Sao Chép Email
+            </button>
+            <button type="button" class="btn-ghost" data-open-cv data-sc-magnet="0.18" data-sc-rise="0">
+              Mở &amp; In CV (ATS-Ready)
+            </button>
+            <a href="https://github.com/Hoa26040005" target="_blank" rel="noopener noreferrer" class="btn-ghost" data-sc-magnet="0.18" data-sc-rise="0">
+              GitHub @Hoa26040005 ↗
+            </a>
+          </div>
+        </div>
+
+        <footer class="closing-colophon" data-sc-cue="0 1 0 0">
+          <div>
+            <strong>HUỲNH THÁI HÒA</strong> · huynhhoa9881@gmail.com · github.com/Hoa26040005
+          </div>
+          <div>
+            ENGINEERED WITH SCROLL-CRAFT · THREE.JS r186 · GSAP SCROLLTRIGGER · IMPECCABLE DESIGN SYSTEM
+          </div>
+        </footer>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =======================================================================
+       INTERACTIVE ATS-READY CV / RESUME MODAL (Printable to PDF)
+       ======================================================================= -->
+  <aside id="cv-drawer" class="cv-drawer" aria-hidden="true" role="dialog" aria-labelledby="cv-title">
+    <div class="cv-sheet">
+      <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--sc-hairline);padding-bottom:1rem;margin-bottom:1.5rem;">
+        <div>
+          <h2 id="cv-title" class="sc-display sc-display--md" style="margin:0;">HUỲNH THÁI HÒA</h2>
+          <p style="margin:0.25rem 0 0;font-family:var(--sc-font-mono);font-size:var(--sc-t-xs);color:var(--sc-accent);">
+            FRONTEND &amp; CREATIVE DEVELOPER · FULL-STACK AI ENGINEER
+          </p>
+        </div>
+        <div style="display:flex;gap:0.5rem;">
+          <button type="button" id="print-cv-btn" class="btn-primary">In / Lưu PDF</button>
+          <button type="button" id="close-cv-btn" class="btn-ghost">Đóng ✕</button>
+        </div>
+      </div>
+
+      <div style="display:grid;gap:1.25rem;font-size:var(--sc-t-sm);line-height:1.6;">
+        <div style="display:flex;flex-wrap:wrap;gap:1.25rem;font-family:var(--sc-font-mono);font-size:var(--sc-t-xs);color:var(--sc-ink-soft);">
+          <span>Email: <strong style="color:var(--sc-ink)">huynhhoa9881@gmail.com</strong></span>
+          <span>GitHub: <a href="https://github.com/Hoa26040005" target="_blank" rel="noopener noreferrer" style="color:var(--sc-accent)">github.com/Hoa26040005</a></span>
+          <span>Live Demo: <a href="https://shop-quan-ao-g89r.vercel.app/" target="_blank" rel="noopener noreferrer" style="color:var(--sc-accent)">shop-quan-ao-g89r.vercel.app</a></span>
+        </div>
+
+        <div>
+          <h3 style="font-family:var(--sc-font-mono);font-size:var(--sc-t-xs);color:var(--sc-accent);text-transform:uppercase;margin:0 0 0.4rem;">1. Tóm Tắt Chuyên Môn (Executive Summary)</h3>
+          <p style="margin:0;color:var(--sc-ink-soft);">
+            Lập trình viên Frontend &amp; Creative Developer có nền tảng vững chắc về React 19, Next.js 14, TypeScript, đồ họa 3D WebGL (Three.js, React Three Fiber, GLSL Shaders), hoạt ảnh GSAP ScrollTrigger và phát triển ứng dụng AI thực chiến. Có kinh nghiệm trực tiếp thiết kế kiến trúc, triển khai Production và kiểm thử tự động cho 4 hệ thống phần mềm hoàn chỉnh.
+          </p>
+        </div>
+
+        <div>
+          <h3 style="font-family:var(--sc-font-mono);font-size:var(--sc-t-xs);color:var(--sc-accent);text-transform:uppercase;margin:0 0 0.6rem;">2. Dự Án Tiêu Biểu Trên GitHub (Featured Projects)</h3>
+          <div style="display:grid;gap:0.9rem;">
+            <div>
+              <strong>FashionElite (Shop-Quan-Ao) · Social E-Commerce, 3D R3F &amp; Gemini RAG</strong>
+              <div style="font-family:var(--sc-font-mono);font-size:0.74rem;color:var(--sc-ink-soft);">TypeScript, React 19, @react-three/fiber, Framer Motion, Socket.IO, Node.js, MongoDB, VNPay · <a href="https://github.com/Hoa26040005/Shop-Quan-Ao" target="_blank" rel="noopener noreferrer">Repo</a> · <a href="https://shop-quan-ao-g89r.vercel.app/" target="_blank" rel="noopener noreferrer">Live</a></div>
+              <p style="margin:0.2rem 0 0;color:var(--sc-ink-soft);">Xây dựng hệ thống Mua Chung 2/4/8 người thời gian thực (tự động phân bổ giảm giá, phí vận chuyển và voucher theo tỷ trọng giỏ hàng), diễn đàn cộng đồng gắn đo lường chuyển đổi đơn hàng và trợ lý AI tư vấn phối đồ/chọn size có cơ chế Circuit Breaker.</p>
+            </div>
+
+            <div>
+              <strong>LegalAI Contract Reviewer · Split-Screen Luxury LegalTech &amp; Graph-RAG</strong>
+              <div style="font-family:var(--sc-font-mono);font-size:0.74rem;color:var(--sc-ink-soft);">Next.js 14, TypeScript, Tailwind CSS, Python 3.11, FastAPI, Neo4j Knowledge Graph, OCR · <a href="https://github.com/Hoa26040005/legal-ai-contract-reviewer" target="_blank" rel="noopener noreferrer">Repo</a></div>
+              <p style="margin:0.2rem 0 0;color:var(--sc-ink-soft);">Phát triển giao diện Split-Screen có chế độ Spotlight Focus soi chiếu điều khoản rủi ro, tích hợp OCR khử nghiêng ảnh chụp hợp đồng và xuất file Word (.docx) chứa Track Changes Redline đối chiếu hơn 25 điều luật Việt Nam.</p>
+            </div>
+
+            <div>
+              <strong>AgriPOS (pesticide-shop) · Desktop Electron 39 &amp; 68-Point FaceID ERP</strong>
+              <div style="font-family:var(--sc-font-mono);font-size:0.74rem;color:var(--sc-ink-soft);">React 19, Vite, Electron 39, Ant Design 6, @vladmandic/face-api, Firebase Firestore, QR POS · <a href="https://github.com/Hoa26040005/pesticide-shop" target="_blank" rel="noopener noreferrer">Repo</a></div>
+              <p style="margin:0.2rem 0 0;color:var(--sc-ink-soft);">Xây dựng phần mềm quản lý bán hàng POS đa nền tảng (Web &amp; Windows EXE), đăng nhập nhận diện khuôn mặt 68 điểm mốc qua Webcam, quản lý lô/hạn sử dụng, công nợ nông dân và phân quyền RBAC.</p>
+            </div>
+
+            <div>
+              <strong>Temporal-Aware Vietnamese RAG (RAGNHANBTTHOIGIAN) · Khóa Luận Tốt Nghiệp</strong>
+              <div style="font-family:var(--sc-font-mono);font-size:0.74rem;color:var(--sc-ink-soft);">Python, FastAPI, SSE Streaming UI, Qwen3:4B, FAISS (50.599 chunks), BM25 + RRF · <a href="https://github.com/Hoa26040005/RAGNHANBTTHOIGIAN" target="_blank" rel="noopener noreferrer">Repo</a></div>
+              <p style="margin:0.2rem 0 0;color:var(--sc-ink-soft);">Thiết kế hệ thống RAG nhận thức mốc thời gian cho tiếng Việt trên 49.980 bài báo (2019-2025) và 4.151 fact lịch sử. Đạt 92,7% Year Accuracy (+30,2 điểm % so với RAG truyền thống) trên bộ kiểm chuẩn Eval96.</p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h3 style="font-family:var(--sc-font-mono);font-size:var(--sc-t-xs);color:var(--sc-accent);text-transform:uppercase;margin:0 0 0.4rem;">3. Kỹ Năng Kỹ Thuật (Technical Skills)</h3>
+          <p style="margin:0;color:var(--sc-ink-soft);">
+            <strong>Frontend &amp; Creative:</strong> React 19, Next.js 14, TypeScript, JavaScript (ES6+), Three.js, React Three Fiber, GLSL Shaders, GSAP ScrollTrigger, Framer Motion, Tailwind CSS, Ant Design, Electron.<br>
+            <strong>Backend &amp; AI:</strong> Node.js, Express, Python, FastAPI, MongoDB, Firebase, Neo4j, FAISS, Socket.IO, REST API, SSE Streaming, Playwright E2E, Git, Docker.
+          </p>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Scroll-Craft Runtime Engine -->
+  <script src="engine/scrollcraft.js"></script>
+  <script>
+    if (window.ScrollCraft) {
+      window.ScrollCraft.mount(document.body);
+    }
+  </script>
+
+  <!-- Three.js r186 + GSAP ScrollTrigger + Live Workbench Entrypoint -->
+  <script type="module">
+    import { initPortfolioWebGL } from "./scripts/webgl-core.js";
+    import { initPortfolioChoreography } from "./scripts/choreography.js";
+    import { initPortfolioWorkbench } from "./scripts/workbench.js";
+
+    window.addEventListener("DOMContentLoaded", () => {
+      const webglApi = initPortfolioWebGL();
+      initPortfolioChoreography(webglApi);
+      initPortfolioWorkbench();
+    });
+  </script>
+</body>
+</html>
+

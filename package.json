@@ -1,0 +1,12 @@
+{
+  "name": "thai-hoa-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Personal Creative Developer & Full-Stack AI Portfolio for Huynh Thai Hoa (Hoa26040005), built with scroll-craft, pbakaus/impeccable, threejs-skills, and gsap-skills.",
+  "scripts": {
+    "serve": "node .agents/skills/scroll-craft/scripts/serve.mjs --root . --port 4500",
+    "dev": "npx vite --port 4500"
+  }
+}
+
