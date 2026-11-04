@@ -3,16 +3,16 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Huỳnh Thái Hòa · Frontend & Creative Developer Portfolio</title>
+  <title>Huỳnh Thái Hòa · Creative Developer &amp; Full-Stack AI Portfolio</title>
   <meta name="description" content="Portfolio cá nhân của Huỳnh Thái Hòa (Hoa26040005): Frontend & Creative Developer chuyên sâu React 19, Next.js 14, TypeScript, Three.js WebGL, GSAP và AI UI.">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%2308090C'/><circle cx='16' cy='16' r='7' fill='%23D4FF33'/></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%2306070A'/><circle cx='16' cy='16' r='10' fill='none' stroke='%23D4FF33' stroke-width='2'/><circle cx='16' cy='16' r='4' fill='%23D4FF33'/></svg>">
 
   <!-- Fonts: Syne (Display), Plus Jakarta Sans (Text), JetBrains Mono (Telemetry) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
 
-  <!-- Styles: Scroll-Craft Engine Floor + Portfolio Design System -->
+  <!-- Styles: Scroll-Craft Engine Floor + Redesigned Orbital Portfolio System -->
   <link rel="stylesheet" href="engine/scrollcraft.css">
   <link rel="stylesheet" href="styles/portfolio.css">
 
@@ -30,11 +30,12 @@
 </head>
 <body>
 
-  <!-- Scroll Progress Bar & Atmospheric Film Grain -->
+  <!-- Scroll Progress Bar, Atmospheric Grain & Custom Interactive Cursor Ring -->
   <span data-sc-progress></span>
   <div class="sc-grain" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
 
-  <!-- Fixed Interactive Three.js r186 WebGL Stage -->
+  <!-- Fixed Interactive Three.js r186 WebGL Stage (Particles + 3D Gyroscope Rings) -->
   <div class="webgl-canvas-wrap" aria-hidden="true">
     <canvas id="webgl-stage"></canvas>
   </div>
@@ -44,18 +45,18 @@
     <a href="#hero" class="brand-cluster">
       <span class="status-beacon" aria-hidden="true"></span>
       <span class="brand-name">HUỲNH THÁI HÒA</span>
-      <span class="brand-role">FRONTEND &amp; CREATIVE DEVELOPER</span>
+      <span class="brand-role">CREATIVE FRONTEND &amp; AI ENGINEER</span>
     </a>
 
     <div class="chrome-telemetry" aria-live="polite">
       <span class="telemetry-kv">STAGE: <strong id="hud-active-act">ACT I · RECOGNITION</strong></span>
-      <span class="telemetry-kv">WEBGL: <strong id="hud-topology-name">00 · TORUS-KNOT SOCIAL MESH</strong></span>
+      <span class="telemetry-kv">3D CORE: <strong id="hud-topology-name">00 · TORUS-KNOT SOCIAL MESH</strong></span>
     </div>
 
     <nav class="chrome-nav" aria-label="Điều hướng chính">
-      <a href="#dossier" class="nav-link">Dự Án (4)</a>
+      <a href="#dossier" class="nav-link">4 Vòng Tròn Dự Án</a>
       <a href="#workbench" class="nav-link">Interactive Lab</a>
-      <a href="#telemetry" class="nav-link">Kỹ Năng</a>
+      <a href="#telemetry" class="nav-link">Năng Lực</a>
       <button type="button" class="nav-link" data-open-cv style="background:none;border:none;cursor:pointer;">CV / Resume</button>
       <a href="#contact" class="btn-primary">Tuyển Dụng Thái Hòa</a>
     </nav>
@@ -64,404 +65,611 @@
   <main id="top">
 
     <!-- =====================================================================
-         ACT 1 · RECOGNITION: Dimensional Multi-Plane Hero (parallax + WebGL)
+         ACT 1 · RECOGNITION: Architectural Layered Hero + 3D Orbital Radar
          ===================================================================== -->
-    <section id="hero" class="hero-act" data-sc-act="flow" data-sc-drift="#08090c">
-      <div class="hero-planes">
-        <!-- Far Plane (-1.2 parallax rate) -->
-        <div class="hero-plane hero-plane--far" data-sc-parallax="-1.2" aria-hidden="true"></div>
-
-        <!-- Mid Plane (-0.45 parallax rate): Interactive Shader Controller -->
-        <aside class="hero-plane hero-plane--mid" data-sc-parallax="-0.45" aria-label="Bộ điều khiển mô hình 3D">
-          <div class="shader-readout-card">
-            <div class="shader-readout-header">
-              <span>THREE.JS r186 · GLSL SHADER TOPOLOGY</span>
-              <span style="color:var(--sc-accent)">3,600 PARTICLES</span>
-            </div>
-            <p style="margin:0 0 0.6rem;line-height:1.5;">
-              Mỗi cấu trúc hạt 3D dưới nền biểu diễn kiến trúc toán học của 1 trong 4 dự án thực tế trên GitHub <strong>Hoa26040005</strong>. Nhấp để chuyển trạng thái hoặc cuộn xuống:
-            </p>
-            <div class="topology-pill-group">
-              <button type="button" class="topology-btn is-active" data-topology-select="0">00 · Shop-Quan-Ao</button>
-              <button type="button" class="topology-btn" data-topology-select="1">01 · LegalAI Graph</button>
-              <button type="button" class="topology-btn" data-topology-select="2">02 · AgriPOS FaceID</button>
-              <button type="button" class="topology-btn" data-topology-select="3">03 · Temporal RAG</button>
-            </div>
-          </div>
-        </aside>
-
-        <!-- Foreground Plane (+0.35 parallax rate): Live Production Proof Card -->
-        <div class="hero-plane hero-plane--front" data-sc-parallax="0.35">
-          <div class="shader-readout-card">
-            <div style="display:flex;justify-content:space-between;margin-bottom:0.35rem;">
-              <span style="color:var(--sc-ink);font-weight:600;">GITHUB: Hoa26040005</span>
-              <span style="color:var(--ok-green);">● SẴN SÀNG NHẬN VIỆC</span>
-            </div>
-            <div style="color:var(--sc-ink-soft);font-size:0.75rem;">
-              React 19 · Next.js 14 · TypeScript · Three.js / R3F · GSAP ScrollTrigger · Electron 39 · FastAPI AI UI
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 1x Copy Plane -->
+    <section id="hero" class="hero-act" data-sc-act="flow" data-sc-drift="#06070a">
       <div class="hero-content">
+
+        <!-- Left Column: Editorial Identity & Value Proposition -->
         <div>
-          <p class="sc-label">HUỲNH THÁI HÒA · FRONTEND, WEBGL &amp; FULL-STACK AI ENGINEER</p>
+          <div class="hero-badge-pill">
+            <span>● AVAILABLE FOR HIRE</span>
+            <span>·</span>
+            <span>GITHUB: @Hoa26040005</span>
+          </div>
+
           <h1 class="hero-headline">
-            Kiến tạo giao diện <em>có chiều sâu điện ảnh</em> và hệ thống thực thi chính xác.
+            Thiết kế không gian tương tác <em>3D WebGL</em> &amp; kiến trúc sản phẩm thực chiến.
           </h1>
+
           <p class="hero-lede">
-            Tôi là <strong>Huỳnh Thái Hòa</strong>, lập trình viên Frontend &amp; Creative Developer kết hợp chuyển động 3D WebGL (Three.js, React Three Fiber, GSAP) với kiến trúc sản phẩm thực chiến: từ thương mại điện tử Mua Chung thời gian thực, thẩm định hợp đồng LegalTech, POS nhận diện khuôn mặt 68 điểm mốc đến hệ thống RAG nhận thức thời gian.
+            Xin chào, tôi là <strong>Huỳnh Thái Hòa</strong>. Tôi xây dựng những giao diện Web và Desktop có chiều sâu điện ảnh bằng <strong>React 19, Next.js 14, TypeScript, Three.js (GLSL Shaders) và GSAP ScrollTrigger</strong>, kết nối trực tiếp với hệ thống AI RAG, thị giác máy tính và giao dịch thời gian thực.
           </p>
 
           <div class="hero-actions">
-            <a href="#dossier" class="btn-primary" data-sc-magnet="0.22">Khám Phá 4 Dự Án GitHub</a>
-            <button type="button" class="btn-ghost" data-open-cv>Xem Hồ Sơ CV Chuẩn ATS</button>
+            <a href="#dossier" class="btn-primary" data-sc-magnet="0.22">Khám Phá 4 Vòng Tròn Dự Án ↓</a>
+            <button type="button" class="btn-ghost" data-open-cv>Mở Hồ Sơ CV Chuẩn ATS</button>
             <a href="https://github.com/Hoa26040005" target="_blank" rel="noopener noreferrer" class="btn-ghost">GitHub @Hoa26040005 ↗</a>
           </div>
 
-          <div class="hero-QuickIndex">
-            <a href="#dossier" class="quick-repo-link" data-topology-select="0">
-              <code>Hoa26040005/Shop-Quan-Ao</code>
-              <span>FashionElite · Mua Chung Realtime &amp; R3F</span>
-            </a>
-            <a href="#dossier" class="quick-repo-link" data-topology-select="1">
-              <code>Hoa26040005/legal-ai-contract-reviewer</code>
-              <span>LegalAI · Split-Screen Luxury LegalTech</span>
-            </a>
-            <a href="#dossier" class="quick-repo-link" data-topology-select="2">
-              <code>Hoa26040005/pesticide-shop</code>
-              <span>AgriPOS · Electron 39 &amp; 68-Point FaceID</span>
-            </a>
-            <a href="#dossier" class="quick-repo-link" data-topology-select="3">
-              <code>Hoa26040005/RAGNHANBTTHOIGIAN</code>
-              <span>Temporal RAG · 92.7% Year Accuracy UI</span>
-            </a>
+          <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0.75rem;padding-top:1.25rem;border-top:1px solid var(--sc-hairline);">
+            <div>
+              <strong style="font-family:var(--sc-font-display);font-size:1.55rem;color:var(--sc-accent);display:block;">4 Hệ Thống</strong>
+              <span style="font-family:var(--sc-font-mono);font-size:0.72rem;color:var(--sc-ink-soft);">Full-Stack &amp; AI Production</span>
+            </div>
+            <div>
+              <strong style="font-family:var(--sc-font-display);font-size:1.55rem;color:var(--sc-ink);display:block;">92,7% YrOK</strong>
+              <span style="font-family:var(--sc-font-mono);font-size:0.72rem;color:var(--sc-ink-soft);">Độ chính xác Temporal RAG</span>
+            </div>
+            <div>
+              <strong style="font-family:var(--sc-font-display);font-size:1.55rem;color:var(--cyan-glow);display:block;">24 Chiều Sâu</strong>
+              <span style="font-family:var(--sc-font-mono);font-size:0.72rem;color:var(--sc-ink-soft);">6 Nút Quỹ Đạo / Mỗi Dự Án</span>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="hero-floor-fade" aria-hidden="true"></div>
+        <!-- Right Column: Interactive 3D Orbital Radar Controller -->
+        <aside class="hero-radar-deck" data-sc-parallax="-0.3" aria-label="Bộ điều khiển Quỹ đạo 3D">
+          <div style="display:flex;justify-content:space-between;align-items:center;font-family:var(--sc-font-mono);font-size:0.74rem;color:var(--sc-ink-soft);">
+            <span>ORBITAL TELEMETRY CORE</span>
+            <span style="color:var(--sc-accent)">THREE.JS r186 + GLSL</span>
+          </div>
+
+          <div class="radar-ring-mini">
+            <svg viewBox="0 0 260 260" fill="none" aria-hidden="true">
+              <circle cx="130" cy="130" r="120" stroke="rgba(245,242,235,0.12)" stroke-width="1" stroke-dasharray="6 6"/>
+              <circle cx="130" cy="130" r="96" stroke="rgba(212,255,51,0.3)" stroke-width="1.2" stroke-dasharray="32 14 8 14"/>
+              <circle cx="130" cy="130" r="74" stroke="rgba(92,225,230,0.22)" stroke-width="1"/>
+              <circle cx="130" cy="10" r="4" fill="#d4ff33"/>
+              <circle cx="234" cy="70" r="3.5" fill="#5ce1e6"/>
+              <circle cx="234" cy="190" r="3.5" fill="#d4ff33"/>
+              <circle cx="130" cy="250" r="4" fill="#2ee59d"/>
+              <circle cx="26" cy="190" r="3.5" fill="#5ce1e6"/>
+              <circle cx="26" cy="70" r="3.5" fill="#d4ff33"/>
+            </svg>
+            <div class="radar-center-badge">
+              <span style="font-family:var(--sc-font-mono);font-size:0.68rem;color:var(--sc-accent);">3,600 PARTICLES</span>
+              <strong style="font-family:var(--sc-font-display);font-size:1.25rem;color:var(--sc-ink);">ORBITAL UI</strong>
+              <span style="font-family:var(--sc-font-mono);font-size:0.68rem;color:var(--sc-ink-soft);">Click để đổi hình thái 3D</span>
+            </div>
+          </div>
+
+          <div class="topology-pill-group">
+            <button type="button" class="topology-btn is-active" data-topology-select="0">
+              <strong>01 · Shop-Quan-Ao</strong><br>
+              <span>Torus-Knot GroupBuy</span>
+            </button>
+            <button type="button" class="topology-btn" data-topology-select="1">
+              <strong>02 · LegalAI Reviewer</strong><br>
+              <span>Neo4j Graph Helix</span>
+            </button>
+            <button type="button" class="topology-btn" data-topology-select="2">
+              <strong>03 · AgriPOS FaceID</strong><br>
+              <span>68-Point Face Mesh</span>
+            </button>
+            <button type="button" class="topology-btn" data-topology-select="3">
+              <strong>04 · Temporal RAG</strong><br>
+              <span>2019-2025 Wave Field</span>
+            </button>
+          </div>
+        </aside>
+
+      </div>
     </section>
 
     <!-- =====================================================================
-         ACT 2 · SUBSTANCE (THE PEAK): Pinned 4-Project Dossier (pin + morph)
+         ACT 2 · THE 360° INTERACTIVE ORBITAL PROJECT SHOWCASES
+         Each project has 6 clickable satellite nodes arranged in a circle!
          ===================================================================== -->
-    <section id="dossier" data-sc-act="pin" data-sc-span="4.2" data-sc-drift="#0b0e14">
-      <div data-sc-stage class="dossier-stage">
+    <section id="dossier" class="orbital-section" data-sc-act="flow" data-sc-drift="#090c12">
+      <div class="sc-wrap">
 
-        <div class="dossier-topbar">
-          <div class="dossier-tabs" role="tablist" aria-label="4 Dự Án GitHub Nổi Bật">
-            <button type="button" class="dossier-tab is-active" data-project-tab="0">01 · Shop-Quan-Ao (TypeScript)</button>
-            <button type="button" class="dossier-tab" data-project-tab="1">02 · LegalAI Reviewer (Next.js 14)</button>
-            <button type="button" class="dossier-tab" data-project-tab="2">03 · AgriPOS FaceID (React 19 + Electron)</button>
-            <button type="button" class="dossier-tab" data-project-tab="3">04 · Temporal RAG (Streaming Web UI)</button>
+        <div class="section-header-bar">
+          <div>
+            <p class="sc-label" style="color:var(--sc-accent);margin-bottom:0.5rem;">INTERACTIVE 360° ORBITAL ARCHITECTURE</p>
+            <h2 class="sc-display sc-display--lg">Bốn Dự Án GitHub Với Vòng Tròn Khám Phá 6 Chiều Sâu.</h2>
           </div>
-          <div class="sc-label">SCROLL SCRUB: <strong id="dossier-progress-readout" style="color:var(--sc-accent)">0%</strong></div>
+          <p class="sc-body" style="max-width:46ch;">
+            Xung quanh mỗi dự án là <strong>vòng tròn quỹ đạo gồm 6 nút thông tin</strong> (Tổng quan, Kiến trúc, Công nghệ, Thuật toán, Kết quả, Live Demo). <strong>Hãy ấn vào bất kỳ nút nào trên vòng tròn</strong> hoặc <strong>ấn vào tâm vòng tròn</strong> để bung toàn bộ chi tiết kỹ thuật.
+          </p>
         </div>
 
-        <div class="dossier-deck">
+        <!-- Sticky Quick-Jump Bar -->
+        <div class="project-selector-bar">
+          <div class="project-jump-pills">
+            <a href="#arena-fashion" class="project-jump-btn is-active">01 · Shop-Quan-Ao (FashionElite)</a>
+            <a href="#arena-legal" class="project-jump-btn">02 · legal-ai-contract-reviewer</a>
+            <a href="#arena-agripos" class="project-jump-btn">03 · pesticide-shop (AgriPOS)</a>
+            <a href="#arena-temporal" class="project-jump-btn">04 · RAGNHANBTTHOIGIAN</a>
+          </div>
+          <span style="font-family:var(--sc-font-mono);font-size:0.72rem;color:var(--sc-accent);">
+            ★ Mẹo: Ấn vào các nút trên vòng tròn để xoay tia quét chi tiết
+          </span>
+        </div>
 
-          <!-- PROJECT 1: Shop-Quan-Ao (FashionElite) · Greet cue (0 0.28 0) -->
-          <article class="project-slide is-interactive" data-sc-cue="0 0.28 0">
-            <div class="project-copy">
-              <div class="project-meta-row">
-                <span>REPO: Hoa26040005/Shop-Quan-Ao</span>
-                <span>·</span>
-                <span>VERCEL + RENDER PRODUCTION</span>
-              </div>
-              <h2 class="project-title">FashionElite: Nền Tảng Thương Mại Xã Hội Mua Chung, Diễn Đàn &amp; Trợ Lý AI</h2>
-              <p class="project-summary">
-                Ứng dụng thương mại điện tử thời trang quy mô lớn tích hợp 3D hiển thị sản phẩm (React Three Fiber), phòng Mua Chung 2/4/8 thành viên qua Socket.IO thời gian thực, diễn đàn cộng đồng gắn đo lường chuyển đổi (Attribution) và trợ lý mua sắm Gemini 2.5 Flash + RAG.
-              </p>
-              <ul class="project-highlights">
-                <li><strong>Mua Chung 1 Đơn Tổng (Group-Buy Engine):</strong> Chủ phòng gom 2/4/8 người chọn món riêng; tự động phân bổ giảm giá bậc thang, phí ship và voucher theo tỷ trọng giỏ hàng (đã kiểm chứng thực tế: <code>910.812đ = 707.813đ + 202.999đ</code>).</li>
-                <li><strong>Diễn Đàn &amp; Attribution:</strong> Luồng kiểm duyệt bài viết, chống gian lận, chấm điểm đóng góp và phát hành voucher tự động hàng tháng.</li>
-                <li><strong>Frontend &amp; 3D Craft:</strong> Xây dựng bằng React 19, TypeScript, Three.js (<code>@react-three/fiber</code>, <code>@react-three/drei</code>), Framer Motion, Recharts và kiểm thử E2E Playwright.</li>
-              </ul>
-              <div class="stack-tags">
-                <span class="stack-tag">TypeScript</span>
-                <span class="stack-tag">React 19</span>
-                <span class="stack-tag">React Three Fiber</span>
-                <span class="stack-tag">Framer Motion</span>
-                <span class="stack-tag">Tailwind CSS 4</span>
-                <span class="stack-tag">Socket.IO</span>
-                <span class="stack-tag">Node.js / MongoDB</span>
-                <span class="stack-tag">VNPay / Gemini RAG</span>
-              </div>
-              <div class="project-links">
-                <a href="https://shop-quan-ao-g89r.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-primary">Mở Live Demo (Vercel) ↗</a>
-                <a href="https://github.com/Hoa26040005/Shop-Quan-Ao" target="_blank" rel="noopener noreferrer" class="btn-ghost">Mã Nguồn GitHub ↗</a>
+        <!-- =================================================================
+             ORBITAL PROJECT 1: Shop-Quan-Ao (FashionElite)
+             ================================================================= -->
+        <article id="arena-fashion" class="project-orbital-arena js-gsap-batch" data-orbital-project="fashion">
+          <div class="arena-top-bar">
+            <div class="arena-repo-tag">
+              <span>PROJECT 01 / 04</span>
+              <span>·</span>
+              <code>github.com/Hoa26040005/Shop-Quan-Ao</code>
+              <span>·</span>
+              <span style="color:var(--ok-green)">● LIVE ON VERCEL &amp; RENDER</span>
+            </div>
+            <div style="display:flex;gap:0.5rem;">
+              <button type="button" class="btn-ghost" data-open-project-modal>Xem Toàn Bộ 6 Chiều Sâu (Full Modal) ⤢</button>
+              <a href="https://shop-quan-ao-g89r.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-primary">Mở Live Demo ↗</a>
+            </div>
+          </div>
+
+          <div class="arena-layout">
+            <!-- Left: 360° Orbital Circle around the Project -->
+            <div class="orbital-wheel-stage" aria-label="Vòng tròn giới thiệu dự án FashionElite">
+              <svg class="orbital-tracks-svg" viewBox="0 0 400 400" fill="none">
+                <circle cx="200" cy="200" r="188" stroke="rgba(245,242,235,0.06)" stroke-width="1"/>
+                <circle class="orbit-ring-dashed" cx="200" cy="200" r="172" stroke="rgba(212,255,51,0.32)" stroke-width="1.2" stroke-dasharray="10 8"/>
+                <circle class="orbit-ring-counter" cx="200" cy="200" r="136" stroke="rgba(92,225,230,0.22)" stroke-width="1" stroke-dasharray="24 12"/>
+                <line class="orbit-active-beam" x1="200" y1="200" x2="200" y2="28"/>
+              </svg>
+
+              <!-- 6 Clickable Orbital Nodes around the Circle -->
+              <button type="button" class="orbital-node is-active" data-angle="0">
+                <span class="orbital-node-dot"></span>
+                <span>01 · Tổng Quan</span>
+              </button>
+              <button type="button" class="orbital-node" data-angle="60">
+                <span class="orbital-node-dot"></span>
+                <span>02 · Kiến Trúc</span>
+              </button>
+              <button type="button" class="orbital-node" data-angle="120">
+                <span class="orbital-node-dot"></span>
+                <span>03 · Công Nghệ 3D</span>
+              </button>
+              <button type="button" class="orbital-node" data-angle="180">
+                <span class="orbital-node-dot"></span>
+                <span>04 · Thuật Toán</span>
+              </button>
+              <button type="button" class="orbital-node" data-angle="240">
+                <span class="orbital-node-dot"></span>
+                <span>05 · Kết Quả</span>
+              </button>
+              <button type="button" class="orbital-node" data-angle="300">
+                <span class="orbital-node-dot"></span>
+                <span>06 · Live Demo</span>
+              </button>
+
+              <!-- Center Project Hub -->
+              <div class="orbital-center-core" data-open-project-modal role="button" tabindex="0" aria-label="Mở toàn bộ chi tiết dự án FashionElite">
+                <img class="core-backdrop-img" src="assets/projects/fashion-groupbuy.png" width="640" height="400" alt="FashionElite GroupBuy UI">
+                <div class="core-scrim"></div>
+                <div class="core-inner-copy">
+                  <span class="core-kicker">TYPESCRIPT · REACT 19 · R3F</span>
+                  <h3 class="core-project-name">FashionElite<br>Shop-Quan-Ao</h3>
+                  <span class="core-metric-pill">✓ 910.812đ Group-Buy Split</span>
+                  <span class="core-expand-hint">Ấn mở hồ sơ đầy đủ ⤢</span>
+                </div>
               </div>
             </div>
 
-            <div class="project-visual">
-              <div class="browser-window" data-sc-tilt="4">
-                <div class="browser-chrome">
-                  <div class="browser-dots"><span></span><span></span><span></span></div>
-                  <span>https://shop-quan-ao-g89r.vercel.app/group-buy</span>
-                  <span>PRODUCTION UI</span>
+            <!-- Right: Dynamic Orbital Inspector Dock -->
+            <div class="orbital-inspector-dock">
+              <div>
+                <div class="inspector-header">
+                  <span class="inspector-node-badge js-inspector-badge">NODE 01 · TỔNG QUAN &amp; BÀI TOÁN</span>
+                  <div class="inspector-step-dots" aria-label="Chuyển nút quỹ đạo">
+                    <button type="button" class="inspector-step-dot is-active" aria-label="Nút 1"></button>
+                    <button type="button" class="inspector-step-dot" aria-label="Nút 2"></button>
+                    <button type="button" class="inspector-step-dot" aria-label="Nút 3"></button>
+                    <button type="button" class="inspector-step-dot" aria-label="Nút 4"></button>
+                    <button type="button" class="inspector-step-dot" aria-label="Nút 5"></button>
+                    <button type="button" class="inspector-step-dot" aria-label="Nút 6"></button>
+                  </div>
                 </div>
-                <div class="browser-body">
-                  <img src="assets/projects/fashion-groupbuy.png" width="1280" height="800" alt="Giao diện sảnh Mua Chung trên môi trường Production của dự án Shop-Quan-Ao FashionElite">
-                </div>
-              </div>
-              <div class="telemetry-strip">
-                <div class="telemetry-cell">
-                  <strong>2 / 4 / 8</strong>
-                  <span>Cơ chế phòng Mua Chung Realtime</span>
-                </div>
-                <div class="telemetry-cell">
-                  <strong>910.812đ</strong>
-                  <span>Đơn tổng phân bổ chính xác từng đồng</span>
-                </div>
-                <div class="telemetry-cell">
-                  <strong>10 Intents</strong>
-                  <span>Rule-first AI Router + Circuit Breaker</span>
-                </div>
-              </div>
-            </div>
-          </article>
 
-          <!-- PROJECT 2: legal-ai-contract-reviewer (LegalAI) -->
-          <article class="project-slide" data-sc-cue="0.24 0.54">
-            <div class="project-copy">
-              <div class="project-meta-row">
-                <span>REPO: Hoa26040005/legal-ai-contract-reviewer</span>
-                <span>·</span>
-                <span>NEXT.JS 14 + FASTAPI GRAPH-RAG</span>
-              </div>
-              <h2 class="project-title">LegalAI Contract Reviewer: Giao Diện Split-Screen Luxury LegalTech &amp; Redline</h2>
-              <p class="project-summary">
-                Hệ thống rà soát, phát hiện bẫy và đánh giá rủi ro pháp lý hợp đồng tại Việt Nam. Kết hợp giao diện Split-Screen Luxury LegalTech trên Next.js 14 với Hybrid RAG (Vector Search + Neo4j Knowledge Graph) và xuất trực tiếp file Word chứa Track Changes.
-              </p>
-              <ul class="project-highlights">
-                <li><strong>Trải Nghiệm Split-Screen &amp; Spotlight Focus:</strong> Làm nổi bật điều khoản đang rà soát, hiển thị phổ màu phân bổ rủi ro (Risk Distribution Spectrum), đóng mộc <code>AI AUDITED - LEGAL STANDARD</code> và AI Copilot Chat 1-click.</li>
-                <li><strong>Thẩm Định 25+ Điều Luật Việt Nam:</strong> Bộ luật Lao động 2019 (chống giữ bằng gốc Điều 17.1, trần thử việc Điều 25), Luật Thương mại 2005 (trần phạt 8% Điều 301), Bộ luật Dân sự 2015 (trần lãi 20%/năm Điều 468).</li>
-                <li><strong>Multimodal OCR &amp; 1-Click Word Redline:</strong> Tự động khử nghiêng (Deskew), nâng tương phản 1.8x cho ảnh chụp điện thoại và xuất file <code>.docx</code> gạch đỏ <code>[-]</code> điều khoản sai, gạch chân xanh <code>[+]</code> điều khoản đề xuất.</li>
-              </ul>
-              <div class="stack-tags">
-                <span class="stack-tag">Next.js 14</span>
-                <span class="stack-tag">TypeScript</span>
-                <span class="stack-tag">Tailwind CSS</span>
-                <span class="stack-tag">FastAPI (Python 3.11)</span>
-                <span class="stack-tag">Neo4j Knowledge Graph</span>
-                <span class="stack-tag">Multimodal OCR</span>
-                <span class="stack-tag">Docx Redline Engine</span>
-              </div>
-              <div class="project-links">
-                <a href="https://github.com/Hoa26040005/legal-ai-contract-reviewer" target="_blank" rel="noopener noreferrer" class="btn-primary">Xem Repo trên GitHub ↗</a>
-                <a href="#workbench" class="btn-ghost">Thử Máy Kiểm Toán Redline ↓</a>
-              </div>
-            </div>
-
-            <div class="project-visual">
-              <div class="browser-window" data-sc-tilt="4">
-                <div class="browser-chrome">
-                  <div class="browser-dots"><span></span><span></span><span></span></div>
-                  <span>legal-ai-contract-reviewer · Split-Screen Spotlight View</span>
-                  <span>AI AUDITED</span>
+                <div class="js-inspector-anim-target">
+                  <h3 class="inspector-project-title">FashionElite: Mua Chung Realtime, Diễn Đàn &amp; Trợ Lý AI</h3>
+                  <h4 class="inspector-node-title js-inspector-title">Kết hợp Mua Chung Xã Hội, Diễn Đàn Cộng Đồng và Trợ Lý AI</h4>
+                  <p class="inspector-body-content js-inspector-body"></p>
+                  <pre class="inspector-code-box js-inspector-code"></pre>
                 </div>
-                <div class="browser-body">
-                  <div class="arch-preview">
-                    <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(243,239,230,0.14);padding-bottom:0.6rem;">
-                      <span style="color:var(--sc-accent);font-weight:600;">SPOTLIGHT FOCUS · ĐIỀU 4.2 PHẠT VI PHẠM</span>
-                      <span style="padding:0.2rem 0.5rem;border:1px solid var(--danger-rose);color:var(--danger-rose);border-radius:4px;">VI PHẠM ĐIỀU 301 LTM</span>
-                    </div>
-                    <div style="display:grid;gap:0.65rem;my:auto;">
-                      <div class="redline-del">
-                        [-] Điều 4.2: Nếu Bên B chậm tiến độ, Bên B chịu phạt vi phạm 25% tổng giá trị hợp đồng cho mỗi tuần chậm trễ và Bên A có quyền giữ bản gốc giấy phép kinh doanh.
-                      </div>
-                      <div class="redline-ins">
-                        [+] Điều 4.2 (AI Redline Đề Xuất): Mức phạt chậm tiến độ tính theo thiệt hại thực tế nhưng tổng mức phạt không vượt quá 8% giá trị phần nghĩa vụ hợp đồng bị vi phạm (Điều 301 Luật Thương mại 2005).
-                      </div>
-                      <div style="padding:0.6rem;background:rgba(212,255,51,0.08);border-radius:6px;color:var(--sc-ink);">
-                        <strong>Graph-RAG Citation:</strong> Node(Luật Thương mại 2005) ➔ Edge(CAPS_PENALTY_AT_8_PCT) ➔ Clause(Điều 301).
-                      </div>
-                    </div>
-                    <div style="display:flex;justify-content:space-between;color:var(--sc-ink-soft);border-top:1px solid rgba(243,239,230,0.12);padding-top:0.5rem;">
-                      <span>Risk Spectrum: 2 Critical · 3 Medium · 14 Safe</span>
-                      <span style="color:var(--ok-green)">Export .DOCX Track Changes Ready</span>
-                    </div>
+
+                <div class="inspector-metrics-row">
+                  <div class="inspector-metric-card">
+                    <strong>2 / 4 / 8</strong>
+                    <span>Phòng Mua Chung Socket.IO</span>
+                  </div>
+                  <div class="inspector-metric-card">
+                    <strong>910.812đ</strong>
+                    <span>Phân bổ chuẩn từng đồng</span>
+                  </div>
+                  <div class="inspector-metric-card">
+                    <strong>10 Intents</strong>
+                    <span>Gemini 2.5 Flash + RAG</span>
                   </div>
                 </div>
               </div>
-              <div class="telemetry-strip">
-                <div class="telemetry-cell">
-                  <strong>25+ Luật</strong>
-                  <span>Lao động, Thương mại, Dân sự, NĐ 13</span>
+
+              <div class="inspector-actions">
+                <div style="display:flex;gap:0.4rem;">
+                  <button type="button" class="btn-ghost js-node-prev">← Nút Trước</button>
+                  <button type="button" class="btn-ghost js-node-next">Nút Tiếp Theo →</button>
                 </div>
-                <div class="telemetry-cell">
-                  <strong>1.8x OCR</strong>
-                  <span>Khử góc nghiêng Deskew ảnh chụp mờ</span>
-                </div>
-                <div class="telemetry-cell">
-                  <strong>1-Click</strong>
-                  <span>Xuất Word (.docx) Track Changes</span>
+                <div style="display:flex;gap:0.5rem;">
+                  <a href="https://github.com/Hoa26040005/Shop-Quan-Ao" target="_blank" rel="noopener noreferrer" class="btn-ghost">GitHub Repo ↗</a>
+                  <button type="button" class="btn-primary" data-open-project-modal>Chi Tiết Toàn Diện ⤢</button>
                 </div>
               </div>
             </div>
-          </article>
+          </div>
+        </article>
 
-          <!-- PROJECT 3: pesticide-shop (AgriPOS) -->
-          <article class="project-slide" data-sc-cue="0.50 0.78">
-            <div class="project-copy">
-              <div class="project-meta-row">
-                <span>REPO: Hoa26040005/pesticide-shop</span>
-                <span>·</span>
-                <span>REACT 19 + ELECTRON 39 + FACE-API</span>
-              </div>
-              <h2 class="project-title">AgriPOS: Hệ Thống Quản Lý Cửa Hàng Thuốc BVTV Đa Nền Tảng Với FaceID</h2>
-              <p class="project-summary">
-                Ứng dụng Desktop (đóng gói bộ cài Windows NSIS EXE qua Electron 39) và Web quản trị toàn diện cho đại lý vật tư nông nghiệp: tích hợp đăng nhập nhận diện khuôn mặt bằng mạng nơ-ron ngay trên trình duyệt, bán hàng POS quét QR, quản lý hạn sử dụng theo lô và công nợ mùa vụ.
-              </p>
-              <ul class="project-highlights">
-                <li><strong>Sinh Trắc Học Khuôn Mặt (Biometric FaceID Auth):</strong> Tích hợp <code>@vladmandic/face-api</code> (SSD MobileNetV1 + 68-Point Landmark + Face Recognition Net) xác thực khuôn mặt trực tiếp qua Webcam.</li>
-                <li><strong>Phân Quyền RBAC &amp; Bảo Mật Tự Động:</strong> Route bảo vệ <code>ProtectedAdminRoute</code> khóa chặt báo cáo tài chính và nhật ký hệ thống (<code>SystemLogs</code>) đối với thu ngân, kết hợp hook <code>useAutoLogout</code>.</li>
-                <li><strong>Bán Hàng POS &amp; Xuất Báo Cáo:</strong> Quét mã QR sản phẩm, theo dõi sổ nợ nông dân (<code>DebtList</code>), in hóa đơn trực tiếp và xuất báo cáo PDF/Excel (<code>jsPDF</code>, <code>xlsx</code>).</li>
-              </ul>
-              <div class="stack-tags">
-                <span class="stack-tag">React 19</span>
-                <span class="stack-tag">Rolldown-Vite 7</span>
-                <span class="stack-tag">Electron 39 (Desktop EXE)</span>
-                <span class="stack-tag">Ant Design 6</span>
-                <span class="stack-tag">@vladmandic/face-api</span>
-                <span class="stack-tag">Firebase Firestore</span>
-                <span class="stack-tag">QR POS / jsPDF / XLSX</span>
-              </div>
-              <div class="project-links">
-                <a href="https://github.com/Hoa26040005/pesticide-shop" target="_blank" rel="noopener noreferrer" class="btn-primary">Xem Repo trên GitHub ↗</a>
-                <a href="#workbench" class="btn-ghost">Thử Mô Phỏng 68-Point FaceID ↓</a>
+        <!-- =================================================================
+             ORBITAL PROJECT 2: legal-ai-contract-reviewer (LegalAI)
+             ================================================================= -->
+        <article id="arena-legal" class="project-orbital-arena js-gsap-batch" data-orbital-project="legal" style="--arena-accent:#5ce1e6;">
+          <div class="arena-top-bar">
+            <div class="arena-repo-tag">
+              <span>PROJECT 02 / 04</span>
+              <span>·</span>
+              <code>github.com/Hoa26040005/legal-ai-contract-reviewer</code>
+              <span>·</span>
+              <span style="color:var(--cyan-glow)">● NEXT.JS 14 + NEO4J GRAPH-RAG</span>
+            </div>
+            <div style="display:flex;gap:0.5rem;">
+              <button type="button" class="btn-ghost" data-open-project-modal>Xem Toàn Bộ 6 Chiều Sâu (Full Modal) ⤢</button>
+              <a href="https://github.com/Hoa26040005/legal-ai-contract-reviewer" target="_blank" rel="noopener noreferrer" class="btn-primary">Mở GitHub Repo ↗</a>
+            </div>
+          </div>
+
+          <div class="arena-layout">
+            <!-- Left: 360° Orbital Circle around the Project -->
+            <div class="orbital-wheel-stage" aria-label="Vòng tròn giới thiệu dự án LegalAI Contract Reviewer">
+              <svg class="orbital-tracks-svg" viewBox="0 0 400 400" fill="none">
+                <circle cx="200" cy="200" r="188" stroke="rgba(245,242,235,0.06)" stroke-width="1"/>
+                <circle class="orbit-ring-dashed" cx="200" cy="200" r="172" stroke="rgba(92,225,230,0.35)" stroke-width="1.2" stroke-dasharray="10 8"/>
+                <circle class="orbit-ring-counter" cx="200" cy="200" r="136" stroke="rgba(212,255,51,0.22)" stroke-width="1" stroke-dasharray="24 12"/>
+                <line class="orbit-active-beam" x1="200" y1="200" x2="200" y2="28"/>
+              </svg>
+
+              <!-- 6 Clickable Orbital Nodes around the Circle -->
+              <button type="button" class="orbital-node is-active" data-angle="0">
+                <span class="orbital-node-dot"></span>
+                <span>01 · Bẫy Pháp Lý</span>
+              </button>
+              <button type="button" class="orbital-node" data-angle="60">
+                <span class="orbital-node-dot"></span>
+                <span>02 · Graph-RAG</span>
+              </button>
+              <button type="button" class="orbital-node" data-angle="120">
+                <span class="orbital-node-dot"></span>
+                <span>03 · Split-Screen UI</span>
+              </button>
+              <button type="button" class="orbital-node" data-angle="180">
+                <span class="orbital-node-dot"></span>
+                <span>04 · OCR &amp; Redline</span>
+              </button>
+              <button type="button" class="orbital-node" data-angle="240">
+                <span class="orbital-node-dot"></span>
+                <span>05 · Kiểm Thử CI</span>
+              </button>
+              <button type="button" class="orbital-node" data-angle="300">
+                <span class="orbital-node-dot"></span>
+                <span>06 · Thử Redline</span>
+              </button>
+
+              <!-- Center Project Hub -->
+              <div class="orbital-center-core" data-open-project-modal role="button" tabindex="0" aria-label="Mở toàn bộ chi tiết dự án LegalAI Contract Reviewer">
+                <img class="core-backdrop-img" src="assets/projects/fashion-forum.png" width="640" height="400" alt="LegalAI Interface Backdrop">
+                <div class="core-scrim"></div>
+                <div class="core-inner-copy">
+                  <span class="core-kicker">NEXT.JS 14 · FASTAPI · NEO4J</span>
+                  <h3 class="core-project-name">LegalAI<br>Contract Auditor</h3>
+                  <span class="core-metric-pill">✓ 25+ Điều Luật &amp; .DOCX Redline</span>
+                  <span class="core-expand-hint">Ấn mở hồ sơ đầy đủ ⤢</span>
+                </div>
               </div>
             </div>
 
-            <div class="project-visual">
-              <div class="browser-window" data-sc-tilt="4">
-                <div class="browser-chrome">
-                  <div class="browser-dots"><span></span><span></span><span></span></div>
-                  <span>com.pesticideshop.app · Electron 39 Desktop &amp; FaceID POS</span>
-                  <span>68 LANDMARKS</span>
+            <!-- Right: Dynamic Orbital Inspector Dock -->
+            <div class="orbital-inspector-dock">
+              <div>
+                <div class="inspector-header">
+                  <span class="inspector-node-badge js-inspector-badge">NODE 01 · TỔNG QUAN &amp; BÀI TOÁN</span>
+                  <div class="inspector-step-dots" aria-label="Chuyển nút quỹ đạo">
+                    <button type="button" class="inspector-step-dot is-active" aria-label="Nút 1"></button>
+                    <button type="button" class="inspector-step-dot" aria-label="Nút 2"></button>
+                    <button type="button" class="inspector-step-dot" aria-label="Nút 3"></button>
+                    <button type="button" class="inspector-step-dot" aria-label="Nút 4"></button>
+                    <button type="button" class="inspector-step-dot" aria-label="Nút 5"></button>
+                    <button type="button" class="inspector-step-dot" aria-label="Nút 6"></button>
+                  </div>
                 </div>
-                <div class="browser-body">
-                  <div class="arch-preview">
-                    <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(243,239,230,0.14);padding-bottom:0.6rem;">
-                      <span style="color:var(--sc-accent);font-weight:600;">WEBCAM BIOMETRIC PIPELINE · FACE_LANDMARK_68</span>
-                      <span style="color:var(--ok-green);">CONFIDENCE: 98.4%</span>
-                    </div>
-                    <div style="display:grid;grid-template-columns:1fr 1.2fr;gap:1rem;align-items:center;margin-block:auto;">
-                      <svg viewBox="0 0 180 180" style="width:100%;max-height:150px;background:#08090c;border-radius:8px;border:1px solid rgba(212,255,51,0.25);">
-                        <rect x="28" y="20" width="124" height="140" rx="14" fill="none" stroke="#d4ff33" stroke-width="1.2" stroke-dasharray="6 4"/>
-                        <ellipse cx="90" cy="90" rx="44" ry="56" fill="none" stroke="#5ce1e6" stroke-width="1"/>
-                        <!-- Eye, Nose, Jawline Landmark Points -->
-                        <g fill="#d4ff33">
-                          <circle cx="68" cy="74" r="2.3"/><circle cx="76" cy="72" r="2.3"/><circle cx="60" cy="75" r="2.3"/>
-                          <circle cx="112" cy="74" r="2.3"/><circle cx="104" cy="72" r="2.3"/><circle cx="120" cy="75" r="2.3"/>
-                          <circle cx="90" cy="84" r="2.3"/><circle cx="90" cy="95" r="2.3"/><circle cx="84" cy="100" r="2.3"/><circle cx="96" cy="100" r="2.3"/>
-                          <circle cx="72" cy="118" r="2.3"/><circle cx="82" cy="122" r="2.3"/><circle cx="90" cy="123" r="2.3"/><circle cx="98" cy="122" r="2.3"/><circle cx="108" cy="118" r="2.3"/>
-                          <circle cx="52" cy="98" r="2"/><circle cx="60" cy="124" r="2"/><circle cx="90" cy="144" r="2.5"/><circle cx="120" cy="124" r="2"/><circle cx="128" cy="98" r="2"/>
-                        </g>
-                        <line x1="28" y1="92" x2="152" y2="92" stroke="#d4ff33" stroke-width="0.8" opacity="0.6"/>
-                      </svg>
-                      <div style="display:grid;gap:0.45rem;">
-                        <div><strong>1. Detection:</strong> <code>ssd_mobilenetv1</code></div>
-                        <div><strong>2. Alignment:</strong> <code>face_landmark_68_model</code></div>
-                        <div><strong>3. Descriptor:</strong> <code>128-D Float32 Vector</code></div>
-                        <div><strong>4. RBAC Guard:</strong> Mở khóa <code>/reports</code> &amp; <code>/logs</code> cho Chủ cửa hàng; chuyển thẳng tới <code>/pos</code> cho Thu ngân.</div>
-                      </div>
-                    </div>
-                    <div style="display:flex;justify-content:space-between;color:var(--sc-ink-soft);border-top:1px solid rgba(243,239,230,0.12);padding-top:0.5rem;">
-                      <span>Modules: POS · Inventory · Debt · Reports · SystemLogs</span>
-                      <span style="color:var(--sc-accent)">Windows NSIS EXE + Web</span>
-                    </div>
+
+                <div class="js-inspector-anim-target">
+                  <h3 class="inspector-project-title">LegalAI: Rà Soát Hợp Đồng &amp; Xuất Word Track Changes</h3>
+                  <h4 class="inspector-node-title js-inspector-title">Phát hiện bẫy pháp lý tinh vi trong hợp đồng tại Việt Nam</h4>
+                  <p class="inspector-body-content js-inspector-body"></p>
+                  <pre class="inspector-code-box js-inspector-code"></pre>
+                </div>
+
+                <div class="inspector-metrics-row">
+                  <div class="inspector-metric-card">
+                    <strong>25+ Luật</strong>
+                    <span>Lao động, Thương mại, Dân sự</span>
+                  </div>
+                  <div class="inspector-metric-card">
+                    <strong>1.8x OCR</strong>
+                    <span>Khử nghiêng ảnh chụp điện thoại</span>
+                  </div>
+                  <div class="inspector-metric-card">
+                    <strong>1-Click</strong>
+                    <span>Xuất file .DOCX Track Changes</span>
                   </div>
                 </div>
               </div>
-              <div class="telemetry-strip">
-                <div class="telemetry-cell">
-                  <strong>68 Điểm</strong>
-                  <span>Nhận diện mốc khuôn mặt thời gian thực</span>
+
+              <div class="inspector-actions">
+                <div style="display:flex;gap:0.4rem;">
+                  <button type="button" class="btn-ghost js-node-prev">← Nút Trước</button>
+                  <button type="button" class="btn-ghost js-node-next">Nút Tiếp Theo →</button>
                 </div>
-                <div class="telemetry-cell">
-                  <strong>128-D</strong>
-                  <span>Vector đặc trưng sinh trắc học</span>
-                </div>
-                <div class="telemetry-cell">
-                  <strong>10 Modules</strong>
-                  <span>POS, Kho, Công Nợ, Báo Cáo, Nhật Ký</span>
+                <div style="display:flex;gap:0.5rem;">
+                  <a href="https://github.com/Hoa26040005/legal-ai-contract-reviewer" target="_blank" rel="noopener noreferrer" class="btn-ghost">GitHub Repo ↗</a>
+                  <button type="button" class="btn-primary" data-open-project-modal>Chi Tiết Toàn Diện ⤢</button>
                 </div>
               </div>
             </div>
-          </article>
+          </div>
+        </article>
 
-          <!-- PROJECT 4: RAGNHANBTTHOIGIAN (Temporal RAG) -->
-          <article class="project-slide" data-sc-cue="0.74 1.0">
-            <div class="project-copy">
-              <div class="project-meta-row">
-                <span>REPO: Hoa26040005/RAGNHANBTTHOIGIAN</span>
-                <span>·</span>
-                <span>KHÓA LUẬN TỐT NGHIỆP · TEMPORAL AI</span>
-              </div>
-              <h2 class="project-title">Hệ Thống Hỏi Đáp Tiếng Việt RAG Nhận Thức Thời Gian (Temporal-Aware RAG)</h2>
-              <p class="project-summary">
-                Khóa luận giải quyết bài toán lệch mốc thời gian (Temporal Drift) trong RAG truyền thống: nơi câu hỏi về dữ liệu năm 2022 thường bị trả lời nhầm bằng bài báo năm 2024. Cung cấp giao diện Web Streaming SSE trực quan so sánh trực tiếp hai chế độ trên cùng một truy vấn.
-              </p>
-              <ul class="project-highlights">
-                <li><strong>Độ Chính Xác Năm Vượt Trội (+30,2 điểm %):</strong> Đạt <strong>92,7% Year Accuracy (89/96 câu)</strong> và <strong>80,5% Keyword Score</strong> trên bộ chuẩn <code>Eval96</code> thuộc 12 lĩnh vực (so với 62,5% của Traditional RAG).</li>
-                <li><strong>Kiến Trúc Hybrid Dense + BM25 + RRF:</strong> Lập kế hoạch truy vấn với 12 vai thời gian, toán tử <code>FIRST / LAST / CURRENT / FUTURE</code> trên 50.599 vector chunks (49.980 tin tức 2019-2025 + 4.151 fact lịch sử Wikipedia).</li>
-                <li><strong>Hợp Đồng Bằng Chứng (Slot-Claim-Evidence):</strong> Phân tách rạch ròi 5 trạng thái <code>ANSWER</code>, <code>PARTIAL</code>, <code>ABSTAIN</code>, <code>REFUSE</code>, <code>FAILED</code> để chặn ảo giác (Hallucination) cho các sự kiện tương lai.</li>
-              </ul>
-              <div class="stack-tags">
-                <span class="stack-tag">Python</span>
-                <span class="stack-tag">FastAPI</span>
-                <span class="stack-tag">SSE Streaming Web UI</span>
-                <span class="stack-tag">Qwen3:4B (Ollama)</span>
-                <span class="stack-tag">FAISS IndexFlatIP</span>
-                <span class="stack-tag">BM25 + RRF Hybrid</span>
-                <span class="stack-tag">Temporal Semantic Parser</span>
-              </div>
-              <div class="project-links">
-                <a href="https://github.com/Hoa26040005/RAGNHANBTTHOIGIAN" target="_blank" rel="noopener noreferrer" class="btn-primary">Xem Repo trên GitHub ↗</a>
-                <a href="#workbench" class="btn-ghost">So Sánh Temporal vs Traditional ↓</a>
+        <!-- =================================================================
+             ORBITAL PROJECT 3: pesticide-shop (AgriPOS)
+             ================================================================= -->
+        <article id="arena-agripos" class="project-orbital-arena js-gsap-batch" data-orbital-project="agripos" style="--arena-accent:#2ee59d;">
+          <div class="arena-top-bar">
+            <div class="arena-repo-tag">
+              <span>PROJECT 03 / 04</span>
+              <span>·</span>
+              <code>github.com/Hoa26040005/pesticide-shop</code>
+              <span>·</span>
+              <span style="color:var(--ok-green)">● REACT 19 + ELECTRON 39 EXE + FACE-API</span>
+            </div>
+            <div style="display:flex;gap:0.5rem;">
+              <button type="button" class="btn-ghost" data-open-project-modal>Xem Toàn Bộ 6 Chiều Sâu (Full Modal) ⤢</button>
+              <a href="https://github.com/Hoa26040005/pesticide-shop" target="_blank" rel="noopener noreferrer" class="btn-primary">Mở GitHub Repo ↗</a>
+            </div>
+          </div>
+
+          <div class="arena-layout">
+            <!-- Left: 360° Orbital Circle around the Project -->
+            <div class="orbital-wheel-stage" aria-label="Vòng tròn giới thiệu dự án AgriPOS">
+              <svg class="orbital-tracks-svg" viewBox="0 0 400 400" fill="none">
+                <circle cx="200" cy="200" r="188" stroke="rgba(245,242,235,0.06)" stroke-width="1"/>
+                <circle class="orbit-ring-dashed" cx="200" cy="200" r="172" stroke="rgba(46,229,157,0.35)" stroke-width="1.2" stroke-dasharray="10 8"/>
+                <circle class="orbit-ring-counter" cx="200" cy="200" r="136" stroke="rgba(212,255,51,0.22)" stroke-width="1" stroke-dasharray="24 12"/>
+                <line class="orbit-active-beam" x1="200" y1="200" x2="200" y2="28"/>
+              </svg>
+
+              <!-- 6 Clickable Orbital Nodes around the Circle -->
+              <button type="button" class="orbital-node is-active" data-angle="0">
+                <span class="orbital-node-dot"></span>
+                <span>01 · Tổng Quan ERP</span>
+              </button>
+              <button type="button" class="orbital-node" data-angle="60">
+                <span class="orbital-node-dot"></span>
+                <span>02 · Electron EXE</span>
+              </button>
+              <button type="button" class="orbital-node" data-angle="120">
+                <span class="orbital-node-dot"></span>
+                <span>03 · Giao Diện POS</span>
+              </button>
+              <button type="button" class="orbital-node" data-angle="180">
+                <span class="orbital-node-dot"></span>
+                <span>04 · 68-Point FaceID</span>
+              </button>
+              <button type="button" class="orbital-node" data-angle="240">
+                <span class="orbital-node-dot"></span>
+                <span>05 · Bảo Mật RBAC</span>
+              </button>
+              <button type="button" class="orbital-node" data-angle="300">
+                <span class="orbital-node-dot"></span>
+                <span>06 · Thử FaceID</span>
+              </button>
+
+              <!-- Center Project Hub -->
+              <div class="orbital-center-core" data-open-project-modal role="button" tabindex="0" aria-label="Mở toàn bộ chi tiết dự án AgriPOS">
+                <img class="core-backdrop-img" src="assets/projects/fashion-chatbot.png" width="640" height="400" alt="AgriPOS Desktop ERP">
+                <div class="core-scrim"></div>
+                <div class="core-inner-copy">
+                  <span class="core-kicker">ELECTRON 39 · FACE-API · ANTD 6</span>
+                  <h3 class="core-project-name">AgriPOS<br>Pesticide-Shop</h3>
+                  <span class="core-metric-pill">✓ 68-Point Biometric Auth</span>
+                  <span class="core-expand-hint">Ấn mở hồ sơ đầy đủ ⤢</span>
+                </div>
               </div>
             </div>
 
-            <div class="project-visual">
-              <div class="browser-window" data-sc-tilt="4">
-                <div class="browser-chrome">
-                  <div class="browser-dots"><span></span><span></span><span></span></div>
-                  <span>localhost:8000 · Temporal RAG vs Traditional RAG Web UI</span>
-                  <span>EVAL96: 92.7% YrOK</span>
+            <!-- Right: Dynamic Orbital Inspector Dock -->
+            <div class="orbital-inspector-dock">
+              <div>
+                <div class="inspector-header">
+                  <span class="inspector-node-badge js-inspector-badge">NODE 01 · TỔNG QUAN &amp; BÀI TOÁN</span>
+                  <div class="inspector-step-dots" aria-label="Chuyển nút quỹ đạo">
+                    <button type="button" class="inspector-step-dot is-active" aria-label="Nút 1"></button>
+                    <button type="button" class="inspector-step-dot" aria-label="Nút 2"></button>
+                    <button type="button" class="inspector-step-dot" aria-label="Nút 3"></button>
+                    <button type="button" class="inspector-step-dot" aria-label="Nút 4"></button>
+                    <button type="button" class="inspector-step-dot" aria-label="Nút 5"></button>
+                    <button type="button" class="inspector-step-dot" aria-label="Nút 6"></button>
+                  </div>
                 </div>
-                <div class="browser-body">
-                  <img src="assets/projects/temporal-rag-1.png" width="1280" height="800" alt="Giao diện Web của Hệ thống Hỏi Đáp RAG Nhận Thức Thời Gian">
+
+                <div class="js-inspector-anim-target">
+                  <h3 class="inspector-project-title">AgriPOS: Phần Mềm Quản Lý Cửa Hàng Thuốc BVTV &amp; FaceID</h3>
+                  <h4 class="inspector-node-title js-inspector-title">Số hóa quản lý cửa hàng thuốc BVTV với bảo mật sinh trắc học</h4>
+                  <p class="inspector-body-content js-inspector-body"></p>
+                  <pre class="inspector-code-box js-inspector-code"></pre>
+                </div>
+
+                <div class="inspector-metrics-row">
+                  <div class="inspector-metric-card">
+                    <strong>68 Điểm</strong>
+                    <span>Mốc nhận diện khuôn mặt</span>
+                  </div>
+                  <div class="inspector-metric-card">
+                    <strong>128-D</strong>
+                    <span>Vector đặc trưng sinh trắc</span>
+                  </div>
+                  <div class="inspector-metric-card">
+                    <strong>10 Modules</strong>
+                    <span>POS, Kho, Công Nợ, Nhật Ký</span>
+                  </div>
                 </div>
               </div>
-              <div class="telemetry-strip">
-                <div class="telemetry-cell">
-                  <strong>92,7%</strong>
-                  <span>Year Accuracy (+30,2% vs Baseline)</span>
+
+              <div class="inspector-actions">
+                <div style="display:flex;gap:0.4rem;">
+                  <button type="button" class="btn-ghost js-node-prev">← Nút Trước</button>
+                  <button type="button" class="btn-ghost js-node-next">Nút Tiếp Theo →</button>
                 </div>
-                <div class="telemetry-cell">
-                  <strong>50.599</strong>
-                  <span>FAISS L2 Chunks (2019 đến 2025)</span>
-                </div>
-                <div class="telemetry-cell">
-                  <strong>2,23s</strong>
-                  <span>Thời gian phản hồi trung bình mỗi câu</span>
+                <div style="display:flex;gap:0.5rem;">
+                  <a href="https://github.com/Hoa26040005/pesticide-shop" target="_blank" rel="noopener noreferrer" class="btn-ghost">GitHub Repo ↗</a>
+                  <button type="button" class="btn-primary" data-open-project-modal>Chi Tiết Toàn Diện ⤢</button>
                 </div>
               </div>
             </div>
-          </article>
+          </div>
+        </article>
 
-        </div>
+        <!-- =================================================================
+             ORBITAL PROJECT 4: RAGNHANBTTHOIGIAN (Temporal-Aware Vietnamese RAG)
+             ================================================================= -->
+        <article id="arena-temporal" class="project-orbital-arena js-gsap-batch" data-orbital-project="temporal" style="--arena-accent:#f5a623;">
+          <div class="arena-top-bar">
+            <div class="arena-repo-tag">
+              <span>PROJECT 04 / 04</span>
+              <span>·</span>
+              <code>github.com/Hoa26040005/RAGNHANBTTHOIGIAN</code>
+              <span>·</span>
+              <span style="color:var(--warn-amber)">● KHÓA LUẬN TỐT NGHIỆP · 92,7% YEAR ACCURACY</span>
+            </div>
+            <div style="display:flex;gap:0.5rem;">
+              <button type="button" class="btn-ghost" data-open-project-modal>Xem Toàn Bộ 6 Chiều Sâu (Full Modal) ⤢</button>
+              <a href="https://github.com/Hoa26040005/RAGNHANBTTHOIGIAN" target="_blank" rel="noopener noreferrer" class="btn-primary">Mở GitHub Repo ↗</a>
+            </div>
+          </div>
+
+          <div class="arena-layout">
+            <!-- Left: 360° Orbital Circle around the Project -->
+            <div class="orbital-wheel-stage" aria-label="Vòng tròn giới thiệu dự án Temporal RAG">
+              <svg class="orbital-tracks-svg" viewBox="0 0 400 400" fill="none">
+                <circle cx="200" cy="200" r="188" stroke="rgba(245,242,235,0.06)" stroke-width="1"/>
+                <circle class="orbit-ring-dashed" cx="200" cy="200" r="172" stroke="rgba(245,166,35,0.38)" stroke-width="1.2" stroke-dasharray="10 8"/>
+                <circle class="orbit-ring-counter" cx="200" cy="200" r="136" stroke="rgba(92,225,230,0.22)" stroke-width="1" stroke-dasharray="24 12"/>
+                <line class="orbit-active-beam" x1="200" y1="200" x2="200" y2="28"/>
+              </svg>
+
+              <!-- 6 Clickable Orbital Nodes around the Circle -->
+              <button type="button" class="orbital-node is-active" data-angle="0">
+                <span class="orbital-node-dot"></span>
+                <span>01 · Temporal Drift</span>
+              </button>
+              <button type="button" class="orbital-node" data-angle="60">
+                <span class="orbital-node-dot"></span>
+                <span>02 · Pipeline 8 Tầng</span>
+              </button>
+              <button type="button" class="orbital-node" data-angle="120">
+                <span class="orbital-node-dot"></span>
+                <span>03 · Streaming UI</span>
+              </button>
+              <button type="button" class="orbital-node" data-angle="180">
+                <span class="orbital-node-dot"></span>
+                <span>04 · RRF &amp; FAISS</span>
+              </button>
+              <button type="button" class="orbital-node" data-angle="240">
+                <span class="orbital-node-dot"></span>
+                <span>05 · Chuẩn Eval96</span>
+              </button>
+              <button type="button" class="orbital-node" data-angle="300">
+                <span class="orbital-node-dot"></span>
+                <span>06 · So Sánh RAG</span>
+              </button>
+
+              <!-- Center Project Hub -->
+              <div class="orbital-center-core" data-open-project-modal role="button" tabindex="0" aria-label="Mở toàn bộ chi tiết dự án Temporal RAG">
+                <img class="core-backdrop-img" src="assets/projects/temporal-rag-1.png" width="640" height="400" alt="Temporal RAG Web UI">
+                <div class="core-scrim"></div>
+                <div class="core-inner-copy">
+                  <span class="core-kicker">FASTAPI · QWEN3:4B · FAISS</span>
+                  <h3 class="core-project-name">Temporal RAG<br>Hỏi Đáp Theo Năm</h3>
+                  <span class="core-metric-pill">✓ 92,7% YrOK (+30,2% vs Base)</span>
+                  <span class="core-expand-hint">Ấn mở hồ sơ đầy đủ ⤢</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right: Dynamic Orbital Inspector Dock -->
+            <div class="orbital-inspector-dock">
+              <div>
+                <div class="inspector-header">
+                  <span class="inspector-node-badge js-inspector-badge">NODE 01 · TỔNG QUAN &amp; KHÓA LUẬN</span>
+                  <div class="inspector-step-dots" aria-label="Chuyển nút quỹ đạo">
+                    <button type="button" class="inspector-step-dot is-active" aria-label="Nút 1"></button>
+                    <button type="button" class="inspector-step-dot" aria-label="Nút 2"></button>
+                    <button type="button" class="inspector-step-dot" aria-label="Nút 3"></button>
+                    <button type="button" class="inspector-step-dot" aria-label="Nút 4"></button>
+                    <button type="button" class="inspector-step-dot" aria-label="Nút 5"></button>
+                    <button type="button" class="inspector-step-dot" aria-label="Nút 6"></button>
+                  </div>
+                </div>
+
+                <div class="js-inspector-anim-target">
+                  <h3 class="inspector-project-title">Temporal RAG: Hệ Thống Hỏi Đáp Tiếng Việt Nhận Thức Thời Gian</h3>
+                  <h4 class="inspector-node-title js-inspector-title">Giải quyết triệt để hiện tượng Lệch Mốc Thời Gian (Temporal Drift)</h4>
+                  <p class="inspector-body-content js-inspector-body"></p>
+                  <pre class="inspector-code-box js-inspector-code"></pre>
+                </div>
+
+                <div class="inspector-metrics-row">
+                  <div class="inspector-metric-card">
+                    <strong>92,7%</strong>
+                    <span>Year Accuracy (89/96 câu)</span>
+                  </div>
+                  <div class="inspector-metric-card">
+                    <strong>50.599</strong>
+                    <span>FAISS Chunks chuẩn hóa L2</span>
+                  </div>
+                  <div class="inspector-metric-card">
+                    <strong>+60,0%</strong>
+                    <span>Tăng trưởng Keyword Score</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="inspector-actions">
+                <div style="display:flex;gap:0.4rem;">
+                  <button type="button" class="btn-ghost js-node-prev">← Nút Trước</button>
+                  <button type="button" class="btn-ghost js-node-next">Nút Tiếp Theo →</button>
+                </div>
+                <div style="display:flex;gap:0.5rem;">
+                  <a href="https://github.com/Hoa26040005/RAGNHANBTTHOIGIAN" target="_blank" rel="noopener noreferrer" class="btn-ghost">GitHub Repo ↗</a>
+                  <button type="button" class="btn-primary" data-open-project-modal>Chi Tiết Toàn Diện ⤢</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
       </div>
     </section>
 
     <!-- =====================================================================
          ACT 3 · TURN: Horizontal Interactive Lab Rail (pan device · span 3.4)
          ===================================================================== -->
-    <section id="workbench" data-sc-act="pan" data-sc-span="3.4" data-sc-drift="#0d1118">
+    <section id="workbench" data-sc-act="pan" data-sc-span="3.4" data-sc-drift="#0b0f17">
       <div data-sc-stage class="workbench-stage">
         <div class="workbench-rail" data-sc-pan="0.06">
 
@@ -470,7 +678,7 @@
             <p class="sc-label" style="color:var(--sc-accent);margin-bottom:0.6rem;">INTERACTIVE WORKBENCH · 4 LIVE SIMULATORS</p>
             <h2 class="sc-display sc-display--md" style="margin-bottom:1rem;">Trực tiếp vận hành logic cốt lõi của cả 4 dự án.</h2>
             <p class="sc-body">
-              Thay vì chỉ xem ảnh chụp tĩnh, hãy cuộn ngang và bấm vào từng bảng điều khiển bên phải để kiểm thử thuật toán chia tiền Mua Chung, kiểm toán hợp đồng Redline, xác thực 68 điểm mốc khuôn mặt và bộ lọc thời gian RAG.
+              Cuộn ngang và bấm vào từng bảng điều khiển bên phải để kiểm thử thuật toán chia tiền Mua Chung, kiểm toán hợp đồng Redline, xác thực 68 điểm mốc khuôn mặt và bộ lọc thời gian RAG.
             </p>
           </div>
 
@@ -586,7 +794,7 @@
     <!-- =====================================================================
          ACT 4 · PROOF: Verified Telemetry & Engineering Stack (flow + count + reveal)
          ===================================================================== -->
-    <section id="telemetry" class="sc-section" data-sc-act="flow" data-sc-drift="#090b10">
+    <section id="telemetry" class="sc-section" data-sc-act="flow" data-sc-drift="#080a0f">
       <div class="sc-wrap editorial-spread">
 
         <!-- Left Column: Verified Numbers & Visual Proof -->
@@ -648,7 +856,7 @@
               <p class="sc-body" style="margin-bottom:0.85rem;">
                 Xây dựng ứng dụng Web và Desktop phức tạp với kiến trúc module hóa, quản lý trạng thái chặt chẽ, phân quyền RBAC, tối ưu hóa kết xuất và thiết kế hệ thống Design Tokens nhất quán.
               </p>
-              <div class="stack-tags" style="margin-bottom:0;">
+              <div class="stack-tags">
                 <span class="stack-tag">React 19</span>
                 <span class="stack-tag">Next.js 14 (App Router)</span>
                 <span class="stack-tag">TypeScript 5</span>
@@ -665,7 +873,7 @@
               <p class="sc-body" style="margin-bottom:0.85rem;">
                 Biến giao diện tĩnh thành không gian tương tác sống động bằng Three.js, custom GLSL Vertex/Fragment Shaders, React Three Fiber và kịch bản cuộn trang GSAP ScrollTrigger đạt chuẩn 60fps.
               </p>
-              <div class="stack-tags" style="margin-bottom:0;">
+              <div class="stack-tags">
                 <span class="stack-tag">Three.js (r186)</span>
                 <span class="stack-tag">Custom GLSL Shaders</span>
                 <span class="stack-tag">@react-three/fiber</span>
@@ -681,7 +889,7 @@
               <p class="sc-body" style="margin-bottom:0.85rem;">
                 Tích hợp mô hình ngôn ngữ lớn (LLM) và thị giác máy tính trực tiếp vào giao diện người dùng: từ Streaming SSE, trích dẫn nguồn minh bạch, kiểm toán Track Changes đến nhận diện khuôn mặt qua Webcam.
               </p>
-              <div class="stack-tags" style="margin-bottom:0;">
+              <div class="stack-tags">
                 <span class="stack-tag">Temporal &amp; Graph RAG</span>
                 <span class="stack-tag">Gemini 2.5 Flash / Qwen3</span>
                 <span class="stack-tag">FAISS &amp; Neo4j</span>
@@ -696,7 +904,7 @@
               <p class="sc-body" style="margin-bottom:0.85rem;">
                 Thiết kế RESTful API, đồng bộ phòng Mua Chung qua WebSockets, tích hợp cổng thanh toán VNPay, đóng gói Docker và kiểm thử tự động đầu-cuối.
               </p>
-              <div class="stack-tags" style="margin-bottom:0;">
+              <div class="stack-tags">
                 <span class="stack-tag">Node.js &amp; Express</span>
                 <span class="stack-tag">Python FastAPI</span>
                 <span class="stack-tag">MongoDB &amp; Firebase</span>
@@ -715,7 +923,7 @@
     <!-- =====================================================================
          ACT 5 · COMMITMENT: Pinned Spotlight Hiring Stage (pin + spotlight + magnet)
          ===================================================================== -->
-    <section id="contact" data-sc-act="pin" data-sc-span="1.25" data-sc-drift="#08090c">
+    <section id="contact" data-sc-act="pin" data-sc-span="1.25" data-sc-drift="#06070a">
       <div data-sc-stage class="closing-stage" data-sc-spotlight>
 
         <div class="closing-main" data-sc-cue="0 1 0 0">
@@ -758,6 +966,19 @@
   </main>
 
   <!-- =======================================================================
+       FULL-SCREEN PROJECT DEEP-DIVE MODAL (Shows all 6 Orbital Dimensions)
+       ======================================================================= -->
+  <aside id="project-detail-modal" class="project-modal-backdrop" aria-hidden="true" role="dialog" aria-label="Chi tiết toàn diện dự án">
+    <div class="project-modal-sheet">
+      <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--sc-hairline);padding-bottom:0.85rem;margin-bottom:1.25rem;">
+        <span class="sc-label" style="color:var(--sc-accent);">360° ORBITAL DEEP-DIVE DOSSIER · 6 DIMENSIONS</span>
+        <button type="button" id="close-project-modal-btn" class="btn-ghost">Đóng Hồ Sơ ✕</button>
+      </div>
+      <div id="project-modal-body"></div>
+    </div>
+  </aside>
+
+  <!-- =======================================================================
        INTERACTIVE ATS-READY CV / RESUME MODAL (Printable to PDF)
        ======================================================================= -->
   <aside id="cv-drawer" class="cv-drawer" aria-hidden="true" role="dialog" aria-labelledby="cv-title">
@@ -779,7 +1000,7 @@
         <div style="display:flex;flex-wrap:wrap;gap:1.25rem;font-family:var(--sc-font-mono);font-size:var(--sc-t-xs);color:var(--sc-ink-soft);">
           <span>Email: <strong style="color:var(--sc-ink)">huynhhoa9881@gmail.com</strong></span>
           <span>GitHub: <a href="https://github.com/Hoa26040005" target="_blank" rel="noopener noreferrer" style="color:var(--sc-accent)">github.com/Hoa26040005</a></span>
-          <span>Live Demo: <a href="https://shop-quan-ao-g89r.vercel.app/" target="_blank" rel="noopener noreferrer" style="color:var(--sc-accent)">shop-quan-ao-g89r.vercel.app</a></span>
+          <span>Portfolio: <a href="https://hoa26040005.github.io" target="_blank" rel="noopener noreferrer" style="color:var(--sc-accent)">hoa26040005.github.io</a></span>
         </div>
 
         <div>
@@ -837,7 +1058,7 @@
     }
   </script>
 
-  <!-- Three.js r186 + GSAP ScrollTrigger + Live Workbench Entrypoint -->
+  <!-- Three.js r186 + GSAP ScrollTrigger + Orbital Workbench Entrypoint -->
   <script type="module">
     import { initPortfolioWebGL } from "./scripts/webgl-core.js";
     import { initPortfolioChoreography } from "./scripts/choreography.js";
@@ -851,4 +1072,3 @@
   </script>
 </body>
 </html>
-

@@ -1,5 +1,5 @@
 // ============================================================================
-// scripts/choreography.js · GSAP 3.12 + ScrollTrigger Choreography
+// scripts/choreography.js · GSAP 3.12 + ScrollTrigger Orbital Choreography
 // Built with gsap-core + gsap-scrolltrigger + gsap-timeline
 // ============================================================================
 
@@ -9,74 +9,95 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 export function initPortfolioChoreography(webglApi) {
-  const slides = Array.from(document.querySelectorAll(".project-slide"));
-  const tabs = Array.from(document.querySelectorAll(".dossier-tab"));
-  const dossierSection = document.querySelector("#dossier");
+  // 1. Custom Cursor Follower Ring via gsap.quickTo()
+  const cursorRing = document.querySelector(".cursor-ring");
+  if (cursorRing && window.matchMedia("(pointer: fine)").matches) {
+    const xTo = gsap.quickTo(cursorRing, "x", { duration: 0.22, ease: "power3" });
+    const yTo = gsap.quickTo(cursorRing, "y", { duration: 0.22, ease: "power3" });
 
-  function setActiveProjectIndex(idx) {
-    slides.forEach((slide, i) => {
-      slide.classList.toggle("is-interactive", i === idx);
-    });
-    tabs.forEach((tab, i) => {
-      tab.classList.toggle("is-active", i === idx);
+    window.addEventListener(
+      "pointermove",
+      (e) => {
+        xTo(e.clientX);
+        yTo(e.clientY);
+      },
+      { passive: true }
+    );
+
+    const interactiveSelectors =
+      "a, button, .orbital-node, .orbital-center-core, .pill-btn, .topology-btn";
+    document.querySelectorAll(interactiveSelectors).forEach((el) => {
+      el.addEventListener("pointerenter", () =>
+        cursorRing.classList.add("is-hovering")
+      );
+      el.addEventListener("pointerleave", () =>
+        cursorRing.classList.remove("is-hovering")
+      );
     });
   }
 
-  // 1. Tie #dossier scroll progress to Three.js 4-State Morph & Active Dossier Tab
-  if (dossierSection) {
+  // 2. Sync each Project Orbital Arena with Three.js 4-State WebGL Morph & Sticky Pills
+  const arenaIds = [
+    { id: "arena-fashion", index: 0 },
+    { id: "arena-legal", index: 1 },
+    { id: "arena-agripos", index: 2 },
+    { id: "arena-temporal", index: 3 },
+  ];
+
+  const jumpBtns = Array.from(document.querySelectorAll(".project-jump-btn"));
+
+  arenaIds.forEach(({ id, index }) => {
+    const arenaEl = document.getElementById(id);
+    if (!arenaEl) return;
+
     ScrollTrigger.create({
-      trigger: dossierSection,
-      start: "top top",
-      end: "bottom bottom",
-      scrub: 0.4,
+      trigger: arenaEl,
+      start: "top 60%",
+      end: "bottom 40%",
+      onEnter: () => {
+        if (webglApi) webglApi.setMorphState(index);
+        jumpBtns.forEach((b, i) => b.classList.toggle("is-active", i === index));
+      },
+      onEnterBack: () => {
+        if (webglApi) webglApi.setMorphState(index);
+        jumpBtns.forEach((b, i) => b.classList.toggle("is-active", i === index));
+      },
       onUpdate: (self) => {
-        const p = self.progress; // 0..1 across the 4.2vh pinned dossier
-        const morphValue = p * 3.0; // maps 0..1 -> 0..3 across the 4 projects
         if (webglApi) {
-          webglApi.setMorphState(morphValue);
-          webglApi.addScrollVelocity(self.getVelocity() / 1200);
-        }
-
-        const activeIdx = Math.min(3, Math.floor(p * 4));
-        setActiveProjectIndex(activeIdx);
-
-        const pctEl = document.querySelector("#dossier-progress-readout");
-        if (pctEl) {
-          pctEl.textContent = `${Math.round(p * 100)}%`;
+          webglApi.addScrollVelocity(self.getVelocity() / 1400);
         }
       },
     });
-  }
+  });
 
-  // 2. Allow clicking Dossier Tabs to jump to that project's cue window in #dossier
-  tabs.forEach((tab, index) => {
-    tab.addEventListener("click", () => {
-      if (!dossierSection) return;
-      const rect = dossierSection.getBoundingClientRect();
-      const sectionTop = window.scrollY + rect.top;
-      const travel = Math.max(
-        dossierSection.offsetHeight - window.innerHeight,
-        1
-      );
-      const targetProgress = index * 0.26 + 0.08;
-      window.scrollTo({
-        top: sectionTop + travel * Math.min(0.95, targetProgress),
-        behavior: "smooth",
-      });
-      if (webglApi) webglApi.setMorphState(index);
-      setActiveProjectIndex(index);
+  // 3. Animate Inspector Panel when any Orbital Node on the circle is clicked
+  document.querySelectorAll(".orbital-node, .inspector-step-dot, .js-node-prev, .js-node-next").forEach((trigger) => {
+    trigger.addEventListener("click", () => {
+      const arena = trigger.closest(".project-orbital-arena");
+      if (!arena) return;
+      const dock = arena.querySelector(".js-inspector-anim-target");
+      if (dock) {
+        gsap.fromTo(
+          dock,
+          { opacity: 0.25, y: 10 },
+          { opacity: 1, y: 0, duration: 0.38, ease: "power2.out", overwrite: true }
+        );
+      }
     });
   });
 
-  // 3. Allow clicking Hero Topology Buttons to preview any of the 4 3D states
+  // 4. Allow clicking Hero Topology Buttons to preview any of the 4 3D states
   document.querySelectorAll("[data-topology-select]").forEach((btn) => {
     btn.addEventListener("click", () => {
       const idx = Number(btn.getAttribute("data-topology-select"));
-      if (webglApi) webglApi.setMorphState(idx);
+      if (webglApi) {
+        webglApi.setMorphState(idx);
+        webglApi.triggerOrbitalPulse(1.1);
+      }
     });
   });
 
-  // 4. ScrollTrigger.batch() for capability & ledger blocks (gsap-scrolltrigger best practice)
+  // 5. ScrollTrigger.batch() for capability, arena & ledger blocks
   ScrollTrigger.batch(".js-gsap-batch", {
     interval: 0.1,
     batchMax: 4,
@@ -84,11 +105,11 @@ export function initPortfolioChoreography(webglApi) {
     onEnter: (batch) => {
       gsap.fromTo(
         batch,
-        { opacity: 0, y: 22 },
+        { opacity: 0, y: 24 },
         {
           opacity: 1,
           y: 0,
-          duration: 0.65,
+          duration: 0.68,
           stagger: 0.1,
           ease: "power3.out",
           overwrite: true,
@@ -97,10 +118,10 @@ export function initPortfolioChoreography(webglApi) {
     },
   });
 
-  // 5. Global Scroll Telemetry Readout in Top Chrome
+  // 6. Global Scroll Telemetry Readout in Top Chrome
   const actMap = [
     { id: "hero", label: "ACT I · RECOGNITION" },
-    { id: "dossier", label: "ACT II · 4-SYSTEM DOSSIER" },
+    { id: "dossier", label: "ACT II · ORBITAL DOSSIER" },
     { id: "workbench", label: "ACT III · LIVE WORKBENCH" },
     { id: "telemetry", label: "ACT IV · VERIFIED PROOF" },
     { id: "contact", label: "ACT V · COMMITMENT" },
@@ -127,7 +148,4 @@ export function initPortfolioChoreography(webglApi) {
       },
     });
   });
-
-  setActiveProjectIndex(0);
 }
-

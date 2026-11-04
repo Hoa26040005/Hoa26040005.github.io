@@ -1,28 +1,37 @@
 /* ============================================================================
-   styles/portfolio.css · Huỳnh Thái Hòa Creative Developer Portfolio
-   Built on scroll-craft + pbakaus/impeccable + threejs-skill + gsap-skill
+   styles/portfolio.css · Huỳnh Thái Hòa — Awwwards-Grade Creative Portfolio
+   Orbital Project Showcases + Three.js r186 + GSAP ScrollTrigger + Impeccable
    ========================================================================== */
 
 :root {
-  --sc-canvas:      #08090c;
-  --sc-surface:     #10131a;
-  --sc-ink:         #f3efe6;
-  --sc-ink-soft:    #98a0b0;
+  --sc-canvas:      #06070a;
+  --sc-surface:     #0e1118;
+  --sc-ink:         #f5f2eb;
+  --sc-ink-soft:    #949db0;
   --sc-accent:      #d4ff33;
-  --sc-accent-ink:  #08090c;
+  --sc-accent-ink:  #06070a;
 
   --sc-font-display: "Syne", "Archivo", system-ui, sans-serif;
   --sc-font-text:    "Plus Jakarta Sans", "Geist", system-ui, sans-serif;
   --sc-font-mono:    "JetBrains Mono", ui-monospace, monospace;
 
-  --surface-elevated: #151923;
-  --surface-glass:    color-mix(in oklab, #10131a 84%, transparent);
+  --surface-elevated: #141923;
+  --surface-card:     color-mix(in oklab, #0e1118 86%, transparent);
+  --cyan-glow:        #5ce1e6;
   --ok-green:         #2ee59d;
   --warn-amber:       #f5a623;
   --danger-rose:      #ff5263;
 }
 
-/* Global Fixed WebGL Background Stage */
+/* Global Architectural Grid Backdrop & Fixed WebGL Stage */
+body {
+  background-color: var(--sc-canvas);
+  background-image:
+    linear-gradient(to right, rgba(245, 242, 235, 0.028) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(245, 242, 235, 0.028) 1px, transparent 1px);
+  background-size: 72px 72px;
+}
+
 .webgl-canvas-wrap {
   position: fixed;
   inset: 0;
@@ -37,12 +46,48 @@
   display: block;
 }
 
+/* Subtle Interactive Cursor Ring */
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 34px;
+  height: 34px;
+  margin-left: -17px;
+  margin-top: -17px;
+  border-radius: 50%;
+  border: 1px solid color-mix(in oklab, var(--sc-accent) 55%, transparent);
+  pointer-events: none;
+  z-index: 999;
+  transition: width 200ms var(--sc-ease-out),
+              height 200ms var(--sc-ease-out),
+              margin 200ms var(--sc-ease-out),
+              background-color 200ms var(--sc-ease-out);
+  mix-blend-mode: screen;
+}
+
+.cursor-ring.is-hovering {
+  width: 56px;
+  height: 56px;
+  margin-left: -28px;
+  margin-top: -28px;
+  background-color: color-mix(in oklab, var(--sc-accent) 14%, transparent);
+}
+
+@media (hover: none), (pointer: coarse) {
+  .cursor-ring {
+    display: none;
+  }
+}
+
 main {
   position: relative;
   z-index: 2;
 }
 
-/* Top Telemetry Navigation Bar (Live Surface Chrome) */
+/* ==========================================================================
+   TOP TELEMETRY CHROME BAR
+   ========================================================================== */
 .site-chrome {
   position: fixed;
   top: var(--sc-4);
@@ -52,11 +97,12 @@ main {
   align-items: center;
   justify-content: space-between;
   gap: var(--sc-4);
-  padding: 0.65rem 1rem;
+  padding: 0.7rem 1.15rem;
   background: color-mix(in oklab, var(--sc-surface) 82%, transparent);
-  backdrop-filter: blur(14px);
+  backdrop-filter: blur(18px);
   border-radius: var(--sc-r-md);
-  box-shadow: var(--sc-edge), var(--sc-e2);
+  border: 1px solid color-mix(in oklab, var(--sc-ink) 10%, transparent);
+  box-shadow: var(--sc-edge), var(--sc-e3);
 }
 
 .brand-cluster {
@@ -71,23 +117,29 @@ main {
   height: 9px;
   border-radius: 50%;
   background: var(--sc-accent);
-  box-shadow: 0 0 0 4px color-mix(in oklab, var(--sc-accent) 22%, transparent);
+  box-shadow: 0 0 0 4px color-mix(in oklab, var(--sc-accent) 24%, transparent);
+  animation: beaconPulse 2.4s infinite ease-in-out;
+}
+
+@keyframes beaconPulse {
+  0%, 100% { box-shadow: 0 0 0 3px color-mix(in oklab, var(--sc-accent) 20%, transparent); }
+  50% { box-shadow: 0 0 0 7px color-mix(in oklab, var(--sc-accent) 6%, transparent); }
 }
 
 .brand-name {
   font-family: var(--sc-font-display);
-  font-weight: 700;
+  font-weight: 800;
   font-size: var(--sc-t-sm);
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
   color: var(--sc-ink);
 }
 
 .brand-role {
   font-family: var(--sc-font-mono);
   font-size: var(--sc-t-xs);
-  color: var(--sc-ink-soft);
+  color: var(--sc-accent);
   padding-left: var(--sc-3);
-  border-left: 1px solid var(--sc-hairline);
+  border-left: 1px solid var(--sc-hairline-strong);
 }
 
 .chrome-telemetry {
@@ -101,13 +153,13 @@ main {
 
 .telemetry-kv strong {
   color: var(--sc-ink);
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .chrome-nav {
   display: flex;
   align-items: center;
-  gap: var(--sc-2);
+  gap: 0.35rem;
 }
 
 .nav-link {
@@ -115,7 +167,7 @@ main {
   font-size: var(--sc-t-xs);
   color: var(--sc-ink-soft);
   text-decoration: none;
-  padding: 0.45rem 0.75rem;
+  padding: 0.45rem 0.8rem;
   border-radius: var(--sc-r-sm);
   transition: color var(--sc-d-fast) var(--sc-ease-out),
               background var(--sc-d-fast) var(--sc-ease-out);
@@ -124,7 +176,7 @@ main {
 .nav-link:hover,
 .nav-link.is-active {
   color: var(--sc-ink);
-  background: color-mix(in oklab, var(--sc-ink) 8%, transparent);
+  background: color-mix(in oklab, var(--sc-ink) 9%, transparent);
 }
 
 .btn-primary {
@@ -136,20 +188,21 @@ main {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  padding: 0.65rem 1.1rem;
+  padding: 0.7rem 1.2rem;
   border-radius: var(--sc-r-sm);
   background: var(--sc-accent);
   color: var(--sc-accent-ink);
   text-decoration: none;
-  border: none;
+  border: 1px solid var(--sc-accent);
   cursor: pointer;
-  box-shadow: var(--sc-e1);
+  box-shadow: var(--sc-e2);
   transition: transform var(--sc-d-fast) var(--sc-ease-out),
               background var(--sc-d-fast) var(--sc-ease-out);
 }
 
 .btn-primary:hover {
-  background: #e2ff66;
+  background: #e3ff6b;
+  transform: translateY(-1px);
 }
 
 .btn-ghost {
@@ -158,87 +211,36 @@ main {
   gap: 0.5rem;
   font-family: var(--sc-font-mono);
   font-size: var(--sc-t-xs);
-  padding: 0.65rem 1rem;
+  padding: 0.7rem 1.05rem;
   border-radius: var(--sc-r-sm);
-  background: color-mix(in oklab, var(--sc-surface) 90%, transparent);
+  background: color-mix(in oklab, var(--sc-surface) 88%, transparent);
   color: var(--sc-ink);
   text-decoration: none;
   border: 1px solid var(--sc-hairline-strong);
   cursor: pointer;
   transition: border-color var(--sc-d-fast) var(--sc-ease-out),
-              background var(--sc-d-fast) var(--sc-ease-out);
+              background var(--sc-d-fast) var(--sc-ease-out),
+              transform var(--sc-d-fast) var(--sc-ease-out);
 }
 
 .btn-ghost:hover {
   border-color: var(--sc-accent);
+  color: var(--sc-accent);
   background: color-mix(in oklab, var(--sc-accent) 10%, var(--sc-surface));
+  transform: translateY(-1px);
 }
 
 /* ==========================================================================
-   ACT 1 · DIMENSIONAL LAYERED HERO (parallax + independent depth planes)
+   ACT 1 · ARCHITECTURAL LAYERED HERO
    ========================================================================== */
 .hero-act {
   position: relative;
-  min-height: 145vh;
+  min-height: 112vh;
   display: flex;
-  align-items: flex-start;
-  padding-top: clamp(7rem, 15vh, 11rem);
-  padding-bottom: var(--sc-10);
+  align-items: center;
+  padding-top: clamp(7rem, 13vh, 10rem);
+  padding-bottom: var(--sc-9);
   overflow: clip;
-}
-
-.hero-planes {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.hero-plane {
-  position: absolute;
-  max-width: none;
-}
-
-.hero-plane--far {
-  top: 10%;
-  right: -6%;
-  width: min(56rem, 78vw);
-  height: 34rem;
-  border-radius: var(--sc-r-lg);
-  border: 1px solid color-mix(in oklab, var(--sc-ink) 7%, transparent);
-  background: radial-gradient(circle at 65% 35%, color-mix(in oklab, var(--sc-accent) 9%, transparent), transparent 62%);
-  opacity: 0.75;
-}
-
-.hero-plane--mid {
-  top: 18%;
-  right: var(--sc-gutter);
-  width: min(34rem, 44vw);
-  padding: var(--sc-5);
-  border-radius: var(--sc-r-md);
-  background: color-mix(in oklab, var(--sc-surface) 80%, transparent);
-  backdrop-filter: blur(10px);
-  box-shadow: var(--sc-edge), var(--sc-e3);
-  pointer-events: auto;
-}
-
-.hero-plane--front {
-  bottom: 12%;
-  right: calc(var(--sc-gutter) + 3rem);
-  width: min(25rem, 38vw);
-  padding: var(--sc-4);
-  border-radius: var(--sc-r-md);
-  background: color-mix(in oklab, var(--surface-elevated) 92%, transparent);
-  box-shadow: var(--sc-edge), var(--sc-e3);
-}
-
-.hero-floor-fade {
-  position: absolute;
-  inset: auto 0 0 0;
-  height: 240px;
-  background: linear-gradient(to bottom, transparent, var(--sc-canvas));
-  z-index: 4;
-  pointer-events: none;
 }
 
 .hero-content {
@@ -249,16 +251,29 @@ main {
   margin-inline: auto;
   padding-inline: var(--sc-gutter);
   display: grid;
-  grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
+  grid-template-columns: minmax(0, 1.18fr) minmax(0, 0.82fr);
   gap: var(--sc-8);
-  align-items: start;
+  align-items: center;
+}
+
+.hero-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.4rem 0.85rem;
+  border-radius: var(--sc-r-sm);
+  background: color-mix(in oklab, var(--sc-accent) 12%, var(--sc-surface));
+  border: 1px solid color-mix(in oklab, var(--sc-accent) 38%, transparent);
+  font-family: var(--sc-font-mono);
+  font-size: var(--sc-t-xs);
+  color: var(--sc-accent);
 }
 
 .hero-headline {
   font-family: var(--sc-font-display);
-  font-size: clamp(2.5rem, 5.1vw, 5.3rem);
-  font-weight: 700;
-  line-height: 0.97;
+  font-size: clamp(2.5rem, 4.9vw, 5.1rem);
+  font-weight: 800;
+  line-height: 0.98;
   letter-spacing: -0.032em;
   color: var(--sc-ink);
   text-wrap: balance;
@@ -272,9 +287,9 @@ main {
 
 .hero-lede {
   font-size: var(--sc-t-lg);
-  line-height: 1.55;
+  line-height: 1.58;
   color: var(--sc-ink-soft);
-  max-width: 54ch;
+  max-width: 56ch;
   margin-bottom: var(--sc-6);
 }
 
@@ -285,76 +300,73 @@ main {
   margin-bottom: var(--sc-7);
 }
 
-.hero-QuickIndex {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--sc-3);
-  max-width: 38rem;
-  border-top: 1px solid var(--sc-hairline);
-  padding-top: var(--sc-5);
+/* Right Column Hero Orbital Preview Radar */
+.hero-radar-deck {
+  position: relative;
+  padding: var(--sc-6);
+  border-radius: var(--sc-r-lg);
+  background: color-mix(in oklab, var(--sc-surface) 78%, transparent);
+  backdrop-filter: blur(16px);
+  border: 1px solid color-mix(in oklab, var(--sc-ink) 12%, transparent);
+  box-shadow: var(--sc-edge), var(--sc-e3);
 }
 
-.quick-repo-link {
+.radar-ring-mini {
+  position: relative;
+  width: min(22rem, 100%);
+  aspect-ratio: 1 / 1;
+  margin: var(--sc-4) auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.radar-ring-mini svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  animation: slowSpin 38s linear infinite;
+}
+
+@keyframes slowSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.radar-center-badge {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: var(--sc-4);
+  border-radius: 50%;
+  width: 11.5rem;
+  height: 11.5rem;
   display: flex;
   flex-direction: column;
-  gap: 0.2rem;
-  padding: var(--sc-3);
-  border-radius: var(--sc-r-sm);
-  background: color-mix(in oklab, var(--sc-surface) 75%, transparent);
-  box-shadow: var(--sc-edge);
-  text-decoration: none;
-  transition: transform var(--sc-d-fast) var(--sc-ease-out),
-              background var(--sc-d-fast) var(--sc-ease-out);
-}
-
-.quick-repo-link:hover {
-  transform: translateY(-2px);
-  background: color-mix(in oklab, var(--sc-accent) 10%, var(--sc-surface));
-}
-
-.quick-repo-link code {
-  font-family: var(--sc-font-mono);
-  font-size: var(--sc-t-xs);
-  color: var(--sc-accent);
-}
-
-.quick-repo-link span {
-  font-size: var(--sc-t-sm);
-  color: var(--sc-ink);
-  font-weight: 600;
-}
-
-.shader-readout-card {
-  font-family: var(--sc-font-mono);
-  font-size: var(--sc-t-xs);
-  color: var(--sc-ink-soft);
-}
-
-.shader-readout-header {
-  display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding-bottom: var(--sc-3);
-  margin-bottom: var(--sc-3);
-  border-bottom: 1px solid var(--sc-hairline);
-  color: var(--sc-ink);
+  justify-content: center;
+  background: radial-gradient(circle, color-mix(in oklab, var(--sc-accent) 16%, var(--sc-surface)), var(--sc-canvas) 85%);
+  border: 1px solid color-mix(in oklab, var(--sc-accent) 45%, transparent);
+  box-shadow: var(--sc-e3);
 }
 
 .topology-pill-group {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-  margin-top: var(--sc-3);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.5rem;
+  margin-top: var(--sc-4);
 }
 
 .topology-btn {
   font-family: var(--sc-font-mono);
-  font-size: 0.72rem;
-  padding: 0.35rem 0.6rem;
+  font-size: 0.74rem;
+  padding: 0.55rem 0.75rem;
   border-radius: var(--sc-r-sm);
   border: 1px solid var(--sc-hairline-strong);
-  background: var(--sc-canvas);
+  background: color-mix(in oklab, var(--sc-canvas) 88%, transparent);
   color: var(--sc-ink-soft);
+  text-align: left;
   cursor: pointer;
   transition: all var(--sc-d-fast) var(--sc-ease-out);
 }
@@ -363,254 +375,449 @@ main {
 .topology-btn:hover {
   border-color: var(--sc-accent);
   color: var(--sc-accent);
+  background: color-mix(in oklab, var(--sc-accent) 12%, var(--sc-canvas));
 }
 
 /* ==========================================================================
-   ACT 2 · PINNED 4-PROJECT WEBGL DOSSIER (THE PEAK · span 4.2vh)
+   ACT 2 · 360° INTERACTIVE ORBITAL PROJECT SHOWCASES (THE SIGNATURE PIECE)
+   Each project has a circular orbital ring of 6 clickable nodes around it!
    ========================================================================== */
-.dossier-stage {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: clamp(4.8rem, 8vh, 6.2rem) var(--sc-gutter) var(--sc-5);
+.orbital-section {
+  position: relative;
+  padding-block: var(--sc-9);
 }
 
-.dossier-topbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--sc-4);
-  padding-bottom: var(--sc-3);
-  border-bottom: 1px solid var(--sc-hairline);
-  z-index: 25;
-}
-
-.dossier-tabs {
+.section-header-bar {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--sc-2);
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--sc-5);
+  padding-bottom: var(--sc-6);
+  margin-bottom: var(--sc-7);
+  border-bottom: 1px solid var(--sc-hairline-strong);
 }
 
-.dossier-tab {
+/* Quick Jump Filter Bar for the 4 Projects */
+.project-selector-bar {
+  position: sticky;
+  top: 4.8rem;
+  z-index: 40;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sc-3);
+  padding: 0.65rem 1rem;
+  margin-bottom: var(--sc-8);
+  border-radius: var(--sc-r-md);
+  background: color-mix(in oklab, var(--sc-surface) 88%, transparent);
+  backdrop-filter: blur(16px);
+  border: 1px solid color-mix(in oklab, var(--sc-ink) 12%, transparent);
+  box-shadow: var(--sc-edge), var(--sc-e2);
+}
+
+.project-jump-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.project-jump-btn {
   font-family: var(--sc-font-mono);
   font-size: var(--sc-t-xs);
-  padding: 0.45rem 0.85rem;
+  padding: 0.48rem 0.9rem;
   border-radius: var(--sc-r-sm);
-  background: color-mix(in oklab, var(--sc-surface) 85%, transparent);
-  color: var(--sc-ink-soft);
   border: 1px solid var(--sc-hairline);
+  background: var(--sc-canvas);
+  color: var(--sc-ink-soft);
+  text-decoration: none;
   cursor: pointer;
   transition: all var(--sc-d-fast) var(--sc-ease-out);
 }
 
-.dossier-tab.is-active {
+.project-jump-btn:hover,
+.project-jump-btn.is-active {
   background: var(--sc-accent);
   color: var(--sc-accent-ink);
   border-color: var(--sc-accent);
   font-weight: 600;
 }
 
-.dossier-deck {
+/* Individual Project Orbital Arena */
+.project-orbital-arena {
   position: relative;
-  flex: 1;
-  display: flex;
-  align-items: center;
-  z-index: 22;
+  margin-bottom: var(--sc-10);
+  padding: clamp(1.5rem, 3.5vw, 3.2rem);
+  border-radius: var(--sc-r-lg);
+  background: color-mix(in oklab, var(--sc-surface) 82%, transparent);
+  backdrop-filter: blur(16px);
+  border: 1px solid color-mix(in oklab, var(--sc-ink) 11%, transparent);
+  box-shadow: var(--sc-edge), var(--sc-e3);
+  overflow: hidden;
 }
 
-.project-slide {
+.project-orbital-arena::before {
+  content: "";
   position: absolute;
   inset: 0;
-  display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
-  gap: var(--sc-7);
-  align-items: center;
+  background: radial-gradient(
+    46rem 46rem at 28% 52%,
+    color-mix(in oklab, var(--arena-accent, var(--sc-accent)) 9%, transparent),
+    transparent 70%
+  );
   pointer-events: none;
 }
 
-.project-slide[ style*="opacity: 0" ] {
-  pointer-events: none;
-}
-
-.project-slide.is-interactive {
-  pointer-events: auto;
-}
-
-.project-copy {
-  background: color-mix(in oklab, var(--sc-canvas) 84%, transparent);
-  backdrop-filter: blur(12px);
-  padding: var(--sc-6);
-  border-radius: var(--sc-r-md);
-  box-shadow: var(--sc-edge), var(--sc-e3);
-}
-
-.project-meta-row {
+.arena-top-bar {
+  position: relative;
+  z-index: 2;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: var(--sc-3);
+  justify-content: space-between;
+  gap: var(--sc-4);
+  padding-bottom: var(--sc-4);
+  margin-bottom: var(--sc-6);
+  border-bottom: 1px solid var(--sc-hairline);
+}
+
+.arena-repo-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
   font-family: var(--sc-font-mono);
   font-size: var(--sc-t-xs);
   color: var(--sc-accent);
-  margin-bottom: var(--sc-3);
 }
 
-.project-title {
-  font-family: var(--sc-font-display);
-  font-size: clamp(1.75rem, 3.1vw, 3.1rem);
-  font-weight: 700;
-  line-height: 1.04;
-  letter-spacing: -0.028em;
-  margin: 0 0 var(--sc-4);
-}
-
-.project-summary {
-  color: var(--sc-ink-soft);
-  font-size: var(--sc-t-base);
-  line-height: 1.6;
-  margin-bottom: var(--sc-4);
-  max-width: 58ch;
-}
-
-.project-highlights {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 var(--sc-5);
+.arena-layout {
+  position: relative;
+  z-index: 2;
   display: grid;
-  gap: var(--sc-2);
-  font-size: var(--sc-t-sm);
-  color: var(--sc-ink);
+  grid-template-columns: minmax(320px, 1.08fr) minmax(320px, 0.92fr);
+  gap: var(--sc-8);
+  align-items: center;
 }
 
-.project-highlights li {
-  display: flex;
-  align-items: baseline;
-  gap: 0.6rem;
-}
-
-.project-highlights li::before {
-  content: "▸";
-  color: var(--sc-accent);
-  font-family: var(--sc-font-mono);
-}
-
-.stack-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-  margin-bottom: var(--sc-5);
-}
-
-.stack-tag {
-  font-family: var(--sc-font-mono);
-  font-size: 0.73rem;
-  padding: 0.25rem 0.55rem;
-  border-radius: var(--sc-r-sm);
-  background: var(--surface-elevated);
-  color: var(--sc-ink-soft);
-  box-shadow: var(--sc-edge);
-}
-
-.project-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--sc-3);
-}
-
-/* Visual Frame on Right Column of Dossier */
-.project-visual {
-  display: flex;
-  flex-direction: column;
-  gap: var(--sc-3);
-}
-
-.browser-window {
-  background: var(--sc-surface);
-  border-radius: var(--sc-r-md);
-  box-shadow: var(--sc-edge), var(--sc-e3);
-  overflow: hidden;
-}
-
-.browser-chrome {
+/* ==========================================================================
+   THE 360° ORBITAL WHEEL & SATELLITE NODES AROUND EACH PROJECT
+   ========================================================================== */
+.orbital-wheel-stage {
+  position: relative;
+  width: min(35rem, 100%);
+  aspect-ratio: 1 / 1;
+  margin-inline: auto;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 0.65rem 1rem;
-  background: var(--surface-elevated);
-  border-bottom: 1px solid var(--sc-hairline);
-  font-family: var(--sc-font-mono);
-  font-size: 0.72rem;
-  color: var(--sc-ink-soft);
+  justify-content: center;
+  user-select: none;
 }
 
-.browser-dots {
-  display: flex;
-  gap: 6px;
+/* SVG Concentric Tracks + Active Vector Ray */
+.orbital-tracks-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
 }
 
-.browser-dots span {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: color-mix(in oklab, var(--sc-ink-soft) 45%, transparent);
+.orbit-ring-dashed {
+  transform-origin: 50% 50%;
+  animation: slowSpin 48s linear infinite;
 }
 
-.browser-body {
+.orbit-ring-counter {
+  transform-origin: 50% 50%;
+  animation: slowSpinReverse 64s linear infinite;
+}
+
+@keyframes slowSpinReverse {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+.orbit-active-beam {
+  stroke: var(--sc-accent);
+  stroke-width: 2;
+  stroke-dasharray: 5 4;
+  transition: all 320ms var(--sc-ease-out);
+}
+
+/* Center Project Hub Inside the Circle */
+.orbital-center-core {
   position: relative;
-  aspect-ratio: 16 / 10;
-  background: #0b0d13;
+  z-index: 3;
+  width: 54%;
+  height: 54%;
+  border-radius: 50%;
+  padding: 0.55rem;
+  background: radial-gradient(
+    circle at 30% 25%,
+    color-mix(in oklab, var(--sc-accent) 24%, var(--surface-elevated)),
+    var(--sc-canvas) 82%
+  );
+  border: 1.5px solid color-mix(in oklab, var(--sc-accent) 55%, transparent);
+  box-shadow:
+    0 20px 50px -12px rgba(0, 0, 0, 0.85),
+    inset 0 0 28px color-mix(in oklab, var(--sc-accent) 12%, transparent);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   overflow: hidden;
+  cursor: pointer;
+  transition: transform 320ms var(--sc-ease-out),
+              border-color 320ms var(--sc-ease-out);
 }
 
-.browser-body img {
+.orbital-center-core:hover {
+  transform: scale(1.03);
+  border-color: var(--sc-accent);
+}
+
+.core-backdrop-img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: top center;
+  opacity: 0.24;
+  filter: contrast(1.12) saturate(1.1);
+  transition: opacity 320ms var(--sc-ease-out), transform 480ms var(--sc-ease-out);
 }
 
-/* Custom Interactive Architectural Preview inside LegalAI & AgriPOS */
-.arch-preview {
-  width: 100%;
-  height: 100%;
-  padding: var(--sc-5);
+.orbital-center-core:hover .core-backdrop-img {
+  opacity: 0.38;
+  transform: scale(1.07);
+}
+
+.core-scrim {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle,
+    color-mix(in oklab, var(--sc-canvas) 62%, transparent) 0%,
+    color-mix(in oklab, var(--sc-canvas) 94%, transparent) 85%
+  );
+}
+
+.core-inner-copy {
+  position: relative;
+  z-index: 2;
+  padding: var(--sc-4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.core-kicker {
+  font-family: var(--sc-font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--sc-accent);
+  background: color-mix(in oklab, var(--sc-canvas) 82%, transparent);
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--sc-r-sm);
+  border: 1px solid color-mix(in oklab, var(--sc-accent) 35%, transparent);
+}
+
+.core-project-name {
+  font-family: var(--sc-font-display);
+  font-size: clamp(1.15rem, 1.8vw, 1.55rem);
+  font-weight: 800;
+  line-height: 1.05;
+  color: var(--sc-ink);
+  margin: 0.15rem 0;
+}
+
+.core-metric-pill {
+  font-family: var(--sc-font-mono);
+  font-size: 0.72rem;
+  color: var(--ok-green);
+  font-weight: 600;
+}
+
+.core-expand-hint {
+  margin-top: 0.3rem;
+  font-family: var(--sc-font-mono);
+  font-size: 0.68rem;
+  color: var(--sc-ink);
+  background: color-mix(in oklab, var(--sc-accent) 22%, var(--sc-canvas));
+  padding: 0.28rem 0.65rem;
+  border-radius: var(--sc-r-sm);
+  border: 1px solid color-mix(in oklab, var(--sc-accent) 50%, transparent);
+}
+
+/* The 6 Orbiting Satellite Buttons Placed on the 360° Circle */
+.orbital-node {
+  position: absolute;
+  z-index: 5;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.5rem 0.8rem;
+  border-radius: var(--sc-r-sm);
+  background: color-mix(in oklab, var(--sc-canvas) 92%, transparent);
+  border: 1px solid color-mix(in oklab, var(--sc-ink) 18%, transparent);
+  box-shadow: var(--sc-e2);
+  color: var(--sc-ink-soft);
+  font-family: var(--sc-font-mono);
+  font-size: 0.73rem;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: transform 240ms var(--sc-ease-out),
+              border-color 240ms var(--sc-ease-out),
+              background-color 240ms var(--sc-ease-out),
+              color 240ms var(--sc-ease-out),
+              box-shadow 240ms var(--sc-ease-out);
+}
+
+/* 6 exact polar coordinates on a circle of radius 43% around center (50%, 50%) */
+.orbital-node[data-angle="0"]   { left: 50%;   top: 7%; }    /* 12 o'clock: Tổng Quan */
+.orbital-node[data-angle="60"]  { left: 87.2%; top: 28.5%; } /* 2 o'clock: Kiến Trúc */
+.orbital-node[data-angle="120"] { left: 87.2%; top: 71.5%; } /* 4 o'clock: Công Nghệ */
+.orbital-node[data-angle="180"] { left: 50%;   top: 93%; }   /* 6 o'clock: Thuật Toán */
+.orbital-node[data-angle="240"] { left: 12.8%; top: 71.5%; } /* 8 o'clock: Kết Quả */
+.orbital-node[data-angle="300"] { left: 12.8%; top: 28.5%; } /* 10 o'clock: Live Demo */
+
+.orbital-node-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--sc-ink-soft);
+  transition: background-color 240ms var(--sc-ease-out),
+              box-shadow 240ms var(--sc-ease-out);
+}
+
+.orbital-node:hover {
+  transform: translate(-50%, -50%) scale(1.06);
+  border-color: var(--sc-accent);
+  color: var(--sc-ink);
+}
+
+.orbital-node.is-active {
+  background: var(--sc-accent);
+  color: var(--sc-accent-ink);
+  border-color: var(--sc-accent);
+  font-weight: 700;
+  transform: translate(-50%, -50%) scale(1.08);
+  box-shadow: 0 10px 28px -6px color-mix(in oklab, var(--sc-accent) 48%, transparent);
+}
+
+.orbital-node.is-active .orbital-node-dot {
+  background: var(--sc-accent-ink);
+  box-shadow: 0 0 0 3px rgba(6, 7, 10, 0.25);
+}
+
+/* ==========================================================================
+   RIGHT PANEL OF EACH ORBITAL ARENA: DYNAMIC INSPECTOR DOCK
+   ========================================================================== */
+.orbital-inspector-dock {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  padding: var(--sc-6);
+  border-radius: var(--sc-r-md);
+  background: color-mix(in oklab, var(--sc-canvas) 88%, transparent);
+  border: 1px solid color-mix(in oklab, var(--sc-ink) 12%, transparent);
+  box-shadow: var(--sc-edge), var(--sc-e2);
+  min-height: 29rem;
+}
+
+.inspector-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sc-3);
+  padding-bottom: var(--sc-3);
+  margin-bottom: var(--sc-4);
+  border-bottom: 1px solid var(--sc-hairline);
+}
+
+.inspector-node-badge {
   font-family: var(--sc-font-mono);
   font-size: var(--sc-t-xs);
-  background: radial-gradient(circle at 80% 20%, color-mix(in oklab, var(--sc-accent) 11%, transparent), #0a0c12 70%);
-}
-
-.redline-del {
-  color: var(--danger-rose);
-  text-decoration: line-through;
-  background: color-mix(in oklab, var(--danger-rose) 14%, transparent);
-  padding: 0.1rem 0.3rem;
-}
-
-.redline-ins {
-  color: var(--ok-green);
-  text-decoration: underline;
+  color: var(--sc-accent);
   font-weight: 600;
-  background: color-mix(in oklab, var(--ok-green) 14%, transparent);
-  padding: 0.1rem 0.3rem;
 }
 
-.telemetry-strip {
+.inspector-step-dots {
+  display: flex;
+  gap: 0.35rem;
+}
+
+.inspector-step-dot {
+  width: 22px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--sc-hairline-strong);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: background-color 200ms var(--sc-ease-out);
+}
+
+.inspector-step-dot.is-active {
+  background: var(--sc-accent);
+}
+
+.inspector-project-title {
+  font-family: var(--sc-font-display);
+  font-size: clamp(1.55rem, 2.4vw, 2.25rem);
+  font-weight: 800;
+  line-height: 1.08;
+  margin: 0 0 var(--sc-2);
+}
+
+.inspector-node-title {
+  font-family: var(--sc-font-mono);
+  font-size: var(--sc-t-sm);
+  color: var(--cyan-glow);
+  margin: 0 0 var(--sc-4);
+}
+
+.inspector-body-content {
+  font-size: var(--sc-t-base);
+  line-height: 1.65;
+  color: var(--sc-ink-soft);
+  margin-bottom: var(--sc-5);
+}
+
+.inspector-code-box {
+  padding: var(--sc-4);
+  border-radius: var(--sc-r-sm);
+  background: #050609;
+  border: 1px solid var(--sc-hairline);
+  font-family: var(--sc-font-mono);
+  font-size: 0.76rem;
+  line-height: 1.6;
+  color: var(--sc-ink);
+  margin-bottom: var(--sc-5);
+  overflow-x: auto;
+}
+
+.inspector-metrics-row {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: var(--sc-3);
+  margin-bottom: var(--sc-5);
 }
 
-.telemetry-cell {
-  background: color-mix(in oklab, var(--sc-surface) 88%, transparent);
-  padding: 0.75rem 1rem;
+.inspector-metric-card {
+  padding: 0.7rem 0.85rem;
   border-radius: var(--sc-r-sm);
+  background: var(--surface-elevated);
   box-shadow: var(--sc-edge);
 }
 
-.telemetry-cell strong {
+.inspector-metric-card strong {
   display: block;
   font-family: var(--sc-font-display);
   font-size: var(--sc-t-lg);
@@ -618,14 +825,96 @@ main {
   font-variant-numeric: tabular-nums;
 }
 
-.telemetry-cell span {
+.inspector-metric-card span {
   font-family: var(--sc-font-mono);
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   color: var(--sc-ink-soft);
 }
 
+.inspector-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sc-3);
+  padding-top: var(--sc-4);
+  border-top: 1px solid var(--sc-hairline);
+}
+
 /* ==========================================================================
-   ACT 3 · HORIZONTAL INTERACTIVE WORKBENCH RAIL (pan device · span 3.4vh)
+   FULL-SCREEN PROJECT DEEP-DIVE MODAL (Opens when clicking Center Core / Detail)
+   ========================================================================== */
+.project-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 130;
+  background: color-mix(in oklab, var(--sc-canvas) 86%, transparent);
+  backdrop-filter: blur(18px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--sc-5);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--sc-d-base) var(--sc-ease-out);
+}
+
+.project-modal-backdrop.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.project-modal-sheet {
+  width: min(72rem, 96vw);
+  max-height: 90vh;
+  overflow-y: auto;
+  background: var(--sc-surface);
+  border-radius: var(--sc-r-lg);
+  border: 1px solid color-mix(in oklab, var(--sc-accent) 35%, transparent);
+  box-shadow: var(--sc-edge), var(--sc-e3);
+  padding: clamp(1.5rem, 3.5vw, 3rem);
+}
+
+.modal-grid-6 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--sc-5);
+  margin-top: var(--sc-6);
+}
+
+.modal-node-card {
+  padding: var(--sc-5);
+  border-radius: var(--sc-r-md);
+  background: var(--sc-canvas);
+  border: 1px solid var(--sc-hairline);
+  box-shadow: var(--sc-edge);
+}
+
+.modal-node-card h4 {
+  font-family: var(--sc-font-mono);
+  font-size: var(--sc-t-xs);
+  color: var(--sc-accent);
+  margin: 0 0 0.5rem;
+  text-transform: uppercase;
+}
+
+.redline-del {
+  color: var(--danger-rose);
+  text-decoration: line-through;
+  background: color-mix(in oklab, var(--danger-rose) 14%, transparent);
+  padding: 0.15rem 0.35rem;
+}
+
+.redline-ins {
+  color: var(--ok-green);
+  text-decoration: underline;
+  font-weight: 600;
+  background: color-mix(in oklab, var(--ok-green) 14%, transparent);
+  padding: 0.15rem 0.35rem;
+}
+
+/* ==========================================================================
+   ACT 3 · HORIZONTAL INTERACTIVE WORKBENCH RAIL (pan device)
    ========================================================================== */
 .workbench-stage {
   display: flex;
@@ -646,9 +935,10 @@ main {
   flex-direction: column;
   justify-content: center;
   padding: var(--sc-6);
-  background: color-mix(in oklab, var(--sc-surface) 76%, transparent);
+  background: color-mix(in oklab, var(--sc-surface) 82%, transparent);
   backdrop-filter: blur(12px);
   border-radius: var(--sc-r-md);
+  border: 1px solid var(--sc-hairline);
   box-shadow: var(--sc-edge), var(--sc-e2);
 }
 
@@ -661,6 +951,7 @@ main {
   background: color-mix(in oklab, var(--sc-surface) 92%, transparent);
   backdrop-filter: blur(14px);
   border-radius: var(--sc-r-md);
+  border: 1px solid var(--sc-hairline);
   box-shadow: var(--sc-edge), var(--sc-e3);
 }
 
@@ -697,13 +988,14 @@ main {
 
 .pill-selector {
   display: flex;
+  flex-wrap: wrap;
   gap: 0.35rem;
 }
 
 .pill-btn {
   font-family: var(--sc-font-mono);
   font-size: 0.72rem;
-  padding: 0.3rem 0.65rem;
+  padding: 0.32rem 0.65rem;
   border-radius: var(--sc-r-sm);
   border: 1px solid var(--sc-hairline-strong);
   background: var(--sc-canvas);
@@ -729,7 +1021,7 @@ main {
 }
 
 /* ==========================================================================
-   ACT 4 · VERIFIED TELEMETRY & FRONTEND ARCHITECTURE (flow + reveal + count)
+   ACT 4 · VERIFIED TELEMETRY & FRONTEND ARCHITECTURE SPREAD
    ========================================================================== */
 .editorial-spread {
   display: grid;
@@ -757,7 +1049,7 @@ main {
 .ledger-figure {
   font-family: var(--sc-font-display);
   font-size: clamp(2.2rem, 3.8vw, 3.8rem);
-  font-weight: 700;
+  font-weight: 800;
   line-height: 1;
   color: var(--sc-accent);
   font-variant-numeric: tabular-nums;
@@ -772,7 +1064,8 @@ main {
 .capability-row {
   padding: var(--sc-5);
   border-radius: var(--sc-r-md);
-  background: color-mix(in oklab, var(--sc-surface) 86%, transparent);
+  background: color-mix(in oklab, var(--sc-surface) 88%, transparent);
+  border: 1px solid var(--sc-hairline);
   box-shadow: var(--sc-edge), var(--sc-e2);
 }
 
@@ -780,6 +1073,22 @@ main {
   font-family: var(--sc-font-display);
   font-size: var(--sc-t-xl);
   margin: 0 0 var(--sc-2);
+}
+
+.stack-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.stack-tag {
+  font-family: var(--sc-font-mono);
+  font-size: 0.73rem;
+  padding: 0.28rem 0.6rem;
+  border-radius: var(--sc-r-sm);
+  background: var(--surface-elevated);
+  color: var(--sc-ink-soft);
+  box-shadow: var(--sc-edge);
 }
 
 /* ==========================================================================
@@ -825,9 +1134,9 @@ main {
 .cv-drawer {
   position: fixed;
   inset: 0;
-  z-index: 120;
-  background: color-mix(in oklab, var(--sc-canvas) 82%, transparent);
-  backdrop-filter: blur(12px);
+  z-index: 140;
+  background: color-mix(in oklab, var(--sc-canvas) 84%, transparent);
+  backdrop-filter: blur(16px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -848,30 +1157,22 @@ main {
   overflow-y: auto;
   background: var(--sc-surface);
   border-radius: var(--sc-r-md);
+  border: 1px solid var(--sc-hairline-strong);
   box-shadow: var(--sc-edge), var(--sc-e3);
   padding: var(--sc-7);
 }
 
-/* Responsive Adaptations (taste.md §Typography & mobile) */
-@media (max-width: 980px) {
+/* ==========================================================================
+   RESPONSIVE ADAPTATIONS
+   ========================================================================== */
+@media (max-width: 1040px) {
   .hero-content,
-  .project-slide,
-  .editorial-spread {
+  .arena-layout,
+  .editorial-spread,
+  .modal-grid-6 {
     grid-template-columns: 1fr;
   }
-  .hero-plane--mid,
-  .hero-plane--front {
-    position: relative;
-    top: auto;
-    right: auto;
-    bottom: auto;
-    width: 100%;
-    margin-top: var(--sc-4);
-  }
   .chrome-telemetry {
-    display: none;
-  }
-  .project-visual {
     display: none;
   }
 }
@@ -883,7 +1184,11 @@ main {
   .brand-role {
     display: none;
   }
-  .hero-QuickIndex {
+  .orbital-node {
+    font-size: 0.64rem;
+    padding: 0.35rem 0.55rem;
+  }
+  .inspector-metrics-row {
     grid-template-columns: 1fr;
   }
 }
@@ -892,6 +1197,7 @@ main {
   .site-chrome,
   .webgl-canvas-wrap,
   .sc-grain,
+  .cursor-ring,
   [data-sc-progress] {
     display: none !important;
   }
@@ -900,4 +1206,3 @@ main {
     color: #111111;
   }
 }
-
