@@ -4,12 +4,12 @@
 // ============================================================================
 
 const NODE_COORDS = {
-  0:   { x: 200, y: 28 },  // 12 o'clock
-  60:  { x: 349, y: 114 }, // 2 o'clock
-  120: { x: 349, y: 286 }, // 4 o'clock
-  180: { x: 200, y: 372 }, // 6 o'clock
-  240: { x: 51,  y: 286 }, // 8 o'clock
-  300: { x: 51,  y: 114 }, // 10 o'clock
+  0:   { x: 200, y: 46 },  // 12 o'clock (r = 38.5% -> 154px)
+  60:  { x: 333, y: 123 }, // 2 o'clock
+  120: { x: 333, y: 277 }, // 4 o'clock
+  180: { x: 200, y: 354 }, // 6 o'clock
+  240: { x: 67,  y: 277 }, // 8 o'clock
+  300: { x: 67,  y: 123 }, // 10 o'clock
 };
 
 export const ORBITAL_PROJECTS = {
@@ -453,10 +453,25 @@ export function initPortfolioWorkbench() {
       btn.addEventListener("click", () => {
         openProjectDeepDiveModal(projKey);
       });
+      btn.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          openProjectDeepDiveModal(projKey);
+        }
+      });
     });
 
     // Initialize at Node 0 without triggering pulse
     selectOrbitalNode(0, false);
+  });
+
+  // Project jump bar active state
+  const jumpBtns = document.querySelectorAll(".project-jump-btn");
+  jumpBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      jumpBtns.forEach((b) => b.classList.remove("is-active"));
+      btn.classList.add("is-active");
+    });
   });
 
   // =========================================================================

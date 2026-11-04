@@ -1,151 +1,147 @@
 // ============================================================================
-// scripts/choreography.js · GSAP 3.12 + ScrollTrigger Orbital Choreography
-// Built with gsap-core + gsap-scrolltrigger + gsap-timeline
+// scripts/choreography.js · Resilient Scroll Progress, HUD Telemetry & GSAP
+// Zero opacity-trap design: content is always 100% readable even offline
 // ============================================================================
 
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+export function initPortfolioChoreography(webglController) {
+  const progressBar = document.querySelector(".scroll-progress-bar");
+  const hudActLabel = document.querySelector("#hud-active-act");
+  const jumpBtns = Array.from(document.querySelectorAll(".project-jump-btn"));
 
-gsap.registerPlugin(ScrollTrigger);
+  // 1. Native Scroll Progress Bar (60fps passive listener)
+  function updateScrollProgress() {
+    if (!progressBar) return;
+    const maxScroll =
+      document.documentElement.scrollHeight - window.innerHeight;
+    const progress = maxScroll > 0 ? window.scrollY / maxScroll : 0;
+    progressBar.style.transform = `scaleX(${Math.max(0, Math.min(1, progress))})`;
+  }
+  window.addEventListener("scroll", updateScrollProgress, { passive: true });
+  updateScrollProgress();
 
-export function initPortfolioChoreography(webglApi) {
-  // 1. Custom Cursor Follower Ring via gsap.quickTo()
-  const cursorRing = document.querySelector(".cursor-ring");
-  if (cursorRing && window.matchMedia("(pointer: fine)").matches) {
-    const xTo = gsap.quickTo(cursorRing, "x", { duration: 0.22, ease: "power3" });
-    const yTo = gsap.quickTo(cursorRing, "y", { duration: 0.22, ease: "power3" });
+  // 2. IntersectionObserver for Active Act HUD & WebGL Morphing
+  const sectionConfigs = [
+    {
+      selector: "#act-overture",
+      label: "ACT I · OVERTURE & IDENTITY",
+      morphState: 0,
+      jumpId: null,
+    },
+    {
+      selector: "#arena-fashion",
+      label: "ORBIT 01 · FASHIONELITE (SHOP-QUAN-AO)",
+      morphState: 0,
+      jumpId: "#arena-fashion",
+    },
+    {
+      selector: "#arena-legal",
+      label: "ORBIT 02 · LEGALAI CONTRACT REVIEWER",
+      morphState: 1,
+      jumpId: "#arena-legal",
+    },
+    {
+      selector: "#arena-agripos",
+      label: "ORBIT 03 · AGRIPOS FACEID ERP",
+      morphState: 2,
+      jumpId: "#arena-agripos",
+    },
+    {
+      selector: "#arena-temporal",
+      label: "ORBIT 04 · TEMPORAL-AWARE VIETNAMESE RAG",
+      morphState: 3,
+      jumpId: "#arena-temporal",
+    },
+    {
+      selector: "#workbench",
+      label: "ACT III · LIVE INTERACTIVE SIMULATORS",
+      morphState: 1.5,
+      jumpId: null,
+    },
+    {
+      selector: "#benchmarks",
+      label: "ACT IV · VERIFIED TELEMETRY & BENCHMARKS",
+      morphState: 3,
+      jumpId: null,
+    },
+    {
+      selector: "#hire",
+      label: "ACT V · DIRECT CONTACT & CV DOSSIER",
+      morphState: 0,
+      jumpId: null,
+    },
+  ];
 
-    window.addEventListener(
-      "pointermove",
-      (e) => {
-        xTo(e.clientX);
-        yTo(e.clientY);
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const cfg = entry.target.__portfolioCfg;
+          if (!cfg) return;
+
+          if (hudActLabel) {
+            hudActLabel.textContent = cfg.label;
+          }
+          if (webglController && typeof cfg.morphState === "number") {
+            webglController.setMorphState(cfg.morphState);
+          }
+          if (cfg.jumpId && jumpBtns.length) {
+            jumpBtns.forEach((btn) => {
+              btn.classList.toggle(
+                "is-active",
+                btn.getAttribute("href") === cfg.jumpId
+              );
+            });
+          }
+        });
       },
-      { passive: true }
+      {
+        rootMargin: "-32% 0px -45% 0px",
+        threshold: 0.05,
+      }
     );
 
-    const interactiveSelectors =
-      "a, button, .orbital-node, .orbital-center-core, .pill-btn, .topology-btn";
-    document.querySelectorAll(interactiveSelectors).forEach((el) => {
-      el.addEventListener("pointerenter", () =>
-        cursorRing.classList.add("is-hovering")
-      );
-      el.addEventListener("pointerleave", () =>
-        cursorRing.classList.remove("is-hovering")
-      );
+    sectionConfigs.forEach((cfg) => {
+      const el = document.querySelector(cfg.selector);
+      if (el) {
+        el.__portfolioCfg = cfg;
+        observer.observe(el);
+      }
     });
   }
 
-  // 2. Sync each Project Orbital Arena with Three.js 4-State WebGL Morph & Sticky Pills
-  const arenaIds = [
-    { id: "arena-fashion", index: 0 },
-    { id: "arena-legal", index: 1 },
-    { id: "arena-agripos", index: 2 },
-    { id: "arena-temporal", index: 3 },
-  ];
+  // 3. Optional GSAP Subtle Entrance & Orbital Wheel Polish (if GSAP is loaded)
+  try {
+    const gsap = window.gsap;
+    const ScrollTrigger = window.ScrollTrigger;
+    if (gsap && ScrollTrigger) {
+      gsap.registerPlugin(ScrollTrigger);
 
-  const jumpBtns = Array.from(document.querySelectorAll(".project-jump-btn"));
+      const arenas = document.querySelectorAll(".project-orbital-arena");
+      arenas.forEach((arena) => {
+        const wheel = arena.querySelector(".orbital-wheel-stage");
+        const dock = arena.querySelector(".orbital-inspector-dock");
 
-  arenaIds.forEach(({ id, index }) => {
-    const arenaEl = document.getElementById(id);
-    if (!arenaEl) return;
-
-    ScrollTrigger.create({
-      trigger: arenaEl,
-      start: "top 60%",
-      end: "bottom 40%",
-      onEnter: () => {
-        if (webglApi) webglApi.setMorphState(index);
-        jumpBtns.forEach((b, i) => b.classList.toggle("is-active", i === index));
-      },
-      onEnterBack: () => {
-        if (webglApi) webglApi.setMorphState(index);
-        jumpBtns.forEach((b, i) => b.classList.toggle("is-active", i === index));
-      },
-      onUpdate: (self) => {
-        if (webglApi) {
-          webglApi.addScrollVelocity(self.getVelocity() / 1400);
+        if (wheel && dock) {
+          gsap.fromTo(
+            [wheel, dock],
+            { y: 24 },
+            {
+              y: 0,
+              duration: 0.75,
+              stagger: 0.08,
+              ease: "power2.out",
+              scrollTrigger: {
+                trigger: arena,
+                start: "top 82%",
+                toggleActions: "play none none none",
+              },
+            }
+          );
         }
-      },
-    });
-  });
-
-  // 3. Animate Inspector Panel when any Orbital Node on the circle is clicked
-  document.querySelectorAll(".orbital-node, .inspector-step-dot, .js-node-prev, .js-node-next").forEach((trigger) => {
-    trigger.addEventListener("click", () => {
-      const arena = trigger.closest(".project-orbital-arena");
-      if (!arena) return;
-      const dock = arena.querySelector(".js-inspector-anim-target");
-      if (dock) {
-        gsap.fromTo(
-          dock,
-          { opacity: 0.25, y: 10 },
-          { opacity: 1, y: 0, duration: 0.38, ease: "power2.out", overwrite: true }
-        );
-      }
-    });
-  });
-
-  // 4. Allow clicking Hero Topology Buttons to preview any of the 4 3D states
-  document.querySelectorAll("[data-topology-select]").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const idx = Number(btn.getAttribute("data-topology-select"));
-      if (webglApi) {
-        webglApi.setMorphState(idx);
-        webglApi.triggerOrbitalPulse(1.1);
-      }
-    });
-  });
-
-  // 5. ScrollTrigger.batch() for capability, arena & ledger blocks
-  ScrollTrigger.batch(".js-gsap-batch", {
-    interval: 0.1,
-    batchMax: 4,
-    start: "top 86%",
-    onEnter: (batch) => {
-      gsap.fromTo(
-        batch,
-        { opacity: 0, y: 24 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.68,
-          stagger: 0.1,
-          ease: "power3.out",
-          overwrite: true,
-        }
-      );
-    },
-  });
-
-  // 6. Global Scroll Telemetry Readout in Top Chrome
-  const actMap = [
-    { id: "hero", label: "ACT I · RECOGNITION" },
-    { id: "dossier", label: "ACT II · ORBITAL DOSSIER" },
-    { id: "workbench", label: "ACT III · LIVE WORKBENCH" },
-    { id: "telemetry", label: "ACT IV · VERIFIED PROOF" },
-    { id: "contact", label: "ACT V · COMMITMENT" },
-  ];
-
-  actMap.forEach(({ id, label }) => {
-    const el = document.getElementById(id);
-    if (!el) return;
-    ScrollTrigger.create({
-      trigger: el,
-      start: "top 55%",
-      end: "bottom 45%",
-      onToggle: (self) => {
-        if (self.isActive) {
-          const actEl = document.querySelector("#hud-active-act");
-          if (actEl) actEl.textContent = label;
-          document.querySelectorAll(".nav-link").forEach((link) => {
-            link.classList.toggle(
-              "is-active",
-              link.getAttribute("href") === `#${id}`
-            );
-          });
-        }
-      },
-    });
-  });
+      });
+    }
+  } catch (err) {
+    console.warn("GSAP optional polish skipped:", err);
+  }
 }
