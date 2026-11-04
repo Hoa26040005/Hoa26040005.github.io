@@ -1,74 +1,57 @@
 // ============================================================================
-// scripts/choreography.js · Resilient Scroll Progress, HUD Telemetry & GSAP
-// Zero opacity-trap design: content is always 100% readable even offline
+// scripts/choreography.js · Scroll-Linked Wordmark Scale & Orbital Motion Layer
+// Complies with taste-skill Step 9 + impeccable motion rules (never hides text)
 // ============================================================================
 
 export function initPortfolioChoreography(webglController) {
   const progressBar = document.querySelector(".scroll-progress-bar");
-  const hudActLabel = document.querySelector("#hud-active-act");
+  const monumentTitle = document.querySelector(".hero-monument-title");
   const jumpBtns = Array.from(document.querySelectorAll(".project-jump-btn"));
+  const heroMorphBtns = Array.from(document.querySelectorAll("[data-hero-morph]"));
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  // 1. Native Scroll Progress Bar (60fps passive listener)
-  function updateScrollProgress() {
-    if (!progressBar) return;
-    const maxScroll =
-      document.documentElement.scrollHeight - window.innerHeight;
-    const progress = maxScroll > 0 ? window.scrollY / maxScroll : 0;
-    progressBar.style.transform = `scaleX(${Math.max(0, Math.min(1, progress))})`;
+  // 1. Hero interactive 3D state switcher buttons
+  heroMorphBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const idx = Number(btn.getAttribute("data-hero-morph") || 0);
+      heroMorphBtns.forEach((b) => b.classList.remove("is-active"));
+      btn.classList.add("is-active");
+      if (webglController) {
+        webglController.setMorphState(idx);
+        webglController.triggerOrbitalPulse(1.25);
+      }
+    });
+  });
+
+  // 2. Scroll-linked progress & Scaling Wordmark signature move
+  function onScroll() {
+    const maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+    const progress = Math.max(0, Math.min(1, window.scrollY / maxScroll));
+
+    if (progressBar) {
+      progressBar.style.transform = `scaleX(${progress})`;
+    }
+
+    if (monumentTitle && !reducedMotion) {
+      const heroProgress = Math.max(0, Math.min(1, window.scrollY / (window.innerHeight * 0.8)));
+      const scale = 1 - heroProgress * 0.06;
+      monumentTitle.style.transform = `scale(${scale.toFixed(4)})`;
+    }
   }
-  window.addEventListener("scroll", updateScrollProgress, { passive: true });
-  updateScrollProgress();
 
-  // 2. IntersectionObserver for Active Act HUD & WebGL Morphing
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+
+  // 3. IntersectionObserver for WebGL state sync & subtle transform entrance
   const sectionConfigs = [
-    {
-      selector: "#act-overture",
-      label: "ACT I · OVERTURE & IDENTITY",
-      morphState: 0,
-      jumpId: null,
-    },
-    {
-      selector: "#arena-fashion",
-      label: "ORBIT 01 · FASHIONELITE (SHOP-QUAN-AO)",
-      morphState: 0,
-      jumpId: "#arena-fashion",
-    },
-    {
-      selector: "#arena-legal",
-      label: "ORBIT 02 · LEGALAI CONTRACT REVIEWER",
-      morphState: 1,
-      jumpId: "#arena-legal",
-    },
-    {
-      selector: "#arena-agripos",
-      label: "ORBIT 03 · AGRIPOS FACEID ERP",
-      morphState: 2,
-      jumpId: "#arena-agripos",
-    },
-    {
-      selector: "#arena-temporal",
-      label: "ORBIT 04 · TEMPORAL-AWARE VIETNAMESE RAG",
-      morphState: 3,
-      jumpId: "#arena-temporal",
-    },
-    {
-      selector: "#workbench",
-      label: "ACT III · LIVE INTERACTIVE SIMULATORS",
-      morphState: 1.5,
-      jumpId: null,
-    },
-    {
-      selector: "#benchmarks",
-      label: "ACT IV · VERIFIED TELEMETRY & BENCHMARKS",
-      morphState: 3,
-      jumpId: null,
-    },
-    {
-      selector: "#hire",
-      label: "ACT V · DIRECT CONTACT & CV DOSSIER",
-      morphState: 0,
-      jumpId: null,
-    },
+    { selector: "#act-overture", morphState: 0, jumpId: null },
+    { selector: "#arena-fashion", morphState: 0, jumpId: "#arena-fashion" },
+    { selector: "#arena-legal", morphState: 1, jumpId: "#arena-legal" },
+    { selector: "#arena-agripos", morphState: 2, jumpId: "#arena-agripos" },
+    { selector: "#arena-temporal", morphState: 3, jumpId: "#arena-temporal" },
+    { selector: "#workbench", morphState: 1, jumpId: null },
+    { selector: "#benchmarks", morphState: 3, jumpId: null },
+    { selector: "#hire", morphState: 0, jumpId: null },
   ];
 
   if ("IntersectionObserver" in window) {
@@ -79,9 +62,6 @@ export function initPortfolioChoreography(webglController) {
           const cfg = entry.target.__portfolioCfg;
           if (!cfg) return;
 
-          if (hudActLabel) {
-            hudActLabel.textContent = cfg.label;
-          }
           if (webglController && typeof cfg.morphState === "number") {
             webglController.setMorphState(cfg.morphState);
           }
@@ -96,7 +76,7 @@ export function initPortfolioChoreography(webglController) {
         });
       },
       {
-        rootMargin: "-32% 0px -45% 0px",
+        rootMargin: "-30% 0px -45% 0px",
         threshold: 0.05,
       }
     );
@@ -108,40 +88,26 @@ export function initPortfolioChoreography(webglController) {
         observer.observe(el);
       }
     });
-  }
 
-  // 3. Optional GSAP Subtle Entrance & Orbital Wheel Polish (if GSAP is loaded)
-  try {
-    const gsap = window.gsap;
-    const ScrollTrigger = window.ScrollTrigger;
-    if (gsap && ScrollTrigger) {
-      gsap.registerPlugin(ScrollTrigger);
-
-      const arenas = document.querySelectorAll(".project-orbital-arena");
-      arenas.forEach((arena) => {
-        const wheel = arena.querySelector(".orbital-wheel-stage");
-        const dock = arena.querySelector(".orbital-inspector-dock");
-
-        if (wheel && dock) {
-          gsap.fromTo(
-            [wheel, dock],
-            { y: 24 },
-            {
-              y: 0,
-              duration: 0.75,
-              stagger: 0.08,
-              ease: "power2.out",
-              scrollTrigger: {
-                trigger: arena,
-                start: "top 82%",
-                toggleActions: "play none none none",
-              },
+    // Subtle transform motion on scroll for orbital wheels & docks
+    if (!reducedMotion) {
+      const motionTargets = document.querySelectorAll(
+        ".orbital-wheel-stage, .orbital-inspector-dock, .sim-card, .benchmark-row, .hero-image-card"
+      );
+      const motionObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-inview");
             }
-          );
-        }
+          });
+        },
+        { threshold: 0.12 }
+      );
+      motionTargets.forEach((el) => {
+        el.classList.add("will-enter");
+        motionObserver.observe(el);
       });
     }
-  } catch (err) {
-    console.warn("GSAP optional polish skipped:", err);
   }
 }
