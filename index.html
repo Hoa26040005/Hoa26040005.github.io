@@ -73,7 +73,7 @@
 
           <div class="hero-cta-row">
             <a href="#projects" class="btn-primary">Khám phá 4 vòng tròn dự án</a>
-            <button type="button" class="btn-ghost" data-open-cv>Xem và in hồ sơ CV</button>
+            <button type="button" class="btn-ghost" data-open-cv>Hồ sơ CV (Word / LaTeX)</button>
             <a
               href="https://github.com/Hoa26040005"
               target="_blank"
@@ -854,15 +854,21 @@ Query: "GDP Việt Nam năm 2022 tăng trưởng bao nhiêu?"
                 <span id="copy-email-status">Sao chép địa chỉ Email</span>
               </button>
               <button type="button" class="btn-ghost" data-open-cv>
-                Mở và in hồ sơ CV
+                Mở CV chuẩn Word / LaTeX
               </button>
               <a
-                href="https://github.com/Hoa26040005"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="assets/cv/Huynh_Thai_Hoa_CV.docx"
+                download="Huynh_Thai_Hoa_CV.docx"
                 class="btn-ghost"
               >
-                GitHub @Hoa26040005
+                Tải trực tiếp CV (.docx)
+              </a>
+              <a
+                href="assets/cv/Huynh_Thai_Hoa_CV.tex"
+                download="Huynh_Thai_Hoa_CV.tex"
+                class="btn-ghost"
+              >
+                Tải mã LaTeX (.tex)
               </a>
             </div>
           </div>
@@ -918,7 +924,7 @@ Query: "GDP Việt Nam năm 2022 tăng trưởng bao nhiêu?"
   </div>
 
   <!-- ===================================================================== -->
-  <!-- PRINTABLE 1-PAGE CV DOSSIER DRAWER                                    -->
+  <!-- PRINTABLE 1-PAGE WORD / LATEX A4 CV DOSSIER DRAWER                    -->
   <!-- ===================================================================== -->
   <div
     id="cv-drawer"
@@ -926,56 +932,311 @@ Query: "GDP Việt Nam năm 2022 tăng trưởng bao nhiêu?"
     aria-hidden="true"
     role="dialog"
     aria-modal="true"
-    aria-label="Hồ sơ CV tóm tắt Huỳnh Thái Hòa"
+    aria-label="Hồ sơ CV chuẩn Word và LaTeX của Huỳnh Thái Hòa"
   >
     <div class="cv-drawer-sheet">
-      <div class="modal-top-bar">
+      <div class="modal-top-bar cv-top-bar">
         <div>
-          <p class="arena-repo-tag">Hồ sơ năng lực kỹ thuật chuẩn in PDF</p>
-          <p class="modal-project-heading">Huỳnh Thái Hòa · Full-Stack AI &amp; Creative Engineer</p>
-          <p class="arena-repo-tag">
-            Email: <code>huynhhoa9881@gmail.com</code> · GitHub: <code>https://github.com/Hoa26040005</code>
-          </p>
+          <p class="arena-repo-tag">Hồ sơ ứng tuyển kỹ sư chính thức · Chuẩn ATS 1 trang A4 (Microsoft Word &amp; LaTeX)</p>
+          <p class="modal-project-heading">Curriculum Vitae · Huỳnh Thái Hòa</p>
         </div>
 
-        <div class="arena-actions">
-          <button type="button" id="print-cv-btn" class="btn-primary">In hoặc lưu PDF</button>
+        <div class="arena-actions cv-action-bar">
+          <a
+            href="assets/cv/Huynh_Thai_Hoa_CV.docx"
+            download="Huynh_Thai_Hoa_CV.docx"
+            class="btn-primary"
+          >
+            Tải bản Word (.docx)
+          </a>
+          <a
+            href="assets/cv/Huynh_Thai_Hoa_CV.tex"
+            download="Huynh_Thai_Hoa_CV.tex"
+            class="btn-ghost"
+          >
+            Tải file LaTeX (.tex)
+          </a>
+          <a
+            href="cv.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-ghost"
+          >
+            Mở trang A4 riêng
+          </a>
+          <button type="button" id="print-cv-btn" class="btn-ghost">In / Xuất PDF A4</button>
           <button type="button" id="close-cv-btn" class="btn-ghost">Đóng (ESC)</button>
         </div>
       </div>
 
-      <div class="modal-grid-6">
-        <article class="modal-node-card">
-          <p class="modal-node-topic">Kho mã nguồn: Hoa26040005/RAGNHANBTTHOIGIAN</p>
-          <p class="modal-node-title">Temporal-Aware Vietnamese RAG</p>
-          <p class="modal-node-body">
-            Hệ thống hỏi đáp tiếng Việt nhận thức thời gian kết hợp FAISS (50.599 phân đoạn), BM25, hợp nhất RRF và xếp hạng mốc năm. Đạt 92,7% độ chính xác năm trên bộ chuẩn Eval96 (+30,2% so với RAG truyền thống).
-          </p>
-        </article>
+      <div class="cv-view-switcher" role="tablist" aria-label="Chế độ xem hồ sơ CV">
+        <button
+          type="button"
+          class="cv-tab-btn is-active"
+          data-cv-tab="paper"
+          role="tab"
+          aria-selected="true"
+        >
+          Bản giấy A4 chuẩn Word / LaTeX (Nộp tuyển dụng)
+        </button>
+        <button
+          type="button"
+          class="cv-tab-btn"
+          data-cv-tab="latex"
+          role="tab"
+          aria-selected="false"
+        >
+          Mã nguồn LaTeX gốc (.tex · Biên dịch Overleaf)
+        </button>
+      </div>
 
-        <article class="modal-node-card">
-          <p class="modal-node-topic">Kho mã nguồn: Hoa26040005/legal-ai-contract-reviewer</p>
-          <p class="modal-node-title">LegalAI Contract Reviewer</p>
-          <p class="modal-node-body">
-            Nền tảng rà soát hợp đồng kết hợp Vector Search với đồ thị tri thức Neo4j, tiền xử lý ảnh chụp OCR khử nghiêng và xuất báo cáo Word (.docx) đính kèm điều khoản sửa đổi theo hơn 25 văn bản luật Việt Nam.
-          </p>
-        </article>
+      <!-- TAB 1: SERIOUS A4 WHITE-PAPER WORD / LATEX RESUME -->
+      <div id="cv-panel-paper" class="cv-tab-panel is-active">
+        <div class="cv-a4-paper" data-ui>
+          <header class="cv-paper-header">
+            <h2 class="cv-paper-name">HUỲNH THÁI HÒA</h2>
+            <p class="cv-paper-role">
+              AI Engineer &amp; Full-Stack Software Engineer (RAG Systems · FastAPI · Next.js · Electron ERP)
+            </p>
+            <p class="cv-paper-contact">
+              Email: <a href="mailto:huynhhoa9881@gmail.com">huynhhoa9881@gmail.com</a>
+              &nbsp;|&nbsp; GitHub: <a href="https://github.com/Hoa26040005" target="_blank" rel="noopener">github.com/Hoa26040005</a>
+              &nbsp;|&nbsp; Portfolio: <a href="https://hoa26040005.github.io" target="_blank" rel="noopener">hoa26040005.github.io</a>
+              &nbsp;|&nbsp; Việt Nam
+            </p>
+          </header>
 
-        <article class="modal-node-card">
-          <p class="modal-node-topic">Kho mã nguồn: Hoa26040005/pesticide-shop</p>
-          <p class="modal-node-title">AgriPOS Desktop ERP &amp; 68-Point FaceID</p>
-          <p class="modal-node-body">
-            Phần mềm quản lý bán hàng, tồn kho theo lô và công nợ nông nghiệp đóng gói trên Electron 39 + React 19, tích hợp nhận diện khuôn mặt 68 điểm mốc (128D Euclidean descriptor) và phân quyền RBAC.
-          </p>
-        </article>
+          <section class="cv-paper-section">
+            <h3 class="cv-paper-sec-title">Tóm Tắt Chuyên Môn (Executive Summary)</h3>
+            <p class="cv-paper-summary">
+              Kỹ sư Phần mềm Full-Stack &amp; Kỹ sư AI ứng dụng (Applied AI / RAG Systems) có kinh nghiệm thiết kế, triển khai trọn gói (end-to-end) các hệ thống sản phẩm thực tế: từ kiến trúc <strong>Temporal-Aware Hybrid RAG</strong> xử lý văn bản tiếng Việt đạt <strong>92,7% độ chính xác thực thể năm (Eval96)</strong>, nền tảng kiểm toán hợp đồng pháp lý đa phương thức trích xuất điều khoản <strong>&lt; 3,2 giây/trang</strong>, hệ thống Desktop ERP/POS Electron 39 tích hợp nhận diện sinh trắc khuôn mặt <strong>68 điểm (68-Point FaceID)</strong>, đến kiến trúc thương mại điện tử đa cổng thanh toán chuẩn Production.
+            </p>
+          </section>
 
-        <article class="modal-node-card">
-          <p class="modal-node-topic">Kho mã nguồn: Hoa26040005/Shop-Quan-Ao</p>
-          <p class="modal-node-title">FashionElite Social E-Commerce &amp; 3D AI</p>
-          <p class="modal-node-body">
-            Sàn thương mại điện tử React 19 + Three.js + Socket.IO tích hợp phòng Mua Chung 2/4/8 người phân bổ chiết khấu chuẩn từng đồng, diễn đàn cộng đồng và trợ lý mua sắm Gemini 2.5 Flash.
+          <section class="cv-paper-section">
+            <h3 class="cv-paper-sec-title">Kỹ Năng Kỹ Thuật (Technical Skills)</h3>
+            <div class="cv-paper-skills">
+              <div class="cv-skill-row">
+                <span class="cv-skill-label">AI, NLP &amp; RAG Architecture:</span>
+                <span class="cv-skill-val">Hybrid Retrieval (FAISS Dense Vector + BM25 Lexical), Temporal Query Decomposition, Cross-Encoder Reranking, VietOCR, PaddleOCR, Google Gemini API, Groq LPU (Llama-3.3-70B), Ollama (Qwen2.5).</span>
+              </div>
+              <div class="cv-skill-row">
+                <span class="cv-skill-label">Backend &amp; Systems Engineering:</span>
+                <span class="cv-skill-val">Python (FastAPI, Pydantic, AsyncIO), Node.js (Express.js, RESTful API, JWT/OAuth2, RBAC), Prisma ORM, SQLAlchemy, HMAC-SHA512 Webhooks, Audit Logging.</span>
+              </div>
+              <div class="cv-skill-row">
+                <span class="cv-skill-label">Frontend &amp; Desktop Runtime:</span>
+                <span class="cv-skill-val">TypeScript, JavaScript (ES2024), React 18/19, Next.js 14 (App Router, SSR), Tailwind CSS, Three.js / WebGL, Electron 39 (Context Isolation &amp; Preload IPC Bridge), face-api.js (68-Point Landmarks).</span>
+              </div>
+              <div class="cv-skill-row">
+                <span class="cv-skill-label">Databases, Infra &amp; Testing:</span>
+                <span class="cv-skill-val">PostgreSQL, MySQL, SQLite, MongoDB, Neo4j, FAISS Index, Docker, Git/GitHub Actions CI/CD, Vercel, Pytest &amp; Automated Evaluation Benchmarks (Eval96).</span>
+              </div>
+            </div>
+          </section>
+
+          <section class="cv-paper-section">
+            <h3 class="cv-paper-sec-title">Dự Án Kỹ Thuật Trọng Điểm (Selected Engineering Projects)</h3>
+
+            <article class="cv-paper-item">
+              <div class="cv-paper-item-head">
+                <strong>1. Temporal-Aware Vietnamese RAG System (RAG Nhận Biết Thời Gian)</strong>
+                <span>Python, FastAPI, FAISS, BM25, Cross-Encoder, Ollama (Qwen2.5)</span>
+              </div>
+              <div class="cv-paper-item-sub">
+                <span>Kiến trúc Truy xuất Tăng cường Tạo sinh Nhận biết Thời gian cho Văn bản Tiếng Việt</span>
+                <a href="https://github.com/Hoa26040005/RAGNHANBTTHOIGIAN" target="_blank" rel="noopener">github.com/Hoa26040005/RAGNHANBTTHOIGIAN</a>
+              </div>
+              <ul class="cv-paper-bullets">
+                <li>Nghiên cứu và phát triển kiến trúc <strong>Hybrid Retrieval</strong> kết hợp bộ phân tích thực thể thời gian (Temporal Query Parser) nhằm giải quyết hiện tượng ảo giác mốc thời gian (temporal hallucination) trong truy xuất văn bản tiếng Việt (50.599 phân đoạn vector FAISS L2).</li>
+                <li>Kết hợp tìm kiếm ngữ nghĩa (FAISS Dense Embedding) với tìm kiếm từ khóa (BM25 Lexical) cùng hàm chấm điểm thời gian (Temporal Decay &amp; Exact-Year Boosting) và Cross-Encoder Reranker.</li>
+                <li>Xây dựng bộ kiểm thử tự động 96 câu hỏi phức hợp (<strong>Eval96 Benchmark</strong>): nâng độ chính xác năm (Year Accuracy) lên <strong>92,7%</strong> và điểm từ khóa đạt <strong>80,5% (+60,0% so với Baseline RAG)</strong>.</li>
+              </ul>
+            </article>
+
+            <article class="cv-paper-item">
+              <div class="cv-paper-item-head">
+                <strong>2. LegalAI Contract Reviewer · Hệ Thống Kiểm Toán Hợp Đồng Pháp Lý Đa Phương Thức</strong>
+                <span>Python, FastAPI, React, TypeScript, Gemini, Groq, VietOCR, Neo4j</span>
+              </div>
+              <div class="cv-paper-item-sub">
+                <span>Nền tảng AI Phân tích Rủi ro &amp; Đối chiếu Điều khoản Hợp đồng Pháp lý Việt Nam</span>
+                <a href="https://github.com/Hoa26040005/legal-ai-contract-reviewer" target="_blank" rel="noopener">github.com/Hoa26040005/legal-ai-contract-reviewer</a>
+              </div>
+              <ul class="cv-paper-bullets">
+                <li>Xây dựng pipeline bóc tách và kiểm toán hợp đồng pháp lý tiếng Việt từ tài liệu PDF nguyên bản và ảnh chụp/scan hợp đồng bằng sự kết hợp giữa <strong>PyMuPDF, PaddleOCR và VietOCR</strong>.</li>
+                <li>Thiết kế kiến trúc <strong>Multi-LLM Orchestrator &amp; Hybrid GraphRAG</strong> đối chiếu điều khoản hợp đồng với hơn 25 văn bản Bộ luật Dân sự, Bộ luật Lao động &amp; Luật Thương mại Việt Nam.</li>
+                <li>Tự động phát hiện điều khoản bất lợi, chấm điểm rủi ro theo 4 cấp độ (Critical / High / Medium / Low), trích dẫn căn cứ pháp lý và xuất báo cáo Word (<code>.docx</code>) kèm câu chữ sửa đổi trực tiếp.</li>
+              </ul>
+            </article>
+
+            <article class="cv-paper-item">
+              <div class="cv-paper-item-head">
+                <strong>3. AgriPOS · Hệ Thống Desktop ERP &amp; POS Vật Tư Nông Nghiệp Tích Hợp FaceID</strong>
+                <span>Electron 39, React, Node.js, SQLite/MySQL, face-api.js (68 Landmarks), RBAC</span>
+              </div>
+              <div class="cv-paper-item-sub">
+                <span>Phần mềm Quản trị Doanh nghiệp &amp; Điểm bán hàng (POS) Xác thực Sinh trắc học Khuôn mặt</span>
+                <a href="https://github.com/Hoa26040005/pesticide-shop" target="_blank" rel="noopener">github.com/Hoa26040005/pesticide-shop</a>
+              </div>
+              <ul class="cv-paper-bullets">
+                <li>Phát triển phần mềm Desktop ERP &amp; POS chuyên dụng trên nền tảng <strong>Electron 39</strong> với cơ chế cô lập tiến trình (Context Isolation &amp; Preload IPC Bridge) đảm bảo an toàn dữ liệu tuyệt đối.</li>
+                <li>Tích hợp mô hình nhận diện sinh trắc học khuôn mặt 68 điểm mốc (<strong>68-Point Facial Landmarks / 128D Euclidean Descriptor</strong>) ngay tại thiết bị (on-device) để xác thực đăng nhập ca trực và phân quyền RBAC.</li>
+                <li>Quản lý toàn diện vòng đời lô hàng và hạn sử dụng (<strong>FEFO/FIFO</strong>), cảnh báo tồn kho tối thiểu, quản lý công nợ đại lý đa cấp, tự động tính lãi quá hạn và xuất báo cáo kiểm toán chuẩn kế toán.</li>
+              </ul>
+            </article>
+
+            <article class="cv-paper-item">
+              <div class="cv-paper-item-head">
+                <strong>4. FashionElite · Nền Tảng Thương Mại Điện Tử Full-Stack &amp; Phòng Mua Chung Thời Gian Thực</strong>
+                <span>React, TypeScript, Node.js, Three.js, Socket.IO, MongoDB/PostgreSQL</span>
+              </div>
+              <div class="cv-paper-item-sub">
+                <span>Kiến trúc E-Commerce Tích hợp Phòng Mua Chung (GroupBuy), Trợ lý AI &amp; Cổng Thanh toán</span>
+                <span>Live: <a href="https://shop-quan-ao-g89r.vercel.app/" target="_blank" rel="noopener">shop-quan-ao-g89r.vercel.app</a> &nbsp;|&nbsp; <a href="https://github.com/Hoa26040005/Shop-Quan-Ao" target="_blank" rel="noopener">github.com/Hoa26040005/Shop-Quan-Ao</a></span>
+              </div>
+              <ul class="cv-paper-bullets">
+                <li>Thiết kế và triển khai nền tảng E-Commerce hiện đại tích hợp phòng <strong>Mua Chung (GroupBuy 2/4/8 người)</strong> đồng bộ giỏ hàng thời gian thực qua <strong>Socket.IO</strong> và thuật toán phân bổ chiết khấu chính xác từng đồng.</li>
+                <li>Xây dựng luồng thanh toán đa kênh (VNPay, MoMo, Stripe, VietQR) và hệ thống Quản trị (Admin CMS) quản lý biến thể SKU/Size/Color.</li>
+                <li>Tích hợp trợ lý AI tư vấn kích cỡ (Size Recommendation), phối đồ thông minh và phòng thử đồ tương tác 3D.</li>
+              </ul>
+            </article>
+          </section>
+
+          <section class="cv-paper-section">
+            <h3 class="cv-paper-sec-title">Học Vấn &amp; Định Hướng Nghiên Cứu (Education &amp; Engineering Focus)</h3>
+            <div class="cv-paper-item">
+              <div class="cv-paper-item-head">
+                <strong>Chuyên ngành Công nghệ Thông tin / Kỹ thuật Phần mềm &amp; Trí tuệ Nhân tạo (Software Engineering &amp; Applied AI)</strong>
+                <span>Việt Nam</span>
+              </div>
+              <ul class="cv-paper-bullets">
+                <li><strong>Trọng tâm nghiên cứu &amp; phát triển:</strong> Hệ thống Truy xuất Tăng cường Tạo sinh (RAG) cho tiếng Việt, Xử lý Ngôn ngữ Tự nhiên Pháp lý (Legal NLP), Thị giác Máy tính Nhúng (Edge Biometrics) và Kiến trúc Full-Stack hiệu năng cao.</li>
+                <li><strong>Cam kết kỹ thuật:</strong> Mã nguồn sạch (Clean Architecture), có bộ kiểm thử định lượng rõ ràng (Eval96 Benchmark), tài liệu hóa đầy đủ và sẵn sàng triển khai môi trường Production.</li>
+              </ul>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <!-- TAB 2: RAW OVERLEAF LATEX (.TEX) SOURCE CODE -->
+      <div id="cv-panel-latex" class="cv-tab-panel" hidden>
+        <div class="cv-latex-toolbar">
+          <p>
+            Mã nguồn chuẩn <strong>LaTeX2e (Article A4 · Jake's Engineering Resume Standard)</strong>. Bạn có thể sao chép toàn bộ mã dưới đây dán trực tiếp vào <strong>Overleaf</strong> hoặc tải file <code>Huynh_Thai_Hoa_CV.tex</code> về biên dịch bằng <code>pdflatex</code> / <code>xelatex</code>.
           </p>
-        </article>
+          <button type="button" id="copy-latex-btn" class="btn-primary">
+            <span id="copy-latex-status">Sao chép mã nguồn LaTeX (.tex)</span>
+          </button>
+        </div>
+        <pre class="cv-latex-code-box"><code id="cv-latex-source">% !TEX program = pdflatex
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[vietnamese,english]{babel}
+\usepackage[T1,T5]{fontenc}
+\usepackage[left=1.35cm,top=1.15cm,right=1.35cm,bottom=1.15cm]{geometry}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{tabularx}
+\usepackage{xcolor}
+
+\definecolor{primary}{HTML}{0F172A}
+\definecolor{accent}{HTML}{1D4ED8}
+\hypersetup{colorlinks=true, urlcolor=accent, linkcolor=primary}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlist[itemize]{leftmargin=1.35em, nosep, topsep=2pt, itemsep=1.5pt}
+
+\titleformat{\section}{\large\bfseries\scshape\color{primary}}{}{0em}{}[\titlerule]
+\titlespacing*{\section}{0pt}{7pt}{4pt}
+
+\newcommand{\resumeItem}[2]{
+  \vspace{2pt}
+  \noindent\textbf{#1} \hfill {\footnotesize\textbf{\color{accent}#2}} \\
+}
+\newcommand{\resumeSub}[2]{
+  \noindent{\footnotesize\textit{#1}} \hfill {\footnotesize\textit{#2}} \vspace{1pt}
+}
+
+\begin{document}
+
+\begin{center}
+  {\LARGE \textbf{HUỲNH THÁI HÒA}} \\[3pt]
+  {\small \textbf{AI Engineer \& Full-Stack Software Engineer (RAG Systems $\cdot$ FastAPI $\cdot$ Next.js $\cdot$ Electron ERP)}} \\[4pt]
+  {\footnotesize
+    Email: \href{mailto:huynhhoa9881@gmail.com}{huynhhoa9881@gmail.com} \quad|\quad
+    GitHub: \href{https://github.com/Hoa26040005}{github.com/Hoa26040005} \quad|\quad
+    Portfolio: \href{https://hoa26040005.github.io}{hoa26040005.github.io} \quad|\quad
+    Việt Nam
+  }
+\end{center}
+
+\section{Tóm Tắt Chuyên Môn (Executive Summary)}
+{\small
+Kỹ sư Phần mềm Full-Stack \& Kỹ sư AI ứng dụng (Applied AI / RAG Systems) có kinh nghiệm thiết kế, triển khai trọn gói (end-to-end) các hệ thống sản phẩm thực tế: từ kiến trúc \textbf{Temporal-Aware Hybrid RAG} xử lý văn bản tiếng Việt đạt \textbf{92.7\% độ chính xác thực thể năm (Eval96)}, nền tảng kiểm toán hợp đồng pháp lý đa phương thức trích xuất điều khoản \textbf{&lt; 3.2s}, hệ thống Desktop ERP/POS Electron 39 tích hợp nhận diện sinh trắc khuôn mặt \textbf{68 điểm (68-Point FaceID)}, đến kiến trúc thương mại điện tử đa cổng thanh toán chuẩn Production.
+}
+
+\section{Kỹ Năng Kỹ Thuật (Technical Skills)}
+{\small
+\begin{tabularx}{\textwidth}{@{}p{4.3cm}X@{}}
+  \textbf{AI, NLP \& RAG Systems:} &amp; Hybrid Retrieval (FAISS Dense + BM25 Lexical), Temporal Query Decomposition, Cross-Encoder Reranking, VietOCR, PaddleOCR, Gemini API, Groq LPU (Llama-3.3-70B), Ollama (Qwen2.5). \\
+  \textbf{Backend \& Architecture:} &amp; Python (FastAPI, Pydantic, AsyncIO), Node.js (Express.js, REST API, JWT/OAuth2, RBAC), Prisma ORM, SQLAlchemy, Webhooks, Cryptography \& Audit Logging. \\
+  \textbf{Frontend \& Desktop App:} &amp; TypeScript, JavaScript (ES2024), React 18/19, Next.js 14 (App Router, SSR), Tailwind CSS, Electron 39 (Main/Preload IPC Isolation), face-api.js (68-Point Facial Landmarks). \\
+  \textbf{Databases \& DevOps:} &amp; PostgreSQL, MySQL, SQLite, FAISS Index, Docker, Git/GitHub Actions CI/CD, Vercel, Linux, Pytest \& Automated Evaluation Benchmarks (Eval96).
+\end{tabularx}
+}
+
+\section{Dự Án Kỹ Thuật Trọng Điểm (Selected Engineering Projects)}
+
+\resumeItem{1. Temporal-Aware Vietnamese RAG System (RAG Nhận Biết Thời Gian)}{Python, FastAPI, FAISS, BM25, Cross-Encoder, Ollama}
+\resumeSub{Kiến trúc Truy xuất Tăng cường Tạo sinh Nhận biết Thời gian cho Tiếng Việt}{\href{https://github.com/Hoa26040005/RAGNHANBTTHOIGIAN}{github.com/Hoa26040005/RAGNHANBTTHOIGIAN}}
+{\small
+\begin{itemize}
+  \item Nghiên cứu và phát triển kiến trúc \textbf{Hybrid Retrieval} kết hợp nhận diện thực thể thời gian (Temporal Query Parser) nhằm giải quyết hiện tượng ảo giác mốc thời gian (temporal hallucination) trong văn bản tiếng Việt.
+  \item Kết hợp tìm kiếm ngữ nghĩa (FAISS Dense Embedding) với tìm kiếm từ khóa (BM25 Lexical) cùng hàm chấm điểm thời gian (Temporal Decay \& Exact-Year Boosting) và Cross-Encoder Reranker.
+  \item Xây dựng bộ kiểm thử tự động 96 câu hỏi phức hợp (\textbf{Eval96 Benchmark}): nâng độ chính xác năm (Year Accuracy) lên \textbf{92.7\%} và điểm từ khóa đạt \textbf{80.5\%}.
+\end{itemize}
+}
+
+\resumeItem{2. LegalAI Contract Reviewer -- Hệ Thống Kiểm Toán Hợp Đồng Pháp Lý Đa Phương Thức}{Python, FastAPI, React, TypeScript, Gemini, Groq, VietOCR}
+\resumeSub{Nền tảng AI Phân tích Rủi ro \& Đối chiếu Điều khoản Hợp đồng Pháp lý Việt Nam}{\href{https://github.com/Hoa26040005/legal-ai-contract-reviewer}{github.com/Hoa26040005/legal-ai-contract-reviewer}}
+{\small
+\begin{itemize}
+  \item Xây dựng pipeline bóc tách và kiểm toán hợp đồng pháp lý tiếng Việt từ tài liệu PDF nguyên bản và ảnh chụp/scan hợp đồng bằng sự kết hợp giữa \textbf{PyMuPDF, PaddleOCR và VietOCR}.
+  \item Thiết kế kiến trúc \textbf{Multi-LLM Orchestrator} kết hợp Gemini, Groq LPU và Qwen2.5 cục bộ để đối chiếu điều khoản hợp đồng với Bộ luật Dân sự \& Luật Thương mại Việt Nam.
+  \item Tự động phát hiện điều khoản bất lợi, chấm điểm rủi ro 4 cấp độ, trích dẫn căn cứ pháp lý và xuất báo cáo Word (.docx) kèm câu chữ sửa đổi trực tiếp.
+\end{itemize}
+}
+
+\resumeItem{3. AgriPOS -- Hệ Thống Desktop ERP \& POS Vật Tư Nông Nghiệp Tích Hợp FaceID}{Electron 39, React, Node.js, SQLite/MySQL, face-api.js, RBAC}
+\resumeSub{Phần mềm Quản trị Doanh nghiệp \& Điểm bán hàng (POS) Xác thực Sinh trắc học}{\href{https://github.com/Hoa26040005/pesticide-shop}{github.com/Hoa26040005/pesticide-shop}}
+{\small
+\begin{itemize}
+  \item Phát triển phần mềm Desktop ERP \& Điểm bán hàng (POS) chuyên dụng trên nền tảng \textbf{Electron 39} với cơ chế cô lập tiến trình (Context Isolation \& Preload IPC Bridge).
+  \item Tích hợp mô hình nhận diện sinh trắc học khuôn mặt 68 điểm mốc (\textbf{68-Point Facial Landmarks}) ngay tại thiết bị (on-device) để xác thực đăng nhập ca trực nhân viên và phân quyền RBAC.
+  \item Quản lý toàn diện vòng đời lô hàng -- hạn sử dụng (\textbf{FEFO/FIFO}), cảnh báo tồn kho tối thiểu, quản lý công nợ đại lý đa cấp và xuất báo cáo kiểm toán chuẩn kế toán.
+\end{itemize}
+}
+
+\resumeItem{4. FashionElite -- Nền Tảng Thương Mại Điện Tử Full-Stack \& Phòng Mua Chung}{Next.js / React, TypeScript, Node.js, Socket.IO, PostgreSQL}
+\resumeSub{Kiến trúc E-Commerce Hiện đại Tích hợp Phòng Mua Chung \& Thanh toán Trực tuyến}{\href{https://shop-quan-ao-g89r.vercel.app}{shop-quan-ao-g89r.vercel.app} \,|\, \href{https://github.com/Hoa26040005/Shop-Quan-Ao}{github.com/Hoa26040005/Shop-Quan-Ao}}
+{\small
+\begin{itemize}
+  \item Thiết kế và triển khai nền tảng E-Commerce tích hợp phòng Mua Chung (GroupBuy 2/4/8 người) đồng bộ thời gian thực qua Socket.IO và thuật toán chia chiết khấu chính xác từng đồng.
+  \item Xây dựng luồng thanh toán đa kênh (\textbf{VNPay, MoMo, Stripe}) và tích hợp trợ lý AI tư vấn kích cỡ, phối đồ thông minh.
+\end{itemize}
+}
+
+\section{Học Vấn \& Định Hướng Nghiên Cứu (Education \& Focus)}
+\resumeItem{Chuyên ngành Công nghệ Thông tin / Kỹ thuật Phần mềm \& Trí tuệ Nhân tạo}{Việt Nam}
+{\small
+\begin{itemize}
+  \item \textbf{Trọng tâm nghiên cứu:} Hệ thống Truy xuất Tăng cường Tạo sinh (RAG) cho tiếng Việt, Xử lý Ngôn ngữ Tự nhiên Pháp lý (Legal NLP), Thị giác Máy tính Nhúng (Edge Biometrics) và Kiến trúc Full-Stack hiệu năng cao.
+\end{itemize}
+}
+
+\end{document}</code></pre>
       </div>
     </div>
   </div>

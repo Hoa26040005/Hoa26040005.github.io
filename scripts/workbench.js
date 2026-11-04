@@ -741,7 +741,81 @@ export function initPortfolioWorkbench() {
 
   if (printCvBtn) {
     printCvBtn.addEventListener("click", () => {
+      const paperPanel = document.querySelector("#cv-panel-paper");
+      const latexPanel = document.querySelector("#cv-panel-latex");
+      if (paperPanel && latexPanel) {
+        paperPanel.removeAttribute("hidden");
+        paperPanel.classList.add("is-active");
+        latexPanel.setAttribute("hidden", "");
+        latexPanel.classList.remove("is-active");
+      }
       window.print();
+    });
+  }
+
+  // CV Tab Switcher (A4 Paper View vs Raw LaTeX .tex View)
+  const cvTabBtns = document.querySelectorAll("[data-cv-tab]");
+  const cvPaperPanel = document.querySelector("#cv-panel-paper");
+  const cvLatexPanel = document.querySelector("#cv-panel-latex");
+
+  cvTabBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const targetTab = btn.getAttribute("data-cv-tab");
+      cvTabBtns.forEach((b) => {
+        const isCurrent = b === btn;
+        b.classList.toggle("is-active", isCurrent);
+        b.setAttribute("aria-selected", isCurrent ? "true" : "false");
+      });
+
+      if (targetTab === "latex") {
+        if (cvPaperPanel) {
+          cvPaperPanel.setAttribute("hidden", "");
+          cvPaperPanel.classList.remove("is-active");
+        }
+        if (cvLatexPanel) {
+          cvLatexPanel.removeAttribute("hidden");
+          cvLatexPanel.classList.add("is-active");
+        }
+      } else {
+        if (cvLatexPanel) {
+          cvLatexPanel.setAttribute("hidden", "");
+          cvLatexPanel.classList.remove("is-active");
+        }
+        if (cvPaperPanel) {
+          cvPaperPanel.removeAttribute("hidden");
+          cvPaperPanel.classList.add("is-active");
+        }
+      }
+    });
+  });
+
+  // 1-Click Copy LaTeX (.tex) Source for Overleaf
+  const copyLatexBtn = document.querySelector("#copy-latex-btn");
+  const copyLatexStatus = document.querySelector("#copy-latex-status");
+  const latexSourceEl = document.querySelector("#cv-latex-source");
+
+  if (copyLatexBtn && latexSourceEl) {
+    copyLatexBtn.addEventListener("click", async () => {
+      const texCode = latexSourceEl.textContent || "";
+      try {
+        await navigator.clipboard.writeText(texCode);
+        if (copyLatexStatus) {
+          const orig = copyLatexStatus.textContent;
+          copyLatexStatus.textContent = "Đã sao chép mã LaTeX (.tex)";
+          setTimeout(() => {
+            copyLatexStatus.textContent = orig;
+          }, 2400);
+        }
+      } catch {
+        // Fallback selection
+        const range = document.createRange();
+        range.selectNodeContents(latexSourceEl);
+        const sel = window.getSelection();
+        if (sel) {
+          sel.removeAllRanges();
+          sel.addRange(range);
+        }
+      }
     });
   }
 

@@ -1,0 +1,113 @@
+% ============================================================================
+% HUỲNH THÁI HÒA - CURRICULUM VITAE (ATS-FRIENDLY LATEX TEMPLATE)
+% Biên dịch trực tiếp trên Overleaf (pdfLaTeX / XeLaTeX) hoặc TeXstudio
+% ============================================================================
+\documentclass[10pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T5]{fontenc}
+\usepackage[vietnamese]{babel}
+\usepackage[top=1.2cm, bottom=1.2cm, left=1.4cm, right=1.4cm]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+\usepackage{tabularx}
+\usepackage{array}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlist[itemize]{leftmargin=1.4em, itemsep=2pt, topsep=3pt, parsep=0pt}
+
+% Định dạng tiêu đề mục chuẩn ATS Engineering (Jake's Resume Style)
+\titleformat{\section}{\large\bfseries\uppercase}{}{0em}{}[\titlerule]
+\titlespacing*{\section}{0pt}{8pt}{5pt}
+
+\newcommand{\resumeHeading}[4]{
+  \noindent\textbf{#1} \hfill \textbf{#2} \\
+  \textit{#3} \hfill \textit{#4} \par\vspace{2pt}
+}
+
+\begin{document}
+
+% ---------- HEADER ----------
+\begin{center}
+  {\LARGE \textbf{HUỲNH THÁI HÒA}} \\[4pt]
+  \textbf{Full-Stack AI Engineer \,|\, Creative Frontend \& Systems Developer} \\[4pt]
+  Email: \href{mailto:huynhhoa9881@gmail.com}{huynhhoa9881@gmail.com} \,|\,
+  GitHub: \href{https://github.com/Hoa26040005}{github.com/Hoa26040005} \,|\,
+  Portfolio: \href{https://hoa26040005.github.io}{hoa26040005.github.io}
+\end{center}
+
+% ---------- TÓM TẮT NĂNG LỰC ----------
+\section{Tóm tắt chuyên môn (Executive Summary)}
+Kỹ sư phát triển phần mềm toàn diện (Full-Stack AI \& Creative Systems Engineer) có kinh nghiệm thiết kế và triển khai các hệ thống Trí tuệ nhân tạo ứng dụng (Retrieval-Augmented Generation nhận thức thời gian, Đồ thị tri thức pháp lý Neo4j, Sinh trắc học khuôn mặt 68 điểm mốc) kết hợp nền tảng Web/Desktop thời gian thực (React 19, Next.js, Three.js WebGL, Socket.IO, Electron 39). Chú trọng kiến trúc dữ liệu có kiểm chứng toán học, kiểm thử tự động (Pytest, Playwright E2E) và hiệu năng vận hành thực tế.
+
+% ---------- KỸ NĂNG KỸ THUẬT ----------
+\section{Kỹ năng kỹ thuật (Technical Skills)}
+\begin{tabularx}{\textwidth}{@{} >{\bfseries}p{4.3cm} X @{}}
+  AI, LLM \& RAG Systems: & Python, FastAPI, Hybrid Search (FAISS Dense L2 + BM25 + RRF), Neo4j Knowledge Graph, Gemini 2.5 Flash, Qwen3:4B, Underthesea, Face-API.js (SSD MobileNetV1, 68-Point Landmark, 128D Euclidean), Tesseract / Multimodal OCR. \\
+  Frontend \& 3D WebGL: & TypeScript, JavaScript (ES2024), React 19, Next.js 14/16, Three.js, React Three Fiber, Framer Motion, GSAP ScrollTrigger, Tailwind CSS, Ant Design 6. \\
+  Backend \& Desktop ERP: & Node.js, Express, Socket.IO (Realtime Room Sync), Electron 39 (NSIS Windows Installer), MongoDB, PostgreSQL, SQLite, Firebase Firestore, Lucia Auth, VNPay IPN. \\
+  Testing \& DevOps: & Pytest, Playwright E2E, Docker, GitHub Actions CI/CD, Vercel, Render. \\
+\end{tabularx}
+
+% ---------- DỰ ÁN KỸ THUẬT TRỌNG ĐIỂM ----------
+\section{Dự án kỹ thuật trọng điểm (Selected Engineering Projects)}
+
+\resumeHeading
+  {Temporal-Aware Vietnamese RAG (Hệ thống Hỏi đáp Nhận thức Thời gian)}
+  {Python, FastAPI, FAISS, BM25, Qwen3:4B}
+  {Kho mã nguồn: \href{https://github.com/Hoa26040005/RAGNHANBTTHOIGIAN}{github.com/Hoa26040005/RAGNHANBTTHOIGIAN}}
+  {Nghiên cứu \& Thực nghiệm}
+\begin{itemize}
+  \item \textbf{Bài toán \& Kiến trúc 8 tầng:} Giải quyết hiện tượng Lệch mốc thời gian (Temporal Drift) trong RAG tiếng Việt bằng bộ phân tích ngữ nghĩa 12 vai thời gian, toán tử \texttt{FIRST/LAST/CURRENT/FUTURE} và Hợp đồng Bằng chứng (\texttt{Slot-Claim-Evidence Contract}).
+  \item \textbf{Truy hồi lai quy mô lớn:} Xây dựng chỉ mục vector chuẩn hóa L2 trên \textbf{50.599 phân đoạn} (từ 49.980 bài báo giai đoạn 2019--2025) kết hợp \textbf{4.151 sự kiện lịch sử} Wikipedia, hợp nhất FAISS Dense và BM25 bằng thuật toán Reciprocal Rank Fusion (RRF) kèm tầng xếp hạng lại theo năm.
+  \item \textbf{Kết quả định lượng (Bộ chuẩn Eval96):} Đạt \textbf{92,7\% Year Accuracy} (89/96 câu hỏi đúng năm, tăng \textbf{+30,2\%} so với RAG truyền thống 62,5\%), \textbf{80,5\% Keyword Score} (\textbf{+60,0\%}) và \textbf{78,2\% Combined Score}; tích hợp lớp chắn tự động từ chối (\texttt{REFUSE/ABSTAIN}) các câu hỏi ảo giác tương lai.
+\end{itemize}
+
+\vspace{4pt}
+\resumeHeading
+  {FashionElite --- Nền tảng TMĐT Mua Chung Xã hội, 3D Studio \& Trợ lý AI}
+  {React 19, TypeScript, Three.js, Node.js, Socket.IO}
+  {Live Demo: \href{https://shop-quan-ao-g89r.vercel.app/}{shop-quan-ao-g89r.vercel.app} \,|\, Repo: \href{https://github.com/Hoa26040005/Shop-Quan-Ao}{github.com/Hoa26040005/Shop-Quan-Ao}}
+  {Full-Stack Production}
+\begin{itemize}
+  \item \textbf{Phòng Mua Chung Thời gian thực (2 / 4 / 8 thành viên):} Thiết kế cơ chế đồng bộ giỏ hàng nhóm qua Socket.IO và giữ chỗ tồn kho nguyên tử (\texttt{InventoryReservation}). Khi khóa phòng, hệ thống gộp thành 1 đơn tổng duy nhất giao về chủ phòng.
+  \item \textbf{Thuật toán phân bổ chuẩn từng đồng:} Phân bổ chiết khấu bậc thang (8\%/14\%/20\%), voucher và phí vận chuyển theo đúng tỷ trọng giá trị giỏ hàng của từng thành viên (đã kiểm chứng thực tế đơn tổng \textbf{910.812 VNĐ} khớp chính xác đến 1 đồng qua cổng VNPay và COD).
+  \item \textbf{Trợ lý AI \& Không gian 3D:} Xây dựng bộ định tuyến Rule-first 10 nhóm ý định kết hợp Gemini 2.5 Flash RAG, phòng trưng bày 3D (\texttt{@react-three/fiber}) và kiểm thử tự động đầu-cuối bằng Playwright E2E.
+\end{itemize}
+
+\vspace{4pt}
+\resumeHeading
+  {LegalAI Contract Reviewer --- Hệ thống Kiểm toán Hợp đồng Pháp lý Việt Nam}
+  {Python, FastAPI, Neo4j, Next.js 14, TypeScript}
+  {Kho mã nguồn: \href{https://github.com/Hoa26040005/legal-ai-contract-reviewer}{github.com/Hoa26040005/legal-ai-contract-reviewer}}
+  {LegalTech \& Graph-RAG}
+\begin{itemize}
+  \item \textbf{Kiến trúc Hybrid Graph-RAG:} Kết hợp tìm kiếm Vector ngữ nghĩa với Đồ thị tri thức pháp lý \textbf{Neo4j} bao phủ hơn \textbf{25 văn bản luật Việt Nam} (Bộ luật Lao động 2019, Luật Thương mại 2005, Bộ luật Dân sự 2015, Nghị định 13/2023/NĐ-CP) để phát hiện điều khoản vô hiệu hoặc vượt trần phạt/lãi suất.
+  \item \textbf{Tiền xử lý OCR \& Xuất Word Redline:} Tự động nâng tương phản 1.8x, lọc nhiễu và khử nghiêng (Deskew) ảnh chụp hợp đồng bằng điện thoại; xuất báo cáo Word (\texttt{.docx}) kiểu Track Changes gạch đỏ câu sai và chèn câu đàm phán thay thế; tích hợp bộ kiểm thử \texttt{pytest} trên GitHub Actions CI/CD.
+\end{itemize}
+
+\vspace{4pt}
+\resumeHeading
+  {AgriPOS --- Phần mềm Desktop ERP \& Sinh trắc học Khuôn mặt 68 Điểm}
+  {Electron 39, React 19, Face-API, Firebase}
+  {Kho mã nguồn: \href{https://github.com/Hoa26040005/pesticide-shop}{github.com/Hoa26040005/pesticide-shop}}
+  {Desktop ERP \& Biometrics}
+\begin{itemize}
+  \item \textbf{Xác thực Sinh trắc học Khuôn mặt \& Phân quyền RBAC:} Tích hợp mạng nơ-ron SSD MobileNetV1 căn chỉnh \textbf{68 điểm mốc khuôn mặt} và trích xuất vector \textbf{128 chiều} tính khoảng cách Euclidean ngay trên thiết bị; bảo vệ các tuyến báo cáo tài chính nhạy cảm bằng \texttt{ProtectedAdminRoute} (chặn 403 đối với thu ngân) và tự động khóa phiên \texttt{useAutoLogout}.
+  \item \textbf{Đóng gói Desktop ERP 10 phân hệ:} Đóng gói bộ cài đặt Windows (\texttt{.exe} NSIS) qua Electron 39, quản lý bán hàng mã QR tại quầy, tồn kho theo lô hạn sử dụng, sổ công nợ mùa vụ và xuất báo cáo PDF/Excel.
+\end{itemize}
+
+% ---------- HỌC VẤN & NGHIÊN CỨU ----------
+\section{Học vấn \& Nghiên cứu khoa học (Education \& Research)}
+\resumeHeading
+  {Cử nhân Công nghệ Thông tin / Khoa học Máy tính}
+  {Việt Nam}
+  {Đề tài Khóa luận: Hệ thống Hỏi đáp Tiếng Việt Nhận thức Thời gian (Temporal-Aware Vietnamese RAG)}
+  {2021 -- 2025}
+\begin{itemize}
+  \item Nghiên cứu chuyên sâu về Xử lý ngôn ngữ tự nhiên tiếng Việt (Vietnamese NLP), Truy hồi thông tin lai (Hybrid Information Retrieval) và Kiểm soát ảo giác mô hình ngôn ngữ lớn thông qua Hợp đồng Bằng chứng.
+\end{itemize}
+
+\end{document}

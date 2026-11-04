@@ -1128,6 +1128,202 @@ pre, code {
   margin: 0 0 14px;
 }
 
+/* --- A4 Word / LaTeX CV Sheet & Source Code Viewer inside #cv-drawer --- */
+.cv-view-switcher {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.cv-tab-btn {
+  min-height: 44px;
+  padding: 10px 18px;
+  background-color: var(--surface-2);
+  color: var(--muted);
+  font-size: var(--step-small);
+  font-weight: 600;
+}
+
+.cv-tab-btn:hover,
+.cv-tab-btn.is-active {
+  background-color: var(--accent);
+  color: var(--accent-ink);
+}
+
+.cv-tab-panel[hidden] {
+  display: none !important;
+}
+
+.cv-a4-paper {
+  max-width: 860px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  color: #0a0d14;
+  font-family: "Times New Roman", Times, Georgia, serif;
+  padding: clamp(24px, 4vw, 48px);
+  line-height: 1.42;
+}
+
+.cv-paper-header {
+  text-align: center;
+  padding-bottom: 12px;
+  margin-bottom: 16px;
+  border-bottom: 2px solid #0a0d14;
+}
+
+.cv-paper-name {
+  font-size: var(--step-h2);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #0a0d14;
+  margin: 0 0 4px;
+}
+
+.cv-paper-role {
+  font-size: var(--step-body);
+  font-weight: 700;
+  color: #1c2436;
+  margin: 0 0 6px;
+}
+
+.cv-paper-contact {
+  font-size: var(--step-small);
+  color: #2c3548;
+  margin: 0;
+}
+
+.cv-paper-contact a {
+  color: #0a0d14;
+  text-decoration: underline;
+}
+
+.cv-paper-section {
+  margin-bottom: 16px;
+}
+
+.cv-paper-sec-title {
+  font-size: var(--step-body);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #0a0d14;
+  border-bottom: 2px solid #0a0d14;
+  padding-bottom: 3px;
+  margin: 0 0 8px;
+}
+
+.cv-paper-summary {
+  font-size: var(--step-small);
+  color: #0a0d14;
+  margin: 0;
+  text-align: justify;
+}
+
+.cv-paper-skills {
+  display: grid;
+  gap: 6px;
+  font-size: var(--step-small);
+}
+
+.cv-skill-row {
+  display: grid;
+  grid-template-columns: 230px minmax(0, 1fr);
+  gap: 10px;
+}
+
+.cv-skill-label {
+  font-weight: 700;
+  color: #0a0d14;
+}
+
+.cv-skill-val {
+  color: #131824;
+}
+
+.cv-paper-item {
+  margin-bottom: 12px;
+}
+
+.cv-paper-item-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+  font-size: var(--step-small);
+  color: #0a0d14;
+}
+
+.cv-paper-item-head span {
+  font-style: italic;
+  font-weight: 700;
+  color: #1c2436;
+}
+
+.cv-paper-item-sub {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: var(--step-small);
+  font-style: italic;
+  color: #2c3548;
+  margin-bottom: 4px;
+}
+
+.cv-paper-item-sub a {
+  color: #0a0d14;
+  text-decoration: underline;
+}
+
+.cv-paper-bullets {
+  margin: 0 0 0 18px;
+  padding: 0;
+  font-size: var(--step-small);
+  color: #0a0d14;
+}
+
+.cv-paper-bullets li {
+  margin-bottom: 3px;
+  text-align: justify;
+}
+
+.cv-paper-bullets code {
+  color: #0a0d14;
+  background-color: #e9edf3;
+  padding: 1px 5px;
+}
+
+.cv-latex-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  background-color: var(--bg);
+  padding: 16px 20px;
+  margin-bottom: 14px;
+}
+
+.cv-latex-toolbar p {
+  margin: 0;
+  font-size: var(--step-small);
+  color: var(--muted);
+  max-width: 68ch;
+}
+
+.cv-latex-code-box {
+  margin: 0;
+  padding: 20px;
+  background-color: var(--bg);
+  color: var(--ink);
+  font-size: var(--step-small);
+  line-height: 1.5;
+  overflow-x: auto;
+  max-height: 60vh;
+}
+
 /* ==========================================================================
    9. RESPONSIVE COMPOSITIONS (Tablet 768px & Phone 390px)
    ========================================================================== */
@@ -1179,13 +1375,42 @@ pre, code {
     padding: 8px 6px;
     font-size: var(--step-small);
   }
+
+  .cv-skill-row {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
 }
 
 @media print {
   .site-header,
   .scroll-progress-bar,
-  .hero-stage-col {
+  .hero-stage-col,
+  #main-content,
+  .project-modal-backdrop,
+  .cv-top-bar,
+  .cv-view-switcher,
+  #cv-panel-latex {
     display: none !important;
+  }
+  .cv-drawer-backdrop {
+    position: static !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    background: #ffffff !important;
+    padding: 0 !important;
+  }
+  .cv-drawer-sheet {
+    width: 100% !important;
+    max-height: none !important;
+    overflow: visible !important;
+    background: #ffffff !important;
+    padding: 0 !important;
+  }
+  .cv-a4-paper {
+    max-width: 100% !important;
+    padding: 0 !important;
   }
   body {
     background: #ffffff;
