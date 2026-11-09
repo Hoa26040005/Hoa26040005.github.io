@@ -394,6 +394,28 @@ export function initPortfolioWorkbench() {
     const openModalBtns = arena.querySelectorAll("[data-open-project-modal]");
 
     let activeNodeIndex = 0;
+    let beamCurrent = { x: 230, y: 56 };
+    let beamRaf = 0;
+
+    function animateBeamTo(tx, ty) {
+      if (!beamLine) return;
+      if (beamRaf) cancelAnimationFrame(beamRaf);
+      function step() {
+        beamCurrent.x += (tx - beamCurrent.x) * 0.24;
+        beamCurrent.y += (ty - beamCurrent.y) * 0.24;
+        beamLine.setAttribute("x2", beamCurrent.x.toFixed(1));
+        beamLine.setAttribute("y2", beamCurrent.y.toFixed(1));
+        if (Math.hypot(tx - beamCurrent.x, ty - beamCurrent.y) > 0.5) {
+          beamRaf = requestAnimationFrame(step);
+        } else {
+          beamCurrent.x = tx;
+          beamCurrent.y = ty;
+          beamLine.setAttribute("x2", String(tx));
+          beamLine.setAttribute("y2", String(ty));
+        }
+      }
+      beamRaf = requestAnimationFrame(step);
+    }
 
     function selectOrbitalNode(idx, triggerWebGL = true) {
       activeNodeIndex = (idx + project.nodes.length) % project.nodes.length;
@@ -408,14 +430,35 @@ export function initPortfolioWorkbench() {
 
       if (beamLine && NODE_COORDS[nodeData.angle]) {
         const target = NODE_COORDS[nodeData.angle];
-        beamLine.setAttribute("x2", String(target.x));
-        beamLine.setAttribute("y2", String(target.y));
+        if (triggerWebGL) {
+          animateBeamTo(target.x, target.y);
+        } else {
+          beamCurrent = { x: target.x, y: target.y };
+          beamLine.setAttribute("x2", String(target.x));
+          beamLine.setAttribute("y2", String(target.y));
+        }
       }
 
       if (badgeEl) badgeEl.textContent = nodeData.badge;
       if (titleEl) titleEl.textContent = nodeData.title;
       if (bodyEl) bodyEl.textContent = nodeData.body;
       if (codeEl) codeEl.textContent = nodeData.code;
+
+      if (triggerWebGL && titleEl && titleEl.animate) {
+        [titleEl, bodyEl, codeEl].forEach((el, i) => {
+          if (!el) return;
+          el.animate(
+            [
+              { opacity: 0.4, transform: "translateY(5px)" },
+              { opacity: 1, transform: "translateY(0)" },
+            ],
+            {
+              duration: 240 + i * 35,
+              easing: "cubic-bezier(0.22, 1, 0.36, 1)",
+            }
+          );
+        });
+      }
 
       if (triggerWebGL && window.PortfolioWebGL) {
         window.PortfolioWebGL.setMorphState(project.index);
