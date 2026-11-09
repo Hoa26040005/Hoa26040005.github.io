@@ -1445,28 +1445,29 @@ pre, code {
   width: 100%;
   max-width: 210mm;
   min-height: 297mm;
-  max-height: 297mm;
   margin: 0 auto;
   background-color: #ffffff;
   color: #0a0d14;
   font-family: "Times New Roman", Times, Georgia, serif;
-  padding: 10mm 12mm;
+  font-size: 9.2pt;
+  padding: 9.5mm 11.5mm;
   line-height: 1.28;
-  overflow: hidden;
+  overflow: visible;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 2px;
 }
 
 .cv-paper-header {
   text-align: center;
-  padding-bottom: 6px;
-  margin-bottom: 8px;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
   border-bottom: 2px solid #0a0d14;
 }
 
 .cv-paper-name {
-  font-size: var(--step-lead);
+  font-size: 17pt;
   font-weight: 700;
   letter-spacing: 0.04em;
   color: #0a0d14;
@@ -1474,14 +1475,14 @@ pre, code {
 }
 
 .cv-paper-role {
-  font-size: var(--step-small);
+  font-size: 9.6pt;
   font-weight: 700;
-  color: #1c2436;
+  color: #1e3a8a;
   margin: 0 0 3px;
 }
 
 .cv-paper-contact {
-  font-size: var(--step-small);
+  font-size: 8.9pt;
   color: #2c3548;
   margin: 0;
 }
@@ -1492,22 +1493,22 @@ pre, code {
 }
 
 .cv-paper-section {
-  margin-bottom: 8px;
+  margin-bottom: 5px;
 }
 
 .cv-paper-sec-title {
-  font-size: var(--step-small);
+  font-size: 9.8pt;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.04em;
   color: #0a0d14;
   border-bottom: 1.5px solid #0a0d14;
-  padding-bottom: 1.5px;
-  margin: 0 0 4px;
+  padding-bottom: 1px;
+  margin: 0 0 3.5px;
 }
 
 .cv-paper-summary {
-  font-size: var(--step-small);
+  font-size: 9.15pt;
   color: #0a0d14;
   margin: 0;
   text-align: justify;
@@ -1515,13 +1516,13 @@ pre, code {
 
 .cv-paper-skills {
   display: grid;
-  gap: 3px;
-  font-size: var(--step-small);
+  gap: 2px;
+  font-size: 9.1pt;
 }
 
 .cv-skill-row {
   display: grid;
-  grid-template-columns: 215px minmax(0, 1fr);
+  grid-template-columns: 185px minmax(0, 1fr);
   gap: 8px;
 }
 
@@ -1535,7 +1536,7 @@ pre, code {
 }
 
 .cv-paper-item {
-  margin-bottom: 6px;
+  margin-bottom: 4.5px;
 }
 
 .cv-paper-item:last-child {
@@ -1544,45 +1545,54 @@ pre, code {
 
 .cv-paper-item-head {
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
   align-items: baseline;
-  gap: 6px;
-  font-size: var(--step-small);
+  gap: 8px;
+  font-size: 9.4pt;
   color: #0a0d14;
 }
 
+.cv-paper-item-head strong {
+  white-space: nowrap;
+}
+
 .cv-paper-item-head span {
+  font-size: 8.6pt;
   font-style: italic;
   font-weight: 700;
-  color: #1c2436;
+  color: #1e3a8a;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .cv-paper-item-sub {
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
-  gap: 6px;
-  font-size: var(--step-small);
+  align-items: baseline;
+  gap: 8px;
+  font-size: 8.55pt;
   font-style: italic;
-  color: #2c3548;
-  margin-bottom: 2px;
+  color: #334155;
+  margin-bottom: 1.5px;
 }
 
+.cv-paper-item-sub span:last-child,
 .cv-paper-item-sub a {
-  color: #0a0d14;
+  color: #1e3a8a;
   text-decoration: underline;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .cv-paper-bullets {
-  margin: 0 0 0 16px;
+  margin: 0 0 0 15px;
   padding: 0;
-  font-size: var(--step-small);
+  font-size: 9pt;
   color: #0a0d14;
 }
 
 .cv-paper-bullets li {
-  margin-bottom: 1.5px;
+  margin-bottom: 1px;
   text-align: justify;
 }
 
@@ -1681,6 +1691,18 @@ pre, code {
   .cv-skill-row {
     grid-template-columns: 1fr;
     gap: 2px;
+  }
+
+  .cv-paper-item-head,
+  .cv-paper-item-sub {
+    flex-wrap: wrap;
+  }
+
+  .cv-paper-item-head strong,
+  .cv-paper-item-head span,
+  .cv-paper-item-sub span:last-child,
+  .cv-paper-item-sub a {
+    white-space: normal;
   }
 }
 
