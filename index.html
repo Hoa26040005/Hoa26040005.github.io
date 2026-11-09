@@ -111,24 +111,44 @@
           </div>
 
           <div class="hero-preview-pair">
-            <figure class="hero-image-card">
+            <figure class="hero-image-card" data-hero-morph="0">
               <img
-                src="assets/projects/fashion-groupbuy.png"
+                src="assets/projects/fashion-3d-showroom.png"
                 width="640"
                 height="400"
-                alt="Giao diện phòng Mua Chung thời gian thực của FashionElite"
+                alt="Giao diện Studio 3D WebGL và phòng Mua Chung của FashionElite"
               />
-              <figcaption>FashionElite · Phòng Mua Chung Socket.IO</figcaption>
+              <figcaption>FashionElite · Studio 3D WebGL &amp; Mua Chung</figcaption>
             </figure>
 
-            <figure class="hero-image-card">
+            <figure class="hero-image-card" data-hero-morph="1">
               <img
-                src="assets/projects/temporal-rag-1.png"
+                src="assets/projects/legal-redline-ui.png"
                 width="640"
                 height="400"
-                alt="Giao diện đối chiếu kết quả Temporal RAG và Traditional RAG"
+                alt="Giao diện kiểm toán hợp đồng và đối chiếu Redline của LegalAI"
               />
-              <figcaption>Temporal RAG · Độ chính xác năm 92,7%</figcaption>
+              <figcaption>LegalAI · Kiểm Toán Redline &amp; Neo4j GraphRAG</figcaption>
+            </figure>
+
+            <figure class="hero-image-card" data-hero-morph="2">
+              <img
+                src="assets/projects/agripos-faceid-scan.png"
+                width="640"
+                height="400"
+                alt="Giao diện quét khuôn mặt 68 điểm trên ứng dụng Electron 39 AgriPOS"
+              />
+              <figcaption>AgriPOS · Electron 39 &amp; Quét Khuôn Mặt 68 Điểm</figcaption>
+            </figure>
+
+            <figure class="hero-image-card" data-hero-morph="3">
+              <img
+                src="assets/projects/temporal-sse-ui.png"
+                width="640"
+                height="400"
+                alt="Giao diện Streaming SSE và đối chiếu mốc năm của Temporal RAG"
+              />
+              <figcaption>Temporal RAG · Streaming SSE &amp; Eval96 (92,7%)</figcaption>
             </figure>
           </div>
         </div>
@@ -145,7 +165,7 @@
             <h2 class="section-heading">Bốn dự án thực chiến</h2>
           </div>
           <p class="section-desc">
-            Chọn một nút trên vòng tròn 360° quanh mỗi dự án để đọc chi tiết bài toán, cấu trúc hệ thống, thuật toán cốt lõi và bằng chứng thực nghiệm ngay tại bảng bên phải.
+            Chọn một nút trên vòng tròn 360° hoặc nhấn vào từng màn hình minh họa bên dưới để xem chi tiết giao diện, kiến trúc hệ thống, thuật toán cốt lõi và bằng chứng thực nghiệm.
           </p>
         </div>
 
@@ -234,7 +254,7 @@
               </div>
             </div>
 
-            <!-- Right: Stabilized Detail Inspector Dock -->
+            <!-- Right: Stabilized Detail Inspector Dock with Live Visual Preview -->
             <div class="orbital-inspector-dock" aria-live="polite">
               <div>
                 <div class="inspector-header">
@@ -257,6 +277,19 @@
                 <p class="inspector-body js-inspector-body">
                   Các sàn thương mại điện tử truyền thống tách rời việc thảo luận, tư vấn chọn size và gom đơn mua chung. FashionElite kết nối ba luồng khép kín: diễn đàn cộng đồng gắn mã theo dõi chuyển đổi, trợ lý AI tư vấn sản phẩm và phòng Mua Chung gom 2, 4 hoặc 8 người thành một đơn tổng duy nhất.
                 </p>
+
+                <figure class="inspector-visual-frame">
+                  <img
+                    class="js-inspector-image"
+                    src="assets/projects/fashion-groupbuy.png"
+                    width="640"
+                    height="360"
+                    alt="Màn hình minh họa trực tiếp phân hệ đang chọn của FashionElite"
+                  />
+                  <figcaption class="js-inspector-caption">
+                    Giao diện Sảnh Mua Chung Nhóm (Socket.IO Realtime) · Tạo phòng &amp; nhập mã mời 6 ký tự
+                  </figcaption>
+                </figure>
 
                 <pre class="inspector-code-box"><code class="js-inspector-code">Growth Loop Architecture:
 Community Forum (Post + Moderation + Attribution)
@@ -292,6 +325,48 @@ Community Forum (Post + Moderation + Attribution)
                 </div>
               </div>
             </div>
+          </div>
+
+          <!-- 3-Screen Visual Interface Gallery Strip -->
+          <div class="arena-gallery-strip" aria-label="Bộ ảnh giao diện thực tế dự án FashionElite">
+            <figure class="arena-gallery-card" data-gallery-branch="0" role="button" tabindex="0">
+              <img
+                src="assets/projects/fashion-groupbuy.png"
+                width="640"
+                height="400"
+                alt="Màn hình Sảnh Mua Chung Nhóm thời gian thực của FashionElite"
+              />
+              <figcaption>
+                <strong>Phòng Mua Chung Realtime (Socket.IO)</strong>
+                <span>Gom nhóm 2 / 4 / 8 thành viên · Chiết khấu bậc thang tới 20%</span>
+              </figcaption>
+            </figure>
+
+            <figure class="arena-gallery-card" data-gallery-branch="2" role="button" tabindex="0">
+              <img
+                src="assets/projects/fashion-3d-showroom.png"
+                width="640"
+                height="400"
+                alt="Màn hình Studio 3D WebGL xoay 360 độ của FashionElite"
+              />
+              <figcaption>
+                <strong>Studio 3D WebGL (Three.js / R3F)</strong>
+                <span>Xoay mẫu 360° · Tùy chỉnh chất liệu vải PBR &amp; bảng màu trực tiếp</span>
+              </figcaption>
+            </figure>
+
+            <figure class="arena-gallery-card" data-gallery-branch="4" role="button" tabindex="0">
+              <img
+                src="assets/projects/fashion-chatbot.png"
+                width="640"
+                height="400"
+                alt="Màn hình Trợ lý AI Gemini RAG tư vấn chọn size của FashionElite"
+              />
+              <figcaption>
+                <strong>Trợ Lý AI Tư Vấn Chọn Size &amp; Diễn Đàn</strong>
+                <span>Định tuyến 10 nhóm ý định · Gợi ý sản phẩm &amp; phối đồ trực quan</span>
+              </figcaption>
+            </figure>
           </div>
         </article>
 
@@ -355,10 +430,10 @@ Community Forum (Post + Moderation + Attribution)
                 aria-label="Mở toàn cảnh 6 chiều dự án LegalAI"
               >
                 <img
-                  src="assets/projects/fashion-forum.png"
+                  src="assets/projects/legal-redline-ui.png"
                   width="360"
                   height="360"
-                  alt="Giao diện phân tích văn bản và kiểm duyệt của hệ thống"
+                  alt="Giao diện kiểm toán hợp đồng và đối chiếu Redline của LegalAI"
                 />
                 <div class="core-caption">
                   <strong>LegalAI</strong>
@@ -389,6 +464,19 @@ Community Forum (Post + Moderation + Attribution)
                 <p class="inspector-body js-inspector-body">
                   Người lao động và doanh nghiệp nhỏ thường ký hợp đồng chứa các điều khoản bất lợi hoặc trái luật định (như giữ bằng đại học gốc, phạt vi phạm 25%, lãi chậm trả 54%/năm). LegalAI tự động bóc tách từng điều khoản, đối chiếu hơn 25 văn bản luật và gợi ý câu chữ sửa đổi.
                 </p>
+
+                <figure class="inspector-visual-frame">
+                  <img
+                    class="js-inspector-image"
+                    src="assets/projects/legal-redline-ui.png"
+                    width="640"
+                    height="360"
+                    alt="Màn hình minh họa kiểm toán điều khoản hợp đồng của LegalAI"
+                  />
+                  <figcaption class="js-inspector-caption">
+                    Giao diện đối chiếu song song (Redline Diff UI) · Phát hiện 3 điều khoản vô hiệu và gợi ý sửa đổi
+                  </figcaption>
+                </figure>
 
                 <pre class="inspector-code-box"><code class="js-inspector-code">Audited Legal Domains:
 - Bộ luật Lao động 2019 (Điều 17.1, 17.2, 21.2, 25, 127, 168)
@@ -424,6 +512,48 @@ Community Forum (Post + Moderation + Attribution)
                 </div>
               </div>
             </div>
+          </div>
+
+          <!-- 3-Screen Visual Interface Gallery Strip -->
+          <div class="arena-gallery-strip" aria-label="Bộ ảnh giao diện thực tế dự án LegalAI">
+            <figure class="arena-gallery-card" data-gallery-branch="2" role="button" tabindex="0">
+              <img
+                src="assets/projects/legal-redline-ui.png"
+                width="640"
+                height="400"
+                alt="Giao diện đối chiếu Redline Diff song song của LegalAI"
+              />
+              <figcaption>
+                <strong>Interactive Contract Redline Viewer</strong>
+                <span>Đối chiếu điều khoản gốc &amp; câu chữ đề xuất sửa đổi theo 4 cấp rủi ro</span>
+              </figcaption>
+            </figure>
+
+            <figure class="arena-gallery-card" data-gallery-branch="1" role="button" tabindex="0">
+              <img
+                src="assets/projects/legal-graphrag-audit.png"
+                width="640"
+                height="400"
+                alt="Đồ thị tri thức pháp luật Neo4j và chuỗi VietOCR của LegalAI"
+              />
+              <figcaption>
+                <strong>Đồ Thị Pháp Lý Neo4j &amp; Chuỗi VietOCR</strong>
+                <span>Khử nghiêng ảnh chụp 1.8x · Đối chiếu hơn 25 văn bản luật Việt Nam</span>
+              </figcaption>
+            </figure>
+
+            <figure class="arena-gallery-card" data-gallery-branch="3" role="button" tabindex="0">
+              <img
+                src="assets/projects/fashion-forum.png"
+                width="640"
+                height="400"
+                alt="Giao diện quản lý hồ sơ văn bản và xuất báo cáo kiểm toán"
+              />
+              <figcaption>
+                <strong>Quản Lý Hồ Sơ &amp; Xuất Báo Cáo Word (.docx)</strong>
+                <span>Tạo báo cáo kiểm toán chuẩn định dạng pháp lý kèm trích dẫn Điều/Khoản</span>
+              </figcaption>
+            </figure>
           </div>
         </article>
 
@@ -487,10 +617,10 @@ Community Forum (Post + Moderation + Attribution)
                 aria-label="Mở toàn cảnh 6 chiều dự án AgriPOS"
               >
                 <img
-                  src="assets/projects/fashion-chatbot.png"
+                  src="assets/projects/agripos-faceid-scan.png"
                   width="360"
                   height="360"
-                  alt="Giao diện trợ lý thông minh và quản trị của hệ thống"
+                  alt="Giao diện quét khuôn mặt 68 điểm trên ứng dụng Electron 39 AgriPOS"
                 />
                 <div class="core-caption">
                   <strong>AgriPOS</strong>
@@ -521,6 +651,19 @@ Community Forum (Post + Moderation + Attribution)
                 <p class="inspector-body js-inspector-body">
                   Các đại lý vật tư nông nghiệp có đặc thù bán hàng theo mùa vụ, theo dõi công nợ nông dân dài hạn, kiểm soát hạn sử dụng theo lô và cần bảo mật doanh thu khi chủ cửa hàng vắng mặt. AgriPOS vận hành trên cả trình duyệt và bộ cài phần mềm Windows (.exe).
                 </p>
+
+                <figure class="inspector-visual-frame">
+                  <img
+                    class="js-inspector-image"
+                    src="assets/projects/agripos-faceid-scan.png"
+                    width="640"
+                    height="360"
+                    alt="Màn hình minh họa quét khuôn mặt 68 điểm trên AgriPOS Desktop"
+                  />
+                  <figcaption class="js-inspector-caption">
+                    Lớp phủ Webcam Canvas 2D · Nhận diện 68 điểm mốc khuôn mặt (128D Descriptor) và phân quyền RBAC
+                  </figcaption>
+                </figure>
 
                 <pre class="inspector-code-box"><code class="js-inspector-code">Core ERP Modules (10 Functional Screens):
 - FaceID Biometric Login &amp; Registration (LoginWithFace.jsx / FaceRegister.jsx)
@@ -556,6 +699,48 @@ Community Forum (Post + Moderation + Attribution)
                 </div>
               </div>
             </div>
+          </div>
+
+          <!-- 3-Screen Visual Interface Gallery Strip -->
+          <div class="arena-gallery-strip" aria-label="Bộ ảnh giao diện thực tế dự án AgriPOS">
+            <figure class="arena-gallery-card" data-gallery-branch="3" role="button" tabindex="0">
+              <img
+                src="assets/projects/agripos-faceid-scan.png"
+                width="640"
+                height="400"
+                alt="Màn hình quét khuôn mặt 68 điểm trên AgriPOS Electron 39"
+              />
+              <figcaption>
+                <strong>Quét Khuôn Mặt 68 Điểm (FaceID Canvas 2D)</strong>
+                <span>So khớp khoảng cách Euclidean 128 chiều · Mở khóa ca trực tức thì</span>
+              </figcaption>
+            </figure>
+
+            <figure class="arena-gallery-card" data-gallery-branch="2" role="button" tabindex="0">
+              <img
+                src="assets/projects/agripos-pos-checkout.png"
+                width="640"
+                height="400"
+                alt="Màn hình quầy thu ngân POS và cảnh báo hạn sử dụng FEFO của AgriPOS"
+              />
+              <figcaption>
+                <strong>Quầy Thu Ngân POS &amp; Lô Hạn Sử Dụng FEFO</strong>
+                <span>Ưu tiên xuất lô sắp hết hạn · Thanh toán VietQR &amp; phím tắt F9/F10</span>
+              </figcaption>
+            </figure>
+
+            <figure class="arena-gallery-card" data-gallery-branch="4" role="button" tabindex="0">
+              <img
+                src="assets/projects/agripos-debt-ledger.png"
+                width="640"
+                height="400"
+                alt="Màn hình sổ cái công nợ mùa vụ và báo cáo lãi lỗ của AgriPOS"
+              />
+              <figcaption>
+                <strong>Sổ Cái Công Nợ Mùa Vụ &amp; Phân Quyền RBAC</strong>
+                <span>Theo dõi hạn mức tín dụng nông hộ · Bảo vệ báo cáo doanh thu chủ quầy</span>
+              </figcaption>
+            </figure>
           </div>
         </article>
 
@@ -619,7 +804,7 @@ Community Forum (Post + Moderation + Attribution)
                 aria-label="Mở toàn cảnh 6 chiều dự án Temporal RAG"
               >
                 <img
-                  src="assets/projects/temporal-rag-1.png"
+                  src="assets/projects/temporal-sse-ui.png"
                   width="360"
                   height="360"
                   alt="Màn hình hệ thống hỏi đáp nhận thức thời gian Temporal RAG"
@@ -654,6 +839,19 @@ Community Forum (Post + Moderation + Attribution)
                   Trong kho tin tức tiếng Việt nhiều năm, hai bài viết cùng nói về tăng trưởng GDP nhưng thuộc năm 2022 và năm 2024 nằm rất gần nhau trong không gian vector. Khi người dùng hỏi số liệu năm 2022, RAG truyền thống thường trả lời nhầm số liệu năm 2024. Hệ thống này giải quyết triệt để hiện tượng đó.
                 </p>
 
+                <figure class="inspector-visual-frame">
+                  <img
+                    class="js-inspector-image"
+                    src="assets/projects/temporal-sse-ui.png"
+                    width="640"
+                    height="360"
+                    alt="Màn hình đối chiếu trực tiếp kết quả Temporal RAG và Traditional RAG"
+                  />
+                  <figcaption class="js-inspector-caption">
+                    Giao diện Streaming SSE đối chiếu song song · Khắc phục triệt để lỗi lệch mốc năm 2022 vs 2024
+                  </figcaption>
+                </figure>
+
                 <pre class="inspector-code-box"><code class="js-inspector-code">Problem Statement:
 Query: "GDP Việt Nam năm 2022 tăng trưởng bao nhiêu?"
 - Traditional RAG: Returns 2024 article (62.5% Year Accuracy on Eval96)
@@ -687,6 +885,48 @@ Query: "GDP Việt Nam năm 2022 tăng trưởng bao nhiêu?"
                 </div>
               </div>
             </div>
+          </div>
+
+          <!-- 3-Screen Visual Interface Gallery Strip -->
+          <div class="arena-gallery-strip" aria-label="Bộ ảnh giao diện và thực nghiệm dự án Temporal RAG">
+            <figure class="arena-gallery-card" data-gallery-branch="2" role="button" tabindex="0">
+              <img
+                src="assets/projects/temporal-sse-ui.png"
+                width="640"
+                height="400"
+                alt="Giao diện Streaming SSE đối chiếu mốc năm 2022 và 2024 của Temporal RAG"
+              />
+              <figcaption>
+                <strong>Giao Diện Streaming SSE &amp; Đối Chiếu Năm</strong>
+                <span>Tách truy vấn con đa mốc năm · Hiển thị trực tiếp luồng suy luận</span>
+              </figcaption>
+            </figure>
+
+            <figure class="arena-gallery-card" data-gallery-branch="1" role="button" tabindex="0">
+              <img
+                src="assets/projects/temporal-rag-1.png"
+                width="640"
+                height="400"
+                alt="Sơ đồ chuỗi 8 tầng truy hồi và tạo sinh của Temporal RAG"
+              />
+              <figcaption>
+                <strong>Kiến Trúc Truy Hồi Lai 8 Tầng (FAISS + BM25)</strong>
+                <span>Kết hợp 50.599 vector dày đặc, từ khóa BM25 và hàm thưởng khớp năm</span>
+              </figcaption>
+            </figure>
+
+            <figure class="arena-gallery-card" data-gallery-branch="4" role="button" tabindex="0">
+              <img
+                src="assets/projects/temporal-rag-2.png"
+                width="640"
+                height="400"
+                alt="Biểu đồ thực nghiệm Eval96 đạt 92,7% độ chính xác năm"
+              />
+              <figcaption>
+                <strong>Kết Quả Thực Nghiệm Bộ Kiểm Thử Eval96</strong>
+                <span>Độ chính xác năm đạt 92,7% (+30,2% so với RAG cơ sở) · ROUGE-L 0,350</span>
+              </figcaption>
+            </figure>
           </div>
         </article>
       </div>

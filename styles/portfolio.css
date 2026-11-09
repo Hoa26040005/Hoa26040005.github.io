@@ -444,19 +444,36 @@ pre, code {
 
 .hero-image-card {
   margin: 0;
-  background-color: var(--surface);
+  background-color: transparent;
+  cursor: pointer;
+  transform: translate3d(0, 0, 0);
+  transition: transform 220ms var(--ease-out);
+}
+
+.hero-image-card:hover {
+  transform: translate3d(0, -3px, 0);
 }
 
 .hero-image-card img {
   width: 100%;
-  height: 136px;
+  height: 128px;
   object-fit: cover;
+  border-radius: 8px;
+  border: 0;
+  border-bottom: 4px solid var(--bevel-bottom-dark);
+  transition: border-color 180ms var(--ease-out);
+}
+
+.hero-image-card:hover img,
+.hero-image-card.is-active img {
+  border-bottom-color: var(--accent);
 }
 
 .hero-image-card figcaption {
-  padding: 8px 12px;
+  padding: 6px 2px 0;
   font-size: var(--step-small);
-  color: var(--muted);
+  font-weight: 600;
+  color: var(--ink);
 }
 
 /* ==========================================================================
@@ -795,20 +812,45 @@ pre, code {
   font-size: var(--step-body);
   line-height: 1.58;
   color: var(--muted);
-  margin: 0 0 18px;
+  margin: 0 0 14px;
   max-width: 64ch;
-  min-height: 4.7em;
+  min-height: 4.5em;
+}
+
+.inspector-visual-frame {
+  margin: 0 0 14px;
+  background-color: var(--bg);
+  border-radius: 8px;
+  overflow: hidden;
+  border: 0;
+  border-bottom: 4px solid var(--bevel-bottom-dark);
+}
+
+.inspector-visual-frame img {
+  width: 100%;
+  height: 185px;
+  object-fit: cover;
+  object-position: top center;
+  transition: opacity 180ms var(--ease-out);
+}
+
+.inspector-visual-frame figcaption {
+  padding: 8px 14px;
+  font-size: var(--step-small);
+  font-weight: 600;
+  color: var(--accent);
+  background-color: var(--bg);
 }
 
 .inspector-code-box {
   background-color: var(--bg);
-  padding: 16px 18px;
+  padding: 14px 16px;
   margin: 0;
   overflow-x: auto;
   white-space: pre-wrap;
   color: var(--ink);
-  line-height: 1.55;
-  min-height: 6.2em;
+  line-height: 1.5;
+  min-height: 5.5em;
 }
 
 .inspector-metrics-row {
@@ -874,6 +916,54 @@ pre, code {
 
 .inspector-nav-btns button:active {
   transform: translate3d(0, 2px, 0);
+}
+
+/* Interactive 3-Card Project Screenshot Strip Below Each Orbital Arena */
+.arena-gallery-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 22px;
+}
+
+.arena-gallery-card {
+  margin: 0;
+  background-color: transparent;
+  cursor: pointer;
+  transform: translate3d(0, 0, 0);
+  transition: transform 220ms var(--ease-out);
+}
+
+.arena-gallery-card:hover {
+  transform: translate3d(0, -3px, 0);
+}
+
+.arena-gallery-card img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  object-position: top center;
+  border-radius: 8px;
+  border: 0;
+  border-bottom: 4px solid var(--bevel-bottom-dark);
+  transition: border-color 180ms var(--ease-out);
+}
+
+.arena-gallery-card:hover img,
+.arena-gallery-card.is-active img {
+  border-bottom-color: var(--accent);
+}
+
+.arena-gallery-card.is-active figcaption {
+  color: var(--accent);
+}
+
+.arena-gallery-card figcaption {
+  padding: 8px 2px 0;
+  font-size: var(--step-small);
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.38;
 }
 
 /* ==========================================================================
@@ -1284,6 +1374,29 @@ pre, code {
   margin: 0 0 14px;
 }
 
+.modal-node-visual {
+  margin: 0 0 14px;
+  background-color: var(--surface);
+  border-radius: 8px;
+  overflow: hidden;
+  border: 0;
+  border-bottom: 4px solid var(--bevel-bottom-dark);
+}
+
+.modal-node-visual img {
+  width: 100%;
+  height: 165px;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.modal-node-visual figcaption {
+  padding: 8px 12px;
+  font-size: var(--step-small);
+  font-weight: 600;
+  color: var(--accent);
+}
+
 /* --- A4 Word / LaTeX CV Sheet & Source Code Viewer inside #cv-drawer --- */
 .cv-view-switcher {
   display: flex;
@@ -1515,6 +1628,7 @@ pre, code {
   .hero-top-split,
   .section-intro,
   .orbital-stage-grid,
+  .arena-gallery-strip,
   .workbench-grid,
   .telemetry-layout,
   .closing-grid,

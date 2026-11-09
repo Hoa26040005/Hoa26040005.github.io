@@ -10,12 +10,14 @@ export function initPortfolioChoreography(webglController) {
   const heroMorphBtns = Array.from(document.querySelectorAll("[data-hero-morph]"));
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  // 1. Hero interactive 3D state switcher buttons
+  // 1. Hero interactive 3D state switcher buttons & visual preview cards
   heroMorphBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
       const idx = Number(btn.getAttribute("data-hero-morph") || 0);
-      heroMorphBtns.forEach((b) => b.classList.remove("is-active"));
-      btn.classList.add("is-active");
+      heroMorphBtns.forEach((b) => {
+        const bIdx = Number(b.getAttribute("data-hero-morph") || 0);
+        b.classList.toggle("is-active", bIdx === idx);
+      });
       if (webglController) {
         webglController.setMorphState(idx);
         webglController.triggerOrbitalPulse(1.25);

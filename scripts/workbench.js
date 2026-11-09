@@ -31,6 +31,8 @@ export const ORBITAL_PROJECTS = {
         badge: "Bài toán & vòng lặp tăng trưởng",
         title: "Kết hợp Mua Chung Xã Hội, Diễn Đàn Cộng Đồng và Trợ Lý AI trong một hệ thống thống nhất",
         body: "Các sàn thương mại điện tử truyền thống tách rời việc thảo luận, tư vấn chọn size và gom đơn mua chung. FashionElite kết nối ba luồng khép kín: diễn đàn cộng đồng gắn mã theo dõi chuyển đổi, trợ lý AI tư vấn sản phẩm và phòng Mua Chung gom 2, 4 hoặc 8 người thành một đơn tổng duy nhất.",
+        image: "assets/projects/fashion-groupbuy.png",
+        imageCaption: "Giao diện Sảnh Mua Chung Nhóm (Socket.IO Realtime) · Tạo phòng & nhập mã mời 6 ký tự",
         code: `Growth Loop Architecture:\nCommunity Forum (Post + Moderation + Attribution)\n  -> Gemini 2.5 Flash + RAG Shopping Assistant\n  -> Realtime Socket.IO Group-Buy Room (2 / 4 / 8 Members)\n  -> Single Host Order + Proportional Settlement (VNPay / COD)`,
       },
       {
@@ -38,6 +40,8 @@ export const ORBITAL_PROJECTS = {
         badge: "Kiến trúc Backend & khóa giỏ nguyên tử",
         title: "Kiến trúc Nguồn Sự Thật Duy Nhất với cơ chế giữ tồn kho Atomic Lock",
         body: "Toàn bộ giá bán, giữ chỗ tồn kho (InventoryReservation), phân bổ giảm giá và kết quả thanh toán đều do máy chủ quyết định. Khi các thành viên bấm Sẵn sàng và Chủ phòng khóa giỏ, hệ thống thực hiện giao dịch nguyên tử để chống trùng đơn hoặc lệch tồn kho.",
+        image: "assets/projects/fashion-forum.png",
+        imageCaption: "Diễn đàn cộng đồng & quản trị phiên Mua Chung · Giữ chỗ tồn kho nguyên tử (Atomic Lock)",
         code: `ChatBot.tsx / GroupBuyPage.tsx\n  -> Socket.IO Room Sync + REST API (/api/group-buy, /api/chatbot)\n  -> pricingService.js + stockService.js (InventoryReservation)\n  -> paymentLifecycleService.js (VNPay IPN / QueryDR / COD)\n  -> MongoDB (GroupBuySession, GroupBuySettlement, ChatLog)`,
       },
       {
@@ -45,6 +49,8 @@ export const ORBITAL_PROJECTS = {
         badge: "Công nghệ Frontend & không gian 3D",
         title: "React 19, TypeScript, React Three Fiber và kiểm thử Playwright E2E",
         body: "Giao diện khách hàng và cổng quản trị Admin được xây dựng trên React 19 và TypeScript, tích hợp hiển thị sản phẩm 3D qua @react-three/fiber và @react-three/drei, chuyển động Framer Motion, biểu đồ Recharts và bộ kiểm thử tự động đầu-cuối bằng Playwright.",
+        image: "assets/projects/fashion-3d-showroom.png",
+        imageCaption: "Studio 3D WebGL (Three.js / React Three Fiber) · Xoay mẫu 360° & tùy chỉnh chất liệu PBR",
         code: `Frontend: React 19.2 · TypeScript · @react-three/fiber · @react-three/drei · Framer Motion · Tailwind CSS · Socket.IO Client · Playwright E2E\nBackend:  Node.js · Express · MongoDB · Lucia Auth · VNPay · @google/generative-ai`,
       },
       {
@@ -52,6 +58,8 @@ export const ORBITAL_PROJECTS = {
         badge: "Thuật toán chia tiền theo tỷ trọng",
         title: "Phân bổ chiết khấu nhóm, mã giảm giá và phí vận chuyển chính xác từng đồng",
         body: "Trong phòng Mua Chung, mỗi thành viên chọn sản phẩm và số lượng khác nhau. Thuật toán tính tỷ trọng giá trị hàng của từng người trên tổng giỏ để phân bổ chính xác chiết khấu bậc thang (8%, 14%, 20%), voucher và phí giao hàng, đồng thời xử lý phần dư làm tròn.",
+        image: "assets/projects/fashion-groupbuy.png",
+        imageCaption: "Thuật toán phân bổ đơn tổng Mua Chung · Chia chiết khấu bậc thang chuẩn xác từng đồng",
         code: `// Verified Production Allocation Formula:\nweight_i = memberSubtotal_i / roomTotalRaw;\nnetPay_i = Math.round(memberSubtotal_i - totalDiscount * weight_i + shipping * weight_i);\n// Smoke Test: 910,812 VND = 707,813 VND (Host) + 202,999 VND (Member B)`,
       },
       {
@@ -59,6 +67,8 @@ export const ORBITAL_PROJECTS = {
         badge: "Kiểm chứng thực tế trên Production",
         title: "Vận hành thực tế trên Vercel và Render với bốn lớp kiểm thử tự động",
         body: "Hệ thống đã vượt qua bài kiểm thử Smoke Test trên môi trường Production: đồng bộ phòng Mua Chung thời gian thực giữa nhiều tài khoản qua Socket.IO từ tên miền Vercel thật, luồng duyệt bài diễn đàn, bảo vệ mã giảm giá và kiểm thử tải Chatbot 50 yêu cầu đồng thời.",
+        image: "assets/projects/fashion-chatbot.png",
+        imageCaption: "Trợ lý AI Gemini 2.5 Flash + RAG · Tư vấn chọn size, kiểm tra tồn kho và phối đồ trực quan",
         code: `[PASS] Frontend Vercel <-> Render API (/api/products 200 OK)\n[PASS] Realtime Socket.IO Group-Buy 2-Member Lock & Settlement\n[PASS] VNPay Sandbox URL Generation & COD Fulfilled Settlement\n[PASS] Playwright Desktop & Mobile Responsive Verification`,
       },
       {
@@ -66,6 +76,8 @@ export const ORBITAL_PROJECTS = {
         badge: "Trải nghiệm bản chạy thật & mã nguồn",
         title: "Mở trực tiếp ứng dụng trên Vercel hoặc thử nghiệm bộ tính tiền Mua Chung",
         body: "Bạn có thể nhấn nút Mở Live Demo để trải nghiệm ứng dụng đang hoạt động trên Vercel, hoặc cuộn xuống khu vực Mô phỏng thuật toán ngay bên dưới để bấm thử kịch bản chia tiền phòng 2, 4 và 8 người.",
+        image: "assets/projects/fashion-3d-showroom.png",
+        imageCaption: "Ứng dụng FashionElite đang vận hành thực tế trên Vercel & Render kèm bộ kiểm thử Playwright",
         code: `Live Production URL: https://shop-quan-ao-g89r.vercel.app/\nGitHub Repository:   https://github.com/Hoa26040005/Shop-Quan-Ao`,
       },
     ],
@@ -77,7 +89,7 @@ export const ORBITAL_PROJECTS = {
     repoUrl: "https://github.com/Hoa26040005/legal-ai-contract-reviewer",
     liveUrl: "#workbench",
     name: "LegalAI · Rà Soát Hợp Đồng Đa Tác Tử",
-    screenshot: "assets/projects/fashion-forum.png",
+    screenshot: "assets/projects/legal-redline-ui.png",
     metrics: [
       { value: "25+ Luật", label: "Lao động, Thương mại, Dân sự" },
       { value: "1.8x OCR", label: "Khử nghiêng ảnh chụp hợp đồng" },
@@ -89,6 +101,8 @@ export const ORBITAL_PROJECTS = {
         badge: "Bài toán rà soát rủi ro pháp lý",
         title: "Phát hiện điều khoản bất lợi hoặc vô hiệu trong hợp đồng tại Việt Nam",
         body: "Người lao động và doanh nghiệp nhỏ thường ký hợp đồng chứa các điều khoản bất lợi hoặc trái luật định (như giữ bằng đại học gốc, phạt vi phạm 25%, lãi chậm trả 54%/năm). LegalAI tự động bóc tách từng điều khoản, đối chiếu hơn 25 văn bản luật và gợi ý câu chữ sửa đổi.",
+        image: "assets/projects/legal-redline-ui.png",
+        imageCaption: "Giao diện đối chiếu song song (Redline Diff UI) · Phát hiện 3 điều khoản vô hiệu và gợi ý sửa đổi",
         code: `Audited Legal Domains:\n- Bộ luật Lao động 2019 (Điều 17.1, 17.2, 21.2, 25, 127, 168)\n- Luật Thương mại 2005 (Điều 294-295, 301 Trần phạt 8%, 318)\n- Bộ luật Dân sự 2015 (Điều 360, 428, 468 Trần lãi 20%/năm)\n- Nghị định 13/2023/NĐ-CP & Luật Sở hữu trí tuệ 2022`,
       },
       {
@@ -96,6 +110,8 @@ export const ORBITAL_PROJECTS = {
         badge: "Kiến trúc Hybrid Graph-RAG",
         title: "Kết hợp truy hồi Vector ngữ nghĩa với Đồ thị tri thức pháp lý Neo4j",
         body: "Tìm kiếm vector đơn thuần dễ bỏ sót quan hệ dẫn chiếu giữa các điều luật và nghị định hướng dẫn. LegalAI kết hợp tìm kiếm ngữ nghĩa với đồ thị tri thức Neo4j để xác định chính xác điều khoản hợp đồng vi phạm điều nào, khoản nào và mức chế tài tương ứng.",
+        image: "assets/projects/legal-graphrag-audit.png",
+        imageCaption: "Đồ thị tri thức pháp luật Neo4j & chuỗi VietOCR · Đối chiếu chính xác Điều/Khoản và chế tài",
         code: `Contract Document (PDF / Phone Photo)\n  -> Multimodal OCR Preprocessor (Grayscale + 1.8x Contrast + Deskew)\n  -> Clause Segmenter & Hybrid Retriever (Vector + Neo4j Cypher Graph)\n  -> Statutory Trap Detector & Redline Generator\n  -> Next.js 14 Split-Screen UI + .DOCX Track Changes Exporter`,
       },
       {
@@ -103,6 +119,8 @@ export const ORBITAL_PROJECTS = {
         badge: "Giao diện đối chiếu song song",
         title: "Chế độ Spotlight Focus cô lập điều khoản nguy hiểm trên màn hình đôi",
         body: "Giao diện Next.js 14 hiển thị văn bản hợp đồng ở cột trái và thẻ phân tích rủi ro đồng bộ vị trí cuộn ở cột phải. Chế độ Tiêu điểm làm tối vùng xung quanh để người đọc tập trung vào điều khoản có rủi ro cao cùng dải phổ màu phân bổ mức độ an toàn.",
+        image: "assets/projects/legal-redline-ui.png",
+        imageCaption: "Chế độ Spotlight Focus cô lập điều khoản rủi ro cao · So khớp trực tiếp câu gốc và câu đề xuất",
         code: `UI Capabilities (Next.js 14 + TypeScript + Tailwind CSS):\n- Spotlight Focus Mode (Isolates active high-risk contract clause)\n- Risk Distribution Spectrum Bar (Critical / High / Medium / Safe)\n- Legal Copilot Chat with Contextual Statutory Citations`,
       },
       {
@@ -110,6 +128,8 @@ export const ORBITAL_PROJECTS = {
         badge: "Xử lý ảnh OCR & xuất file Word",
         title: "Khử nghiêng ảnh chụp hợp đồng điện thoại và xuất file Word gạch sửa",
         body: "Hệ thống nhận trực tiếp ảnh chụp hợp đồng từ điện thoại, tự động chuyển ảnh xám, tăng tương phản 1.8 lần, lọc nhiễu và xoay thẳng góc nghiêng. Sau khi kiểm toán, hệ thống xuất file Word (.docx) gạch bỏ câu bất lợi và chèn điều khoản đàm phán thay thế.",
+        image: "assets/projects/fashion-forum.png",
+        imageCaption: "Tiền xử lý ảnh chụp hợp đồng 1.8x & xuất báo cáo Word (.docx) chuẩn định dạng pháp lý",
         code: `// Word (.docx) Redline Output:\n[-] Điều 4.2: Bên B chịu phạt vi phạm 25% tổng giá trị hợp đồng...\n[+] Điều 4.2 (Đề xuất): Tổng mức phạt không vượt quá 8% giá trị phần nghĩa vụ bị vi phạm theo Điều 301 Luật Thương mại 2005.`,
       },
       {
@@ -117,6 +137,8 @@ export const ORBITAL_PROJECTS = {
         badge: "Kiểm thử tự động Pytest & CI/CD",
         title: "Bộ kiểm thử tự động cho Legal Engine, OCR Pipeline và Storage Manager",
         body: "Kho mã nguồn tích hợp GitHub Actions tự động kiểm tra chất lượng mã nguồn và chạy bộ kiểm thử Pytest cho toàn bộ các thành phần cốt lõi: động cơ đối chiếu luật, chuỗi tiền xử lý ảnh OCR và trình xuất tài liệu Word.",
+        image: "assets/projects/legal-graphrag-audit.png",
+        imageCaption: "Kiểm thử tự động Pytest CI · Xác minh động cơ đối chiếu luật, OCR Pipeline và trình xuất Word",
         code: `Automated Test Suite (pytest tests -v):\n[PASS] backend/tests/test_legal_engine.py (Statutory rule & cap verification)\n[PASS] backend/tests/test_ocr_pipeline.py (Deskew & 1.8x contrast pipeline)\n[PASS] backend/tests/test_storage_manager.py (Document lifecycle & DOCX export)`,
       },
       {
@@ -124,6 +146,8 @@ export const ORBITAL_PROJECTS = {
         badge: "Mô phỏng kiểm toán điều khoản",
         title: "Chạy thử trình kiểm toán hợp đồng ngay trong khu vực Mô phỏng bên dưới",
         body: "Bạn có thể truy cập kho mã nguồn GitHub để xem cấu trúc FastAPI, Neo4j và Next.js 14, hoặc cuộn xuống khu vực Mô phỏng thuật toán ngay bên dưới để bấm chọn 3 bẫy hợp đồng phổ biến và xem kết quả gạch sửa tức thì.",
+        image: "assets/projects/legal-redline-ui.png",
+        imageCaption: "Trình mô phỏng kiểm toán hợp đồng trực tiếp · Phát hiện bẫy lao động, thương mại và dân sự",
         code: `GitHub Repository: https://github.com/Hoa26040005/legal-ai-contract-reviewer\nInteractive Demo:  Available in #workbench section below`,
       },
     ],
@@ -135,7 +159,7 @@ export const ORBITAL_PROJECTS = {
     repoUrl: "https://github.com/Hoa26040005/pesticide-shop",
     liveUrl: "#workbench",
     name: "AgriPOS · Desktop ERP & Khuôn Mặt 68 Điểm",
-    screenshot: "assets/projects/fashion-chatbot.png",
+    screenshot: "assets/projects/agripos-faceid-scan.png",
     metrics: [
       { value: "68 Điểm", label: "Mốc nhận diện khuôn mặt" },
       { value: "128 chiều", label: "Vector đặc trưng sinh trắc" },
@@ -147,6 +171,8 @@ export const ORBITAL_PROJECTS = {
         badge: "Bài toán quản trị đại lý vật tư",
         title: "Số hóa quản lý bán hàng, lô hạn sử dụng và công nợ mùa vụ trên Desktop",
         body: "Các đại lý vật tư nông nghiệp có đặc thù bán hàng theo mùa vụ, theo dõi công nợ nông dân dài hạn, kiểm soát hạn sử dụng theo lô và cần bảo mật doanh thu khi chủ cửa hàng vắng mặt. AgriPOS vận hành trên cả trình duyệt và bộ cài phần mềm Windows (.exe).",
+        image: "assets/projects/agripos-faceid-scan.png",
+        imageCaption: "Lớp phủ Webcam Canvas 2D · Nhận diện 68 điểm mốc khuôn mặt (128D Descriptor) và phân quyền RBAC",
         code: `Core ERP Modules (10 Functional Screens):\n- FaceID Biometric Login & Registration (LoginWithFace.jsx / FaceRegister.jsx)\n- Fast QR POS Checkout (PosScreen.jsx) & Order History (OrderList.jsx)\n- Batch & Expiry Inventory (InventoryList.jsx) & Farmer Debt Ledger (DebtList.jsx)\n- Admin Financial Reports (ReportDashboard.jsx) & Audit Logs (SystemLogs.jsx)`,
       },
       {
@@ -154,6 +180,8 @@ export const ORBITAL_PROJECTS = {
         badge: "Kiến trúc Electron 39 & Firestore",
         title: "Đóng gói bộ cài Windows NSIS EXE và đồng bộ dữ liệu thời gian thực",
         body: "Ứng dụng được xây dựng bằng React 19 kết hợp trình đóng gói Vite và Electron 39 (electron-builder NSIS). Dữ liệu sản phẩm, tồn kho, đơn hàng và nhật ký hệ thống được đồng bộ thời gian thực với Firebase Firestore kèm tập luật phân quyền chặt chẽ.",
+        image: "assets/projects/agripos-pos-checkout.png",
+        imageCaption: "Ứng dụng Desktop Electron 39.2.7 · Đóng gói bộ cài Windows NSIS (.exe) & đồng bộ Firestore",
         code: `Build & Packaging Pipeline:\n- Dev Mode: concurrently -k "npm run dev" "npm run electron"\n- Production Installer: vite build && electron-builder (NSIS Windows .exe)\n- Cloud Sync: Firebase 12.6 Firestore + Realtime AuthContext`,
       },
       {
@@ -161,6 +189,8 @@ export const ORBITAL_PROJECTS = {
         badge: "Giao diện bán hàng POS & báo cáo",
         title: "Tối ưu thao tác quét mã QR, in hóa đơn tại quầy và xuất sổ công nợ PDF/Excel",
         body: "Giao diện bán hàng được thiết kế bằng Ant Design 6 tối ưu cho phím tắt tại quầy thu ngân, hỗ trợ tạo mã QR thanh toán, in hóa đơn trực tiếp và xuất bảng kê công nợ hoặc báo cáo lãi lỗ ra tệp PDF và Excel.",
+        image: "assets/projects/agripos-pos-checkout.png",
+        imageCaption: "Quầy thu ngân POS tốc độ cao · Cảnh báo lô sắp hết hạn FEFO & thanh toán VietQR (F9/F10)",
         code: `UI & Utility Stack:\n- React 19.2 · React Router 7 (HashRouter for Electron compatibility)\n- Ant Design 6.1 · react-webcam 7.2 · react-to-print\n- jspdf 3.0 + jspdf-autotable 5.0 · xlsx 0.18 · qrcode.react 4.2`,
       },
       {
@@ -168,6 +198,8 @@ export const ORBITAL_PROJECTS = {
         badge: "Sinh trắc học khuôn mặt 68 điểm",
         title: "Mạng nơ-ron SSD MobileNetV1 và 68 điểm mốc khuôn mặt chạy trực tiếp",
         body: "Sử dụng @vladmandic/face-api tải mô hình học sâu ngay từ thư mục cục bộ: phát hiện khuôn mặt qua Webcam bằng SSD MobileNetV1, căn chỉnh 68 điểm mốc mắt-mũi-cằm và trích xuất vector 128 chiều để tính khoảng cách Euclidean mà không gửi ảnh thô ra ngoài.",
+        image: "assets/projects/agripos-faceid-scan.png",
+        imageCaption: "Mạng nơ-ron FaceLandmark68Net · Ánh xạ vector 128 chiều và tính khoảng cách Euclidean < 0.45",
         code: `// Biometric Pipeline in src/utils/faceDetection.js:\nawait faceapi.nets.ssdMobilenetv1.loadFromUri('/models');\nawait faceapi.nets.faceLandmark68Net.loadFromUri('/models');\nawait faceapi.nets.faceRecognitionNet.loadFromUri('/models');\nconst detection = await faceapi.detectSingleFace(video).withFaceLandmarks().withFaceDescriptor();`,
       },
       {
@@ -175,6 +207,8 @@ export const ORBITAL_PROJECTS = {
         badge: "Phân quyền RBAC & tự động khóa phiên",
         title: "Bảo vệ báo cáo tài chính bằng ProtectedAdminRoute và hook useAutoLogout",
         body: "Các trang chứa dữ liệu doanh thu nhạy cảm (/reports, /logs) được bảo vệ bởi lớp kiểm tra quyền Admin: nếu nhân viên thu ngân truy cập sẽ bị chặn bằng mã 403 và chuyển về màn hình bán hàng. Ngoài ra hệ thống tự động khóa phiên khi người dùng rời máy.",
+        image: "assets/projects/agripos-debt-ledger.png",
+        imageCaption: "Sổ cái công nợ mùa vụ & báo cáo lãi lỗ · Bảo vệ bởi ProtectedAdminRoute và tự động khóa phiên",
         code: `// ProtectedAdminRoute in src/App.jsx:\nif (!isAdmin) {\n  return <Result status="403" title="403 - Giới hạn quyền truy cập"\n    subTitle="Khu vực này chỉ dành riêng cho Chủ cửa hàng (Admin)." />;\n}`,
       },
       {
@@ -182,6 +216,8 @@ export const ORBITAL_PROJECTS = {
         badge: "Mô phỏng xác thực FaceID & phân quyền",
         title: "Kiểm tra cơ chế so khớp khoảng cách Euclidean và chặn quyền truy cập",
         body: "Bạn có thể xem toàn bộ mã nguồn Electron và cấu hình mô hình nhận diện trong kho GitHub, hoặc cuộn xuống khu vực Mô phỏng thuật toán bên dưới để chuyển đổi thử giữa khuôn mặt Chủ cửa hàng và Thu ngân.",
+        image: "assets/projects/agripos-faceid-scan.png",
+        imageCaption: "Mô phỏng xác thực khuôn mặt 68 điểm · So sánh quyền Admin và Thu ngân trực tiếp",
         code: `GitHub Repository: https://github.com/Hoa26040005/pesticide-shop\nInteractive Demo:  Available in #workbench section below`,
       },
     ],
@@ -193,7 +229,7 @@ export const ORBITAL_PROJECTS = {
     repoUrl: "https://github.com/Hoa26040005/RAGNHANBTTHOIGIAN",
     liveUrl: "#workbench",
     name: "Temporal RAG · Hỏi Đáp Nhận Thức Thời Gian",
-    screenshot: "assets/projects/temporal-rag-1.png",
+    screenshot: "assets/projects/temporal-sse-ui.png",
     metrics: [
       { value: "92,7%", label: "Độ chính xác năm trên Eval96" },
       { value: "50.599", label: "Phân đoạn vector FAISS L2" },
@@ -205,6 +241,8 @@ export const ORBITAL_PROJECTS = {
         badge: "Bài toán lệch mốc thời gian",
         title: "Khắc phục hiện tượng RAG truyền thống lấy nhầm văn bản cũ đã hết hiệu lực",
         body: "Trong kho tin tức tiếng Việt nhiều năm, hai bài viết cùng nói về tăng trưởng GDP nhưng thuộc năm 2022 và năm 2024 nằm rất gần nhau trong không gian vector. Khi người dùng hỏi số liệu năm 2022, RAG truyền thống thường trả lời nhầm số liệu năm 2024. Hệ thống này giải quyết triệt để hiện tượng đó.",
+        image: "assets/projects/temporal-sse-ui.png",
+        imageCaption: "Giao diện Streaming SSE đối chiếu song song · Khắc phục triệt để lỗi lệch mốc năm 2022 vs 2024",
         code: `Problem Statement:\nQuery: "GDP Việt Nam năm 2022 tăng trưởng bao nhiêu?"\n- Traditional RAG: Returns 2024 article (62.5% Year Accuracy on Eval96)\n- Temporal RAG:    Enforces TemporalQueryPlan + Year Rerank -> 92.7% Year Accuracy`,
       },
       {
@@ -212,6 +250,8 @@ export const ORBITAL_PROJECTS = {
         badge: "Kiến trúc truy hồi 8 tầng",
         title: "Từ bộ phân tích ngữ nghĩa thời gian đến Hợp đồng Bằng chứng (Evidence Contract)",
         body: "Câu hỏi tiếng Việt đi qua chuỗi xử lý: chuẩn hóa hội thoại nhiều lượt, phân tích 12 vai thời gian và toán tử FIRST/LAST/CURRENT/FUTURE, tra cứu kho sự kiện lịch sử, tìm kiếm lai FAISS + BM25 hợp nhất bằng RRF, xếp hạng lại theo năm và kiểm tra hợp đồng bằng chứng trước khi sinh câu trả lời.",
+        image: "assets/projects/temporal-rag-1.png",
+        imageCaption: "Sơ đồ chuỗi 8 tầng truy hồi lai (FAISS + BM25 + RRF) và kiểm chứng hợp đồng bằng chứng",
         code: `User Query -> VietnameseTemporalSemanticParser (TemporalQueryPlan)\n  -> Guardrail Chain (Policy Guard vs Evidence Validator)\n  -> Hybrid Retrieval (FAISS IndexFlatIP 50,599 chunks + BM25 + RRF)\n  -> Structured Temporal & Entity Reranker\n  -> Slot-Claim-Evidence Contract (ANSWER | PARTIAL | ABSTAIN | REFUSE)`,
       },
       {
@@ -219,6 +259,8 @@ export const ORBITAL_PROJECTS = {
         badge: "Giao diện đối chiếu trực tuyến SSE",
         title: "Phản hồi thời gian thực qua Server-Sent Events và đặt cạnh RAG truyền thống",
         body: "Giao diện Web FastAPI cho phép đặt câu hỏi tiếng Việt, theo dõi luồng suy luận sinh ra theo thời gian thực qua giao thức SSE (/api/chat/stream) và đặt kết quả của Temporal RAG cạnh Traditional RAG để đối chiếu nguồn trích dẫn cùng độ chính xác mốc năm.",
+        image: "assets/projects/temporal-sse-ui.png",
+        imageCaption: "Giao diện Web FastAPI Streaming SSE · Hiển thị từng bước phân rã mốc thời gian và trích dẫn nguồn",
         code: `Web & API Endpoints:\n- GET  /                 -> Interactive Comparison & Chat Web UI\n- POST /api/chat/stream  -> Real-time SSE Streaming with Provenance Citations\n- POST /api/compare      -> Side-by-side Temporal vs Traditional RAG benchmark`,
       },
       {
@@ -226,6 +268,8 @@ export const ORBITAL_PROJECTS = {
         badge: "Kho dữ liệu 2019-2025 & chặn ảo giác",
         title: "50.599 phân đoạn báo chí chuẩn hóa L2 và lớp chắn từ chối sự kiện tương lai",
         body: "Kho tri thức kết hợp 49.980 bài báo tiếng Việt giai đoạn 2019-2025 thuộc 12 lĩnh vực với 4.151 sự kiện lịch sử có gắn nhãn nguồn gốc. Hệ thống tự động kích hoạt trạng thái từ chối (REFUSE/ABSTAIN) khi người dùng hỏi kết quả thực tế của một năm chưa diễn ra như năm 2027.",
+        image: "assets/projects/temporal-rag-1.png",
+        imageCaption: "Kho tri thức 50.599 phân đoạn vector FAISS L2 (2019-2025) & bộ lọc từ chối ảo giác năm tương lai",
         code: `Corpus & Vector Index Verified Specs:\n- News Corpus (2019-2025): 49,980 articles -> 50,006 chunks\n- Wikipedia Supplement:    768 entries -> 593 chunks + 4,151 historical facts\n- Embedding Model:         paraphrase-multilingual-MiniLM-L12-v2 (384-D, L2 Norm)`,
       },
       {
@@ -233,6 +277,8 @@ export const ORBITAL_PROJECTS = {
         badge: "Thực nghiệm định lượng bộ chuẩn Eval96",
         title: "Đạt 92,7% độ chính xác năm, tăng 30,2 điểm phần trăm so với RAG cơ sở",
         body: "Đánh giá công bằng trên bộ kiểm thử Eval96 gồm 96 câu hỏi khó trải đều 12 lĩnh vực trên cùng mô hình ngôn ngữ Qwen3:4B: Temporal RAG đạt 92,7% độ chính xác năm (89/96 câu), 80,5% điểm từ khóa và 78,2% điểm tổng hợp, vượt xa phương pháp truyền thống.",
+        image: "assets/projects/temporal-rag-2.png",
+        imageCaption: "Biểu đồ kết quả thực nghiệm bộ kiểm thử Eval96 · Đạt 92,7% độ chính xác năm (+30,2% so với cơ sở)",
         code: `Canonical Eval96 Benchmark (Temporal RAG vs Traditional RAG):\n- Year Accuracy (YrOK): 92.7% (89/96) vs 62.5% (60/96)  [+30.2%]\n- Keyword Score:        80.5%         vs 20.5%          [+60.0%]\n- Combined Score:       78.2%         vs 44.2%          [+34.0%]\n- Source Relevance:     78.8%         vs 61.8%          [+17.0%]`,
       },
       {
@@ -240,6 +286,8 @@ export const ORBITAL_PROJECTS = {
         badge: "Trải nghiệm bộ đối chiếu thời gian",
         title: "Xem mã nguồn nghiên cứu trên GitHub hoặc thử nghiệm bộ định tuyến thời gian",
         body: "Bạn có thể mở kho mã nguồn GitHub để xem toàn bộ mã Python, tập lệnh huấn luyện và báo cáo thực nghiệm, hoặc cuộn xuống khu vực Mô phỏng thuật toán bên dưới để so sánh trực tiếp câu trả lời của hai hệ thống.",
+        image: "assets/projects/temporal-sse-ui.png",
+        imageCaption: "Đối chiếu trực tiếp Temporal RAG và Traditional RAG ngay tại bàn thử nghiệm bên dưới",
         code: `GitHub Repository: https://github.com/Hoa26040005/RAGNHANBTTHOIGIAN\nInteractive Demo:  Available in #workbench section below`,
       },
     ],
@@ -384,10 +432,13 @@ export function initPortfolioWorkbench() {
 
     const nodes = Array.from(arena.querySelectorAll(".orbital-node"));
     const stepDots = Array.from(arena.querySelectorAll(".inspector-step-dot"));
+    const galleryCards = Array.from(arena.querySelectorAll(".arena-gallery-card"));
     const beamLine = arena.querySelector(".orbit-active-beam");
     const badgeEl = arena.querySelector(".js-inspector-badge");
     const titleEl = arena.querySelector(".js-inspector-title");
     const bodyEl = arena.querySelector(".js-inspector-body");
+    const imgEl = arena.querySelector(".js-inspector-image");
+    const capEl = arena.querySelector(".js-inspector-caption");
     const codeEl = arena.querySelector(".js-inspector-code");
     const prevBtn = arena.querySelector(".js-node-prev");
     const nextBtn = arena.querySelector(".js-node-next");
@@ -427,6 +478,10 @@ export function initPortfolioWorkbench() {
       stepDots.forEach((dot, i) => {
         dot.classList.toggle("is-active", i === activeNodeIndex);
       });
+      galleryCards.forEach((card) => {
+        const branchIdx = Number(card.getAttribute("data-gallery-branch") || -1);
+        card.classList.toggle("is-active", branchIdx === activeNodeIndex);
+      });
 
       if (beamLine && NODE_COORDS[nodeData.angle]) {
         const target = NODE_COORDS[nodeData.angle];
@@ -442,10 +497,17 @@ export function initPortfolioWorkbench() {
       if (badgeEl) badgeEl.textContent = nodeData.badge;
       if (titleEl) titleEl.textContent = nodeData.title;
       if (bodyEl) bodyEl.textContent = nodeData.body;
+      if (imgEl && nodeData.image) {
+        imgEl.src = nodeData.image;
+        imgEl.alt = nodeData.imageCaption || nodeData.title;
+      }
+      if (capEl && nodeData.imageCaption) {
+        capEl.textContent = nodeData.imageCaption;
+      }
       if (codeEl) codeEl.textContent = nodeData.code;
 
       if (triggerWebGL && titleEl && titleEl.animate) {
-        [titleEl, bodyEl, codeEl].forEach((el, i) => {
+        [titleEl, bodyEl, imgEl, codeEl].forEach((el, i) => {
           if (!el) return;
           el.animate(
             [
@@ -475,6 +537,20 @@ export function initPortfolioWorkbench() {
     stepDots.forEach((dot, idx) => {
       dot.addEventListener("click", () => {
         selectOrbitalNode(idx, true);
+      });
+    });
+
+    galleryCards.forEach((card) => {
+      const activateGalleryCard = () => {
+        const branchIdx = Number(card.getAttribute("data-gallery-branch") || 0);
+        selectOrbitalNode(branchIdx, true);
+      };
+      card.addEventListener("click", activateGalleryCard);
+      card.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          activateGalleryCard();
+        }
       });
     });
 
@@ -544,6 +620,11 @@ export function initPortfolioWorkbench() {
           <p class="modal-node-topic">${escapeHtml(n.badge)}</p>
           <p class="modal-node-title">${escapeHtml(n.title)}</p>
           <p class="modal-node-body">${escapeHtml(n.body)}</p>
+          ${
+            n.image
+              ? `<figure class="inspector-visual-frame"><img src="${escapeHtml(n.image)}" width="640" height="360" alt="${escapeHtml(n.imageCaption || n.title)}" /><figcaption>${escapeHtml(n.imageCaption || "")}</figcaption></figure>`
+              : ""
+          }
           <pre class="inspector-code-box"><code>${escapeHtml(n.code)}</code></pre>
         </article>`
       )
