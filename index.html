@@ -35,6 +35,11 @@
   <!-- Scroll Progress Bar -->
   <div class="scroll-progress-bar" aria-hidden="true"></div>
 
+  <!-- Full-Viewport 3D WebGL Background Stage (Behind Page Content) -->
+  <div id="hero-orbital-stage" class="webgl-bg-stage" aria-hidden="true">
+    <canvas id="webgl-stage"></canvas>
+  </div>
+
   <!-- ===================================================================== -->
   <!-- TOP NAVIGATION BAR (Equal Outer Frame Margins)                        -->
   <!-- ===================================================================== -->
@@ -47,14 +52,14 @@
         <a href="#workbench">Mô phỏng thuật toán</a>
         <a href="#benchmarks">Thực nghiệm Eval96</a>
         <a href="#hire" data-open-cv>Hồ sơ CV</a>
-        <a href="#hire" class="nav-cta">Liên hệ tuyển dụng</a>
+        <a href="#hire" class="nav-cta" role="button">Liên hệ tuyển dụng</a>
       </nav>
     </div>
   </header>
 
   <main id="main-content">
     <!-- =================================================================== -->
-    <!-- ACT I · MONUMENT HERO & CONTAINED 3D ORBITAL CORE                   -->
+    <!-- ACT I · MONUMENT HERO OVER FULL-SCREEN 3D WEBGL BACKGROUND          -->
     <!-- =================================================================== -->
     <section id="act-overture" class="hero-section">
       <div class="wrap hero-top-split">
@@ -72,26 +77,25 @@
           </p>
 
           <div class="hero-cta-row">
-            <a href="#projects" class="btn-primary">Khám phá 4 vòng tròn dự án</a>
+            <a href="#projects" class="btn-primary" role="button">Khám phá 4 vòng tròn dự án</a>
             <button type="button" class="btn-ghost" data-open-cv>Hồ sơ CV (Word / LaTeX)</button>
             <a
               href="https://github.com/Hoa26040005"
               target="_blank"
               rel="noopener noreferrer"
               class="btn-ghost"
+              role="button"
             >
               GitHub @Hoa26040005
             </a>
           </div>
         </div>
 
-        <!-- Right: Contained 3D WebGL Orbital Core + Real Project Screenshots -->
+        <!-- Right: Open 3D Background Stage + 3D Morph Controls + Real Screenshots -->
         <div class="hero-stage-col">
-          <div id="hero-orbital-stage" class="hero-webgl-box">
-            <canvas id="webgl-stage" aria-label="Mô hình hạt 3D biểu diễn 4 hệ thống"></canvas>
-          </div>
+          <div class="hero-3d-open-space" aria-hidden="true"></div>
 
-          <div class="hero-morph-controls" role="group" aria-label="Chuyển hình thái hạt 3D theo dự án">
+          <div class="hero-morph-controls" role="group" aria-label="Chuyển hình thái hạt 3D nền theo dự án">
             <button type="button" class="hero-morph-btn is-active" data-hero-morph="0">
               FashionElite
             </button>

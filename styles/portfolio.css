@@ -177,11 +177,34 @@ pre, code {
 }
 
 /* ==========================================================================
-   2. PLAIN TOP NAVIGATION BAR (Matching Frame Margins)
+   2. FULL-VIEWPORT 3D WEBGL BACKGROUND & TOP NAVIGATION BAR
    ========================================================================== */
+.webgl-bg-stage {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+#webgl-stage {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.site-header,
+#main-content,
+.site-footer {
+  position: relative;
+  z-index: 1;
+}
+
 .site-header {
   padding-block: 20px;
-  background-color: var(--bg);
+  background-color: transparent;
 }
 
 .header-inner {
@@ -356,28 +379,21 @@ pre, code {
   gap: 12px;
 }
 
-/* Hero Right: Contained 3D Orbital Core + Real Screenshot Strip */
+/* Hero Right: Open 3D Background Viewport + Morph Controls + Real Screenshot Strip */
 .hero-stage-col {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-end;
   background-color: transparent;
   padding: 0;
   gap: 18px;
 }
 
-.hero-webgl-box {
-  position: relative;
+.hero-3d-open-space {
   width: 100%;
-  height: 300px;
-  background-color: var(--surface);
-  overflow: hidden;
-}
-
-#webgl-stage {
-  width: 100%;
-  height: 100%;
-  display: block;
+  min-height: 290px;
+  background-color: transparent;
+  pointer-events: none;
 }
 
 .hero-morph-controls {
@@ -565,7 +581,7 @@ pre, code {
   align-items: center;
 }
 
-/* LEFT: Precision 460x460 1:1 Orbital Wheel (Never Stretches Vertically) */
+/* LEFT: Precision 460x460 1:1 Orbital Wheel (Floats Over 3D Background) */
 .orbital-wheel-stage {
   position: relative;
   align-self: center;
@@ -574,7 +590,7 @@ pre, code {
   aspect-ratio: 1 / 1;
   height: auto;
   margin-inline: auto;
-  background-color: var(--surface);
+  background-color: transparent;
 }
 
 .orbital-svg-layer {
