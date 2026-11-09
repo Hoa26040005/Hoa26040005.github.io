@@ -1,9 +1,10 @@
 % !TEX program = pdflatex
+% Chuẩn 1 Trang A4 Tuyệt Đối (Strict 1-Page A4 Software Engineering & Frontend CV)
 \documentclass[10pt,a4paper]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[vietnamese,english]{babel}
 \usepackage[T1,T5]{fontenc}
-\usepackage[left=1.35cm,top=1.15cm,right=1.35cm,bottom=1.15cm]{geometry}
+\usepackage[left=1.15cm,top=0.95cm,right=1.15cm,bottom=0.95cm]{geometry}
 \usepackage{hyperref}
 \usepackage{enumitem}
 \usepackage{titlesec}
@@ -14,25 +15,23 @@
 \definecolor{accent}{HTML}{1D4ED8}
 \hypersetup{colorlinks=true, urlcolor=accent, linkcolor=primary}
 \pagestyle{empty}
+\pagenumbering{gobble}
 \setlength{\parindent}{0pt}
-\setlist[itemize]{leftmargin=1.35em, nosep, topsep=2pt, itemsep=1.5pt}
+\setlist[itemize]{leftmargin=1.2em, nosep, topsep=1.5pt, itemsep=1pt}
 
-\titleformat{\section}{\large\bfseries\scshape\color{primary}}{}{0em}{}[\titlerule]
-\titlespacing*{\section}{0pt}{7pt}{4pt}
+\titleformat{\section}{\normalsize\bfseries\scshape\color{primary}}{}{0em}{}[\titlerule]
+\titlespacing*{\section}{0pt}{5.5pt}{3pt}
 
-\newcommand{\resumeItem}[2]{
+\newcommand{\resumeProject}[3]{
   \vspace{2pt}
-  \noindent\textbf{#1} \hfill {\footnotesize\textbf{\color{accent}#2}} \\
-}
-\newcommand{\resumeSub}[2]{
-  \noindent{\footnotesize\textit{#1}} \hfill {\footnotesize\textit{#2}} \vspace{1pt}
+  \noindent\textbf{#1} \,$\cdot$\, {\footnotesize\textbf{\color{accent}#2}} \hfill {\footnotesize\textit{#3}} \\
 }
 
 \begin{document}
 
 \begin{center}
-  {\LARGE \textbf{HUỲNH THÁI HÒA}} \\[3pt]
-  {\small \textbf{Frontend \& Full-Stack Software Engineer $\cdot$ Chuyên ngành Công nghệ Phần mềm (React $\cdot$ TypeScript $\cdot$ Next.js $\cdot$ Three.js / WebGL)}} \\[4pt]
+  {\Large \textbf{HUỲNH THÁI HÒA}} \\[2pt]
+  {\small \textbf{Frontend \& Full-Stack Software Engineer $\cdot$ Chuyên ngành Công nghệ Phần mềm (React 19 $\cdot$ Next.js 14 $\cdot$ TypeScript $\cdot$ Three.js / WebGL)}} \\[2pt]
   {\footnotesize
     Email: \href{mailto:huynhhoa9881@gmail.com}{huynhhoa9881@gmail.com} \quad|\quad
     GitHub: \href{https://github.com/Hoa26040005}{github.com/Hoa26040005} \quad|\quad
@@ -42,65 +41,60 @@
 \end{center}
 
 \section{Tóm Tắt Chuyên Môn (Executive Summary)}
-{\small
-Kỹ sư \textbf{Công nghệ Phần mềm (Software Engineering)} định hướng chuyên sâu \textbf{Frontend Architecture \& Interactive 3D UI/UX}, có kinh nghiệm thiết kế và triển khai trọn gói (end-to-end) các hệ thống giao diện Web và Desktop hiệu năng cao: từ sàn thương mại điện tử \textbf{React 19 + Three.js 3D Showroom} đồng bộ phòng Mua Chung thời gian thực qua \textbf{Socket.IO}, ứng dụng Desktop ERP/POS \textbf{Electron 39} tích hợp lớp phủ Canvas nhận diện khuôn mặt \textbf{68 điểm (68-Point FaceID)}, giao diện kiểm toán hợp đồng pháp lý trực quan (Redline Diff UI), đến bảng điều khiển hỏi đáp \textbf{Streaming SSE Temporal RAG} đạt \textbf{92.7\% độ chính xác năm (Eval96)}.
+{\footnotesize
+Kỹ sư \textbf{Công nghệ Phần mềm (Software Engineering)} định hướng chuyên sâu \textbf{Frontend Architecture \& Interactive 3D UI/UX}, có kinh nghiệm xây dựng trọn gói (end-to-end) các hệ thống Web và Desktop hiệu năng cao: từ sàn thương mại điện tử \textbf{React 19 + Three.js 3D Showroom} đồng bộ phòng Mua Chung thời gian thực qua \textbf{Socket.IO}, ứng dụng Desktop ERP/POS \textbf{Electron 39} tích hợp lớp phủ Canvas nhận diện khuôn mặt \textbf{68 điểm (68-Point FaceID)}, giao diện kiểm toán hợp đồng pháp lý (Redline Diff UI), đến bảng điều khiển \textbf{Streaming SSE Temporal RAG} đạt \textbf{92.7\% độ chính xác năm (Eval96)}.
 }
 
 \section{Kỹ Năng Kỹ Thuật (Technical Skills)}
-{\small
-\begin{tabularx}{\textwidth}{@{}p{4.5cm}X@{}}
-  \textbf{Frontend, 3D WebGL \& UI/UX:} & TypeScript, JavaScript (ES2024), React 18/19, Next.js 14 (App Router, SSR), Three.js, React Three Fiber (R3F), WebGL GLSL Shaders, GSAP ScrollTrigger, Tailwind CSS, Design Systems, WCAG AA. \\
-  \textbf{Desktop \& Realtime Client:} & Electron 39 (Main/Preload IPC Isolation), Socket.IO Realtime Rooms, Server-Sent Events (SSE Streaming UI), Canvas 2D Biometric Overlay, face-api.js (68-Point Facial Landmarks). \\
+{\footnotesize
+\renewcommand{\arraystretch}{1.12}
+\begin{tabularx}{\textwidth}{@{}p{4.1cm}X@{}}
+  \textbf{Frontend, 3D WebGL \& UI/UX:} & TypeScript, JavaScript (ES2024), React 18/19, Next.js 14 (App Router, SSR), Three.js, React Three Fiber (R3F), WebGL GLSL Shaders, GSAP, Tailwind CSS, Design Systems, WCAG AA. \\
+  \textbf{Desktop \& Realtime Client:} & Electron 39 (Context Isolation \& Preload IPC), Socket.IO Realtime Rooms, Server-Sent Events (SSE Streaming UI), Canvas 2D Biometric Overlay, face-api.js (68-Point Landmarks). \\
   \textbf{Full-Stack \& AI Integration:} & Node.js (Express.js, REST API, JWT/OAuth2, RBAC), Python (FastAPI, Pydantic), Hybrid RAG Integration (FAISS, BM25, Neo4j, VietOCR, Gemini API), Prisma ORM, PostgreSQL, MongoDB, SQLite. \\
-  \textbf{Software Engineering \& QA:} & Clean Architecture, Component-Driven Development, Playwright E2E, Pytest, Automated Evaluation Benchmarks (Eval96), Docker, Git/GitHub Actions CI/CD, Vercel.
+  \textbf{Software Engineering \& QA:} & Clean Architecture, Component-Driven UI, State Management, Playwright E2E, Pytest, Automated Evaluation Benchmarks (Eval96), Docker, Git/GitHub Actions CI/CD, Vercel.
 \end{tabularx}
 }
 
 \section{Dự Án Kỹ Thuật Trọng Điểm (Selected Engineering Projects)}
 
-\resumeItem{1. FashionElite -- Nền Tảng E-Commerce Tương Tác 3D \& Phòng Mua Chung Thời Gian Thực}{React 19, TypeScript, Three.js / R3F, Socket.IO, Tailwind CSS}
-\resumeSub{Kiến trúc Frontend E-Commerce Tích hợp Phòng Mua Chung (GroupBuy), Showroom 3D \& Trợ lý AI}{\href{https://shop-quan-ao-g89r.vercel.app}{shop-quan-ao-g89r.vercel.app} \,|\, \href{https://github.com/Hoa26040005/Shop-Quan-Ao}{github.com/Hoa26040005/Shop-Quan-Ao}}
-{\small
+\resumeProject{1. FashionElite -- E-Commerce 3D \& Phòng Mua Chung Thời Gian Thực}{React 19, TypeScript, Three.js / R3F, Socket.IO, Tailwind CSS}{\href{https://shop-quan-ao-g89r.vercel.app}{shop-quan-ao-g89r.vercel.app} \,|\, \href{https://github.com/Hoa26040005/Shop-Quan-Ao}{GitHub}}
+{\footnotesize
 \begin{itemize}
-  \item Thiết kế kiến trúc Frontend \textbf{React 19 + TypeScript} gồm hơn 30 trang giao diện Storefront \& Admin CMS, tích hợp không gian trưng bày sản phẩm 3D tương tác bằng \textbf{Three.js / React Three Fiber} và chuyển động mượt 60fps.
-  \item Xây dựng giao diện phòng \textbf{Mua Chung (GroupBuy 2/4/8 người)} đồng bộ trạng thái giỏ hàng thời gian thực qua \textbf{Socket.IO}, tự động tính toán và hiển thị chiết khấu bậc thang chính xác từng đồng.
-  \item Triển khai giao diện thanh toán đa kênh (\textbf{VNPay, MoMo, Stripe, VietQR}), diễn đàn cộng đồng và khung chat trợ lý AI tư vấn kích cỡ, phối đồ trực quan.
+  \item Thiết kế kiến trúc Frontend \textbf{React 19 + TypeScript} gồm hơn 30 trang Storefront \& Admin CMS, tích hợp không gian trưng bày sản phẩm 3D tương tác (\textbf{Three.js / R3F}), thanh toán đa kênh (VNPay, MoMo, Stripe, VietQR) và khung chat trợ lý AI tư vấn kích cỡ.
+  \item Xây dựng giao diện phòng \textbf{Mua Chung (GroupBuy 2/4/8 người)} đồng bộ trạng thái giỏ hàng thời gian thực qua \textbf{Socket.IO}, tự động tính toán và phân bổ chiết khấu bậc thang chính xác từng đồng giữa các thành viên.
 \end{itemize}
 }
 
-\resumeItem{2. AgriPOS -- Ứng Dụng Desktop ERP \& POS Tích Hợp Giao Diện Quét Khuôn Mặt 68 Điểm}{Electron 39, React 19, Canvas 2D, face-api.js, Node.js, SQLite}
-\resumeSub{Phần mềm Desktop Quản trị Bán hàng \& Tồn kho Xác thực Sinh trắc học Khuôn mặt Ngay trên Thiết bị}{\href{https://github.com/Hoa26040005/pesticide-shop}{github.com/Hoa26040005/pesticide-shop}}
-{\small
+\resumeProject{2. AgriPOS -- Ứng Dụng Desktop ERP/POS \& Quét Khuôn Mặt 68 Điểm}{Electron 39, React 19, Canvas 2D, face-api.js, Node.js, SQLite}{\href{https://github.com/Hoa26040005/pesticide-shop}{github.com/Hoa26040005/pesticide-shop}}
+{\footnotesize
 \begin{itemize}
-  \item Phát triển giao diện Desktop ERP \& Điểm bán hàng (POS) tốc độ cao trên nền tảng \textbf{Electron 39 + React 19} với cơ chế cô lập tiến trình (Context Isolation \& Preload IPC Bridge) và hệ thống phím tắt thu ngân chuyên nghiệp.
-  \item Xây dựng lớp phủ \textbf{Webcam Canvas 2D thời gian thực} vẽ lưới 68 điểm mốc khuôn mặt (\textbf{68-Point Facial Landmarks / 128D Descriptor}) để xác thực ca trực nhân viên và phân quyền giao diện \textbf{RBAC}.
-  \item Thiết kế bảng điều khiển trực quan quản lý vòng đời lô hàng -- hạn sử dụng (\textbf{FEFO/FIFO}), cảnh báo tồn kho tối thiểu, công nợ đại lý và xuất báo cáo kiểm toán.
+  \item Phát triển ứng dụng Desktop ERP \& POS tốc độ cao trên \textbf{Electron 39 + React 19} (Context Isolation \& Preload IPC Bridge), quản lý 10 phân hệ: quầy thu ngân QR, vòng đời lô hàng -- hạn sử dụng (\textbf{FEFO/FIFO}), công nợ mùa vụ và báo cáo kiểm toán.
+  \item Xây dựng lớp phủ \textbf{Webcam Canvas 2D thời gian thực} vẽ lưới 68 điểm mốc khuôn mặt (\textbf{68-Point Facial Landmarks / 128D Euclidean Descriptor}) ngay trên thiết bị để xác thực ca trực nhân viên và phân quyền giao diện \textbf{RBAC} tức thì.
 \end{itemize}
 }
 
-\resumeItem{3. LegalAI Contract Reviewer -- Giao Diện Kiểm Toán \& So Khớp Điều Khoản Hợp Đồng}{React, TypeScript, Tailwind CSS, Python, FastAPI, VietOCR, Neo4j}
-\resumeSub{Ứng dụng Web Phân tích Rủi ro, Hiển thị Redline Diff \& Đối chiếu Điều khoản Hợp đồng Pháp lý}{\href{https://github.com/Hoa26040005/legal-ai-contract-reviewer}{github.com/Hoa26040005/legal-ai-contract-reviewer}}
-{\small
+\resumeProject{3. LegalAI Contract Reviewer -- Giao Diện Kiểm Toán \& So Khớp Hợp Đồng}{React, TypeScript, Tailwind CSS, FastAPI, VietOCR, Neo4j}{\href{https://github.com/Hoa26040005/legal-ai-contract-reviewer}{github.com/Hoa26040005/legal-ai-contract-reviewer}}
+{\footnotesize
 \begin{itemize}
-  \item Thiết kế giao diện \textbf{Interactive Contract Redline Viewer} bằng \textbf{React + TypeScript} cho phép đối chiếu song song điều khoản gốc và câu chữ đề xuất sửa đổi, tô màu mức độ rủi ro theo 4 cấp (Critical / High / Medium / Low).
-  \item Xây dựng luồng tải lên tài liệu đa phương thức (PDF / Ảnh chụp hợp đồng qua \textbf{PaddleOCR \& VietOCR}) kèm thanh tiến trình phân tích trực quan và xuất báo cáo Word (\texttt{.docx}) chuẩn pháp lý.
+  \item Thiết kế giao diện \textbf{Interactive Contract Redline Viewer} (\textbf{React + TypeScript}) đối chiếu song song điều khoản gốc và câu chữ đề xuất sửa đổi, tô màu mức độ rủi ro 4 cấp (Critical / High / Medium / Low) kèm bộ lọc điều khoản trực quan.
+  \item Tích hợp luồng tải tài liệu PDF / Ảnh chụp hợp đồng (\textbf{PaddleOCR \& VietOCR}), đối chiếu \textbf{Hybrid GraphRAG (Neo4j + hơn 25 bộ luật Việt Nam)} và xuất trực tiếp báo cáo kiểm toán Word (\texttt{.docx}) chuẩn định dạng pháp lý.
 \end{itemize}
 }
 
-\resumeItem{4. Temporal-Aware Vietnamese RAG -- Giao Diện Streaming SSE \& Truy Hồi Nhận Biết Thời Gian}{JavaScript ES2024, Streaming SSE UI, Python, FastAPI, FAISS, BM25}
-\resumeSub{Hệ thống Giao diện Đối chiếu Truy vấn \& Truy xuất Tăng cường Tạo sinh Nhận biết Thời gian}{\href{https://github.com/Hoa26040005/RAGNHANBTTHOIGIAN}{github.com/Hoa26040005/RAGNHANBTTHOIGIAN}}
-{\small
+\resumeProject{4. Temporal-Aware Vietnamese RAG -- Giao Diện Streaming SSE \& Truy Hồi Thời Gian}{JavaScript ES2024, SSE UI, FastAPI, FAISS, BM25}{\href{https://github.com/Hoa26040005/RAGNHANBTTHOIGIAN}{github.com/Hoa26040005/RAGNHANBTTHOIGIAN}}
+{\footnotesize
 \begin{itemize}
-  \item Xây dựng giao diện Web phản hồi trực tiếp qua \textbf{Server-Sent Events (SSE Streaming)}, hiển thị từng bước phân rã mốc thời gian (Temporal Query Plan), thẻ trích dẫn nguồn và bảng so sánh đối chứng với RAG truyền thống.
-  \item Kết hợp \textbf{FAISS Dense Vector (50.599 phân đoạn) + BM25 + RRF}, đạt \textbf{92.7\% độ chính xác năm (Year Accuracy)} trên bộ kiểm thử \textbf{Eval96 Benchmark} (+30.2\% so với Baseline RAG).
+  \item Xây dựng giao diện Web phản hồi trực tiếp qua \textbf{Server-Sent Events (SSE Streaming)}, hiển thị trực quan từng bước phân rã mốc thời gian (Temporal Query Plan), thẻ trích dẫn nguồn báo chí và chế độ đối chiếu song song với RAG truyền thống.
+  \item Kết hợp \textbf{FAISS Dense Vector (50.599 phân đoạn) + BM25 + RRF} và bộ chấm điểm thực thể thời gian, nâng độ chính xác năm (\textbf{Year Accuracy}) từ \textbf{62.5\%} lên \textbf{92.7\% (+30.2\%)} trên bộ kiểm thử tự động \textbf{Eval96 Benchmark}.
 \end{itemize}
 }
 
 \section{Học Vấn \& Định Hướng Chuyên Môn (Education \& Software Engineering Focus)}
-\resumeItem{Chuyên ngành Công nghệ Phần mềm (Software Engineering) -- Định hướng Kỹ sư Frontend}{Việt Nam}
-{\small
+\resumeProject{Chuyên ngành Công nghệ Phần mềm (Software Engineering)}{Định hướng Kỹ sư Frontend \& Hệ thống Tương tác 3D}{Việt Nam}
+{\footnotesize
 \begin{itemize}
-  \item \textbf{Trọng tâm chuyên môn:} Kiến trúc Frontend hiện đại (React / Next.js / TypeScript), Đồ họa Web 3D \& Chuyển động tương tác (Three.js / WebGL / GSAP), Ứng dụng Desktop (Electron) và Thiết kế Hệ thống Giao diện (Design Systems \& UI/UX).
+  \item \textbf{Trọng tâm chuyên môn \& Kỷ luật kỹ thuật:} Kiến trúc Frontend hiện đại (React 19, Next.js 14, TypeScript), Đồ họa Web 3D \& Chuyển động tương tác (Three.js, WebGL, GSAP), Ứng dụng Desktop (Electron 39), Clean Architecture, tối ưu hiệu năng hiển thị 60fps và kiểm thử tự động (Playwright E2E, Pytest, Eval96).
 \end{itemize}
 }
 

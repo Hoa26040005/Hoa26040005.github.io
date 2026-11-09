@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Huỳnh Thái Hòa · Curriculum Vitae (Chuyên ngành Công nghệ Phần mềm · Frontend Engineer)</title>
+  <title>Huỳnh Thái Hòa · CV 1 Trang A4 (Chuyên ngành Công nghệ Phần mềm · Frontend Engineer)</title>
   <style>
     @page {
       size: A4 portrait;
-      margin: 12mm 14mm;
+      margin: 9mm 11mm;
     }
     * {
       box-sizing: border-box;
@@ -15,22 +15,22 @@
       padding: 0;
     }
     body {
-      background: #e2e8f0;
+      background: #0a0d14;
       color: #0f172a;
       font-family: "Times New Roman", Times, Georgia, serif;
-      font-size: 10.5pt;
-      line-height: 1.36;
-      padding: 28px 16px 48px;
+      font-size: 9.6pt;
+      line-height: 1.28;
+      padding: 24px 16px 40px;
       -webkit-print-color-adjust: exact;
       print-color-adjust: exact;
     }
     .cv-toolbar {
       max-width: 210mm;
-      margin: 0 auto 16px;
-      background: #0f172a;
+      margin: 0 auto 14px;
+      background: #131824;
       color: #f8fafc;
       padding: 12px 18px;
-      border-radius: 6px;
+      border-radius: 8px;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
@@ -39,13 +39,13 @@
       font-family: system-ui, -apple-system, sans-serif;
     }
     .cv-toolbar-title {
-      font-size: 13px;
+      font-size: 13.5px;
       font-weight: 600;
-      color: #e2e8f0;
+      color: #e9edf3;
     }
     .cv-toolbar-title span {
       color: #5a9bfc;
-      font-size: 12px;
+      font-size: 12.5px;
       margin-left: 6px;
     }
     .cv-toolbar-actions {
@@ -58,52 +58,64 @@
       align-items: center;
       gap: 6px;
       padding: 8px 14px;
-      border-radius: 4px;
+      border-radius: 8px;
       font-size: 12.5px;
       font-weight: 600;
       text-decoration: none;
       cursor: pointer;
-      border-top: 2px solid rgba(255, 255, 255, 0.35);
-      border-left: 2px solid rgba(255, 255, 255, 0.35);
-      border-right: 3px solid rgba(0, 0, 0, 0.35);
-      border-bottom: 5px solid rgba(0, 0, 0, 0.45);
-      transform: perspective(500px) translate3d(0, -1px, 0) rotateX(4deg);
+      border: 0;
+      border-bottom: 4px solid #05070c;
+      transform: translate3d(0, 0, 0);
+      transition: transform 180ms ease, background-color 180ms ease;
     }
     .cv-btn:hover {
-      transform: perspective(500px) translate3d(0, -3px, 4px) rotateX(6deg);
+      transform: translate3d(0, -2px, 0);
+    }
+    .cv-btn:active {
+      transform: translate3d(0, 2px, 0);
     }
     .cv-btn-word {
-      background: #1d4ed8;
-      color: #ffffff;
+      background: #5a9bfc;
+      color: #0a0d14;
+      border-bottom-color: #2458b8;
     }
     .cv-btn-latex {
-      background: #047857;
-      color: #ffffff;
+      background: #34d399;
+      color: #0a0d14;
+      border-bottom-color: #047857;
     }
     .cv-btn-print {
-      background: #f8fafc;
-      color: #0f172a;
+      background: #e9edf3;
+      color: #0a0d14;
+      border-bottom-color: #9ca6b8;
     }
     .cv-btn-back {
-      background: #1e293b;
-      color: #cbd5e1;
+      background: #1c2436;
+      color: #e9edf3;
+      border-bottom-color: #05070c;
     }
+    /* Strict 1-Page A4 Sheet (210mm x 297mm) */
     .a4-sheet {
       width: 210mm;
-      min-height: 297mm;
+      height: 297mm;
+      max-height: 297mm;
       margin: 0 auto;
       background: #ffffff;
       color: #0f172a;
-      padding: 13mm 15mm;
+      padding: 10mm 12mm;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
     .latex-header {
       text-align: center;
-      margin-bottom: 10px;
-      padding-bottom: 6px;
+      margin-bottom: 6px;
+      padding-bottom: 5px;
       border-bottom: 2px solid #0f172a;
     }
     .latex-name {
-      font-size: 20pt;
+      font-size: 17.5pt;
       font-weight: 700;
       letter-spacing: 0.04em;
       text-transform: uppercase;
@@ -111,13 +123,13 @@
       margin-bottom: 2px;
     }
     .latex-role {
-      font-size: 10.5pt;
+      font-size: 9.8pt;
       font-weight: 700;
       color: #1e3a8a;
-      margin-bottom: 4px;
+      margin-bottom: 3px;
     }
     .latex-contact {
-      font-size: 9.5pt;
+      font-size: 9pt;
       color: #1e293b;
     }
     .latex-contact a {
@@ -125,54 +137,57 @@
       text-decoration: underline;
     }
     .latex-section {
-      margin-top: 9px;
+      margin-top: 6px;
     }
     .latex-section-title {
-      font-size: 10.8pt;
+      font-size: 10pt;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.04em;
       color: #0f172a;
-      border-bottom: 2px solid #0f172a;
-      padding-bottom: 1.5px;
-      margin-bottom: 5px;
+      border-bottom: 1.5px solid #0f172a;
+      padding-bottom: 1px;
+      margin-bottom: 4px;
     }
     .latex-summary {
-      font-size: 10pt;
+      font-size: 9.3pt;
       text-align: justify;
       color: #111827;
     }
     .latex-skills-table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 9.8pt;
+      font-size: 9.2pt;
     }
     .latex-skills-table td {
-      padding: 1.5px 0;
+      padding: 1px 0;
       vertical-align: top;
     }
     .latex-skills-table td.skill-cat {
-      width: 225px;
+      width: 210px;
       font-weight: 700;
       color: #0f172a;
-      padding-right: 8px;
+      padding-right: 6px;
     }
     .latex-item {
-      margin-bottom: 7px;
+      margin-bottom: 5px;
+    }
+    .latex-item:last-child {
+      margin-bottom: 0;
     }
     .latex-item-header {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-      gap: 8px;
+      gap: 6px;
     }
     .latex-item-title {
-      font-size: 10.3pt;
+      font-size: 9.6pt;
       font-weight: 700;
       color: #0f172a;
     }
     .latex-item-tech {
-      font-size: 9.3pt;
+      font-size: 8.8pt;
       font-style: italic;
       font-weight: 700;
       color: #1e3a8a;
@@ -181,10 +196,10 @@
     .latex-item-sub {
       display: flex;
       justify-content: space-between;
-      font-size: 9.2pt;
+      font-size: 8.7pt;
       font-style: italic;
       color: #334155;
-      margin-bottom: 2px;
+      margin-bottom: 1.5px;
     }
     .latex-item-sub a {
       color: #1e3a8a;
@@ -192,26 +207,32 @@
     }
     .latex-bullets {
       list-style-type: disc;
-      margin-left: 16px;
-      font-size: 9.7pt;
+      margin-left: 15px;
+      font-size: 9.1pt;
       color: #111827;
     }
     .latex-bullets li {
-      margin-bottom: 1.5px;
+      margin-bottom: 1px;
       text-align: justify;
     }
     @media print {
-      body {
+      html, body {
         background: #ffffff;
         padding: 0;
+        margin: 0;
+        height: 100%;
       }
       .cv-toolbar {
         display: none !important;
       }
       .a4-sheet {
         width: 100%;
-        min-height: auto;
+        height: auto;
+        max-height: 277mm;
         padding: 0;
+        overflow: hidden;
+        page-break-after: avoid;
+        break-after: avoid;
       }
     }
   </style>
@@ -219,17 +240,17 @@
 <body>
   <div class="cv-toolbar">
     <div class="cv-toolbar-title">
-      Hồ Sơ Ứng Tuyển Kỹ Sư · Huỳnh Thái Hòa <span>[Chuyên ngành Công nghệ Phần mềm · Frontend Engineer]</span>
+      Hồ Sơ Ứng Tuyển Chuẩn 1 Trang A4 · Huỳnh Thái Hòa <span>[Chuyên ngành Công nghệ Phần mềm · Frontend Engineer]</span>
     </div>
     <div class="cv-toolbar-actions">
       <a class="cv-btn cv-btn-word" href="assets/cv/Huynh_Thai_Hoa_CV.docx" download="Huynh_Thai_Hoa_CV.docx">
-        Tải Bản Word (.docx)
+        Tải Bản Word (.docx · 1 Trang A4)
       </a>
       <a class="cv-btn cv-btn-latex" href="assets/cv/Huynh_Thai_Hoa_CV.tex" download="Huynh_Thai_Hoa_CV.tex">
-        Tải Mã Nguồn LaTeX (.tex)
+        Tải Mã Nguồn LaTeX (.tex · 1 Trang A4)
       </a>
       <button class="cv-btn cv-btn-print" type="button" onclick="window.print()">
-        In / Xuất PDF Chuẩn A4
+        In / Xuất PDF (1 Trang A4)
       </button>
       <a class="cv-btn cv-btn-back" href="index.html">
         Quay lại Portfolio
@@ -238,129 +259,126 @@
   </div>
 
   <main class="a4-sheet">
-    <header class="latex-header">
-      <h1 class="latex-name">HUỲNH THÁI HÒA</h1>
-      <div class="latex-role">Frontend &amp; Full-Stack Software Engineer · Chuyên ngành Công nghệ Phần mềm (React 19 · Next.js 14 · TypeScript · Three.js / WebGL · Electron 39)</div>
-      <div class="latex-contact">
-        Email: <a href="mailto:huynhhoa9881@gmail.com">huynhhoa9881@gmail.com</a> &nbsp;|&nbsp;
-        GitHub: <a href="https://github.com/Hoa26040005" target="_blank" rel="noopener">github.com/Hoa26040005</a> &nbsp;|&nbsp;
-        Portfolio: <a href="https://hoa26040005.github.io" target="_blank" rel="noopener">hoa26040005.github.io</a> &nbsp;|&nbsp;
-        Việt Nam
-      </div>
-    </header>
+    <div>
+      <header class="latex-header">
+        <h1 class="latex-name">HUỲNH THÁI HÒA</h1>
+        <div class="latex-role">Frontend &amp; Full-Stack Software Engineer · Chuyên ngành Công nghệ Phần mềm (React 19 · Next.js 14 · TypeScript · Three.js / WebGL · Electron 39)</div>
+        <div class="latex-contact">
+          Email: <a href="mailto:huynhhoa9881@gmail.com">huynhhoa9881@gmail.com</a> &nbsp;|&nbsp;
+          GitHub: <a href="https://github.com/Hoa26040005" target="_blank" rel="noopener">github.com/Hoa26040005</a> &nbsp;|&nbsp;
+          Portfolio: <a href="https://hoa26040005.github.io" target="_blank" rel="noopener">hoa26040005.github.io</a> &nbsp;|&nbsp;
+          Việt Nam
+        </div>
+      </header>
 
-    <section class="latex-section">
-      <h2 class="latex-section-title">Tóm Tắt Chuyên Môn (Executive Summary)</h2>
-      <p class="latex-summary">
-        Kỹ sư <strong>Công nghệ Phần mềm (Software Engineering)</strong> định hướng chuyên sâu <strong>Frontend Architecture &amp; Interactive 3D UI/UX</strong>, có kinh nghiệm xây dựng trọn gói (end-to-end) các hệ thống giao diện Web và Desktop hiệu năng cao: từ sàn thương mại điện tử <strong>React 19 + Three.js 3D Showroom</strong> đồng bộ phòng Mua Chung thời gian thực qua <strong>Socket.IO</strong>, ứng dụng Desktop ERP/POS <strong>Electron 39</strong> tích hợp lớp phủ Canvas nhận diện khuôn mặt <strong>68 điểm (68-Point FaceID)</strong>, giao diện kiểm toán và so khớp điều khoản hợp đồng pháp lý trực quan (Redline Diff UI), đến bảng điều khiển hỏi đáp <strong>Streaming SSE Temporal RAG</strong> đạt <strong>92.7% độ chính xác năm (Eval96)</strong>.
-      </p>
-    </section>
+      <section class="latex-section">
+        <h2 class="latex-section-title">Tóm Tắt Chuyên Môn (Executive Summary)</h2>
+        <p class="latex-summary">
+          Kỹ sư <strong>Công nghệ Phần mềm (Software Engineering)</strong> định hướng chuyên sâu <strong>Frontend Architecture &amp; Interactive 3D UI/UX</strong>, có kinh nghiệm xây dựng trọn gói (end-to-end) các hệ thống Web và Desktop hiệu năng cao: từ sàn thương mại điện tử <strong>React 19 + Three.js 3D Showroom</strong> đồng bộ phòng Mua Chung thời gian thực qua <strong>Socket.IO</strong>, ứng dụng Desktop ERP/POS <strong>Electron 39</strong> tích hợp lớp phủ Canvas nhận diện khuôn mặt <strong>68 điểm (68-Point FaceID)</strong>, giao diện kiểm toán hợp đồng pháp lý (Redline Diff UI), đến bảng điều khiển <strong>Streaming SSE Temporal RAG</strong> đạt <strong>92.7% độ chính xác năm (Eval96)</strong>.
+        </p>
+      </section>
 
-    <section class="latex-section">
-      <h2 class="latex-section-title">Kỹ Năng Kỹ Thuật (Technical Skills)</h2>
-      <table class="latex-skills-table">
-        <tbody>
-          <tr>
-            <td class="skill-cat">Frontend, 3D WebGL &amp; UI/UX:</td>
-            <td>TypeScript, JavaScript (ES2024), React 18/19, Next.js 14 (App Router, SSR), Three.js, React Three Fiber (R3F), WebGL GLSL Shaders, GSAP ScrollTrigger, Tailwind CSS, Design Systems, WCAG AA Accessibility.</td>
-          </tr>
-          <tr>
-            <td class="skill-cat">Desktop &amp; Realtime Client UI:</td>
-            <td>Electron 39 (Context Isolation &amp; Preload IPC Bridge), Socket.IO Realtime State Sync, Server-Sent Events (SSE Streaming UI), Canvas 2D Biometric Overlay, face-api.js (68-Point Landmarks).</td>
-          </tr>
-          <tr>
-            <td class="skill-cat">Full-Stack API &amp; AI Integration:</td>
-            <td>Node.js (Express.js, REST API, JWT/OAuth2, RBAC), Python (FastAPI, Pydantic), Hybrid RAG UI Integration (FAISS, BM25, Neo4j, VietOCR, Gemini API), Prisma ORM, PostgreSQL, MongoDB, SQLite.</td>
-          </tr>
-          <tr>
-            <td class="skill-cat">Software Engineering &amp; Testing:</td>
-            <td>Clean Architecture, Component-Driven Development, State Management, Playwright E2E, Pytest, Automated Evaluation Benchmarks (Eval96), Docker, Git/GitHub Actions CI/CD, Vercel.</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
+      <section class="latex-section">
+        <h2 class="latex-section-title">Kỹ Năng Kỹ Thuật (Technical Skills)</h2>
+        <table class="latex-skills-table">
+          <tbody>
+            <tr>
+              <td class="skill-cat">Frontend, 3D WebGL &amp; UI/UX:</td>
+              <td>TypeScript, JavaScript (ES2024), React 18/19, Next.js 14 (App Router, SSR), Three.js, React Three Fiber (R3F), WebGL GLSL Shaders, GSAP, Tailwind CSS, Design Systems, WCAG AA.</td>
+            </tr>
+            <tr>
+              <td class="skill-cat">Desktop &amp; Realtime Client UI:</td>
+              <td>Electron 39 (Context Isolation &amp; Preload IPC), Socket.IO Realtime Rooms, Server-Sent Events (SSE Streaming UI), Canvas 2D Biometric Overlay, face-api.js (68-Point Landmarks).</td>
+            </tr>
+            <tr>
+              <td class="skill-cat">Full-Stack API &amp; AI Integration:</td>
+              <td>Node.js (Express.js, REST API, JWT/OAuth2, RBAC), Python (FastAPI, Pydantic), Hybrid RAG Integration (FAISS, BM25, Neo4j, VietOCR, Gemini API), Prisma ORM, PostgreSQL, MongoDB, SQLite.</td>
+            </tr>
+            <tr>
+              <td class="skill-cat">Software Engineering &amp; QA:</td>
+              <td>Clean Architecture, Component-Driven UI, State Management, Playwright E2E, Pytest, Automated Evaluation Benchmarks (Eval96), Docker, Git/GitHub Actions CI/CD, Vercel.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
 
-    <section class="latex-section">
-      <h2 class="latex-section-title">Dự Án Kỹ Thuật Trọng Điểm (Selected Engineering Projects)</h2>
+      <section class="latex-section">
+        <h2 class="latex-section-title">Dự Án Kỹ Thuật Trọng Điểm (Selected Engineering Projects)</h2>
 
-      <article class="latex-item">
-        <div class="latex-item-header">
-          <span class="latex-item-title">1. FashionElite · Nền Tảng E-Commerce Tương Tác 3D &amp; Phòng Mua Chung Thời Gian Thực</span>
-          <span class="latex-item-tech">React 19, TypeScript, Three.js / R3F, Socket.IO, Tailwind CSS, Node.js</span>
-        </div>
-        <div class="latex-item-sub">
-          <span>Kiến trúc Frontend E-Commerce Hiện đại Tích hợp Phòng Mua Chung (GroupBuy), Showroom 3D &amp; Trợ lý AI</span>
-          <span>Live: <a href="https://shop-quan-ao-g89r.vercel.app/" target="_blank" rel="noopener">shop-quan-ao-g89r.vercel.app</a> &nbsp;|&nbsp; <a href="https://github.com/Hoa26040005/Shop-Quan-Ao" target="_blank" rel="noopener">github.com/Hoa26040005/Shop-Quan-Ao</a></span>
-        </div>
-        <ul class="latex-bullets">
-          <li>Thiết kế kiến trúc Frontend <strong>React 19 + TypeScript</strong> gồm hơn 30 trang giao diện Storefront &amp; Admin CMS, tích hợp không gian trưng bày sản phẩm 3D tương tác bằng <strong>Three.js / React Three Fiber</strong> và chuyển động mượt 60fps.</li>
-          <li>Xây dựng giao diện phòng <strong>Mua Chung (GroupBuy 2/4/8 người)</strong> đồng bộ trạng thái giỏ hàng thời gian thực qua <strong>Socket.IO</strong>, tự động tính toán và hiển thị chiết khấu bậc thang chính xác từng đồng.</li>
-          <li>Triển khai giao diện thanh toán đa kênh (VNPay, MoMo, Stripe, VietQR), diễn đàn cộng đồng và khung chat trợ lý AI tư vấn kích cỡ, phối đồ trực quan.</li>
-        </ul>
-      </article>
+        <article class="latex-item">
+          <div class="latex-item-header">
+            <span class="latex-item-title">1. FashionElite · E-Commerce 3D &amp; Phòng Mua Chung Thời Gian Thực</span>
+            <span class="latex-item-tech">React 19, TypeScript, Three.js / R3F, Socket.IO, Tailwind CSS</span>
+          </div>
+          <div class="latex-item-sub">
+            <span>Kiến trúc Frontend E-Commerce Tích hợp Phòng Mua Chung (GroupBuy), Showroom 3D &amp; Trợ lý AI</span>
+            <span>Live: <a href="https://shop-quan-ao-g89r.vercel.app/" target="_blank" rel="noopener">shop-quan-ao-g89r.vercel.app</a> &nbsp;|&nbsp; <a href="https://github.com/Hoa26040005/Shop-Quan-Ao" target="_blank" rel="noopener">github.com/Hoa26040005/Shop-Quan-Ao</a></span>
+          </div>
+          <ul class="latex-bullets">
+            <li>Thiết kế kiến trúc Frontend <strong>React 19 + TypeScript</strong> gồm hơn 30 trang Storefront &amp; Admin CMS, tích hợp không gian trưng bày sản phẩm 3D tương tác (<strong>Three.js / R3F</strong>), thanh toán đa kênh (VNPay, MoMo, Stripe, VietQR) và khung chat trợ lý AI tư vấn kích cỡ.</li>
+            <li>Xây dựng giao diện phòng <strong>Mua Chung (GroupBuy 2/4/8 người)</strong> đồng bộ trạng thái giỏ hàng thời gian thực qua <strong>Socket.IO</strong>, tự động tính toán và phân bổ chiết khấu bậc thang chính xác từng đồng giữa các thành viên.</li>
+          </ul>
+        </article>
 
-      <article class="latex-item">
-        <div class="latex-item-header">
-          <span class="latex-item-title">2. AgriPOS · Ứng Dụng Desktop ERP &amp; POS Tích Hợp Giao Diện Quét Khuôn Mặt 68 Điểm</span>
-          <span class="latex-item-tech">Electron 39, React 19, Canvas 2D, face-api.js (68 Landmarks), Node.js, SQLite</span>
-        </div>
-        <div class="latex-item-sub">
-          <span>Phần mềm Desktop Quản trị Bán hàng &amp; Tồn kho Xác thực Sinh trắc học Khuôn mặt Ngay trên Thiết bị</span>
-          <a href="https://github.com/Hoa26040005/pesticide-shop" target="_blank" rel="noopener">github.com/Hoa26040005/pesticide-shop</a>
-        </div>
-        <ul class="latex-bullets">
-          <li>Phát triển giao diện Desktop ERP &amp; Điểm bán hàng (POS) tốc độ cao trên <strong>Electron 39 + React 19</strong> với kiến trúc cô lập tiến trình (Context Isolation &amp; Preload IPC Bridge) và hỗ trợ thao tác phím tắt thu ngân chuyên nghiệp.</li>
-          <li>Xây dựng lớp phủ <strong>Webcam Canvas 2D thời gian thực</strong> vẽ lưới 68 điểm mốc khuôn mặt (<strong>68-Point Facial Landmarks / 128D Euclidean Descriptor</strong>) để mở khóa ca trực và phân quyền giao diện <strong>RBAC</strong> tức thì.</li>
-          <li>Thiết kế bảng điều khiển trực quan quản lý vòng đời lô hàng, hạn sử dụng (<strong>FEFO/FIFO</strong>), cảnh báo tồn kho tối thiểu, công nợ đại lý và xuất báo cáo kiểm toán.</li>
-        </ul>
-      </article>
+        <article class="latex-item">
+          <div class="latex-item-header">
+            <span class="latex-item-title">2. AgriPOS · Ứng Dụng Desktop ERP/POS &amp; Quét Khuôn Mặt 68 Điểm</span>
+            <span class="latex-item-tech">Electron 39, React 19, Canvas 2D, face-api.js, Node.js, SQLite</span>
+          </div>
+          <div class="latex-item-sub">
+            <span>Phần mềm Desktop Quản trị Bán hàng &amp; Tồn kho Xác thực Sinh trắc học Khuôn mặt Ngay trên Thiết bị</span>
+            <a href="https://github.com/Hoa26040005/pesticide-shop" target="_blank" rel="noopener">github.com/Hoa26040005/pesticide-shop</a>
+          </div>
+          <ul class="latex-bullets">
+            <li>Phát triển ứng dụng Desktop ERP &amp; POS tốc độ cao trên <strong>Electron 39 + React 19</strong> (Context Isolation &amp; Preload IPC Bridge), quản lý 10 phân hệ: quầy thu ngân QR, vòng đời lô hàng – hạn sử dụng (<strong>FEFO/FIFO</strong>), công nợ mùa vụ và báo cáo kiểm toán.</li>
+            <li>Xây dựng lớp phủ <strong>Webcam Canvas 2D thời gian thực</strong> vẽ lưới 68 điểm mốc khuôn mặt (<strong>68-Point Facial Landmarks / 128D Euclidean Descriptor</strong>) ngay trên thiết bị để xác thực ca trực nhân viên và phân quyền giao diện <strong>RBAC</strong> tức thì.</li>
+          </ul>
+        </article>
 
-      <article class="latex-item">
-        <div class="latex-item-header">
-          <span class="latex-item-title">3. LegalAI Contract Reviewer · Giao Diện Kiểm Toán &amp; So Khớp Điều Khoản Hợp Đồng</span>
-          <span class="latex-item-tech">React, TypeScript, Tailwind CSS, Python, FastAPI, VietOCR, Neo4j GraphRAG</span>
-        </div>
-        <div class="latex-item-sub">
-          <span>Ứng dụng Web Phân tích Rủi ro, Hiển thị Redline Diff &amp; Đối chiếu Điều khoản Hợp đồng Pháp lý Việt Nam</span>
-          <a href="https://github.com/Hoa26040005/legal-ai-contract-reviewer" target="_blank" rel="noopener">github.com/Hoa26040005/legal-ai-contract-reviewer</a>
-        </div>
-        <ul class="latex-bullets">
-          <li>Thiết kế giao diện <strong>Interactive Contract Redline Viewer</strong> bằng <strong>React + TypeScript</strong> cho phép đối chiếu song song điều khoản gốc và câu chữ đề xuất sửa đổi, tô màu mức độ rủi ro theo 4 cấp (Critical / High / Medium / Low).</li>
-          <li>Xây dựng luồng tải lên tài liệu đa phương thức (PDF / Ảnh chụp hợp đồng qua <strong>PaddleOCR &amp; VietOCR</strong>) kèm thanh tiến trình phân tích theo thời gian thực và bộ lọc điều khoản thông minh.</li>
-          <li>Kết nối hệ thống <strong>Hybrid GraphRAG (Neo4j + Vector Search)</strong> đối chiếu hơn 25 văn bản luật Việt Nam và tích hợp tính năng xuất trực tiếp báo cáo Word (.docx) chuẩn định dạng pháp lý.</li>
-        </ul>
-      </article>
+        <article class="latex-item">
+          <div class="latex-item-header">
+            <span class="latex-item-title">3. LegalAI Contract Reviewer · Giao Diện Kiểm Toán &amp; So Khớp Hợp Đồng</span>
+            <span class="latex-item-tech">React, TypeScript, Tailwind CSS, FastAPI, VietOCR, Neo4j</span>
+          </div>
+          <div class="latex-item-sub">
+            <span>Ứng dụng Web Phân tích Rủi ro, Hiển thị Redline Diff &amp; Đối chiếu Điều khoản Hợp đồng Pháp lý Việt Nam</span>
+            <a href="https://github.com/Hoa26040005/legal-ai-contract-reviewer" target="_blank" rel="noopener">github.com/Hoa26040005/legal-ai-contract-reviewer</a>
+          </div>
+          <ul class="latex-bullets">
+            <li>Thiết kế giao diện <strong>Interactive Contract Redline Viewer</strong> (<strong>React + TypeScript</strong>) đối chiếu song song điều khoản gốc và câu chữ đề xuất sửa đổi, tô màu mức độ rủi ro 4 cấp (Critical / High / Medium / Low) kèm bộ lọc điều khoản trực quan.</li>
+            <li>Tích hợp luồng tải tài liệu PDF / Ảnh chụp hợp đồng (<strong>PaddleOCR &amp; VietOCR</strong>), đối chiếu <strong>Hybrid GraphRAG (Neo4j + hơn 25 bộ luật Việt Nam)</strong> và xuất trực tiếp báo cáo kiểm toán Word (<code>.docx</code>) chuẩn định dạng pháp lý.</li>
+          </ul>
+        </article>
 
-      <article class="latex-item">
-        <div class="latex-item-header">
-          <span class="latex-item-title">4. Temporal-Aware Vietnamese RAG · Giao Diện Streaming SSE &amp; Truy Hồi Nhận Biết Thời Gian</span>
-          <span class="latex-item-tech">JavaScript ES2024, Streaming SSE UI, Python, FastAPI, FAISS, BM25</span>
-        </div>
-        <div class="latex-item-sub">
-          <span>Hệ thống Giao diện Đối chiếu Truy vấn &amp; Truy xuất Tăng cường Tạo sinh Nhận biết Thời gian</span>
-          <a href="https://github.com/Hoa26040005/RAGNHANBTTHOIGIAN" target="_blank" rel="noopener">github.com/Hoa26040005/RAGNHANBTTHOIGIAN</a>
-        </div>
-        <ul class="latex-bullets">
-          <li>Xây dựng giao diện Web phản hồi trực tiếp qua <strong>Server-Sent Events (SSE Streaming)</strong>, hiển thị từng bước phân rã mốc thời gian (Temporal Query Plan), thẻ trích dẫn nguồn báo chí và bảng so sánh đối chứng với RAG truyền thống.</li>
-          <li>Phát triển chuỗi truy hồi 8 tầng kết hợp <strong>FAISS Dense Vector (50.599 phân đoạn) + BM25 Lexical + RRF</strong> và bộ xếp hạng ưu tiên mốc năm chính xác.</li>
-          <li>Thiết lập bộ kiểm thử tự động 96 câu hỏi (<strong>Eval96 Benchmark</strong>): nâng độ chính xác năm (Year Accuracy) từ <strong>62.5%</strong> lên <strong>92.7% (+30.2%)</strong> và điểm từ khóa đạt <strong>80.5%</strong>.</li>
-        </ul>
-      </article>
-    </section>
+        <article class="latex-item">
+          <div class="latex-item-header">
+            <span class="latex-item-title">4. Temporal-Aware Vietnamese RAG · Giao Diện Streaming SSE &amp; Truy Hồi Thời Gian</span>
+            <span class="latex-item-tech">JavaScript ES2024, SSE UI, FastAPI, FAISS, BM25</span>
+          </div>
+          <div class="latex-item-sub">
+            <span>Hệ thống Giao diện Đối chiếu Truy vấn &amp; Truy xuất Tăng cường Tạo sinh Nhận biết Thời gian</span>
+            <a href="https://github.com/Hoa26040005/RAGNHANBTTHOIGIAN" target="_blank" rel="noopener">github.com/Hoa26040005/RAGNHANBTTHOIGIAN</a>
+          </div>
+          <ul class="latex-bullets">
+            <li>Xây dựng giao diện Web phản hồi trực tiếp qua <strong>Server-Sent Events (SSE Streaming)</strong>, hiển thị trực quan từng bước phân rã mốc thời gian (Temporal Query Plan), thẻ trích dẫn nguồn báo chí và chế độ đối chiếu song song với RAG truyền thống.</li>
+            <li>Kết hợp <strong>FAISS Dense Vector (50.599 phân đoạn) + BM25 + RRF</strong> và bộ chấm điểm thực thể thời gian, nâng độ chính xác năm (<strong>Year Accuracy</strong>) từ <strong>62.5%</strong> lên <strong>92.7% (+30.2%)</strong> trên bộ kiểm thử tự động <strong>Eval96 Benchmark</strong>.</li>
+          </ul>
+        </article>
+      </section>
 
-    <section class="latex-section">
-      <h2 class="latex-section-title">Học Vấn &amp; Định Hướng Chuyên Môn (Education &amp; Software Engineering Focus)</h2>
-      <div class="latex-item">
-        <div class="latex-item-header">
-          <span class="latex-item-title">Chuyên ngành Công nghệ Phần mềm (Software Engineering) · Định hướng Kỹ sư Frontend &amp; Hệ thống Tương tác</span>
-          <span class="latex-item-tech">Việt Nam</span>
+      <section class="latex-section">
+        <h2 class="latex-section-title">Học Vấn &amp; Định Hướng Chuyên Môn (Education &amp; Software Engineering Focus)</h2>
+        <div class="latex-item">
+          <div class="latex-item-header">
+            <span class="latex-item-title">Chuyên ngành Công nghệ Phần mềm (Software Engineering) · Định hướng Kỹ sư Frontend &amp; Hệ thống Tương tác 3D</span>
+            <span class="latex-item-tech">Việt Nam</span>
+          </div>
+          <ul class="latex-bullets">
+            <li><strong>Trọng tâm chuyên môn &amp; Kỷ luật kỹ thuật:</strong> Kiến trúc Frontend hiện đại (React 19, Next.js 14, TypeScript), Đồ họa Web 3D &amp; Chuyển động tương tác (Three.js, WebGL, GSAP), Ứng dụng Desktop (Electron 39), Clean Architecture, tối ưu hiệu năng hiển thị 60fps và kiểm thử tự động (Playwright E2E, Pytest, Eval96).</li>
+          </ul>
         </div>
-        <ul class="latex-bullets">
-          <li><strong>Trọng tâm chuyên môn:</strong> Kiến trúc Frontend hiện đại (React / Next.js / TypeScript), Đồ họa Web 3D &amp; Chuyển động tương tác (Three.js / WebGL / GSAP), Ứng dụng Desktop đa nền tảng (Electron) và Thiết kế Hệ thống Giao diện (Design Systems &amp; UI/UX).</li>
-          <li><strong>Kỷ luật Công nghệ Phần mềm:</strong> Mã nguồn sạch (Clean Architecture), tối ưu hóa hiệu năng hiển thị (Core Web Vitals / 60fps Compositor), kiểm thử tự động (Playwright E2E &amp; Eval96) và tài liệu hóa đầy đủ.</li>
-        </ul>
-      </div>
-    </section>
+      </section>
+    </div>
   </main>
 </body>
 </html>
