@@ -831,4 +831,46 @@ export function initPortfolioWorkbench() {
       }
     }
   });
+
+  // 5. 3D TACTILE KEYCAP POINTER TILT (ui-ux-pro-max tactile-digital-deformable-ui)
+  const reduceMotion =
+    window.matchMedia &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if (!reduceMotion) {
+    const tactileSelectors = [
+      ".btn-primary",
+      ".btn-ghost",
+      ".nav-cta",
+      ".orbital-node",
+      ".orbital-center-core",
+      ".hero-morph-btn",
+      ".project-jump-btn",
+      ".sim-btn",
+      ".cv-tab-btn",
+      ".inspector-nav-btns button",
+    ].join(", ");
+
+    const tactileButtons = document.querySelectorAll(tactileSelectors);
+    tactileButtons.forEach((el) => {
+      const onPointerMove = (e) => {
+        const r = el.getBoundingClientRect();
+        if (!r.width || !r.height) return;
+        const nx = (e.clientX - r.left) / r.width - 0.5;
+        const ny = (e.clientY - r.top) / r.height - 0.5;
+        const rx = Math.round((6 - ny * 14) * 10) / 10;
+        const ry = Math.round(nx * 14 * 10) / 10;
+        el.style.setProperty("--rx", `${rx}deg`);
+        el.style.setProperty("--ry", `${ry}deg`);
+      };
+
+      const onPointerLeave = () => {
+        el.style.removeProperty("--rx");
+        el.style.removeProperty("--ry");
+      };
+
+      el.addEventListener("pointermove", onPointerMove, { passive: true });
+      el.addEventListener("pointerleave", onPointerLeave, { passive: true });
+    });
+  }
 }

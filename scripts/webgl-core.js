@@ -263,11 +263,51 @@ export async function initPortfolioWebGL() {
     scene.add(orbitRing1, orbitRing2);
 
     const pointerTarget = { x: 0, y: 0 };
+    let isDragging = false;
+    let prevDrag = { x: 0, y: 0 };
+    const camRadius = 7.6;
+    let camTheta = 0;
+    let camPhi = Math.PI / 2;
+
+    canvas.style.cursor = "grab";
+
+    canvas.addEventListener("pointerdown", (e) => {
+      isDragging = true;
+      prevDrag = { x: e.clientX, y: e.clientY };
+      canvas.style.cursor = "grabbing";
+      orbitalPulse = Math.min(2.0, orbitalPulse + 0.65);
+    });
+
+    window.addEventListener(
+      "pointerup",
+      () => {
+        if (isDragging) {
+          isDragging = false;
+          canvas.style.cursor = "grab";
+        }
+      },
+      { passive: true }
+    );
+
     window.addEventListener(
       "pointermove",
       (e) => {
         pointerTarget.x = (e.clientX / window.innerWidth) * 2 - 1;
         pointerTarget.y = -(e.clientY / window.innerHeight) * 2 + 1;
+        if (isDragging) {
+          camTheta -= (e.clientX - prevDrag.x) * 0.006;
+          camPhi = Math.max(
+            0.25,
+            Math.min(Math.PI - 0.25, camPhi - (e.clientY - prevDrag.y) * 0.006)
+          );
+          camera.position.set(
+            camRadius * Math.sin(camPhi) * Math.sin(camTheta),
+            camRadius * Math.cos(camPhi),
+            camRadius * Math.sin(camPhi) * Math.cos(camTheta)
+          );
+          camera.lookAt(scene.position);
+          prevDrag = { x: e.clientX, y: e.clientY };
+        }
       },
       { passive: true }
     );

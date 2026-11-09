@@ -31,6 +31,15 @@
   /* Shared Equal Outer Frame Margins */
   --margin:       clamp(20px, 3vw, 40px);
   --ease-out:     cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-spring:  cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* 3D Tactile Keycap Bevel Surfaces (Zero-Shadow Hardware Extrusion) */
+  --bevel-top-dark:      #2d3a56;
+  --bevel-side-dark:     #0d121c;
+  --bevel-bottom-dark:   #05070c;
+  --bevel-top-accent:    #93befe;
+  --bevel-side-accent:   #3b7be0;
+  --bevel-bottom-accent: #2458b8;
 }
 
 /* ==========================================================================
@@ -207,56 +216,102 @@ pre, code {
 }
 
 .site-nav .nav-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
   padding: 10px 18px;
   background-color: var(--accent);
   color: var(--accent-ink);
   font-weight: 600;
+  border-top: 2px solid var(--bevel-top-accent);
+  border-left: 2px solid var(--bevel-top-accent);
+  border-right: 3px solid var(--bevel-side-accent);
+  border-bottom: 5px solid var(--bevel-bottom-accent);
+  transform: perspective(650px) translate3d(0, -2px, 0) rotateX(var(--rx, 5deg)) rotateY(var(--ry, 0deg));
+  transition: transform 240ms var(--ease-spring), background-color 180ms var(--ease-out);
 }
 
 .site-nav .nav-cta:hover {
   background-color: var(--ink);
   color: var(--accent-ink);
+  border-top-color: #ffffff;
+  border-left-color: #ffffff;
+  border-right-color: var(--muted);
+  border-bottom-color: var(--accent);
+  transform: perspective(650px) translate3d(0, -5px, 6px) rotateX(var(--rx, 8deg)) rotateY(var(--ry, 0deg));
 }
 
-/* Flat Action Buttons */
+.site-nav .nav-cta:active {
+  transform: perspective(650px) translate3d(0, 2px, 0) rotateX(0deg) scale(0.96);
+  border-bottom-width: 2px;
+}
+
+/* 3D Tactile Extruded Hardware Keycap Buttons */
 .btn-primary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 46px;
+  min-height: 48px;
   padding: 10px 22px;
   background-color: var(--accent);
   color: var(--accent-ink);
   font-family: var(--font-sans);
   font-size: var(--step-small);
   font-weight: 600;
-  transition: transform 180ms var(--ease-out), background-color 180ms var(--ease-out);
+  border-top: 2px solid var(--bevel-top-accent);
+  border-left: 2px solid var(--bevel-top-accent);
+  border-right: 3px solid var(--bevel-side-accent);
+  border-bottom: 5px solid var(--bevel-bottom-accent);
+  transform: perspective(650px) translate3d(0, -2px, 0) rotateX(var(--rx, 5deg)) rotateY(var(--ry, 0deg));
+  transition: transform 240ms var(--ease-spring), background-color 180ms var(--ease-out);
 }
 
 .btn-primary:hover {
   background-color: var(--ink);
   color: var(--accent-ink);
-  transform: translateY(-2px);
+  border-top-color: #ffffff;
+  border-left-color: #ffffff;
+  border-right-color: var(--muted);
+  border-bottom-color: var(--accent);
+  transform: perspective(650px) translate3d(0, -5px, 6px) rotateX(var(--rx, 8deg)) rotateY(var(--ry, 0deg));
+}
+
+.btn-primary:active {
+  transform: perspective(650px) translate3d(0, 2px, 0) rotateX(0deg) scale(0.96);
+  border-bottom-width: 2px;
 }
 
 .btn-ghost {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 46px;
+  min-height: 48px;
   padding: 10px 20px;
   background-color: var(--surface-2);
   color: var(--ink);
   font-family: var(--font-sans);
   font-size: var(--step-small);
-  font-weight: 500;
-  transition: transform 180ms var(--ease-out), background-color 180ms var(--ease-out);
+  font-weight: 600;
+  border-top: 2px solid var(--bevel-top-dark);
+  border-left: 2px solid var(--bevel-top-dark);
+  border-right: 3px solid var(--bevel-side-dark);
+  border-bottom: 5px solid var(--bevel-bottom-dark);
+  transform: perspective(650px) translate3d(0, -2px, 0) rotateX(var(--rx, 4deg)) rotateY(var(--ry, 0deg));
+  transition: transform 240ms var(--ease-spring), background-color 180ms var(--ease-out), color 180ms var(--ease-out);
 }
 
 .btn-ghost:hover {
   background-color: var(--surface-3);
   color: var(--accent);
-  transform: translateY(-2px);
+  border-top-color: var(--accent);
+  border-left-color: var(--accent);
+  transform: perspective(650px) translate3d(0, -5px, 6px) rotateX(var(--rx, 8deg)) rotateY(var(--ry, 0deg));
+}
+
+.btn-ghost:active {
+  transform: perspective(650px) translate3d(0, 2px, 0) rotateX(0deg) scale(0.96);
+  border-bottom-width: 2px;
 }
 
 /* ==========================================================================
@@ -319,8 +374,8 @@ pre, code {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: var(--surface);
-  padding: 24px;
+  background-color: transparent;
+  padding: 0;
   gap: 18px;
 }
 
@@ -328,7 +383,7 @@ pre, code {
   position: relative;
   width: 100%;
   height: 300px;
-  background-color: var(--bg);
+  background-color: var(--surface);
   overflow: hidden;
 }
 
@@ -345,20 +400,42 @@ pre, code {
 }
 
 .hero-morph-btn {
+  min-height: 44px;
   padding: 10px 12px;
   background-color: var(--surface-2);
-  color: var(--muted);
+  color: var(--ink);
   font-size: var(--step-small);
-  font-weight: 500;
+  font-weight: 600;
   text-align: center;
-  transition: background-color 180ms var(--ease-out), color 180ms var(--ease-out);
+  border-top: 2px solid var(--bevel-top-dark);
+  border-left: 2px solid var(--bevel-top-dark);
+  border-right: 3px solid var(--bevel-side-dark);
+  border-bottom: 5px solid var(--bevel-bottom-dark);
+  transform: perspective(550px) translate3d(0, -2px, 0) rotateX(var(--rx, 4deg)) rotateY(var(--ry, 0deg));
+  transition: transform 240ms var(--ease-spring), background-color 180ms var(--ease-out), color 180ms var(--ease-out);
 }
 
-.hero-morph-btn:hover,
+.hero-morph-btn:hover {
+  background-color: var(--surface-3);
+  color: var(--accent);
+  border-top-color: var(--accent);
+  transform: perspective(550px) translate3d(0, -5px, 5px) rotateX(var(--rx, 7deg)) rotateY(var(--ry, 0deg));
+}
+
 .hero-morph-btn.is-active {
   background-color: var(--accent);
   color: var(--accent-ink);
   font-weight: 600;
+  border-top-color: var(--bevel-top-accent);
+  border-left-color: var(--bevel-top-accent);
+  border-right-color: var(--bevel-side-accent);
+  border-bottom-color: var(--bevel-bottom-accent);
+  transform: perspective(550px) translate3d(0, -3px, 4px) rotateX(var(--rx, 5deg)) rotateY(var(--ry, 0deg));
+}
+
+.hero-morph-btn:active {
+  transform: perspective(550px) translate3d(0, 2px, 0) rotateX(0deg) scale(0.96);
+  border-bottom-width: 2px;
 }
 
 .hero-preview-pair {
@@ -369,7 +446,7 @@ pre, code {
 
 .hero-image-card {
   margin: 0;
-  background-color: var(--bg);
+  background-color: var(--surface);
 }
 
 .hero-image-card img {
@@ -422,25 +499,51 @@ pre, code {
 }
 
 .project-jump-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
   padding: 12px 20px;
-  background-color: var(--surface);
-  color: var(--muted);
+  background-color: var(--surface-2);
+  color: var(--ink);
   font-size: var(--step-small);
-  font-weight: 500;
+  font-weight: 600;
+  border-top: 2px solid var(--bevel-top-dark);
+  border-left: 2px solid var(--bevel-top-dark);
+  border-right: 3px solid var(--bevel-side-dark);
+  border-bottom: 5px solid var(--bevel-bottom-dark);
+  transform: perspective(600px) translate3d(0, -2px, 0) rotateX(var(--rx, 4deg)) rotateY(var(--ry, 0deg));
+  transition: transform 240ms var(--ease-spring), background-color 180ms var(--ease-out), color 180ms var(--ease-out);
 }
 
-.project-jump-btn:hover,
+.project-jump-btn:hover {
+  background-color: var(--surface-3);
+  color: var(--accent);
+  border-top-color: var(--accent);
+  transform: perspective(600px) translate3d(0, -5px, 5px) rotateX(var(--rx, 7deg)) rotateY(var(--ry, 0deg));
+}
+
 .project-jump-btn.is-active {
   background-color: var(--accent);
   color: var(--accent-ink);
   font-weight: 600;
+  border-top-color: var(--bevel-top-accent);
+  border-left-color: var(--bevel-top-accent);
+  border-right-color: var(--bevel-side-accent);
+  border-bottom-color: var(--bevel-bottom-accent);
+  transform: perspective(600px) translate3d(0, -3px, 4px) rotateX(var(--rx, 5deg)) rotateY(var(--ry, 0deg));
+}
+
+.project-jump-btn:active {
+  transform: perspective(600px) translate3d(0, 2px, 0) rotateX(0deg) scale(0.96);
+  border-bottom-width: 2px;
 }
 
 /* Each Project Orbital Arena */
 .project-orbital-arena {
-  background-color: var(--surface);
-  padding: clamp(24px, 3.2vw, 44px);
-  margin-bottom: 64px;
+  background-color: transparent;
+  padding: 0;
+  margin-bottom: 88px;
 }
 
 .project-orbital-arena:last-child {
@@ -492,7 +595,7 @@ pre, code {
   max-width: 460px;
   aspect-ratio: 1 / 1;
   margin-inline: auto;
-  background-color: var(--bg);
+  background-color: var(--surface);
 }
 
 .orbital-svg-layer {
@@ -527,27 +630,35 @@ pre, code {
   transition: opacity 240ms var(--ease-out);
 }
 
-/* Center Project Hub — Dead Center at (50%, 50%) */
+/* Center Project Hub — Dead Center at (50%, 50%) with 3D Optical Lens Bevel */
 .orbital-center-core {
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) perspective(600px) rotateX(var(--rx, 4deg)) rotateY(var(--ry, 0deg));
   width: 41%;
   height: 41%;
   border-radius: 50%;
   overflow: hidden;
   z-index: 3;
   background-color: var(--surface-2);
+  border-top: 3px solid var(--bevel-top-accent);
+  border-left: 3px solid var(--bevel-top-dark);
+  border-right: 4px solid var(--bevel-side-dark);
+  border-bottom: 6px solid var(--bevel-bottom-accent);
   cursor: pointer;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  transition: transform 220ms var(--ease-out);
+  transition: transform 240ms var(--ease-spring);
 }
 
 .orbital-center-core:hover {
-  transform: translate(-50%, -50%) scale(1.04);
+  transform: translate(-50%, -50%) perspective(600px) translate3d(0, -4px, 8px) rotateX(var(--rx, 7deg)) rotateY(var(--ry, 0deg)) scale(1.05);
+}
+
+.orbital-center-core:active {
+  transform: translate(-50%, -50%) perspective(600px) translate3d(0, 2px, 0) scale(0.97);
 }
 
 .orbital-center-core img {
@@ -580,20 +691,28 @@ pre, code {
   color: var(--accent);
 }
 
-/* The 6 Orbiting Satellite Nodes on r = 37.8% (174 / 460) */
+/* The 6 Orbiting 3D Satellite Keycaps on r = 37.8% (174 / 460) */
 .orbital-node {
   position: absolute;
   z-index: 4;
-  transform: translate(-50%, -50%);
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transform: translate(-50%, -50%) perspective(500px) translate3d(0, -2px, 0) rotateX(var(--rx, 6deg)) rotateY(var(--ry, 0deg));
   padding: 9px 15px;
   border-radius: 999px;
   background-color: var(--surface-2);
   color: var(--ink);
   font-family: var(--font-sans);
   font-size: var(--step-small);
-  font-weight: 500;
+  font-weight: 600;
   white-space: nowrap;
-  transition: transform 180ms var(--ease-out), background-color 180ms var(--ease-out), color 180ms var(--ease-out);
+  border-top: 2px solid var(--bevel-top-dark);
+  border-left: 2px solid var(--bevel-top-dark);
+  border-right: 3px solid var(--bevel-side-dark);
+  border-bottom: 5px solid var(--bevel-bottom-dark);
+  transition: transform 240ms var(--ease-spring), background-color 180ms var(--ease-out), color 180ms var(--ease-out);
 }
 
 .orbital-node[data-angle="0"]   { left: 50%;    top: 12.17%; }
@@ -606,14 +725,25 @@ pre, code {
 .orbital-node:hover {
   background-color: var(--surface-3);
   color: var(--accent);
-  transform: translate(-50%, -50%) scale(1.06);
+  border-top-color: var(--accent);
+  border-left-color: var(--accent);
+  transform: translate(-50%, -50%) perspective(500px) translate3d(0, -5px, 8px) rotateX(var(--rx, 9deg)) rotateY(var(--ry, 0deg)) scale(1.06);
 }
 
 .orbital-node.is-active {
   background-color: var(--accent);
   color: var(--accent-ink);
   font-weight: 600;
-  transform: translate(-50%, -50%) scale(1.08);
+  border-top-color: var(--bevel-top-accent);
+  border-left-color: var(--bevel-top-accent);
+  border-right-color: var(--bevel-side-accent);
+  border-bottom-color: var(--bevel-bottom-accent);
+  transform: translate(-50%, -50%) perspective(500px) translate3d(0, -4px, 10px) rotateX(var(--rx, 7deg)) rotateY(var(--ry, 0deg)) scale(1.08);
+}
+
+.orbital-node:active {
+  transform: translate(-50%, -50%) perspective(500px) translate3d(0, 2px, 0) scale(0.95);
+  border-bottom-width: 2px;
 }
 
 /* RIGHT: Stabilized Inspector Dock */
@@ -621,7 +751,7 @@ pre, code {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: var(--bg);
+  background-color: var(--surface);
   padding: clamp(22px, 2.8vw, 34px);
   min-height: 460px;
   gap: 20px;
@@ -677,7 +807,7 @@ pre, code {
 }
 
 .inspector-code-box {
-  background-color: var(--surface);
+  background-color: var(--bg);
   padding: 16px 18px;
   margin: 0;
   overflow-x: auto;
@@ -728,17 +858,33 @@ pre, code {
 }
 
 .inspector-nav-btns button {
-  min-height: 42px;
+  min-height: 44px;
   padding: 8px 16px;
   background-color: var(--surface-2);
   color: var(--ink);
   font-size: var(--step-small);
-  font-weight: 500;
+  font-weight: 600;
+  border-top: 2px solid var(--bevel-top-dark);
+  border-left: 2px solid var(--bevel-top-dark);
+  border-right: 3px solid var(--bevel-side-dark);
+  border-bottom: 5px solid var(--bevel-bottom-dark);
+  transform: perspective(550px) translate3d(0, -2px, 0) rotateX(var(--rx, 4deg)) rotateY(var(--ry, 0deg));
+  transition: transform 240ms var(--ease-spring), background-color 180ms var(--ease-out), color 180ms var(--ease-out);
 }
 
 .inspector-nav-btns button:hover {
   background-color: var(--accent);
   color: var(--accent-ink);
+  border-top-color: var(--bevel-top-accent);
+  border-left-color: var(--bevel-top-accent);
+  border-right-color: var(--bevel-side-accent);
+  border-bottom-color: var(--bevel-bottom-accent);
+  transform: perspective(550px) translate3d(0, -4px, 5px) rotateX(var(--rx, 7deg)) rotateY(var(--ry, 0deg));
+}
+
+.inspector-nav-btns button:active {
+  transform: perspective(550px) translate3d(0, 2px, 0) rotateX(0deg) scale(0.96);
+  border-bottom-width: 2px;
 }
 
 /* ==========================================================================
@@ -785,19 +931,41 @@ pre, code {
 }
 
 .sim-btn {
-  min-height: 40px;
+  min-height: 44px;
   padding: 8px 16px;
   background-color: var(--surface-2);
-  color: var(--muted);
+  color: var(--ink);
   font-size: var(--step-small);
-  font-weight: 500;
+  font-weight: 600;
+  border-top: 2px solid var(--bevel-top-dark);
+  border-left: 2px solid var(--bevel-top-dark);
+  border-right: 3px solid var(--bevel-side-dark);
+  border-bottom: 5px solid var(--bevel-bottom-dark);
+  transform: perspective(550px) translate3d(0, -2px, 0) rotateX(var(--rx, 4deg)) rotateY(var(--ry, 0deg));
+  transition: transform 240ms var(--ease-spring), background-color 180ms var(--ease-out), color 180ms var(--ease-out);
 }
 
-.sim-btn:hover,
+.sim-btn:hover {
+  background-color: var(--surface-3);
+  color: var(--accent);
+  border-top-color: var(--accent);
+  transform: perspective(550px) translate3d(0, -4px, 5px) rotateX(var(--rx, 7deg)) rotateY(var(--ry, 0deg));
+}
+
 .sim-btn.is-active {
   background-color: var(--accent);
   color: var(--accent-ink);
   font-weight: 600;
+  border-top-color: var(--bevel-top-accent);
+  border-left-color: var(--bevel-top-accent);
+  border-right-color: var(--bevel-side-accent);
+  border-bottom-color: var(--bevel-bottom-accent);
+  transform: perspective(550px) translate3d(0, -3px, 4px) rotateX(var(--rx, 5deg)) rotateY(var(--ry, 0deg));
+}
+
+.sim-btn:active {
+  transform: perspective(550px) translate3d(0, 2px, 0) rotateX(0deg) scale(0.96);
+  border-bottom-width: 2px;
 }
 
 .sim-output {
@@ -978,21 +1146,37 @@ pre, code {
 .closing-section .btn-primary {
   background-color: var(--bg);
   color: var(--ink);
+  border-top-color: var(--bevel-top-dark);
+  border-left-color: var(--bevel-top-dark);
+  border-right-color: var(--bevel-side-dark);
+  border-bottom-color: var(--bevel-bottom-dark);
 }
 
 .closing-section .btn-primary:hover {
   background-color: var(--accent);
   color: var(--accent-ink);
+  border-top-color: var(--bevel-top-accent);
+  border-left-color: var(--bevel-top-accent);
+  border-right-color: var(--bevel-side-accent);
+  border-bottom-color: var(--bevel-bottom-accent);
 }
 
 .closing-section .btn-ghost {
-  background-color: rgba(10, 13, 20, 0.1);
-  color: var(--bg);
+  background-color: var(--surface-2);
+  color: var(--ink);
+  border-top-color: var(--bevel-top-dark);
+  border-left-color: var(--bevel-top-dark);
+  border-right-color: var(--bevel-side-dark);
+  border-bottom-color: var(--bevel-bottom-dark);
 }
 
 .closing-section .btn-ghost:hover {
-  background-color: var(--bg);
-  color: var(--ink);
+  background-color: var(--accent);
+  color: var(--accent-ink);
+  border-top-color: var(--bevel-top-accent);
+  border-left-color: var(--bevel-top-accent);
+  border-right-color: var(--bevel-side-accent);
+  border-bottom-color: var(--bevel-bottom-accent);
 }
 
 .stack-summary-list {
@@ -1137,18 +1321,40 @@ pre, code {
 }
 
 .cv-tab-btn {
-  min-height: 44px;
+  min-height: 46px;
   padding: 10px 18px;
   background-color: var(--surface-2);
-  color: var(--muted);
+  color: var(--ink);
   font-size: var(--step-small);
   font-weight: 600;
+  border-top: 2px solid var(--bevel-top-dark);
+  border-left: 2px solid var(--bevel-top-dark);
+  border-right: 3px solid var(--bevel-side-dark);
+  border-bottom: 5px solid var(--bevel-bottom-dark);
+  transform: perspective(600px) translate3d(0, -2px, 0) rotateX(var(--rx, 4deg)) rotateY(var(--ry, 0deg));
+  transition: transform 240ms var(--ease-spring), background-color 180ms var(--ease-out), color 180ms var(--ease-out);
 }
 
-.cv-tab-btn:hover,
+.cv-tab-btn:hover {
+  background-color: var(--surface-3);
+  color: var(--accent);
+  border-top-color: var(--accent);
+  transform: perspective(600px) translate3d(0, -4px, 5px) rotateX(var(--rx, 7deg)) rotateY(var(--ry, 0deg));
+}
+
 .cv-tab-btn.is-active {
   background-color: var(--accent);
   color: var(--accent-ink);
+  border-top-color: var(--bevel-top-accent);
+  border-left-color: var(--bevel-top-accent);
+  border-right-color: var(--bevel-side-accent);
+  border-bottom-color: var(--bevel-bottom-accent);
+  transform: perspective(600px) translate3d(0, -3px, 4px) rotateX(var(--rx, 5deg)) rotateY(var(--ry, 0deg));
+}
+
+.cv-tab-btn:active {
+  transform: perspective(600px) translate3d(0, 2px, 0) rotateX(0deg) scale(0.96);
+  border-bottom-width: 2px;
 }
 
 .cv-tab-panel[hidden] {
@@ -1344,6 +1550,10 @@ pre, code {
 }
 
 @media (max-width: 640px) {
+  :root {
+    --margin: 18px;
+  }
+
   .site-nav a:not(.nav-cta) {
     display: none;
   }
