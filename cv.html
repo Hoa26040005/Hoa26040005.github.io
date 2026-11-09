@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Huỳnh Thái Hòa · CV 1 Trang A4 (Chuyên ngành Công nghệ Phần mềm · Frontend Engineer)</title>
+  <title>Huỳnh Thái Hòa · CV 1 Trang A4 (Chuyên ngành Công nghệ Phần mềm · Kỹ Sư Frontend)</title>
   <style>
     @page {
       size: A4 portrait;
-      margin: 9mm 11mm;
+      margin: 0;
     }
     * {
       box-sizing: border-box;
@@ -18,7 +18,7 @@
       background: #0a0d14;
       color: #0f172a;
       font-family: "Times New Roman", Times, Georgia, serif;
-      font-size: 9.6pt;
+      font-size: 9.5pt;
       line-height: 1.28;
       padding: 24px 16px 40px;
       -webkit-print-color-adjust: exact;
@@ -102,7 +102,7 @@
       margin: 0 auto;
       background: #ffffff;
       color: #0f172a;
-      padding: 10mm 12mm;
+      padding: 9.5mm 11.5mm;
       overflow: hidden;
       display: flex;
       flex-direction: column;
@@ -110,12 +110,12 @@
     }
     .latex-header {
       text-align: center;
-      margin-bottom: 6px;
+      margin-bottom: 5px;
       padding-bottom: 5px;
       border-bottom: 2px solid #0f172a;
     }
     .latex-name {
-      font-size: 17.5pt;
+      font-size: 17pt;
       font-weight: 700;
       letter-spacing: 0.04em;
       text-transform: uppercase;
@@ -123,13 +123,13 @@
       margin-bottom: 2px;
     }
     .latex-role {
-      font-size: 9.8pt;
+      font-size: 9.6pt;
       font-weight: 700;
       color: #1e3a8a;
       margin-bottom: 3px;
     }
     .latex-contact {
-      font-size: 9pt;
+      font-size: 8.9pt;
       color: #1e293b;
     }
     .latex-contact a {
@@ -137,40 +137,40 @@
       text-decoration: underline;
     }
     .latex-section {
-      margin-top: 6px;
+      margin-top: 5px;
     }
     .latex-section-title {
-      font-size: 10pt;
+      font-size: 9.8pt;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.04em;
       color: #0f172a;
       border-bottom: 1.5px solid #0f172a;
       padding-bottom: 1px;
-      margin-bottom: 4px;
+      margin-bottom: 3.5px;
     }
     .latex-summary {
-      font-size: 9.3pt;
+      font-size: 9.15pt;
       text-align: justify;
       color: #111827;
     }
     .latex-skills-table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 9.2pt;
+      font-size: 9.1pt;
     }
     .latex-skills-table td {
       padding: 1px 0;
       vertical-align: top;
     }
     .latex-skills-table td.skill-cat {
-      width: 210px;
+      width: 195px;
       font-weight: 700;
       color: #0f172a;
       padding-right: 6px;
     }
     .latex-item {
-      margin-bottom: 5px;
+      margin-bottom: 4.5px;
     }
     .latex-item:last-child {
       margin-bottom: 0;
@@ -179,36 +179,44 @@
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-      gap: 6px;
+      gap: 8px;
     }
     .latex-item-title {
-      font-size: 9.6pt;
+      font-size: 9.4pt;
       font-weight: 700;
       color: #0f172a;
+      white-space: nowrap;
     }
     .latex-item-tech {
-      font-size: 8.8pt;
+      font-size: 8.6pt;
       font-style: italic;
       font-weight: 700;
       color: #1e3a8a;
       text-align: right;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
     .latex-item-sub {
       display: flex;
       justify-content: space-between;
-      font-size: 8.7pt;
+      align-items: baseline;
+      gap: 8px;
+      font-size: 8.55pt;
       font-style: italic;
       color: #334155;
       margin-bottom: 1.5px;
     }
+    .latex-item-sub span:last-child,
     .latex-item-sub a {
       color: #1e3a8a;
       text-decoration: none;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
     .latex-bullets {
       list-style-type: disc;
       margin-left: 15px;
-      font-size: 9.1pt;
+      font-size: 9pt;
       color: #111827;
     }
     .latex-bullets li {
@@ -220,16 +228,19 @@
         background: #ffffff;
         padding: 0;
         margin: 0;
-        height: 100%;
+        width: 210mm;
+        height: 297mm;
+        overflow: hidden;
       }
       .cv-toolbar {
         display: none !important;
       }
       .a4-sheet {
-        width: 100%;
-        height: auto;
-        max-height: 277mm;
-        padding: 0;
+        width: 210mm;
+        height: 297mm;
+        max-height: 297mm;
+        padding: 9.5mm 11.5mm;
+        margin: 0;
         overflow: hidden;
         page-break-after: avoid;
         break-after: avoid;
@@ -240,7 +251,7 @@
 <body>
   <div class="cv-toolbar">
     <div class="cv-toolbar-title">
-      Hồ Sơ Ứng Tuyển Chuẩn 1 Trang A4 · Huỳnh Thái Hòa <span>[Chuyên ngành Công nghệ Phần mềm · Frontend Engineer]</span>
+      Hồ Sơ Ứng Tuyển Chuẩn 1 Trang A4 · Huỳnh Thái Hòa <span>[Đã Kiểm Định ATS &amp; Layout bởi ai-search-job]</span>
     </div>
     <div class="cv-toolbar-actions">
       <a class="cv-btn cv-btn-word" href="assets/cv/Huynh_Thai_Hoa_CV.docx" download="Huynh_Thai_Hoa_CV.docx">
@@ -249,8 +260,11 @@
       <a class="cv-btn cv-btn-latex" href="assets/cv/Huynh_Thai_Hoa_CV.tex" download="Huynh_Thai_Hoa_CV.tex">
         Tải Mã Nguồn LaTeX (.tex · 1 Trang A4)
       </a>
+      <a class="cv-btn cv-btn-print" href="assets/cv/Huynh_Thai_Hoa_CV.pdf" download="Huynh_Thai_Hoa_CV.pdf">
+        Tải Bản PDF (.pdf · 1 Trang A4)
+      </a>
       <button class="cv-btn cv-btn-print" type="button" onclick="window.print()">
-        In / Xuất PDF (1 Trang A4)
+        In Trực Tiếp
       </button>
       <a class="cv-btn cv-btn-back" href="index.html">
         Quay lại Portfolio
@@ -262,7 +276,7 @@
     <div>
       <header class="latex-header">
         <h1 class="latex-name">HUỲNH THÁI HÒA</h1>
-        <div class="latex-role">Frontend &amp; Full-Stack Software Engineer · Chuyên ngành Công nghệ Phần mềm (React 19 · Next.js 14 · TypeScript · Three.js / WebGL · Electron 39)</div>
+        <div class="latex-role">Kỹ Sư Phần Mềm Frontend &amp; Full-Stack · Chuyên ngành Công nghệ Phần mềm (React 19 · Next.js 14 · TypeScript · Three.js / WebGL · Electron 39)</div>
         <div class="latex-contact">
           Email: <a href="mailto:huynhhoa9881@gmail.com">huynhhoa9881@gmail.com</a> &nbsp;|&nbsp;
           GitHub: <a href="https://github.com/Hoa26040005" target="_blank" rel="noopener">github.com/Hoa26040005</a> &nbsp;|&nbsp;
@@ -272,38 +286,38 @@
       </header>
 
       <section class="latex-section">
-        <h2 class="latex-section-title">Tóm Tắt Chuyên Môn (Executive Summary)</h2>
+        <h2 class="latex-section-title">Tóm Tắt Chuyên Môn</h2>
         <p class="latex-summary">
-          Kỹ sư <strong>Công nghệ Phần mềm (Software Engineering)</strong> định hướng chuyên sâu <strong>Frontend Architecture &amp; Interactive 3D UI/UX</strong>, có kinh nghiệm xây dựng trọn gói (end-to-end) các hệ thống Web và Desktop hiệu năng cao: từ sàn thương mại điện tử <strong>React 19 + Three.js 3D Showroom</strong> đồng bộ phòng Mua Chung thời gian thực qua <strong>Socket.IO</strong>, ứng dụng Desktop ERP/POS <strong>Electron 39</strong> tích hợp lớp phủ Canvas nhận diện khuôn mặt <strong>68 điểm (68-Point FaceID)</strong>, giao diện kiểm toán hợp đồng pháp lý (Redline Diff UI), đến bảng điều khiển <strong>Streaming SSE Temporal RAG</strong> đạt <strong>92.7% độ chính xác năm (Eval96)</strong>.
+          Kỹ sư <strong>Công nghệ Phần mềm (Software Engineering)</strong> định hướng chuyên sâu <strong>Kiến trúc Frontend &amp; Đồ họa Tương tác 3D (WebGL / Three.js)</strong>, trực tiếp thiết kế và xây dựng trọn gói các hệ thống Web và Desktop hiệu năng cao: từ sàn thương mại điện tử <strong>React 19 + Three.js 3D Showroom</strong> đồng bộ phòng Mua Chung thời gian thực qua <strong>Socket.IO</strong>, ứng dụng Desktop ERP/POS <strong>Electron 39</strong> tích hợp lớp phủ Canvas nhận diện khuôn mặt <strong>68 điểm (68-Point FaceID)</strong>, giao diện kiểm toán hợp đồng pháp lý (Redline Diff UI), đến bảng điều khiển <strong>Streaming SSE Temporal RAG</strong> đạt <strong>92.7% độ chính xác năm (Eval96)</strong>. Sử dụng thành thạo quy trình lập trình tác tử AI (<strong>Claude Code</strong>) kết hợp kiểm thử tự động để tăng tốc độ phát triển và đảm bảo chất lượng mã nguồn.
         </p>
       </section>
 
       <section class="latex-section">
-        <h2 class="latex-section-title">Kỹ Năng Kỹ Thuật (Technical Skills)</h2>
+        <h2 class="latex-section-title">Năng Lực Kỹ Thuật Cốt Lõi</h2>
         <table class="latex-skills-table">
           <tbody>
             <tr>
-              <td class="skill-cat">Frontend, 3D WebGL &amp; UI/UX:</td>
+              <td class="skill-cat">Kiến trúc Frontend &amp; 3D:</td>
               <td>TypeScript, JavaScript (ES2024), React 18/19, Next.js 14 (App Router, SSR), Three.js, React Three Fiber (R3F), WebGL GLSL Shaders, GSAP, Tailwind CSS, Design Systems, WCAG AA.</td>
             </tr>
             <tr>
-              <td class="skill-cat">Desktop &amp; Realtime Client UI:</td>
+              <td class="skill-cat">Desktop &amp; Thời gian thực:</td>
               <td>Electron 39 (Context Isolation &amp; Preload IPC), Socket.IO Realtime Rooms, Server-Sent Events (SSE Streaming UI), Canvas 2D Biometric Overlay, face-api.js (68-Point Landmarks).</td>
             </tr>
             <tr>
-              <td class="skill-cat">Full-Stack API &amp; AI Integration:</td>
+              <td class="skill-cat">Tích hợp Full-Stack &amp; AI:</td>
               <td>Node.js (Express.js, REST API, JWT/OAuth2, RBAC), Python (FastAPI, Pydantic), Hybrid RAG Integration (FAISS, BM25, Neo4j, VietOCR, Gemini API), Prisma ORM, PostgreSQL, MongoDB, SQLite.</td>
             </tr>
             <tr>
-              <td class="skill-cat">Software Engineering &amp; QA:</td>
-              <td>Clean Architecture, Component-Driven UI, State Management, Playwright E2E, Pytest, Automated Evaluation Benchmarks (Eval96), Docker, Git/GitHub Actions CI/CD, Vercel.</td>
+              <td class="skill-cat">Kỹ thuật Phần mềm &amp; QA:</td>
+              <td>Clean Architecture, Component-Driven UI, Playwright E2E, Pytest, Eval96 Benchmark, Claude Code Agentic Workflow, Docker, Git/GitHub Actions CI/CD, Vercel.</td>
             </tr>
           </tbody>
         </table>
       </section>
 
       <section class="latex-section">
-        <h2 class="latex-section-title">Dự Án Kỹ Thuật Trọng Điểm (Selected Engineering Projects)</h2>
+        <h2 class="latex-section-title">Dự Án Kỹ Thuật Trọng Điểm</h2>
 
         <article class="latex-item">
           <div class="latex-item-header">
@@ -311,7 +325,7 @@
             <span class="latex-item-tech">React 19, TypeScript, Three.js / R3F, Socket.IO, Tailwind CSS</span>
           </div>
           <div class="latex-item-sub">
-            <span>Kiến trúc Frontend E-Commerce Tích hợp Phòng Mua Chung (GroupBuy), Showroom 3D &amp; Trợ lý AI</span>
+            <span>Kiến trúc Frontend E-Commerce, Phòng Mua Chung, Showroom 3D &amp; Trợ lý AI</span>
             <span>Live: <a href="https://shop-quan-ao-g89r.vercel.app/" target="_blank" rel="noopener">shop-quan-ao-g89r.vercel.app</a> &nbsp;|&nbsp; <a href="https://github.com/Hoa26040005/Shop-Quan-Ao" target="_blank" rel="noopener">github.com/Hoa26040005/Shop-Quan-Ao</a></span>
           </div>
           <ul class="latex-bullets">
@@ -330,7 +344,7 @@
             <a href="https://github.com/Hoa26040005/pesticide-shop" target="_blank" rel="noopener">github.com/Hoa26040005/pesticide-shop</a>
           </div>
           <ul class="latex-bullets">
-            <li>Phát triển ứng dụng Desktop ERP &amp; POS tốc độ cao trên <strong>Electron 39 + React 19</strong> (Context Isolation &amp; Preload IPC Bridge), quản lý 10 phân hệ: quầy thu ngân QR, vòng đời lô hàng – hạn sử dụng (<strong>FEFO/FIFO</strong>), công nợ mùa vụ và báo cáo kiểm toán.</li>
+            <li>Phát triển ứng dụng Desktop ERP &amp; POS tốc độ cao trên <strong>Electron 39 + React 19</strong> (Context Isolation &amp; Preload IPC Bridge), quản lý 10 phân hệ: quầy thu ngân QR, vòng đời lô hàng và hạn sử dụng (<strong>FEFO/FIFO</strong>), công nợ mùa vụ và báo cáo kiểm toán.</li>
             <li>Xây dựng lớp phủ <strong>Webcam Canvas 2D thời gian thực</strong> vẽ lưới 68 điểm mốc khuôn mặt (<strong>68-Point Facial Landmarks / 128D Euclidean Descriptor</strong>) ngay trên thiết bị để xác thực ca trực nhân viên và phân quyền giao diện <strong>RBAC</strong> tức thì.</li>
           </ul>
         </article>
@@ -341,7 +355,7 @@
             <span class="latex-item-tech">React, TypeScript, Tailwind CSS, FastAPI, VietOCR, Neo4j</span>
           </div>
           <div class="latex-item-sub">
-            <span>Ứng dụng Web Phân tích Rủi ro, Hiển thị Redline Diff &amp; Đối chiếu Điều khoản Hợp đồng Pháp lý Việt Nam</span>
+            <span>Hệ thống Web Phân tích Rủi ro, Redline Diff &amp; Đối chiếu Hợp đồng Pháp lý Việt Nam</span>
             <a href="https://github.com/Hoa26040005/legal-ai-contract-reviewer" target="_blank" rel="noopener">github.com/Hoa26040005/legal-ai-contract-reviewer</a>
           </div>
           <ul class="latex-bullets">
@@ -367,11 +381,11 @@
       </section>
 
       <section class="latex-section">
-        <h2 class="latex-section-title">Học Vấn &amp; Định Hướng Chuyên Môn (Education &amp; Software Engineering Focus)</h2>
+        <h2 class="latex-section-title">Học Vấn &amp; Định Hướng Chuyên Môn</h2>
         <div class="latex-item">
           <div class="latex-item-header">
-            <span class="latex-item-title">Chuyên ngành Công nghệ Phần mềm (Software Engineering) · Định hướng Kỹ sư Frontend &amp; Hệ thống Tương tác 3D</span>
-            <span class="latex-item-tech">Việt Nam</span>
+            <span class="latex-item-title">Chuyên ngành Công nghệ Phần mềm (Software Engineering) · Kỹ sư Frontend &amp; Hệ thống 3D</span>
+            <span class="latex-item-tech">Đang theo học (2023-Present) · Việt Nam</span>
           </div>
           <ul class="latex-bullets">
             <li><strong>Trọng tâm chuyên môn &amp; Kỷ luật kỹ thuật:</strong> Kiến trúc Frontend hiện đại (React 19, Next.js 14, TypeScript), Đồ họa Web 3D &amp; Chuyển động tương tác (Three.js, WebGL, GSAP), Ứng dụng Desktop (Electron 39), Clean Architecture, tối ưu hiệu năng hiển thị 60fps và kiểm thử tự động (Playwright E2E, Pytest, Eval96).</li>
