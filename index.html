@@ -1187,25 +1187,54 @@ Query: "GDP Việt Nam năm 2022 tăng trưởng bao nhiêu?"
 
         <div class="arena-actions cv-action-bar">
           <a
-            href="assets/cv/Huynh_Thai_Hoa_CV.docx"
-            download="Huynh_Thai_Hoa_CV.docx"
+            href="assets/cv/Huynh_Thai_Hoa_CV_EN.docx"
+            download="Huynh_Thai_Hoa_CV_EN.docx"
             class="btn-primary"
           >
-            Tải bản Word (.docx)
+            Word (EN)
           </a>
           <a
-            href="assets/cv/Huynh_Thai_Hoa_CV.tex"
-            download="Huynh_Thai_Hoa_CV.tex"
+            href="assets/cv/Huynh_Thai_Hoa_CV.docx"
+            download="Huynh_Thai_Hoa_CV.docx"
             class="btn-ghost"
           >
-            Tải file LaTeX (.tex)
+            Word (VI)
+          </a>
+          <a
+            href="assets/cv/Huynh_Thai_Hoa_CV_EN.pdf"
+            download="Huynh_Thai_Hoa_CV_EN.pdf"
+            class="btn-ghost"
+          >
+            PDF (EN)
           </a>
           <a
             href="assets/cv/Huynh_Thai_Hoa_CV.pdf"
             download="Huynh_Thai_Hoa_CV.pdf"
             class="btn-ghost"
           >
-            Tải bản PDF (.pdf)
+            PDF (VI)
+          </a>
+          <a
+            href="assets/cv/Huynh_Thai_Hoa_CV_EN.tex"
+            download="Huynh_Thai_Hoa_CV_EN.tex"
+            class="btn-ghost"
+          >
+            LaTeX (EN)
+          </a>
+          <a
+            href="assets/cv/Huynh_Thai_Hoa_CV.tex"
+            download="Huynh_Thai_Hoa_CV.tex"
+            class="btn-ghost"
+          >
+            LaTeX (VI)
+          </a>
+          <a
+            href="cv-en.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-ghost"
+          >
+            Mở trang EN
           </a>
           <a
             href="cv.html"
@@ -1213,7 +1242,7 @@ Query: "GDP Việt Nam năm 2022 tăng trưởng bao nhiêu?"
             rel="noopener noreferrer"
             class="btn-ghost"
           >
-            Mở trang A4 riêng
+            Mở trang VI
           </a>
           <button type="button" id="print-cv-btn" class="btn-ghost">In / Xuất PDF A4</button>
           <button type="button" id="close-cv-btn" class="btn-ghost">Đóng (ESC)</button>
@@ -1224,11 +1253,29 @@ Query: "GDP Việt Nam năm 2022 tăng trưởng bao nhiêu?"
         <button
           type="button"
           class="cv-tab-btn is-active"
-          data-cv-tab="paper"
+          data-cv-tab="paper-en"
           role="tab"
           aria-selected="true"
         >
-          Bản giấy A4 chuẩn Word / LaTeX (Nộp tuyển dụng)
+          English Resume (1-Page A4)
+        </button>
+        <button
+          type="button"
+          class="cv-tab-btn"
+          data-cv-tab="paper"
+          role="tab"
+          aria-selected="false"
+        >
+          Bản Tiếng Việt (1 Trang A4)
+        </button>
+        <button
+          type="button"
+          class="cv-tab-btn"
+          data-cv-tab="latex-en"
+          role="tab"
+          aria-selected="false"
+        >
+          LaTeX Source (English .tex)
         </button>
         <button
           type="button"
@@ -1237,12 +1284,136 @@ Query: "GDP Việt Nam năm 2022 tăng trưởng bao nhiêu?"
           role="tab"
           aria-selected="false"
         >
-          Mã nguồn LaTeX gốc (.tex · Biên dịch Overleaf)
+          Mã nguồn LaTeX (Tiếng Việt .tex)
         </button>
       </div>
 
-      <!-- TAB 1: SERIOUS 1-PAGE A4 WHITE-PAPER WORD / LATEX RESUME -->
-      <div id="cv-panel-paper" class="cv-tab-panel is-active">
+      <!-- TAB 1: ENGLISH 1-PAGE A4 WHITE-PAPER RESUME -->
+      <div id="cv-panel-paper-en" class="cv-tab-panel is-active">
+        <div class="cv-a4-paper" data-ui>
+          <header class="cv-paper-header">
+            <h2 class="cv-paper-name">HUYNH THAI HOA</h2>
+            <p class="cv-paper-role">
+              Frontend &amp; Full-Stack Software Engineer · Software Engineering Major (React 19 · Next.js 14 · TypeScript · Three.js / WebGL · Electron 39)
+            </p>
+            <p class="cv-paper-contact">
+              Email: <a href="mailto:huynhhoa9881@gmail.com">huynhhoa9881@gmail.com</a>
+              &nbsp;|&nbsp; GitHub: <a href="https://github.com/Hoa26040005" target="_blank" rel="noopener">github.com/Hoa26040005</a>
+              &nbsp;|&nbsp; Portfolio: <a href="https://hoa26040005.github.io" target="_blank" rel="noopener">hoa26040005.github.io</a>
+              &nbsp;|&nbsp; Vietnam
+            </p>
+          </header>
+
+          <section class="cv-paper-section">
+            <h3 class="cv-paper-sec-title">Executive Summary</h3>
+            <p class="cv-paper-summary">
+              <strong>Software Engineering</strong> candidate specializing in <strong>Frontend Architecture &amp; Interactive 3D WebGL UI/UX</strong>, with end-to-end ownership of production web and desktop applications: from a <strong>React 19 + Three.js 3D E-Commerce Showroom</strong> with real-time <strong>Socket.IO</strong> group-buying rooms, to an <strong>Electron 39</strong> Desktop ERP/POS system featuring a real-time <strong>68-Point FaceID Canvas Overlay</strong>, an interactive legal contract redline auditor, and a <strong>Streaming SSE Temporal RAG</strong> workbench achieving <strong>92.7% Year Accuracy on the Eval96 Benchmark</strong>. Experienced in pairing agentic AI engineering workflows (<strong>Claude Code</strong>) with automated E2E and benchmark testing to ship reliable, high-frame-rate software.
+            </p>
+          </section>
+
+          <section class="cv-paper-section">
+            <h3 class="cv-paper-sec-title">Core Technical Skills</h3>
+            <div class="cv-paper-skills">
+              <div class="cv-skill-row">
+                <span class="cv-skill-label">Frontend &amp; 3D WebGL:</span>
+                <span class="cv-skill-val">TypeScript, JavaScript (ES2024), React 18/19, Next.js 14 (App Router, SSR), Three.js, React Three Fiber (R3F), WebGL GLSL Shaders, GSAP, Tailwind CSS, Design Systems, WCAG AA.</span>
+              </div>
+              <div class="cv-skill-row">
+                <span class="cv-skill-label">Desktop &amp; Realtime UI:</span>
+                <span class="cv-skill-val">Electron 39 (Context Isolation &amp; Preload IPC), Socket.IO Realtime Rooms, Server-Sent Events (SSE Streaming UI), Canvas 2D Biometric Overlay, face-api.js (68-Point Landmarks).</span>
+              </div>
+              <div class="cv-skill-row">
+                <span class="cv-skill-label">Full-Stack &amp; AI Systems:</span>
+                <span class="cv-skill-val">Node.js (Express.js, REST API, JWT/OAuth2, RBAC), Python (FastAPI, Pydantic), Hybrid RAG Integration (FAISS, BM25, Neo4j, VietOCR, Gemini API), Prisma ORM, PostgreSQL, MongoDB, SQLite.</span>
+              </div>
+              <div class="cv-skill-row">
+                <span class="cv-skill-label">Software Engineering &amp; QA:</span>
+                <span class="cv-skill-val">Clean Architecture, Component-Driven UI, Playwright E2E, Pytest, Eval96 Benchmark, Claude Code Agentic Workflow, Docker, Git/GitHub Actions CI/CD, Vercel.</span>
+              </div>
+            </div>
+          </section>
+
+          <section class="cv-paper-section">
+            <h3 class="cv-paper-sec-title">Selected Engineering Projects</h3>
+
+            <article class="cv-paper-item">
+              <div class="cv-paper-item-head">
+                <strong>1. FashionElite · 3D E-Commerce &amp; Social Group-Buying</strong>
+                <span>React 19, TypeScript, Three.js / R3F, Socket.IO, Tailwind CSS</span>
+              </div>
+              <div class="cv-paper-item-sub">
+                <span>E-Commerce Frontend Architecture, GroupBuy Rooms, 3D Showroom &amp; AI Assistant</span>
+                <span>Live: <a href="https://shop-quan-ao-g89r.vercel.app/" target="_blank" rel="noopener">shop-quan-ao-g89r.vercel.app</a> &nbsp;|&nbsp; <a href="https://github.com/Hoa26040005/Shop-Quan-Ao" target="_blank" rel="noopener">github.com/Hoa26040005/Shop-Quan-Ao</a></span>
+              </div>
+              <ul class="cv-paper-bullets">
+                <li>Architected a 30+ page <strong>React 19 + TypeScript</strong> Storefront and Admin CMS featuring an interactive <strong>Three.js / React Three Fiber 3D Showroom</strong>, multi-gateway checkout (VNPay, MoMo, Stripe, VietQR), and a 10-intent hybrid AI shopping assistant.</li>
+                <li>Engineered real-time <strong>GroupBuy rooms (2/4/8 members)</strong> synchronized via <strong>Socket.IO</strong>, computing proportional cart weights to allocate tiered discounts (up to 20%), shared vouchers, and shipping fees with exact single-currency-unit precision.</li>
+              </ul>
+            </article>
+
+            <article class="cv-paper-item">
+              <div class="cv-paper-item-head">
+                <strong>2. AgriPOS · Desktop ERP/POS &amp; 68-Point FaceID Verification</strong>
+                <span>Electron 39, React 19, Canvas 2D, face-api.js, Node.js, SQLite</span>
+              </div>
+              <div class="cv-paper-item-sub">
+                <span>Desktop Retail &amp; Inventory Suite with On-Device 68-Point Facial Biometric Authentication</span>
+                <a href="https://github.com/Hoa26040005/pesticide-shop" target="_blank" rel="noopener">github.com/Hoa26040005/pesticide-shop</a>
+              </div>
+              <ul class="cv-paper-bullets">
+                <li>Built a cross-platform Desktop ERP and POS suite on <strong>Electron 39 + React 19</strong> (strict Context Isolation and Preload IPC Bridge) spanning 10 operational modules: QR checkout, <strong>FEFO/FIFO</strong> batch-expiry tracking, seasonal debt ledgers, and audit logs.</li>
+                <li>Implemented a real-time <strong>Webcam Canvas 2D overlay</strong> extracting <strong>68-Point Facial Landmarks (128D Euclidean Descriptor)</strong> on-device to authenticate cashier shifts and enforce instant <strong>RBAC</strong> route protection for executive financial reports.</li>
+              </ul>
+            </article>
+
+            <article class="cv-paper-item">
+              <div class="cv-paper-item-head">
+                <strong>3. LegalAI Contract Reviewer · Redline Diff &amp; GraphRAG Auditor</strong>
+                <span>React, TypeScript, Tailwind CSS, FastAPI, VietOCR, Neo4j</span>
+              </div>
+              <div class="cv-paper-item-sub">
+                <span>Statutory Risk Assessment, Redline Diff &amp; Contract Auditing for Vietnamese Legal Codes</span>
+                <a href="https://github.com/Hoa26040005/legal-ai-contract-reviewer" target="_blank" rel="noopener">github.com/Hoa26040005/legal-ai-contract-reviewer</a>
+              </div>
+              <ul class="cv-paper-bullets">
+                <li>Designed an <strong>Interactive Contract Redline Viewer</strong> (<strong>React + TypeScript</strong>) displaying side-by-side original clauses and statutory counter-proposals across 4 risk severity tiers (Critical / High / Medium / Low) with interactive clause filtering.</li>
+                <li>Integrated a multi-stage <strong>PaddleOCR + VietOCR</strong> document ingestion pipeline (1.8x deskewing) with <strong>Neo4j Hybrid GraphRAG</strong> across 25+ Vietnamese statutory codes to export formatted Microsoft Word (<code>.docx</code>) legal audit reports.</li>
+              </ul>
+            </article>
+
+            <article class="cv-paper-item">
+              <div class="cv-paper-item-head">
+                <strong>4. Temporal-Aware Vietnamese RAG · Streaming SSE &amp; Reranker</strong>
+                <span>JavaScript ES2024, SSE UI, FastAPI, FAISS, BM25</span>
+              </div>
+              <div class="cv-paper-item-sub">
+                <span>Temporal-Aware Information Retrieval &amp; Query-Plan Comparison Engine</span>
+                <a href="https://github.com/Hoa26040005/RAGNHANBTTHOIGIAN" target="_blank" rel="noopener">github.com/Hoa26040005/RAGNHANBTTHOIGIAN</a>
+              </div>
+              <ul class="cv-paper-bullets">
+                <li>Developed a real-time <strong>Server-Sent Events (SSE Streaming)</strong> web interface visualizing sub-query temporal decomposition (<code>TemporalQueryPlan</code>), source article citations, and live side-by-side comparison against traditional baseline RAG.</li>
+                <li>Combined <strong>FAISS Dense Vectors (50,599 chunks) + BM25 + RRF</strong> with temporal entity scoring, boosting <strong>Year Accuracy from 62.5% to 92.7% (+30.2%)</strong> and Keyword Score from 20.5% to 80.5% on the automated <strong>Eval96 Benchmark</strong>.</li>
+              </ul>
+            </article>
+          </section>
+
+          <section class="cv-paper-section">
+            <h3 class="cv-paper-sec-title">Education &amp; Engineering Focus</h3>
+            <div class="cv-paper-item">
+              <div class="cv-paper-item-head">
+                <strong>B.Sc. in Software Engineering · Specialization in Frontend &amp; 3D Systems</strong>
+                <span>In progress (2023-Present) · Vietnam</span>
+              </div>
+              <ul class="cv-paper-bullets">
+                <li><strong>Core Engineering Focus:</strong> Modern Frontend Architecture (React 19, Next.js 14, TypeScript), 3D Web Graphics &amp; Interactive Motion (Three.js, WebGL, GSAP), Desktop Systems (Electron 39), Clean Architecture, 60fps rendering optimization, and automated verification (Playwright E2E, Pytest, Eval96).</li>
+              </ul>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <!-- TAB 2: SERIOUS 1-PAGE A4 WHITE-PAPER WORD / LATEX RESUME (VIETNAMESE) -->
+      <div id="cv-panel-paper" class="cv-tab-panel" hidden>
         <div class="cv-a4-paper" data-ui>
           <header class="cv-paper-header">
             <h2 class="cv-paper-name">HUỲNH THÁI HÒA</h2>
@@ -1365,7 +1536,128 @@ Query: "GDP Việt Nam năm 2022 tăng trưởng bao nhiêu?"
         </div>
       </div>
 
-      <!-- TAB 2: RAW OVERLEAF LATEX (.TEX) SOURCE CODE (STRICT 1-PAGE A4) -->
+      <!-- TAB 3: RAW OVERLEAF LATEX (.TEX) SOURCE CODE (ENGLISH) -->
+      <div id="cv-panel-latex-en" class="cv-tab-panel" hidden>
+        <div class="cv-latex-toolbar">
+          <p>
+            Official <strong>LaTeX2e Source Code (1-Page A4 Resume · ATS &amp; Layout Verified by ai-search-job)</strong> for <strong>Software Engineering Major (Frontend &amp; Full-Stack)</strong>. Copy and paste into <strong>Overleaf</strong> or download <code>Huynh_Thai_Hoa_CV_EN.tex</code>.
+          </p>
+          <button type="button" id="copy-latex-en-btn" class="btn-primary">
+            <span id="copy-latex-en-status">Copy English LaTeX (.tex)</span>
+          </button>
+        </div>
+        <pre class="cv-latex-code-box"><code id="cv-latex-en-source">% !TEX program = pdflatex
+% Strict 1-Page A4 English Engineering Resume (Verified by ai-search-job ATS &amp; Layout Checklist)
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[left=1.15cm,top=0.95cm,right=1.15cm,bottom=0.95cm]{geometry}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{tabularx}
+\usepackage{xcolor}
+
+\definecolor{primary}{HTML}{0F172A}
+\definecolor{accent}{HTML}{1D4ED8}
+\hypersetup{
+  colorlinks=true,
+  urlcolor=accent,
+  linkcolor=primary,
+  pdftitle={Huynh Thai Hoa - Frontend and Full-Stack Software Engineer CV},
+  pdfauthor={Huynh Thai Hoa},
+  pdfsubject={Software Engineering and Frontend Architecture Resume},
+  pdfpagemode=UseNone
+}
+\pagestyle{empty}
+\pagenumbering{gobble}
+\setlength{\parindent}{0pt}
+\setlist[itemize]{leftmargin=1.2em, nosep, topsep=1.5pt, itemsep=1pt}
+
+\titleformat{\section}{\normalsize\bfseries\scshape\color{primary}}{}{0em}{}[\titlerule]
+\titlespacing*{\section}{0pt}{5.5pt}{3pt}
+
+\newcommand{\resumeProject}[3]{
+  \vspace{2pt}
+  \noindent\textbf{#1} \,$\cdot$\, {\footnotesize\textbf{\color{accent}#2}} \hfill {\footnotesize\textit{#3}} \\
+}
+
+\begin{document}
+
+\begin{center}
+  {\Large \textbf{HUYNH THAI HOA}} \\[2pt]
+  {\small \textbf{Frontend \&amp; Full-Stack Software Engineer $\cdot$ Software Engineering Major (React 19 $\cdot$ Next.js 14 $\cdot$ TypeScript $\cdot$ Three.js / WebGL $\cdot$ Electron 39)}} \\[2pt]
+  {\footnotesize
+    Email: \href{mailto:huynhhoa9881@gmail.com}{huynhhoa9881@gmail.com} \quad|\quad
+    GitHub: \href{https://github.com/Hoa26040005}{github.com/Hoa26040005} \quad|\quad
+    Portfolio: \href{https://hoa26040005.github.io}{hoa26040005.github.io} \quad|\quad
+    Vietnam
+  }
+\end{center}
+
+\section{Executive Summary}
+{\footnotesize
+\textbf{Software Engineering} candidate specializing in \textbf{Frontend Architecture \&amp; Interactive 3D WebGL UI/UX}, with end-to-end ownership of production web and desktop applications: from a \textbf{React 19 + Three.js 3D E-Commerce Showroom} with real-time \textbf{Socket.IO} group-buying rooms, to an \textbf{Electron 39} Desktop ERP/POS system featuring a real-time \textbf{68-Point FaceID Canvas Overlay}, an interactive legal contract redline auditor, and a \textbf{Streaming SSE Temporal RAG} workbench achieving \textbf{92.7\% Year Accuracy on the Eval96 Benchmark}. Experienced in pairing agentic AI engineering workflows (\textbf{Claude Code}) with automated E2E and benchmark testing to ship reliable, high-frame-rate software.
+}
+
+\section{Core Technical Skills}
+{\footnotesize
+\renewcommand{\arraystretch}{1.12}
+\begin{tabularx}{\textwidth}{@{}p{4.3cm}X@{}}
+  \textbf{Frontend \&amp; 3D WebGL:} &amp; TypeScript, JavaScript (ES2024), React 18/19, Next.js 14 (App Router, SSR), Three.js, React Three Fiber (R3F), WebGL GLSL Shaders, GSAP, Tailwind CSS, Design Systems, WCAG AA. \\
+  \textbf{Desktop \&amp; Realtime UI:} &amp; Electron 39 (Context Isolation \&amp; Preload IPC), Socket.IO Realtime Rooms, Server-Sent Events (SSE Streaming UI), Canvas 2D Biometric Overlay, face-api.js (68-Point Landmarks). \\
+  \textbf{Full-Stack \&amp; AI Systems:} &amp; Node.js (Express.js, REST API, JWT/OAuth2, RBAC), Python (FastAPI, Pydantic), Hybrid RAG Integration (FAISS, BM25, Neo4j, VietOCR, Gemini API), Prisma ORM, PostgreSQL, MongoDB, SQLite. \\
+  \textbf{Software Engineering \&amp; QA:} &amp; Clean Architecture, Component-Driven UI, Playwright E2E, Pytest, Eval96 Benchmark, Claude Code Agentic Workflow, Docker, Git/GitHub Actions CI/CD, Vercel.
+\end{tabularx}
+}
+
+\section{Selected Engineering Projects}
+
+\resumeProject{1. FashionElite $\cdot$ 3D E-Commerce \&amp; Real-Time Social Group-Buying Platform}{React 19, TypeScript, Three.js / R3F, Socket.IO, Tailwind CSS}{\href{https://shop-quan-ao-g89r.vercel.app}{shop-quan-ao-g89r.vercel.app} \,|\, \href{https://github.com/Hoa26040005/Shop-Quan-Ao}{github.com/Hoa26040005/Shop-Quan-Ao}}
+{\footnotesize
+\begin{itemize}
+  \item Architected a 30+ page \textbf{React 19 + TypeScript} Storefront and Admin CMS featuring an interactive \textbf{Three.js / React Three Fiber 3D Showroom}, multi-gateway checkout (VNPay, MoMo, Stripe, VietQR), and a 10-intent hybrid AI shopping assistant.
+  \item Engineered real-time \textbf{GroupBuy rooms (2/4/8 members)} synchronized via \textbf{Socket.IO}, computing proportional cart weights to allocate tiered discounts (up to 20\%), shared vouchers, and shipping fees with exact single-currency-unit precision.
+\end{itemize}
+}
+
+\resumeProject{2. AgriPOS $\cdot$ Desktop ERP/POS \&amp; 68-Point Biometric FaceID Verification}{Electron 39, React 19, Canvas 2D, face-api.js, Node.js, SQLite}{\href{https://github.com/Hoa26040005/pesticide-shop}{github.com/Hoa26040005/pesticide-shop}}
+{\footnotesize
+\begin{itemize}
+  \item Built a cross-platform Desktop ERP and POS suite on \textbf{Electron 39 + React 19} (strict Context Isolation and Preload IPC Bridge) spanning 10 operational modules: QR checkout, \textbf{FEFO/FIFO} batch-expiry tracking, seasonal debt ledgers, and audit logs.
+  \item Implemented a real-time \textbf{Webcam Canvas 2D overlay} extracting \textbf{68-Point Facial Landmarks (128D Euclidean Descriptor)} on-device to authenticate cashier shifts and enforce instant \textbf{RBAC} route protection for executive financial reports.
+\end{itemize}
+}
+
+\resumeProject{3. LegalAI Contract Reviewer $\cdot$ Interactive Redline Diff \&amp; GraphRAG Auditor}{React, TypeScript, Tailwind CSS, FastAPI, VietOCR, Neo4j}{\href{https://github.com/Hoa26040005/legal-ai-contract-reviewer}{github.com/Hoa26040005/legal-ai-contract-reviewer}}
+{\footnotesize
+\begin{itemize}
+  \item Designed an \textbf{Interactive Contract Redline Viewer} (\textbf{React + TypeScript}) displaying side-by-side original clauses and statutory counter-proposals across 4 risk severity tiers (Critical / High / Medium / Low) with interactive clause filtering.
+  \item Integrated a multi-stage \textbf{PaddleOCR + VietOCR} document ingestion pipeline (1.8x deskewing) with \textbf{Neo4j Hybrid GraphRAG} across 25+ Vietnamese statutory codes to export formatted Microsoft Word (\texttt{.docx}) legal audit reports.
+\end{itemize}
+}
+
+\resumeProject{4. Temporal-Aware Vietnamese RAG $\cdot$ Streaming SSE UI \&amp; Temporal Reranker}{JavaScript ES2024, SSE UI, FastAPI, FAISS, BM25}{\href{https://github.com/Hoa26040005/RAGNHANBTTHOIGIAN}{github.com/Hoa26040005/RAGNHANBTTHOIGIAN}}
+{\footnotesize
+\begin{itemize}
+  \item Developed a real-time \textbf{Server-Sent Events (SSE Streaming)} web interface visualizing sub-query temporal decomposition (\texttt{TemporalQueryPlan}), source article citations, and live side-by-side comparison against traditional baseline RAG.
+  \item Combined \textbf{FAISS Dense Vectors (50,599 chunks) + BM25 + RRF} with temporal entity scoring, boosting \textbf{Year Accuracy from 62.5\% to 92.7\% (+30.2\%)} and Keyword Score from 20.5\% to 80.5\% on the automated \textbf{Eval96 Benchmark}.
+\end{itemize}
+}
+
+\section{Education \&amp; Engineering Focus}
+\resumeProject{B.Sc. in Software Engineering}{Specialization in Frontend Architecture \&amp; Interactive 3D Systems}{In progress (2023-Present) $\cdot$ Vietnam}
+{\footnotesize
+\begin{itemize}
+  \item \textbf{Core Engineering Focus:} Modern Frontend Architecture (React 19, Next.js 14, TypeScript), 3D Web Graphics \&amp; Interactive Motion (Three.js, WebGL, GSAP), Desktop Systems (Electron 39), Clean Architecture, 60fps rendering optimization, and automated verification (Playwright E2E, Pytest, Eval96).
+\end{itemize}
+}
+
+\end{document}</code></pre>
+      </div>
+
+      <!-- TAB 4: RAW OVERLEAF LATEX (.TEX) SOURCE CODE (VIETNAMESE) -->
       <div id="cv-panel-latex" class="cv-tab-panel" hidden>
         <div class="cv-latex-toolbar">
           <p>

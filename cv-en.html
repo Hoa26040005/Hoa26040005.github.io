@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Huynh Thai Hoa · 1-Page A4 Resume (Software Engineering Major · Frontend Engineer)</title>
+  <style>
+    @page {
+      size: A4 portrait;
+      margin: 0;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background: #0a0d14;
+      color: #0f172a;
+      font-family: "Times New Roman", Times, Georgia, serif;
+      font-size: 9.5pt;
+      line-height: 1.28;
+      padding: 24px 16px 40px;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .cv-toolbar {
+      max-width: 210mm;
+      margin: 0 auto 14px;
+      background: #131824;
+      color: #f8fafc;
+      padding: 12px 18px;
+      border-radius: 8px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      font-family: system-ui, -apple-system, sans-serif;
+    }
+    .cv-toolbar-title {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: #e9edf3;
+    }
+    .cv-toolbar-title span {
+      color: #5a9bfc;
+      font-size: 12.5px;
+      margin-left: 6px;
+    }
+    .cv-toolbar-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .cv-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 12.5px;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      border: 0;
+      border-bottom: 4px solid #05070c;
+      transform: translate3d(0, 0, 0);
+      transition: transform 180ms ease, background-color 180ms ease;
+    }
+    .cv-btn:hover {
+      transform: translate3d(0, -2px, 0);
+    }
+    .cv-btn:active {
+      transform: translate3d(0, 2px, 0);
+    }
+    .cv-btn-word {
+      background: #5a9bfc;
+      color: #0a0d14;
+      border-bottom-color: #2458b8;
+    }
+    .cv-btn-latex {
+      background: #34d399;
+      color: #0a0d14;
+      border-bottom-color: #047857;
+    }
+    .cv-btn-print {
+      background: #e9edf3;
+      color: #0a0d14;
+      border-bottom-color: #9ca6b8;
+    }
+    .cv-btn-back {
+      background: #1c2436;
+      color: #e9edf3;
+      border-bottom-color: #05070c;
+    }
+    /* Strict 1-Page A4 Sheet (210mm x 297mm) */
+    .a4-sheet {
+      width: 210mm;
+      height: 297mm;
+      max-height: 297mm;
+      margin: 0 auto;
+      background: #ffffff;
+      color: #0f172a;
+      padding: 9.5mm 11.5mm;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .latex-header {
+      text-align: center;
+      margin-bottom: 5px;
+      padding-bottom: 5px;
+      border-bottom: 2px solid #0f172a;
+    }
+    .latex-name {
+      font-size: 17pt;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #0f172a;
+      margin-bottom: 2px;
+    }
+    .latex-role {
+      font-size: 9.6pt;
+      font-weight: 700;
+      color: #1e3a8a;
+      margin-bottom: 3px;
+    }
+    .latex-contact {
+      font-size: 8.9pt;
+      color: #1e293b;
+    }
+    .latex-contact a {
+      color: #0f172a;
+      text-decoration: underline;
+    }
+    .latex-section {
+      margin-top: 5px;
+    }
+    .latex-section-title {
+      font-size: 9.8pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: #0f172a;
+      border-bottom: 1.5px solid #0f172a;
+      padding-bottom: 1px;
+      margin-bottom: 3.5px;
+    }
+    .latex-summary {
+      font-size: 9.15pt;
+      text-align: justify;
+      color: #111827;
+    }
+    .latex-skills-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 9.1pt;
+    }
+    .latex-skills-table td {
+      padding: 1px 0;
+      vertical-align: top;
+    }
+    .latex-skills-table td.skill-cat {
+      width: 185px;
+      font-weight: 700;
+      color: #0f172a;
+      padding-right: 6px;
+    }
+    .latex-item {
+      margin-bottom: 4.5px;
+    }
+    .latex-item:last-child {
+      margin-bottom: 0;
+    }
+    .latex-item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 8px;
+    }
+    .latex-item-title {
+      font-size: 9.4pt;
+      font-weight: 700;
+      color: #0f172a;
+      white-space: nowrap;
+    }
+    .latex-item-tech {
+      font-size: 8.6pt;
+      font-style: italic;
+      font-weight: 700;
+      color: #1e3a8a;
+      text-align: right;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .latex-item-sub {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 8px;
+      font-size: 8.55pt;
+      font-style: italic;
+      color: #334155;
+      margin-bottom: 1.5px;
+    }
+    .latex-item-sub span:last-child,
+    .latex-item-sub a {
+      color: #1e3a8a;
+      text-decoration: none;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .latex-bullets {
+      list-style-type: disc;
+      margin-left: 15px;
+      font-size: 9pt;
+      color: #111827;
+    }
+    .latex-bullets li {
+      margin-bottom: 1px;
+      text-align: justify;
+    }
+    @media print {
+      html, body {
+        background: #ffffff;
+        padding: 0;
+        margin: 0;
+        width: 210mm;
+        height: 297mm;
+        overflow: hidden;
+      }
+      .cv-toolbar {
+        display: none !important;
+      }
+      .a4-sheet {
+        width: 210mm;
+        height: 297mm;
+        max-height: 297mm;
+        padding: 9.5mm 11.5mm;
+        margin: 0;
+        overflow: hidden;
+        page-break-after: avoid;
+        break-after: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="cv-toolbar">
+    <div class="cv-toolbar-title">
+      Official 1-Page A4 Resume · Huynh Thai Hoa <span>[Verified ATS &amp; Layout by ai-search-job]</span>
+    </div>
+    <div class="cv-toolbar-actions">
+      <a class="cv-btn cv-btn-word" href="assets/cv/Huynh_Thai_Hoa_CV_EN.docx" download="Huynh_Thai_Hoa_CV_EN.docx">
+        Download Word (.docx)
+      </a>
+      <a class="cv-btn cv-btn-latex" href="assets/cv/Huynh_Thai_Hoa_CV_EN.tex" download="Huynh_Thai_Hoa_CV_EN.tex">
+        Download LaTeX (.tex)
+      </a>
+      <a class="cv-btn cv-btn-print" href="assets/cv/Huynh_Thai_Hoa_CV_EN.pdf" download="Huynh_Thai_Hoa_CV_EN.pdf">
+        Download PDF (.pdf)
+      </a>
+      <button class="cv-btn cv-btn-print" type="button" onclick="window.print()">
+        Print / PDF
+      </button>
+      <a class="cv-btn cv-btn-back" href="cv.html">
+        Tiếng Việt (VI)
+      </a>
+      <a class="cv-btn cv-btn-back" href="index.html">
+        Back to Portfolio
+      </a>
+    </div>
+  </div>
+
+  <main class="a4-sheet">
+    <div>
+      <header class="latex-header">
+        <h1 class="latex-name">HUYNH THAI HOA</h1>
+        <div class="latex-role">Frontend &amp; Full-Stack Software Engineer · Software Engineering Major (React 19 · Next.js 14 · TypeScript · Three.js / WebGL · Electron 39)</div>
+        <div class="latex-contact">
+          Email: <a href="mailto:huynhhoa9881@gmail.com">huynhhoa9881@gmail.com</a> &nbsp;|&nbsp;
+          GitHub: <a href="https://github.com/Hoa26040005" target="_blank" rel="noopener">github.com/Hoa26040005</a> &nbsp;|&nbsp;
+          Portfolio: <a href="https://hoa26040005.github.io" target="_blank" rel="noopener">hoa26040005.github.io</a> &nbsp;|&nbsp;
+          Vietnam
+        </div>
+      </header>
+
+      <section class="latex-section">
+        <h2 class="latex-section-title">Executive Summary</h2>
+        <p class="latex-summary">
+          <strong>Software Engineering</strong> candidate specializing in <strong>Frontend Architecture &amp; Interactive 3D WebGL UI/UX</strong>, with end-to-end ownership of production web and desktop applications: from a <strong>React 19 + Three.js 3D E-Commerce Showroom</strong> with real-time <strong>Socket.IO</strong> group-buying rooms, to an <strong>Electron 39</strong> Desktop ERP/POS system featuring a real-time <strong>68-Point FaceID Canvas Overlay</strong>, an interactive legal contract redline auditor, and a <strong>Streaming SSE Temporal RAG</strong> workbench achieving <strong>92.7% Year Accuracy on the Eval96 Benchmark</strong>. Experienced in pairing agentic AI engineering workflows (<strong>Claude Code</strong>) with automated E2E and benchmark testing to ship reliable, high-frame-rate software.
+        </p>
+      </section>
+
+      <section class="latex-section">
+        <h2 class="latex-section-title">Core Technical Skills</h2>
+        <table class="latex-skills-table">
+          <tbody>
+            <tr>
+              <td class="skill-cat">Frontend &amp; 3D WebGL:</td>
+              <td>TypeScript, JavaScript (ES2024), React 18/19, Next.js 14 (App Router, SSR), Three.js, React Three Fiber (R3F), WebGL GLSL Shaders, GSAP, Tailwind CSS, Design Systems, WCAG AA.</td>
+            </tr>
+            <tr>
+              <td class="skill-cat">Desktop &amp; Realtime UI:</td>
+              <td>Electron 39 (Context Isolation &amp; Preload IPC), Socket.IO Realtime Rooms, Server-Sent Events (SSE Streaming UI), Canvas 2D Biometric Overlay, face-api.js (68-Point Landmarks).</td>
+            </tr>
+            <tr>
+              <td class="skill-cat">Full-Stack &amp; AI Systems:</td>
+              <td>Node.js (Express.js, REST API, JWT/OAuth2, RBAC), Python (FastAPI, Pydantic), Hybrid RAG Integration (FAISS, BM25, Neo4j, VietOCR, Gemini API), Prisma ORM, PostgreSQL, MongoDB, SQLite.</td>
+            </tr>
+            <tr>
+              <td class="skill-cat">Software Engineering &amp; QA:</td>
+              <td>Clean Architecture, Component-Driven UI, Playwright E2E, Pytest, Eval96 Benchmark, Claude Code Agentic Workflow, Docker, Git/GitHub Actions CI/CD, Vercel.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="latex-section">
+        <h2 class="latex-section-title">Selected Engineering Projects</h2>
+
+        <article class="latex-item">
+          <div class="latex-item-header">
+            <span class="latex-item-title">1. FashionElite · 3D E-Commerce &amp; Social Group-Buying</span>
+            <span class="latex-item-tech">React 19, TypeScript, Three.js / R3F, Socket.IO, Tailwind CSS</span>
+          </div>
+          <div class="latex-item-sub">
+            <span>E-Commerce Frontend Architecture, GroupBuy Rooms, 3D Showroom &amp; AI Assistant</span>
+            <span>Live: <a href="https://shop-quan-ao-g89r.vercel.app/" target="_blank" rel="noopener">shop-quan-ao-g89r.vercel.app</a> &nbsp;|&nbsp; <a href="https://github.com/Hoa26040005/Shop-Quan-Ao" target="_blank" rel="noopener">github.com/Hoa26040005/Shop-Quan-Ao</a></span>
+          </div>
+          <ul class="latex-bullets">
+            <li>Architected a 30+ page <strong>React 19 + TypeScript</strong> Storefront and Admin CMS featuring an interactive <strong>Three.js / React Three Fiber 3D Showroom</strong>, multi-gateway checkout (VNPay, MoMo, Stripe, VietQR), and a 10-intent hybrid AI shopping assistant.</li>
+            <li>Engineered real-time <strong>GroupBuy rooms (2/4/8 members)</strong> synchronized via <strong>Socket.IO</strong>, computing proportional cart weights to allocate tiered discounts (up to 20%), shared vouchers, and shipping fees with exact single-currency-unit precision.</li>
+          </ul>
+        </article>
+
+        <article class="latex-item">
+          <div class="latex-item-header">
+            <span class="latex-item-title">2. AgriPOS · Desktop ERP/POS &amp; 68-Point FaceID Verification</span>
+            <span class="latex-item-tech">Electron 39, React 19, Canvas 2D, face-api.js, Node.js, SQLite</span>
+          </div>
+          <div class="latex-item-sub">
+            <span>Desktop Retail &amp; Inventory Suite with On-Device 68-Point Facial Biometric Authentication</span>
+            <a href="https://github.com/Hoa26040005/pesticide-shop" target="_blank" rel="noopener">github.com/Hoa26040005/pesticide-shop</a>
+          </div>
+          <ul class="latex-bullets">
+            <li>Built a cross-platform Desktop ERP and POS suite on <strong>Electron 39 + React 19</strong> (strict Context Isolation and Preload IPC Bridge) spanning 10 operational modules: QR checkout, <strong>FEFO/FIFO</strong> batch-expiry tracking, seasonal debt ledgers, and audit logs.</li>
+            <li>Implemented a real-time <strong>Webcam Canvas 2D overlay</strong> extracting <strong>68-Point Facial Landmarks (128D Euclidean Descriptor)</strong> on-device to authenticate cashier shifts and enforce instant <strong>RBAC</strong> route protection for executive financial reports.</li>
+          </ul>
+        </article>
+
+        <article class="latex-item">
+          <div class="latex-item-header">
+            <span class="latex-item-title">3. LegalAI Contract Reviewer · Redline Diff &amp; GraphRAG Auditor</span>
+            <span class="latex-item-tech">React, TypeScript, Tailwind CSS, FastAPI, VietOCR, Neo4j</span>
+          </div>
+          <div class="latex-item-sub">
+            <span>Statutory Risk Assessment, Redline Diff &amp; Contract Auditing for Vietnamese Legal Codes</span>
+            <a href="https://github.com/Hoa26040005/legal-ai-contract-reviewer" target="_blank" rel="noopener">github.com/Hoa26040005/legal-ai-contract-reviewer</a>
+          </div>
+          <ul class="latex-bullets">
+            <li>Designed an <strong>Interactive Contract Redline Viewer</strong> (<strong>React + TypeScript</strong>) displaying side-by-side original clauses and statutory counter-proposals across 4 risk severity tiers (Critical / High / Medium / Low) with interactive clause filtering.</li>
+            <li>Integrated a multi-stage <strong>PaddleOCR + VietOCR</strong> document ingestion pipeline (1.8x deskewing) with <strong>Neo4j Hybrid GraphRAG</strong> across 25+ Vietnamese statutory codes to export formatted Microsoft Word (<code>.docx</code>) legal audit reports.</li>
+          </ul>
+        </article>
+
+        <article class="latex-item">
+          <div class="latex-item-header">
+            <span class="latex-item-title">4. Temporal-Aware Vietnamese RAG · Streaming SSE &amp; Reranker</span>
+            <span class="latex-item-tech">JavaScript ES2024, SSE UI, FastAPI, FAISS, BM25</span>
+          </div>
+          <div class="latex-item-sub">
+            <span>Temporal-Aware Information Retrieval &amp; Query-Plan Comparison Engine</span>
+            <a href="https://github.com/Hoa26040005/RAGNHANBTTHOIGIAN" target="_blank" rel="noopener">github.com/Hoa26040005/RAGNHANBTTHOIGIAN</a>
+          </div>
+          <ul class="latex-bullets">
+            <li>Developed a real-time <strong>Server-Sent Events (SSE Streaming)</strong> web interface visualizing sub-query temporal decomposition (<code>TemporalQueryPlan</code>), source article citations, and live side-by-side comparison against traditional baseline RAG.</li>
+            <li>Combined <strong>FAISS Dense Vectors (50,599 chunks) + BM25 + RRF</strong> with temporal entity scoring, boosting <strong>Year Accuracy from 62.5% to 92.7% (+30.2%)</strong> and Keyword Score from 20.5% to 80.5% on the automated <strong>Eval96 Benchmark</strong>.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="latex-section">
+        <h2 class="latex-section-title">Education &amp; Engineering Focus</h2>
+        <div class="latex-item">
+          <div class="latex-item-header">
+            <span class="latex-item-title">B.Sc. in Software Engineering · Specialization in Frontend &amp; 3D Systems</span>
+            <span class="latex-item-tech">In progress (2023-Present) · Vietnam</span>
+          </div>
+          <ul class="latex-bullets">
+            <li><strong>Core Engineering Focus:</strong> Modern Frontend Architecture (React 19, Next.js 14, TypeScript), 3D Web Graphics &amp; Interactive Motion (Three.js, WebGL, GSAP), Desktop Systems (Electron 39), Clean Architecture, 60fps rendering optimization, and automated verification (Playwright E2E, Pytest, Eval96).</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+  </main>
+</body>
+</html>

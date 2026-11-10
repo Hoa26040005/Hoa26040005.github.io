@@ -863,24 +863,9 @@ export function initPortfolioWorkbench() {
     });
   }
 
-  if (printCvBtn) {
-    printCvBtn.addEventListener("click", () => {
-      const paperPanel = document.querySelector("#cv-panel-paper");
-      const latexPanel = document.querySelector("#cv-panel-latex");
-      if (paperPanel && latexPanel) {
-        paperPanel.removeAttribute("hidden");
-        paperPanel.classList.add("is-active");
-        latexPanel.setAttribute("hidden", "");
-        latexPanel.classList.remove("is-active");
-      }
-      window.print();
-    });
-  }
-
-  // CV Tab Switcher (A4 Paper View vs Raw LaTeX .tex View)
+  // CV Tab Switcher (Vietnamese A4 / English A4 / LaTeX Source)
   const cvTabBtns = document.querySelectorAll("[data-cv-tab]");
-  const cvPaperPanel = document.querySelector("#cv-panel-paper");
-  const cvLatexPanel = document.querySelector("#cv-panel-latex");
+  const cvPanels = document.querySelectorAll(".cv-tab-panel");
 
   cvTabBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
@@ -891,27 +876,24 @@ export function initPortfolioWorkbench() {
         b.setAttribute("aria-selected", isCurrent ? "true" : "false");
       });
 
-      if (targetTab === "latex") {
-        if (cvPaperPanel) {
-          cvPaperPanel.setAttribute("hidden", "");
-          cvPaperPanel.classList.remove("is-active");
+      cvPanels.forEach((panel) => {
+        const panelId = panel.id.replace("cv-panel-", "");
+        if (panelId === targetTab) {
+          panel.removeAttribute("hidden");
+          panel.classList.add("is-active");
+        } else {
+          panel.setAttribute("hidden", "");
+          panel.classList.remove("is-active");
         }
-        if (cvLatexPanel) {
-          cvLatexPanel.removeAttribute("hidden");
-          cvLatexPanel.classList.add("is-active");
-        }
-      } else {
-        if (cvLatexPanel) {
-          cvLatexPanel.setAttribute("hidden", "");
-          cvLatexPanel.classList.remove("is-active");
-        }
-        if (cvPaperPanel) {
-          cvPaperPanel.removeAttribute("hidden");
-          cvPaperPanel.classList.add("is-active");
-        }
-      }
+      });
     });
   });
+
+  if (printCvBtn) {
+    printCvBtn.addEventListener("click", () => {
+      window.print();
+    });
+  }
 
   // 1-Click Copy LaTeX (.tex) Source for Overleaf
   const copyLatexBtn = document.querySelector("#copy-latex-btn");
@@ -931,9 +913,36 @@ export function initPortfolioWorkbench() {
           }, 2400);
         }
       } catch {
-        // Fallback selection
         const range = document.createRange();
         range.selectNodeContents(latexSourceEl);
+        const sel = window.getSelection();
+        if (sel) {
+          sel.removeAllRanges();
+          sel.addRange(range);
+        }
+      }
+    });
+  }
+
+  const copyLatexEnBtn = document.querySelector("#copy-latex-en-btn");
+  const copyLatexEnStatus = document.querySelector("#copy-latex-en-status");
+  const latexSourceEnEl = document.querySelector("#cv-latex-en-source");
+
+  if (copyLatexEnBtn && latexSourceEnEl) {
+    copyLatexEnBtn.addEventListener("click", async () => {
+      const texCode = latexSourceEnEl.textContent || "";
+      try {
+        await navigator.clipboard.writeText(texCode);
+        if (copyLatexEnStatus) {
+          const orig = copyLatexEnStatus.textContent;
+          copyLatexEnStatus.textContent = "Copied LaTeX (.tex) Code";
+          setTimeout(() => {
+            copyLatexEnStatus.textContent = orig;
+          }, 2400);
+        }
+      } catch {
+        const range = document.createRange();
+        range.selectNodeContents(latexSourceEnEl);
         const sel = window.getSelection();
         if (sel) {
           sel.removeAllRanges();

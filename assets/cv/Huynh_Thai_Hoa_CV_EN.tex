@@ -1,0 +1,110 @@
+% !TEX program = pdflatex
+% Strict 1-Page A4 English Engineering Resume (Verified by ai-search-job ATS & Layout Checklist)
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[left=1.15cm,top=0.95cm,right=1.15cm,bottom=0.95cm]{geometry}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{tabularx}
+\usepackage{xcolor}
+
+\definecolor{primary}{HTML}{0F172A}
+\definecolor{accent}{HTML}{1D4ED8}
+\hypersetup{
+  colorlinks=true,
+  urlcolor=accent,
+  linkcolor=primary,
+  pdftitle={Huynh Thai Hoa - Frontend and Full-Stack Software Engineer CV},
+  pdfauthor={Huynh Thai Hoa},
+  pdfsubject={Software Engineering and Frontend Architecture Resume},
+  pdfpagemode=UseNone
+}
+\pagestyle{empty}
+\pagenumbering{gobble}
+\setlength{\parindent}{0pt}
+\setlist[itemize]{leftmargin=1.2em, nosep, topsep=1.5pt, itemsep=1pt}
+
+\titleformat{\section}{\normalsize\bfseries\scshape\color{primary}}{}{0em}{}[\titlerule]
+\titlespacing*{\section}{0pt}{5.5pt}{3pt}
+
+\newcommand{\resumeProject}[3]{
+  \vspace{2pt}
+  \noindent\textbf{#1} \,$\cdot$\, {\footnotesize\textbf{\color{accent}#2}} \hfill {\footnotesize\textit{#3}} \\
+}
+
+\begin{document}
+
+\begin{center}
+  {\Large \textbf{HUYNH THAI HOA}} \\[2pt]
+  {\small \textbf{Frontend \& Full-Stack Software Engineer $\cdot$ Software Engineering Major (React 19 $\cdot$ Next.js 14 $\cdot$ TypeScript $\cdot$ Three.js / WebGL $\cdot$ Electron 39)}} \\[2pt]
+  {\footnotesize
+    Email: \href{mailto:huynhhoa9881@gmail.com}{huynhhoa9881@gmail.com} \quad|\quad
+    GitHub: \href{https://github.com/Hoa26040005}{github.com/Hoa26040005} \quad|\quad
+    Portfolio: \href{https://hoa26040005.github.io}{hoa26040005.github.io} \quad|\quad
+    Vietnam
+  }
+\end{center}
+
+\section{Executive Summary}
+{\footnotesize
+\textbf{Software Engineering} candidate specializing in \textbf{Frontend Architecture \& Interactive 3D WebGL UI/UX}, with end-to-end ownership of production web and desktop applications: from a \textbf{React 19 + Three.js 3D E-Commerce Showroom} with real-time \textbf{Socket.IO} group-buying rooms, to an \textbf{Electron 39} Desktop ERP/POS system featuring a real-time \textbf{68-Point FaceID Canvas Overlay}, an interactive legal contract redline auditor, and a \textbf{Streaming SSE Temporal RAG} workbench achieving \textbf{92.7\% Year Accuracy on the Eval96 Benchmark}. Experienced in pairing agentic AI engineering workflows (\textbf{Claude Code}) with automated E2E and benchmark testing to ship reliable, high-frame-rate software.
+}
+
+\section{Core Technical Skills}
+{\footnotesize
+\renewcommand{\arraystretch}{1.12}
+\begin{tabularx}{\textwidth}{@{}p{4.3cm}X@{}}
+  \textbf{Frontend \& 3D WebGL:} & TypeScript, JavaScript (ES2024), React 18/19, Next.js 14 (App Router, SSR), Three.js, React Three Fiber (R3F), WebGL GLSL Shaders, GSAP, Tailwind CSS, Design Systems, WCAG AA. \\
+  \textbf{Desktop \& Realtime UI:} & Electron 39 (Context Isolation \& Preload IPC), Socket.IO Realtime Rooms, Server-Sent Events (SSE Streaming UI), Canvas 2D Biometric Overlay, face-api.js (68-Point Landmarks). \\
+  \textbf{Full-Stack \& AI Systems:} & Node.js (Express.js, REST API, JWT/OAuth2, RBAC), Python (FastAPI, Pydantic), Hybrid RAG Integration (FAISS, BM25, Neo4j, VietOCR, Gemini API), Prisma ORM, PostgreSQL, MongoDB, SQLite. \\
+  \textbf{Software Engineering \& QA:} & Clean Architecture, Component-Driven UI, Playwright E2E, Pytest, Eval96 Benchmark, Claude Code Agentic Workflow, Docker, Git/GitHub Actions CI/CD, Vercel.
+\end{tabularx}
+}
+
+\section{Selected Engineering Projects}
+
+\resumeProject{1. FashionElite $\cdot$ 3D E-Commerce \& Real-Time Social Group-Buying Platform}{React 19, TypeScript, Three.js / R3F, Socket.IO, Tailwind CSS}{\href{https://shop-quan-ao-g89r.vercel.app}{shop-quan-ao-g89r.vercel.app} \,|\, \href{https://github.com/Hoa26040005/Shop-Quan-Ao}{github.com/Hoa26040005/Shop-Quan-Ao}}
+{\footnotesize
+\begin{itemize}
+  \item Architected a 30+ page \textbf{React 19 + TypeScript} Storefront and Admin CMS featuring an interactive \textbf{Three.js / React Three Fiber 3D Showroom}, multi-gateway checkout (VNPay, MoMo, Stripe, VietQR), and a 10-intent hybrid AI shopping assistant.
+  \item Engineered real-time \textbf{GroupBuy rooms (2/4/8 members)} synchronized via \textbf{Socket.IO}, computing proportional cart weights to allocate tiered discounts (up to 20\%), shared vouchers, and shipping fees with exact single-currency-unit precision.
+\end{itemize}
+}
+
+\resumeProject{2. AgriPOS $\cdot$ Desktop ERP/POS \& 68-Point Biometric FaceID Verification}{Electron 39, React 19, Canvas 2D, face-api.js, Node.js, SQLite}{\href{https://github.com/Hoa26040005/pesticide-shop}{github.com/Hoa26040005/pesticide-shop}}
+{\footnotesize
+\begin{itemize}
+  \item Built a cross-platform Desktop ERP and POS suite on \textbf{Electron 39 + React 19} (strict Context Isolation and Preload IPC Bridge) spanning 10 operational modules: QR checkout, \textbf{FEFO/FIFO} batch-expiry tracking, seasonal debt ledgers, and audit logs.
+  \item Implemented a real-time \textbf{Webcam Canvas 2D overlay} extracting \textbf{68-Point Facial Landmarks (128D Euclidean Descriptor)} on-device to authenticate cashier shifts and enforce instant \textbf{RBAC} route protection for executive financial reports.
+\end{itemize}
+}
+
+\resumeProject{3. LegalAI Contract Reviewer $\cdot$ Interactive Redline Diff \& GraphRAG Auditor}{React, TypeScript, Tailwind CSS, FastAPI, VietOCR, Neo4j}{\href{https://github.com/Hoa26040005/legal-ai-contract-reviewer}{github.com/Hoa26040005/legal-ai-contract-reviewer}}
+{\footnotesize
+\begin{itemize}
+  \item Designed an \textbf{Interactive Contract Redline Viewer} (\textbf{React + TypeScript}) displaying side-by-side original clauses and statutory counter-proposals across 4 risk severity tiers (Critical / High / Medium / Low) with interactive clause filtering.
+  \item Integrated a multi-stage \textbf{PaddleOCR + VietOCR} document ingestion pipeline (1.8x deskewing) with \textbf{Neo4j Hybrid GraphRAG} across 25+ Vietnamese statutory codes to export formatted Microsoft Word (\texttt{.docx}) legal audit reports.
+\end{itemize}
+}
+
+\resumeProject{4. Temporal-Aware Vietnamese RAG $\cdot$ Streaming SSE UI \& Temporal Reranker}{JavaScript ES2024, SSE UI, FastAPI, FAISS, BM25}{\href{https://github.com/Hoa26040005/RAGNHANBTTHOIGIAN}{github.com/Hoa26040005/RAGNHANBTTHOIGIAN}}
+{\footnotesize
+\begin{itemize}
+  \item Developed a real-time \textbf{Server-Sent Events (SSE Streaming)} web interface visualizing sub-query temporal decomposition (\texttt{TemporalQueryPlan}), source article citations, and live side-by-side comparison against traditional baseline RAG.
+  \item Combined \textbf{FAISS Dense Vectors (50,599 chunks) + BM25 + RRF} with temporal entity scoring, boosting \textbf{Year Accuracy from 62.5\% to 92.7\% (+30.2\%)} and Keyword Score from 20.5\% to 80.5\% on the automated \textbf{Eval96 Benchmark}.
+\end{itemize}
+}
+
+\section{Education \& Engineering Focus}
+\resumeProject{B.Sc. in Software Engineering}{Specialization in Frontend Architecture \& Interactive 3D Systems}{In progress (2023-Present) $\cdot$ Vietnam}
+{\footnotesize
+\begin{itemize}
+  \item \textbf{Core Engineering Focus:} Modern Frontend Architecture (React 19, Next.js 14, TypeScript), 3D Web Graphics \& Interactive Motion (Three.js, WebGL, GSAP), Desktop Systems (Electron 39), Clean Architecture, 60fps rendering optimization, and automated verification (Playwright E2E, Pytest, Eval96).
+\end{itemize}
+}
+
+\end{document}
+
